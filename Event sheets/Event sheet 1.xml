@@ -116,7 +116,7 @@
                                         <condition id="-21" inverted="1" name="Is between values" sid="380121165943179" type="System">
                                             <param id="0" name="Value">A_Idea.CurX+S_Idea.DragPositionX</param>
                                             <param id="1" name="Lower bound">0</param>
-                                            <param id="2" name="Upper bound">19</param>
+                                            <param id="2" name="Upper bound">A_Map.Width-1</param>
                                         </condition>
                                     </conditions>
                                     <actions>
@@ -131,7 +131,7 @@
                                         <condition id="-21" inverted="1" name="Is between values" sid="694932676351943" type="System">
                                             <param id="0" name="Value">A_Idea.CurY+S_Idea.DragPositionY</param>
                                             <param id="1" name="Lower bound">0</param>
-                                            <param id="2" name="Upper bound">19</param>
+                                            <param id="2" name="Upper bound">A_Map.height-1</param>
                                         </condition>
                                     </conditions>
                                     <actions>
@@ -1790,7 +1790,7 @@
                     <actions>
                         <action id="-9" name="Set value" sid="853061630813657" type="System">
                             <param id="0" name="Variable">FlipFlop</param>
-                            <param id="1" name="Value">choose(0,0,0,1,1,1,2,2,3,3,4)</param>
+                            <param id="1" name="Value">choose(0,0,0,1,1,1,2,2,2,3,3,4,4)</param>
                         </action>
                     </actions>
                     <sub-events>
@@ -1888,6 +1888,10 @@
                                 <action id="0" name="Call function" sid="567120902717040" type="Function">
                                     <param id="0" name="Name">&quot;SpawnNewThink&quot;</param>
                                     <param id="1" name="Parameter {n}">1{###}choose(&quot;fight with&quot;, &quot;cast spell on&quot;, &quot;to feed&quot;, &quot;trade with&quot;, &quot;argue with&quot;, &quot;pickpocket from&quot;, &quot;hug&quot;)</param>
+                                </action>
+                                <action disabled="1" id="0" name="Call function" sid="688302442634669" type="Function">
+                                    <param id="0" name="Name">&quot;SpawnNewThink&quot;</param>
+                                    <param id="1" name="Parameter {n}">1{###}&quot;fight with&quot;</param>
                                 </action>
                             </actions>
                         </event-block>
@@ -2245,7 +2249,7 @@
                                                         <condition id="-8" name="Compare two values" sid="552337904277668" type="System">
                                                             <param id="0" name="First value">random(1)</param>
                                                             <param id="1" name="Comparison">3</param>
-                                                            <param id="2" name="Second value">0.05</param>
+                                                            <param id="2" name="Second value">0.15</param>
                                                         </condition>
                                                     </conditions>
                                                     <actions />
@@ -2374,7 +2378,7 @@
                                                                         </action>
                                                                         <action id="-10" name="Set value" sid="746281013081644" type="S_What">
                                                                             <param id="0" name="Instance variable">Damage</param>
-                                                                            <param id="1" name="Value">1</param>
+                                                                            <param id="1" name="Value">2</param>
                                                                         </action>
                                                                         <action id="-10" name="Set value" sid="336543380217603" type="S_What">
                                                                             <param id="0" name="Instance variable">Price</param>
@@ -2462,7 +2466,7 @@
                                                                         </action>
                                                                         <action id="-10" name="Set value" sid="903375247706970" type="S_Whom">
                                                                             <param id="0" name="Instance variable">Damage</param>
-                                                                            <param id="1" name="Value">floor(random(2,8))</param>
+                                                                            <param id="1" name="Value">floor(random(6,12))</param>
                                                                         </action>
                                                                         <action id="-10" name="Set value" sid="368484812444614" type="S_Whom">
                                                                             <param id="0" name="Instance variable">exp</param>
@@ -2475,6 +2479,9 @@
                                                                         <action id="4" name="Set animation" sid="492723214485862" type="S_Whom">
                                                                             <param id="0" name="Animation">&quot;skeletonidle&quot;</param>
                                                                             <param id="1" name="From">1</param>
+                                                                        </action>
+                                                                        <action id="5" name="Set frame" sid="733119945929751" type="S_Whom">
+                                                                            <param id="0" name="Frame number">floor(random(S_Whom.AnimationFrameCount))</param>
                                                                         </action>
                                                                     </actions>
                                                                 </event-block>
@@ -2501,7 +2508,7 @@
                                                                         </action>
                                                                         <action id="-10" name="Set value" sid="454230284102151" type="S_Whom">
                                                                             <param id="0" name="Instance variable">Damage</param>
-                                                                            <param id="1" name="Value">floor(random(7,13))</param>
+                                                                            <param id="1" name="Value">floor(random(15,26))</param>
                                                                         </action>
                                                                         <action id="-10" name="Set value" sid="661385016807163" type="S_Whom">
                                                                             <param id="0" name="Instance variable">exp</param>
@@ -2514,6 +2521,9 @@
                                                                         <action id="4" name="Set animation" sid="252312628714876" type="S_Whom">
                                                                             <param id="0" name="Animation">&quot;knightidle&quot;</param>
                                                                             <param id="1" name="From">1</param>
+                                                                        </action>
+                                                                        <action id="5" name="Set frame" sid="382940117397365" type="S_Whom">
+                                                                            <param id="0" name="Frame number">floor(random(S_Whom.AnimationFrameCount))</param>
                                                                         </action>
                                                                     </actions>
                                                                 </event-block>
@@ -2540,7 +2550,7 @@
                                                                         </action>
                                                                         <action id="-10" name="Set value" sid="917750952116739" type="S_Whom">
                                                                             <param id="0" name="Instance variable">Damage</param>
-                                                                            <param id="1" name="Value">floor(random(1,3))</param>
+                                                                            <param id="1" name="Value">floor(random(3,6))</param>
                                                                         </action>
                                                                         <action id="-10" name="Set value" sid="461751449934255" type="S_Whom">
                                                                             <param id="0" name="Instance variable">exp</param>
@@ -2551,8 +2561,11 @@
                                                                             <param id="1" name="Value">floor(random(30,161))</param>
                                                                         </action>
                                                                         <action id="4" name="Set animation" sid="864966203205802" type="S_Whom">
-                                                                            <param id="0" name="Animation">&quot;merchant&quot;</param>
+                                                                            <param id="0" name="Animation">&quot;merchantidle&quot;</param>
                                                                             <param id="1" name="From">1</param>
+                                                                        </action>
+                                                                        <action id="5" name="Set frame" sid="835719201199725" type="S_Whom">
+                                                                            <param id="0" name="Frame number">floor(random(S_Whom.AnimationFrameCount))</param>
                                                                         </action>
                                                                     </actions>
                                                                 </event-block>
@@ -2937,7 +2950,7 @@
                                         <condition id="-14" name="Compare variable" sid="383948448803170" type="System">
                                             <param id="0" name="Variable">index</param>
                                             <param id="1" name="Comparison">4</param>
-                                            <param id="2" name="Value">len(SF_SpeechText.Text)+120</param>
+                                            <param id="2" name="Value">len(SF_SpeechText.Text)+100</param>
                                         </condition>
                                     </conditions>
                                     <actions>
@@ -3636,20 +3649,20 @@
                     <param id="1" name="Image point (optional)">0</param>
                 </action>
                 <action id="0" name="Set text" sid="832526855191863" type="SF_LVL">
-                    <param id="0" name="Text">&quot;lvl&quot;&amp;S_Hero.Level&amp;&quot;(&quot;&amp;S_Hero.currentXP&amp;&quot;/&quot;&amp;S_Hero.NewLevelExp&amp;&quot;)&quot;</param>
+                    <param id="0" name="Text">&quot;lvl&quot;&amp;S_Hero.Level&amp;&quot;(&quot;&amp;floor(S_Hero.currentXP)&amp;&quot;/&quot;&amp;floor(S_Hero.NewLevelExp)&amp;&quot;)&quot;</param>
                 </action>
                 <action id="0" name="Set text" sid="140565487686826" type="SF_GOLD">
-                    <param id="0" name="Text">&quot;gold:&quot;&amp;S_Hero.money</param>
+                    <param id="0" name="Text">&quot;gold:&quot;&amp;floor(S_Hero.money)</param>
                 </action>
                 <action id="0" name="Set text" sid="381353400020659" type="SF_HP">
-                    <param id="0" name="Text">&quot;health:&quot;&amp;S_Hero.currentHP</param>
+                    <param id="0" name="Text">&quot;health:&quot;&amp;floor(S_Hero.currentHP)</param>
                 </action>
                 <action id="0" name="Set text" sid="924063817985010" type="SF_DAMAGE">
-                    <param id="0" name="Text">&quot;damage:&quot;&amp;S_Hero.damage</param>
+                    <param id="0" name="Text">&quot;damage:&quot;&amp;floor(S_Hero.damage)</param>
                 </action>
                 <action id="-10" name="Set value" sid="991523386077527" type="S_Hero">
                     <param id="0" name="Instance variable">NewLevelExp</param>
-                    <param id="1" name="Value">S_Hero.level*100</param>
+                    <param id="1" name="Value">floor(S_Hero.level*10*0.8)</param>
                 </action>
             </actions>
             <sub-events>
@@ -3672,7 +3685,7 @@
                         </action>
                         <action id="-10" name="Set value" sid="756758297788185" type="S_Hero">
                             <param id="0" name="Instance variable">NewLevelExp</param>
-                            <param id="1" name="Value">S_Hero.level*100</param>
+                            <param id="1" name="Value">floor(S_Hero.level*10*0.8)</param>
                         </action>
                         <action id="-10" name="Set value" sid="996231347646770" type="S_Hero">
                             <param id="0" name="Instance variable">Damage</param>
@@ -3883,6 +3896,33 @@
                                         <condition id="-4" name="Trigger once while true" sid="867062021143565" type="System" />
                                     </conditions>
                                     <actions>
+                                        <action id="-3" name="Create object" sid="465130546321956" type="System">
+                                            <param id="0" name="Object to create">SF_InteractSummury</param>
+                                            <param id="1" name="Layer">2</param>
+                                            <param id="2" name="X">S_Hero.X</param>
+                                            <param id="3" name="Y">S_Hero.y-8</param>
+                                        </action>
+                                        <action id="0" name="Set text" sid="490536968703708" type="SF_InteractSummury">
+                                            <param id="0" name="Text">S_Whom.Name&amp;&quot; heal &quot;&amp;floor(FinalHeal)</param>
+                                        </action>
+                                        <action id="-3" name="Create object" sid="278515493067446" type="System">
+                                            <param id="0" name="Object to create">SF_InteractSummury</param>
+                                            <param id="1" name="Layer">2</param>
+                                            <param id="2" name="X">S_Hero.X</param>
+                                            <param id="3" name="Y">S_Hero.y-16</param>
+                                        </action>
+                                        <action id="0" name="Set text" sid="153881708833943" type="SF_InteractSummury">
+                                            <param id="0" name="Text">S_Whom.Name&amp;&quot; relation +&quot;&amp;floor(FinalRelation)</param>
+                                        </action>
+                                        <action id="-3" name="Create object" sid="796714696096712" type="System">
+                                            <param id="0" name="Object to create">SF_InteractSummury</param>
+                                            <param id="1" name="Layer">2</param>
+                                            <param id="2" name="X">S_Hero.X</param>
+                                            <param id="3" name="Y">S_Hero.y-24</param>
+                                        </action>
+                                        <action id="0" name="Set text" sid="521846510049140" type="SF_InteractSummury">
+                                            <param id="0" name="Text">S_Whom.Name&amp;&quot; take &quot;&amp;floor(FinalDealDamage)&amp;&quot; damage &quot;</param>
+                                        </action>
                                         <action id="-11" name="Add to" sid="225316664439294" type="S_Whom">
                                             <param id="0" name="Instance variable">CurrentHP</param>
                                             <param id="1" name="Value">FinalHeal</param>
@@ -3895,6 +3935,10 @@
                                             <param id="0" name="Instance variable">CurrentHP</param>
                                             <param id="1" name="Value">FinalDealDamage</param>
                                         </action>
+                                        <action id="-13" name="Set boolean" sid="836551638885329" type="S_Whom">
+                                            <param id="0" name="Instance variable">inPuzzle</param>
+                                            <param id="1" name="Value">0</param>
+                                        </action>
                                         <action id="0" name="Call function" sid="368820927537767" type="Function">
                                             <param id="0" name="Name">&quot;CheckHeroDeath&quot;</param>
                                             <param id="1" name="Parameter {n}"></param>
@@ -3902,39 +3946,6 @@
                                         <action id="0" name="Call function" sid="391761156042509" type="Function">
                                             <param id="0" name="Name">&quot;CheckWhomDeath&quot;</param>
                                             <param id="1" name="Parameter {n}">A_QueryActions.At(2)</param>
-                                        </action>
-                                        <action id="-3" name="Create object" sid="465130546321956" type="System">
-                                            <param id="0" name="Object to create">SF_InteractSummury</param>
-                                            <param id="1" name="Layer">2</param>
-                                            <param id="2" name="X">S_Hero.X</param>
-                                            <param id="3" name="Y">S_Hero.y-8</param>
-                                        </action>
-                                        <action id="0" name="Set text" sid="490536968703708" type="SF_InteractSummury">
-                                            <param id="0" name="Text">S_Whom.Name&amp;&quot; heal &quot;&amp;floor(FinalHeal)</param>
-                                        </action>
-                                        <action id="-16" name="Wait" sid="638817690114576" type="System">
-                                            <param id="0" name="Seconds">0.5</param>
-                                        </action>
-                                        <action id="-3" name="Create object" sid="278515493067446" type="System">
-                                            <param id="0" name="Object to create">SF_InteractSummury</param>
-                                            <param id="1" name="Layer">2</param>
-                                            <param id="2" name="X">S_Hero.X</param>
-                                            <param id="3" name="Y">S_Hero.y-8</param>
-                                        </action>
-                                        <action id="0" name="Set text" sid="153881708833943" type="SF_InteractSummury">
-                                            <param id="0" name="Text">S_Whom.Name&amp;&quot; relation +&quot;&amp;floor(FinalRelation)</param>
-                                        </action>
-                                        <action id="-16" name="Wait" sid="853109393316203" type="System">
-                                            <param id="0" name="Seconds">0.5</param>
-                                        </action>
-                                        <action id="-3" name="Create object" sid="796714696096712" type="System">
-                                            <param id="0" name="Object to create">SF_InteractSummury</param>
-                                            <param id="1" name="Layer">2</param>
-                                            <param id="2" name="X">S_Hero.X</param>
-                                            <param id="3" name="Y">S_Hero.y-8</param>
-                                        </action>
-                                        <action id="0" name="Set text" sid="521846510049140" type="SF_InteractSummury">
-                                            <param id="0" name="Text">S_Whom.Name&amp;&quot; deal &quot;&amp;floor(FinalDealDamage)&amp;&quot; damage &quot;</param>
                                         </action>
                                     </actions>
                                 </event-block>
@@ -4121,17 +4132,48 @@
                                         <condition id="-4" name="Trigger once while true" sid="919218245524730" type="System" />
                                     </conditions>
                                     <actions>
+                                        <action id="-3" name="Create object" sid="262937516085270" type="System">
+                                            <param id="0" name="Object to create">SF_InteractSummury</param>
+                                            <param id="1" name="Layer">2</param>
+                                            <param id="2" name="X">S_Hero.X</param>
+                                            <param id="3" name="Y">S_Hero.y-8</param>
+                                        </action>
+                                        <action id="0" name="Set text" sid="201976617479591" type="SF_InteractSummury">
+                                            <param id="0" name="Text">S_Whom.Name&amp;&quot; take &quot;&amp;floor(FinalDealDamage)&amp;&quot; damage &quot;</param>
+                                        </action>
+                                        <action id="-3" name="Create object" sid="251390362517977" type="System">
+                                            <param id="0" name="Object to create">SF_InteractSummury</param>
+                                            <param id="1" name="Layer">2</param>
+                                            <param id="2" name="X">S_Hero.X</param>
+                                            <param id="3" name="Y">S_Hero.y-16</param>
+                                        </action>
+                                        <action id="0" name="Set text" sid="227994728795720" type="SF_InteractSummury">
+                                            <param id="0" name="Text">S_Whom.Name&amp;&quot; relation +&quot;&amp;floor(FinalRelation)</param>
+                                        </action>
+                                        <action id="-3" name="Create object" sid="684947257417999" type="System">
+                                            <param id="0" name="Object to create">SF_InteractSummury</param>
+                                            <param id="1" name="Layer">2</param>
+                                            <param id="2" name="X">S_Hero.X</param>
+                                            <param id="3" name="Y">S_Hero.y-24</param>
+                                        </action>
+                                        <action id="0" name="Set text" sid="262656584443593" type="SF_InteractSummury">
+                                            <param id="0" name="Text">&quot;hero take &quot;&amp;floor(Finaltakedamage)&amp;&quot; damage&quot;</param>
+                                        </action>
                                         <action id="-12" name="Subtract from" sid="396287625360793" type="S_Whom">
                                             <param id="0" name="Instance variable">CurrentHP</param>
                                             <param id="1" name="Value">FinalDealDamage</param>
                                         </action>
                                         <action id="-12" name="Subtract from" sid="518793970045820" type="S_Hero">
-                                            <param id="0" name="Instance variable">currentXP</param>
+                                            <param id="0" name="Instance variable">CurrentHP</param>
                                             <param id="1" name="Value">FinalTakeDamage</param>
                                         </action>
                                         <action id="-11" name="Add to" sid="458919860869108" type="S_Whom">
                                             <param id="0" name="Instance variable">relation</param>
                                             <param id="1" name="Value">FinalRelation</param>
+                                        </action>
+                                        <action id="-13" name="Set boolean" sid="761917791008188" type="S_Whom">
+                                            <param id="0" name="Instance variable">inPuzzle</param>
+                                            <param id="1" name="Value">0</param>
                                         </action>
                                         <action id="0" name="Call function" sid="826331874702972" type="Function">
                                             <param id="0" name="Name">&quot;CheckHeroDeath&quot;</param>
@@ -4140,39 +4182,6 @@
                                         <action id="0" name="Call function" sid="236590604790938" type="Function">
                                             <param id="0" name="Name">&quot;CheckWhomDeath&quot;</param>
                                             <param id="1" name="Parameter {n}">A_QueryActions.At(2)</param>
-                                        </action>
-                                        <action id="-3" name="Create object" sid="262937516085270" type="System">
-                                            <param id="0" name="Object to create">SF_InteractSummury</param>
-                                            <param id="1" name="Layer">2</param>
-                                            <param id="2" name="X">S_Hero.X</param>
-                                            <param id="3" name="Y">S_Hero.y-8</param>
-                                        </action>
-                                        <action id="0" name="Set text" sid="201976617479591" type="SF_InteractSummury">
-                                            <param id="0" name="Text">S_Whom.Name&amp;&quot; deal &quot;&amp;floor(FinalDealDamage)&amp;&quot; damage &quot;</param>
-                                        </action>
-                                        <action id="-16" name="Wait" sid="240457123316096" type="System">
-                                            <param id="0" name="Seconds">0.5</param>
-                                        </action>
-                                        <action id="-3" name="Create object" sid="251390362517977" type="System">
-                                            <param id="0" name="Object to create">SF_InteractSummury</param>
-                                            <param id="1" name="Layer">2</param>
-                                            <param id="2" name="X">S_Hero.X</param>
-                                            <param id="3" name="Y">S_Hero.y-8</param>
-                                        </action>
-                                        <action id="0" name="Set text" sid="227994728795720" type="SF_InteractSummury">
-                                            <param id="0" name="Text">S_Whom.Name&amp;&quot; relation + &quot;&amp;floor(FinalRelation)</param>
-                                        </action>
-                                        <action id="-16" name="Wait" sid="351903197622052" type="System">
-                                            <param id="0" name="Seconds">0.5</param>
-                                        </action>
-                                        <action id="-3" name="Create object" sid="684947257417999" type="System">
-                                            <param id="0" name="Object to create">SF_InteractSummury</param>
-                                            <param id="1" name="Layer">2</param>
-                                            <param id="2" name="X">S_Hero.X</param>
-                                            <param id="3" name="Y">S_Hero.y-8</param>
-                                        </action>
-                                        <action id="0" name="Set text" sid="262656584443593" type="SF_InteractSummury">
-                                            <param id="0" name="Text">&quot;hero take damage + &quot;&amp;floor(Finaltakedamage)</param>
                                         </action>
                                     </actions>
                                 </event-block>
@@ -4366,22 +4375,6 @@
                                         <condition id="-4" name="Trigger once while true" sid="272823239866874" type="System" />
                                     </conditions>
                                     <actions>
-                                        <action id="-11" name="Add to" sid="294947407040352" type="S_Whom">
-                                            <param id="0" name="Instance variable">CurrentHP</param>
-                                            <param id="1" name="Value">FinalHeal</param>
-                                        </action>
-                                        <action id="-12" name="Subtract from" sid="491705070530079" type="S_Whom">
-                                            <param id="0" name="Instance variable">CurrentHP</param>
-                                            <param id="1" name="Value">FinalDealDamage</param>
-                                        </action>
-                                        <action id="-11" name="Add to" sid="446524226436038" type="S_Whom">
-                                            <param id="0" name="Instance variable">relation</param>
-                                            <param id="1" name="Value">FinalRelation</param>
-                                        </action>
-                                        <action id="-12" name="Subtract from" sid="661048987799095" type="S_Hero">
-                                            <param id="0" name="Instance variable">currentXP</param>
-                                            <param id="1" name="Value">FinalTakeDamage</param>
-                                        </action>
                                         <action id="-3" name="Create object" sid="358800294368020" type="System">
                                             <param id="0" name="Object to create">P_Magic</param>
                                             <param id="1" name="Layer">2</param>
@@ -4397,42 +4390,53 @@
                                         <action id="0" name="Set text" sid="340036711611855" type="SF_InteractSummury">
                                             <param id="0" name="Text">S_Whom.Name&amp;&quot; heal &quot;&amp;floor(FinalHeal)</param>
                                         </action>
-                                        <action id="-16" name="Wait" sid="448678638046982" type="System">
-                                            <param id="0" name="Seconds">0.5</param>
-                                        </action>
                                         <action id="-9" name="Destroy" sid="713145621166962" type="P_Magic" />
                                         <action id="-3" name="Create object" sid="627800590055121" type="System">
                                             <param id="0" name="Object to create">SF_InteractSummury</param>
                                             <param id="1" name="Layer">2</param>
                                             <param id="2" name="X">S_Hero.X</param>
-                                            <param id="3" name="Y">S_Hero.y-8</param>
+                                            <param id="3" name="Y">S_Hero.y-16</param>
                                         </action>
                                         <action id="0" name="Set text" sid="345235711151401" type="SF_InteractSummury">
-                                            <param id="0" name="Text">S_Whom.Name&amp;&quot; deal &quot;&amp;floor(FinalDealDamage)&amp;&quot; damage &quot;</param>
-                                        </action>
-                                        <action id="-16" name="Wait" sid="187142106634378" type="System">
-                                            <param id="0" name="Seconds">0.5</param>
+                                            <param id="0" name="Text">S_Whom.Name&amp;&quot; take &quot;&amp;floor(FinalDealDamage)&amp;&quot; damage &quot;</param>
                                         </action>
                                         <action id="-3" name="Create object" sid="958290357790196" type="System">
                                             <param id="0" name="Object to create">SF_InteractSummury</param>
                                             <param id="1" name="Layer">2</param>
                                             <param id="2" name="X">S_Hero.X</param>
-                                            <param id="3" name="Y">S_Hero.y-8</param>
+                                            <param id="3" name="Y">S_Hero.y-24</param>
                                         </action>
                                         <action id="0" name="Set text" sid="772666231519874" type="SF_InteractSummury">
-                                            <param id="0" name="Text">S_Whom.Name&amp;&quot; relation + &quot;&amp;floor(FinalRelation)</param>
-                                        </action>
-                                        <action id="-16" name="Wait" sid="767641245070436" type="System">
-                                            <param id="0" name="Seconds">0.5</param>
+                                            <param id="0" name="Text">S_Whom.Name&amp;&quot; relation +&quot;&amp;floor(FinalRelation)</param>
                                         </action>
                                         <action id="-3" name="Create object" sid="189287962569898" type="System">
                                             <param id="0" name="Object to create">SF_InteractSummury</param>
                                             <param id="1" name="Layer">2</param>
                                             <param id="2" name="X">S_Hero.X</param>
-                                            <param id="3" name="Y">S_Hero.y-8</param>
+                                            <param id="3" name="Y">S_Hero.y-32</param>
                                         </action>
                                         <action id="0" name="Set text" sid="891457820867150" type="SF_InteractSummury">
-                                            <param id="0" name="Text">&quot;hero take damage + &quot;&amp;floor(Finaltakedamage)</param>
+                                            <param id="0" name="Text">&quot;hero take &quot;&amp;floor(Finaltakedamage)&amp;&quot; damage&quot;</param>
+                                        </action>
+                                        <action id="-11" name="Add to" sid="294947407040352" type="S_Whom">
+                                            <param id="0" name="Instance variable">CurrentHP</param>
+                                            <param id="1" name="Value">FinalHeal</param>
+                                        </action>
+                                        <action id="-12" name="Subtract from" sid="491705070530079" type="S_Whom">
+                                            <param id="0" name="Instance variable">CurrentHP</param>
+                                            <param id="1" name="Value">FinalDealDamage</param>
+                                        </action>
+                                        <action id="-11" name="Add to" sid="446524226436038" type="S_Whom">
+                                            <param id="0" name="Instance variable">relation</param>
+                                            <param id="1" name="Value">FinalRelation</param>
+                                        </action>
+                                        <action id="-12" name="Subtract from" sid="661048987799095" type="S_Hero">
+                                            <param id="0" name="Instance variable">CurrentHP</param>
+                                            <param id="1" name="Value">FinalTakeDamage</param>
+                                        </action>
+                                        <action id="-13" name="Set boolean" sid="309015961213917" type="S_Whom">
+                                            <param id="0" name="Instance variable">inPuzzle</param>
+                                            <param id="1" name="Value">0</param>
                                         </action>
                                         <action id="0" name="Call function" sid="953250240592680" type="Function">
                                             <param id="0" name="Name">&quot;CheckHeroDeath&quot;</param>
@@ -4610,6 +4614,24 @@
                                         <condition id="-4" name="Trigger once while true" sid="733549822272134" type="System" />
                                     </conditions>
                                     <actions>
+                                        <action id="-3" name="Create object" sid="852686475409441" type="System">
+                                            <param id="0" name="Object to create">SF_InteractSummury</param>
+                                            <param id="1" name="Layer">2</param>
+                                            <param id="2" name="X">S_Hero.X</param>
+                                            <param id="3" name="Y">S_Hero.y-8</param>
+                                        </action>
+                                        <action id="0" name="Set text" sid="980537682353240" type="SF_InteractSummury">
+                                            <param id="0" name="Text">S_Whom.Name&amp;&quot; relation +&quot;&amp;floor(FinalRelation)</param>
+                                        </action>
+                                        <action id="-3" name="Create object" sid="895655699092488" type="System">
+                                            <param id="0" name="Object to create">SF_InteractSummury</param>
+                                            <param id="1" name="Layer">2</param>
+                                            <param id="2" name="X">S_Hero.X</param>
+                                            <param id="3" name="Y">S_Hero.y-16</param>
+                                        </action>
+                                        <action id="0" name="Set text" sid="139709706051483" type="SF_InteractSummury">
+                                            <param id="0" name="Text">&quot;hero trade &quot;&amp;floor(clamp(FinalPrice,0,S_Whom.Money))</param>
+                                        </action>
                                         <action id="-11" name="Add to" sid="297211965811653" type="S_Hero">
                                             <param id="0" name="Instance variable">Money</param>
                                             <param id="1" name="Value">clamp(FinalPrice,0,S_Whom.Money)</param>
@@ -4622,6 +4644,10 @@
                                             <param id="0" name="Instance variable">relation</param>
                                             <param id="1" name="Value">FinalRelation</param>
                                         </action>
+                                        <action id="-13" name="Set boolean" sid="835043056771600" type="S_Whom">
+                                            <param id="0" name="Instance variable">inPuzzle</param>
+                                            <param id="1" name="Value">0</param>
+                                        </action>
                                         <action id="0" name="Call function" sid="580491488782120" type="Function">
                                             <param id="0" name="Name">&quot;CheckHeroDeath&quot;</param>
                                             <param id="1" name="Parameter {n}"></param>
@@ -4629,27 +4655,6 @@
                                         <action id="0" name="Call function" sid="252950324681543" type="Function">
                                             <param id="0" name="Name">&quot;CheckWhomDeath&quot;</param>
                                             <param id="1" name="Parameter {n}">A_QueryActions.At(2)</param>
-                                        </action>
-                                        <action id="-3" name="Create object" sid="852686475409441" type="System">
-                                            <param id="0" name="Object to create">SF_InteractSummury</param>
-                                            <param id="1" name="Layer">2</param>
-                                            <param id="2" name="X">S_Hero.X</param>
-                                            <param id="3" name="Y">S_Hero.y-8</param>
-                                        </action>
-                                        <action id="0" name="Set text" sid="980537682353240" type="SF_InteractSummury">
-                                            <param id="0" name="Text">S_Whom.Name&amp;&quot; relation + &quot;&amp;floor(FinalRelation)</param>
-                                        </action>
-                                        <action id="-16" name="Wait" sid="509574943216224" type="System">
-                                            <param id="0" name="Seconds">0.5</param>
-                                        </action>
-                                        <action id="-3" name="Create object" sid="895655699092488" type="System">
-                                            <param id="0" name="Object to create">SF_InteractSummury</param>
-                                            <param id="1" name="Layer">2</param>
-                                            <param id="2" name="X">S_Hero.X</param>
-                                            <param id="3" name="Y">S_Hero.y-8</param>
-                                        </action>
-                                        <action id="0" name="Set text" sid="139709706051483" type="SF_InteractSummury">
-                                            <param id="0" name="Text">&quot;hero relation trade for &quot;&amp;floor(clamp(FinalPrice,0,S_Whom.Money))</param>
                                         </action>
                                     </actions>
                                 </event-block>
@@ -4794,9 +4799,22 @@
                                         <condition id="-4" name="Trigger once while true" sid="321345179115620" type="System" />
                                     </conditions>
                                     <actions>
+                                        <action id="-3" name="Create object" sid="196926720362272" type="System">
+                                            <param id="0" name="Object to create">SF_InteractSummury</param>
+                                            <param id="1" name="Layer">2</param>
+                                            <param id="2" name="X">S_Hero.X</param>
+                                            <param id="3" name="Y">S_Hero.y-8</param>
+                                        </action>
+                                        <action id="0" name="Set text" sid="210535845268166" type="SF_InteractSummury">
+                                            <param id="0" name="Text">S_Whom.Name&amp;&quot; relation +&quot;&amp;floor(FinalRelation)</param>
+                                        </action>
                                         <action id="-11" name="Add to" sid="814174169958785" type="S_Whom">
                                             <param id="0" name="Instance variable">relation</param>
                                             <param id="1" name="Value">FinalRelation</param>
+                                        </action>
+                                        <action id="-13" name="Set boolean" sid="987653673144522" type="S_Whom">
+                                            <param id="0" name="Instance variable">inPuzzle</param>
+                                            <param id="1" name="Value">0</param>
                                         </action>
                                         <action id="0" name="Call function" sid="129889283708266" type="Function">
                                             <param id="0" name="Name">&quot;CheckHeroDeath&quot;</param>
@@ -4805,15 +4823,6 @@
                                         <action id="0" name="Call function" sid="949052805363572" type="Function">
                                             <param id="0" name="Name">&quot;CheckWhomDeath&quot;</param>
                                             <param id="1" name="Parameter {n}">A_QueryActions.At(2)</param>
-                                        </action>
-                                        <action id="-3" name="Create object" sid="196926720362272" type="System">
-                                            <param id="0" name="Object to create">SF_InteractSummury</param>
-                                            <param id="1" name="Layer">2</param>
-                                            <param id="2" name="X">S_Hero.X</param>
-                                            <param id="3" name="Y">S_Hero.y-8</param>
-                                        </action>
-                                        <action id="0" name="Set text" sid="210535845268166" type="SF_InteractSummury">
-                                            <param id="0" name="Text">S_Whom.Name&amp;&quot; relation + &quot;&amp;floor(FinalRelation)</param>
                                         </action>
                                     </actions>
                                 </event-block>
@@ -5029,6 +5038,24 @@
                                                 </condition>
                                             </conditions>
                                             <actions>
+                                                <action id="-3" name="Create object" sid="999000198258914" type="System">
+                                                    <param id="0" name="Object to create">SF_InteractSummury</param>
+                                                    <param id="1" name="Layer">2</param>
+                                                    <param id="2" name="X">S_Hero.X</param>
+                                                    <param id="3" name="Y">S_Hero.y-8</param>
+                                                </action>
+                                                <action id="0" name="Set text" sid="622136679208297" type="SF_InteractSummury">
+                                                    <param id="0" name="Text">S_Whom.Name&amp;&quot; relation +&quot;&amp;floor(FinalRelation)</param>
+                                                </action>
+                                                <action id="-3" name="Create object" sid="449940251195898" type="System">
+                                                    <param id="0" name="Object to create">SF_InteractSummury</param>
+                                                    <param id="1" name="Layer">2</param>
+                                                    <param id="2" name="X">S_Hero.X</param>
+                                                    <param id="3" name="Y">S_Hero.y-16</param>
+                                                </action>
+                                                <action id="0" name="Set text" sid="983069052548884" type="SF_InteractSummury">
+                                                    <param id="0" name="Text">&quot;hero steal &quot;&amp;floor(clamp(FinalSteal,0,S_Whom.Money))</param>
+                                                </action>
                                                 <action id="-11" name="Add to" sid="474483440037847" type="S_Hero">
                                                     <param id="0" name="Instance variable">Money</param>
                                                     <param id="1" name="Value">clamp(FinalSteal,0,S_Whom.Money)</param>
@@ -5041,6 +5068,10 @@
                                                     <param id="0" name="Instance variable">relation</param>
                                                     <param id="1" name="Value">FinalRelation</param>
                                                 </action>
+                                                <action id="-13" name="Set boolean" sid="475711928497006" type="S_Whom">
+                                                    <param id="0" name="Instance variable">inPuzzle</param>
+                                                    <param id="1" name="Value">0</param>
+                                                </action>
                                                 <action id="0" name="Call function" sid="103376867993584" type="Function">
                                                     <param id="0" name="Name">&quot;CheckHeroDeath&quot;</param>
                                                     <param id="1" name="Parameter {n}"></param>
@@ -5049,27 +5080,6 @@
                                                     <param id="0" name="Name">&quot;CheckWhomDeath&quot;</param>
                                                     <param id="1" name="Parameter {n}">A_QueryActions.At(2)</param>
                                                 </action>
-                                                <action id="-3" name="Create object" sid="999000198258914" type="System">
-                                                    <param id="0" name="Object to create">SF_InteractSummury</param>
-                                                    <param id="1" name="Layer">2</param>
-                                                    <param id="2" name="X">S_Hero.X</param>
-                                                    <param id="3" name="Y">S_Hero.y-8</param>
-                                                </action>
-                                                <action id="0" name="Set text" sid="622136679208297" type="SF_InteractSummury">
-                                                    <param id="0" name="Text">S_Whom.Name&amp;&quot; relation + &quot;&amp;floor(FinalRelation)</param>
-                                                </action>
-                                                <action id="-16" name="Wait" sid="388928926978308" type="System">
-                                                    <param id="0" name="Seconds">0.5</param>
-                                                </action>
-                                                <action id="-3" name="Create object" sid="449940251195898" type="System">
-                                                    <param id="0" name="Object to create">SF_InteractSummury</param>
-                                                    <param id="1" name="Layer">2</param>
-                                                    <param id="2" name="X">S_Hero.X</param>
-                                                    <param id="3" name="Y">S_Hero.y-8</param>
-                                                </action>
-                                                <action id="0" name="Set text" sid="983069052548884" type="SF_InteractSummury">
-                                                    <param id="0" name="Text">&quot;hero steal &quot;&amp;floor(clamp(FinalSteal,0,S_Whom.Money))</param>
-                                                </action>
                                             </actions>
                                         </event-block>
                                         <event-block sid="288801967437291">
@@ -5077,9 +5087,22 @@
                                                 <condition id="-22" name="Else" sid="622192516242178" type="System" />
                                             </conditions>
                                             <actions>
+                                                <action id="-3" name="Create object" sid="571788860598327" type="System">
+                                                    <param id="0" name="Object to create">SF_InteractSummury</param>
+                                                    <param id="1" name="Layer">2</param>
+                                                    <param id="2" name="X">S_Hero.X</param>
+                                                    <param id="3" name="Y">S_Hero.y-8</param>
+                                                </action>
+                                                <action id="0" name="Set text" sid="693887762500639" type="SF_InteractSummury">
+                                                    <param id="0" name="Text">S_Whom.Name&amp;&quot; relation +&quot;&amp;floor(FinalRelation)</param>
+                                                </action>
                                                 <action id="-11" name="Add to" sid="364124408816436" type="S_Whom">
                                                     <param id="0" name="Instance variable">relation</param>
                                                     <param id="1" name="Value">FinalRelation</param>
+                                                </action>
+                                                <action id="-13" name="Set boolean" sid="884226781089505" type="S_Whom">
+                                                    <param id="0" name="Instance variable">inPuzzle</param>
+                                                    <param id="1" name="Value">0</param>
                                                 </action>
                                                 <action id="0" name="Call function" sid="594367312371055" type="Function">
                                                     <param id="0" name="Name">&quot;CheckHeroDeath&quot;</param>
@@ -5088,15 +5111,6 @@
                                                 <action id="0" name="Call function" sid="758282096654219" type="Function">
                                                     <param id="0" name="Name">&quot;CheckWhomDeath&quot;</param>
                                                     <param id="1" name="Parameter {n}">A_QueryActions.At(2)</param>
-                                                </action>
-                                                <action id="-3" name="Create object" sid="571788860598327" type="System">
-                                                    <param id="0" name="Object to create">SF_InteractSummury</param>
-                                                    <param id="1" name="Layer">2</param>
-                                                    <param id="2" name="X">S_Hero.X</param>
-                                                    <param id="3" name="Y">S_Hero.y-8</param>
-                                                </action>
-                                                <action id="0" name="Set text" sid="693887762500639" type="SF_InteractSummury">
-                                                    <param id="0" name="Text">S_Whom.Name&amp;&quot; relation + &quot;&amp;floor(FinalRelation)</param>
                                                 </action>
                                             </actions>
                                         </event-block>
@@ -5213,9 +5227,22 @@
                                         <condition id="-4" name="Trigger once while true" sid="387191887302390" type="System" />
                                     </conditions>
                                     <actions>
+                                        <action id="-3" name="Create object" sid="429811752536684" type="System">
+                                            <param id="0" name="Object to create">SF_InteractSummury</param>
+                                            <param id="1" name="Layer">2</param>
+                                            <param id="2" name="X">S_Hero.X</param>
+                                            <param id="3" name="Y">S_Hero.y-8</param>
+                                        </action>
+                                        <action id="0" name="Set text" sid="492539142024606" type="SF_InteractSummury">
+                                            <param id="0" name="Text">S_Whom.Name&amp;&quot; relation +&quot;&amp;floor(FinalRelation)</param>
+                                        </action>
                                         <action id="-11" name="Add to" sid="311583013950611" type="S_Whom">
                                             <param id="0" name="Instance variable">relation</param>
                                             <param id="1" name="Value">FinalRelation</param>
+                                        </action>
+                                        <action id="-13" name="Set boolean" sid="631523604373268" type="S_Whom">
+                                            <param id="0" name="Instance variable">inPuzzle</param>
+                                            <param id="1" name="Value">0</param>
                                         </action>
                                         <action id="0" name="Call function" sid="536376446096378" type="Function">
                                             <param id="0" name="Name">&quot;CheckHeroDeath&quot;</param>
@@ -5224,15 +5251,6 @@
                                         <action id="0" name="Call function" sid="113207259310199" type="Function">
                                             <param id="0" name="Name">&quot;CheckWhomDeath&quot;</param>
                                             <param id="1" name="Parameter {n}">A_QueryActions.At(2)</param>
-                                        </action>
-                                        <action id="-3" name="Create object" sid="429811752536684" type="System">
-                                            <param id="0" name="Object to create">SF_InteractSummury</param>
-                                            <param id="1" name="Layer">2</param>
-                                            <param id="2" name="X">S_Hero.X</param>
-                                            <param id="3" name="Y">S_Hero.y-8</param>
-                                        </action>
-                                        <action id="0" name="Set text" sid="492539142024606" type="SF_InteractSummury">
-                                            <param id="0" name="Text">S_Whom.Name&amp;&quot; relation + &quot;&amp;floor(FinalRelation)</param>
                                         </action>
                                     </actions>
                                 </event-block>
@@ -5278,45 +5296,25 @@
                 </event-block>
             </sub-events>
         </event-block>
-        <event-block sid="230725915395018">
+        <event-block sid="729933095531052">
             <conditions>
-                <condition id="0" name="On function" sid="987013046173222" type="Function">
-                    <param id="0" name="Name">&quot;CheckWhomDeath&quot;</param>
+                <condition id="-7" name="Compare instance variable" sid="137722799059649" type="S_Whom">
+                    <param id="0" name="Instance variable">CurrentHP</param>
+                    <param id="1" name="Comparison">3</param>
+                    <param id="2" name="Value">0</param>
                 </condition>
             </conditions>
-            <actions />
-            <sub-events>
-                <event-block sid="810662075611864">
-                    <conditions>
-                        <condition id="-14" name="Pick by unique ID" sid="848045663985743" type="S_What">
-                            <param id="0" name="Unique ID">Function.Param(1)</param>
-                        </condition>
-                    </conditions>
-                    <actions />
-                    <sub-events>
-                        <event-block sid="729933095531052">
-                            <conditions>
-                                <condition id="-7" name="Compare instance variable" sid="137722799059649" type="S_Whom">
-                                    <param id="0" name="Instance variable">CurrentHP</param>
-                                    <param id="1" name="Comparison">3</param>
-                                    <param id="2" name="Value">0</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action id="-11" name="Add to" sid="521441260186763" type="S_Hero">
-                                    <param id="0" name="Instance variable">Money</param>
-                                    <param id="1" name="Value">S_Whom.Money</param>
-                                </action>
-                                <action id="-11" name="Add to" sid="363485899363657" type="S_Hero">
-                                    <param id="0" name="Instance variable">currentXP</param>
-                                    <param id="1" name="Value">S_Whom.exp</param>
-                                </action>
-                                <action id="-9" name="Destroy" sid="571134192811231" type="S_Whom" />
-                            </actions>
-                        </event-block>
-                    </sub-events>
-                </event-block>
-            </sub-events>
+            <actions>
+                <action id="-11" name="Add to" sid="521441260186763" type="S_Hero">
+                    <param id="0" name="Instance variable">Money</param>
+                    <param id="1" name="Value">S_Whom.Money</param>
+                </action>
+                <action id="-11" name="Add to" sid="363485899363657" type="S_Hero">
+                    <param id="0" name="Instance variable">currentXP</param>
+                    <param id="1" name="Value">S_Whom.exp</param>
+                </action>
+                <action id="-9" name="Destroy" sid="571134192811231" type="S_Whom" />
+            </actions>
         </event-block>
         <event-block sid="747002939622398">
             <conditions>
@@ -5356,7 +5354,7 @@
             </conditions>
             <actions>
                 <action id="0" name="Set text" sid="345633934050754" type="SF_StaticText">
-                    <param id="0" name="Text">S_Whom.Name</param>
+                    <param id="0" name="Text">S_Whom.Name&amp;newline&amp;&quot;relation &quot;&amp;floor(S_Whom.relation)&amp;newline&amp;&quot;health: &quot;&amp;floor(S_Whom.currentHP)</param>
                 </action>
             </actions>
         </event-block>
@@ -5418,6 +5416,11 @@
                         <condition behavior="Bullet" id="0" name="Compare speed" sid="923214914791649" type="S_What">
                             <param id="0" name="Comparison">4</param>
                             <param id="1" name="Speed">0</param>
+                        </condition>
+                        <condition id="-7" name="Compare instance variable" sid="823381543869908" type="S_Hero">
+                            <param id="0" name="Instance variable">CarryOn</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
                         </condition>
                     </conditions>
                     <actions>

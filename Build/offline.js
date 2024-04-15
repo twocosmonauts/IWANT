@@ -1,5 +1,5 @@
 ﻿{
-	"version": 1713145196,
+	"version": 1713171947,
 	"fileList": [
 		"data.js",
 		"c2runtime.js",
@@ -23,6 +23,7 @@
 		"images/t_hud.png",
 		"images/tm_levelground.png",
 		"images/sf_interactsummury.png",
+		"images/sf_hp.png",
 		"images/sf_lvl.png",
 		"images/t_dead.png",
 		"icon-16.png",

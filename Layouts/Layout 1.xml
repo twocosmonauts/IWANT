@@ -400,7 +400,7 @@
                             <properties>
                                 <speed>0</speed>
                                 <acceleration>0</acceleration>
-                                <gravity>-5</gravity>
+                                <gravity>-8</gravity>
                                 <bounce-off-solids>No</bounce-off-solids>
                                 <set-angle>No</set-angle>
                                 <initial-state>Enabled</initial-state>
@@ -603,7 +603,7 @@
                     <properties>
                         <character-width>6</character-width>
                         <character-height>6</character-height>
-                        <character-set>abcdefghijklmnopqrstuvwxyz:1234567890!.</character-set>
+                        <character-set>abcdefghijklmnopqrstuvwxyz:1234567890!.-</character-set>
                         <text>inventory</text>
                         <scale>1</scale>
                         <initial-visibility>Visible</initial-visibility>
