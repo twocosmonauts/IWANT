@@ -1,0 +1,742 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2project>
+    <name>IWANT</name>
+    <description></description>
+    <version>1.0.0.0</version>
+    <author>CO5MONAUT</author>
+    <author-email>CO5MONAUTMONEY@GMAIL&gt;COM</author-email>
+    <author-website>http://5WORD.TEAM</author-website>
+    <app-id>COM.CO5MONAUT.IWANT</app-id>
+    <unique-id>yidtag06uv50</unique-id>
+    <saved-with-version>28000</saved-with-version>
+    <used-plugins>
+        <plugin author="Scirra" id="Arr" version="1">Array</plugin>
+        <plugin author="Scirra" id="Dictionary" version="1">Dictionary</plugin>
+        <plugin author="Scirra" id="Function" version="1">Function</plugin>
+        <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
+        <plugin author="Scirra" id="Mouse" version="1">Mouse</plugin>
+        <plugin author="Scirra" id="NinePatch" version="1">9-patch</plugin>
+        <plugin author="Scirra" id="Particles" version="1">Particles</plugin>
+        <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
+        <plugin author="Scirra" id="Spritefont2" version="1">Sprite font</plugin>
+        <plugin author="Scirra" id="TiledBg" version="1">Tiled Background</plugin>
+        <plugin author="Scirra" id="Tilemap" version="1">Tilemap</plugin>
+        <plugin author="Scirra" id="Touch" version="1">Touch</plugin>
+    </used-plugins>
+    <used-behaviors>
+        <behavior author="Scirra" id="Bullet" version="1">Bullet</behavior>
+        <behavior author="Scirra" id="DragnDrop" version="1">Drag &amp; Drop</behavior>
+        <behavior author="Scirra" id="Pathfinding" version="1">Pathfinding</behavior>
+        <behavior author="Scirra" id="Sin" version="1">Sine</behavior>
+        <behavior author="Scirra" id="scrollto" version="1">Scroll To</behavior>
+        <behavior author="Scirra" id="solid" version="1">Solid</behavior>
+    </used-behaviors>
+    <used-effects>
+        <effect author="Scirra" id="noise">Noise</effect>
+        <effect author="Scirra" id="replacecolor">Replace color</effect>
+    </used-effects>
+    <configurations>
+        <configuration exporter-descname="HTML5" exporter-id="html5" name="HTML5" />
+    </configurations>
+    <window-size>
+        <width>320</width>
+        <height>180</height>
+    </window-size>
+    <pixel-rounding>0</pixel-rounding>
+    <preview-effects>1</preview-effects>
+    <first-layout>Layout 1</first-layout>
+    <use-loader-layout>0</use-loader-layout>
+    <configuration-settings>
+        <prop name="Clear background">Yes</prop>
+        <prop name="Downscaling">Medium quality</prop>
+        <prop name="Enable WebGL">On</prop>
+        <prop name="Fullscreen in browser">Letterbox integer scale</prop>
+        <prop name="Fullscreen scaling">High quality</prop>
+        <prop name="Loader style">Progress bar &amp; logo</prop>
+        <prop name="Orientations">Landscape</prop>
+        <prop name="Pause on unfocus">No</prop>
+        <prop name="Physics engine">Box2D asm.js</prop>
+        <prop name="Preload sounds">Yes</prop>
+        <prop name="Preview browser">NW.js</prop>
+        <prop name="Sampling">Point</prop>
+        <prop name="Use high-DPI display">Yes</prop>
+    </configuration-settings>
+    <object-folder>
+        <object-type name="T_Grid" sid="359987097089143">
+            <plugin id="TiledBg" />
+            <texture original-source="D:\N\Users\two\drive\bit detective\Detective Tycoon prototype\Textures\grid.png" />
+        </object-type>
+        <object-type global="1" name="A_Map" sid="841934801715512">
+            <plugin id="Arr" />
+        </object-type>
+        <object-type name="S_Idea" sid="990002395331653">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="GridPositionX" sid="663780115732739" type="number" />
+                <instance-variable name="GridPositionY" sid="431627111519995" type="number" />
+                <instance-variable name="DragPositionX" sid="943058226795204" type="number" />
+                <instance-variable name="DragPositionY" sid="461742593234943" type="number" />
+                <instance-variable name="Type" sid="186756785487278" type="string" />
+                <instance-variable name="Name" sid="565042841038335" type="string" />
+                <instance-variable name="UIDOnMap" sid="867694029265835" type="number" />
+            </instance-variables>
+            <behaviors>
+                <behavior-type name="DragDrop" sid="301788155607218">
+                    <behavior id="DragnDrop" />
+                </behavior-type>
+            </behaviors>
+            <container>
+                <type>S_Idea</type>
+                <type>A_Idea</type>
+                <type>D_LinksUID</type>
+                <type>D_LinksType</type>
+            </container>
+            <animation-folder>
+                <animation framecount="5" loop="1" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="887370384049770" speed="0">
+                    <frame duration="1" hotspotX="0" hotspotY="0">
+                        <collision-poly>
+                            <point x="0" y="0" />
+                            <point x="0.248047" y="0" />
+                            <point x="0.246094" y="0.996094" />
+                            <point x="0" y="1" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0" hotspotY="0">
+                        <collision-poly>
+                            <point x="0" y="0" />
+                            <point x="0.486328" y="0.259766" />
+                            <point x="0.509766" y="0.480469" />
+                            <point x="0" y="0.767578" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0" hotspotY="0">
+                        <collision-poly>
+                            <point x="0" y="0" />
+                            <point x="0.501953" y="0.00390625" />
+                            <point x="0.238281" y="0.734375" />
+                            <point x="0.00195313" y="0.759766" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0" hotspotY="0">
+                        <collision-poly>
+                            <point x="0" y="0" />
+                            <point x="0.517578" y="0" />
+                            <point x="0.462891" y="0.759766" />
+                            <point x="0" y="0.507813" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0" hotspotY="0">
+                        <collision-poly>
+                            <point x="0" y="0" />
+                            <point x="0.503906" y="0" />
+                            <point x="0.501953" y="0.494141" />
+                            <point x="0" y="0.490234" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type global="1" name="A_Idea" sid="692432402991255">
+            <plugin id="Arr" />
+            <container>
+                <type>S_Idea</type>
+                <type>A_Idea</type>
+                <type>D_LinksUID</type>
+                <type>D_LinksType</type>
+            </container>
+        </object-type>
+        <object-type name="Touch" sid="265160493340784">
+            <plugin id="Touch" />
+        </object-type>
+        <object-type name="Function" sid="514134960605665">
+            <plugin id="Function" />
+        </object-type>
+        <object-type name="SF_DEBUG" sid="899320439355809">
+            <plugin id="Spritefont2" />
+            <texture />
+        </object-type>
+        <object-type name="SF_IdeaName" sid="250621311902972">
+            <plugin id="Spritefont2" />
+            <texture original-source="C:\Users\amphe\Downloads\LDJAM55\SOURCES\Font-En.png" />
+        </object-type>
+        <object-type global="1" name="D_LinksUID" sid="985154404190490">
+            <plugin id="Dictionary" />
+            <container>
+                <type>S_Idea</type>
+                <type>A_Idea</type>
+                <type>D_LinksUID</type>
+                <type>D_LinksType</type>
+            </container>
+        </object-type>
+        <object-type global="1" name="D_LinksType" sid="209359574959359">
+            <plugin id="Dictionary" />
+            <container>
+                <type>S_Idea</type>
+                <type>A_Idea</type>
+                <type>D_LinksUID</type>
+                <type>D_LinksType</type>
+            </container>
+        </object-type>
+        <object-type global="1" name="A_FinalPhrase" sid="763274684334211">
+            <plugin id="Arr" />
+        </object-type>
+        <object-type name="S_Hero" sid="608560004997178">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="Direction" sid="105547683142388" type="number" />
+                <instance-variable name="CarryOn" sid="476129522372022" type="number" />
+                <instance-variable name="State" sid="602878561147465" type="string" />
+                <instance-variable name="Damage" sid="748359767456334" type="number" />
+                <instance-variable name="MaxHP" sid="515906852784831" type="number" />
+                <instance-variable name="currentXP" sid="675566566483831" type="number" />
+                <instance-variable name="NewLevelExp" sid="862990644810648" type="number" />
+                <instance-variable name="Level" sid="571011155325048" type="number" />
+                <instance-variable name="Money" sid="208785808867323" type="number" />
+            </instance-variables>
+            <behaviors>
+                <behavior-type name="ScrollTo" sid="984351700477044">
+                    <behavior id="scrollto" />
+                </behavior-type>
+                <behavior-type name="Pathfinding" sid="876416182819420">
+                    <behavior id="Pathfinding" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="8" loop="1" name="Idle" pingpong="0" repeatcount="1" repeatto="0" sid="800951023672997" speed="10">
+                    <frame duration="10" hotspotX="0.5" hotspotY="1" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="1" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="1" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="1" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="1" />
+                    <frame duration="2" hotspotX="0.5" hotspotY="1" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="1" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="1" />
+                </animation>
+                <animation framecount="8" loop="1" name="Run" pingpong="0" repeatcount="1" repeatto="0" sid="616742933799468" speed="10">
+                    <frame duration="1" hotspotX="0.5" hotspotY="1" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="1" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="1" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="1" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="1" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="1" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="1" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="1" />
+                </animation>
+                <animation framecount="8" loop="0" name="PrepareToBattle" pingpong="0" repeatcount="1" repeatto="0" sid="768454938872056" speed="10">
+                    <frame duration="1" hotspotX="0.5" hotspotY="1" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="1" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="1" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="1" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="1" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="1" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="1" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="1" />
+                </animation>
+                <animation framecount="8" loop="1" name="CarryOn" pingpong="0" repeatcount="1" repeatto="0" sid="379624511620974" speed="10">
+                    <frame duration="1" hotspotX="0.4" hotspotY="1" original-source="C:\Users\amphe\Downloads\LDJAM55\SOURCES\hero-carry-on-run-01.png">
+                        <image-point name="Imagepoint 1" x="0.5" y="0.3" />
+                    </frame>
+                    <frame duration="1" hotspotX="0.4" hotspotY="1" original-source="C:\Users\amphe\Downloads\LDJAM55\SOURCES\hero-carry-on-run-02.png">
+                        <image-point name="Imagepoint 1" x="0.5" y="0.2" />
+                    </frame>
+                    <frame duration="1" hotspotX="0.4" hotspotY="1" original-source="C:\Users\amphe\Downloads\LDJAM55\SOURCES\hero-carry-on-run-03.png">
+                        <image-point name="Imagepoint 1" x="0.5" y="0.1" />
+                    </frame>
+                    <frame duration="1" hotspotX="0.4" hotspotY="1" original-source="C:\Users\amphe\Downloads\LDJAM55\SOURCES\hero-carry-on-run-04.png">
+                        <image-point name="Imagepoint 1" x="0.5" y="0.3" />
+                    </frame>
+                    <frame duration="1" hotspotX="0.4" hotspotY="1" original-source="C:\Users\amphe\Downloads\LDJAM55\SOURCES\hero-carry-on-run-05.png">
+                        <image-point name="Imagepoint 1" x="0.5" y="0.3" />
+                    </frame>
+                    <frame duration="1" hotspotX="0.4" hotspotY="1" original-source="C:\Users\amphe\Downloads\LDJAM55\SOURCES\hero-carry-on-run-06.png">
+                        <image-point name="Imagepoint 1" x="0.5" y="0.2" />
+                    </frame>
+                    <frame duration="1" hotspotX="0.4" hotspotY="1" original-source="C:\Users\amphe\Downloads\LDJAM55\SOURCES\hero-carry-on-run-07.png">
+                        <image-point name="Imagepoint 1" x="0.5" y="0.1" />
+                    </frame>
+                    <frame duration="1" hotspotX="0.4" hotspotY="1" original-source="C:\Users\amphe\Downloads\LDJAM55\SOURCES\hero-carry-on-run-08.png">
+                        <image-point name="Imagepoint 1" x="0.5" y="0.3" />
+                    </frame>
+                </animation>
+                <animation framecount="1" loop="1" name="CarryOnIdle" pingpong="0" repeatcount="1" repeatto="0" sid="169956016069691" speed="10">
+                    <frame duration="1" hotspotX="0.4" hotspotY="1">
+                        <image-point name="Imagepoint 1" x="0.5" y="0.3" />
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="SF_SpeechText" sid="677285986826873">
+            <plugin id="Spritefont2" />
+            <instance-variables>
+                <instance-variable name="current" sid="566375590349262" type="string" />
+            </instance-variables>
+            <texture original-source="C:\Users\amphe\Downloads\LDJAM55\SOURCES\Font-En.png" />
+        </object-type>
+        <object-type name="9P_DialogBack" sid="358428824566310">
+            <plugin id="NinePatch" />
+            <texture original-source="N:\Users\two\drive\bit detective\dialog.png" />
+        </object-type>
+        <object-type name="Keyboard" sid="243270015215209">
+            <plugin id="Keyboard" />
+        </object-type>
+        <object-type name="TM_LevelWall" sid="907389226486556">
+            <plugin id="Tilemap" />
+            <behaviors>
+                <behavior-type name="Solid" sid="106430451223566">
+                    <behavior id="solid" />
+                </behavior-type>
+            </behaviors>
+            <texture original-source="C:\Users\amphe\Downloads\LDJAM55\SOURCES\tilemap.png" />
+            <tiles>
+                <tile id="1">
+                    <collision-poly>
+                        <point x="0" y="0.125" />
+                        <point x="1" y="0.125" />
+                        <point x="1" y="1" />
+                        <point x="0" y="1" />
+                    </collision-poly>
+                </tile>
+                <tile id="2">
+                    <collision-poly>
+                        <point x="0" y="0" />
+                        <point x="0.875" y="0" />
+                        <point x="0.875" y="1" />
+                        <point x="0" y="1" />
+                    </collision-poly>
+                </tile>
+                <tile id="3">
+                    <collision-poly>
+                        <point x="0" y="0" />
+                        <point x="1" y="0" />
+                        <point x="1" y="0.875" />
+                        <point x="0" y="0.875" />
+                    </collision-poly>
+                </tile>
+                <tile id="4">
+                    <collision-poly>
+                        <point x="0.125" y="0" />
+                        <point x="1" y="0" />
+                        <point x="1" y="1" />
+                        <point x="0.125" y="1" />
+                    </collision-poly>
+                </tile>
+                <tile id="5">
+                    <collision-poly>
+                        <point x="0" y="0.125" />
+                        <point x="0.875" y="0.125" />
+                        <point x="0.875" y="1" />
+                        <point x="0" y="1" />
+                    </collision-poly>
+                </tile>
+                <tile id="6">
+                    <collision-poly>
+                        <point x="0" y="0.125" />
+                        <point x="1" y="0.125" />
+                        <point x="1" y="0.875" />
+                        <point x="0" y="0.875" />
+                    </collision-poly>
+                </tile>
+                <tile id="7">
+                    <collision-poly>
+                        <point x="0.125" y="0.125" />
+                        <point x="1" y="0.125" />
+                        <point x="1" y="1" />
+                        <point x="0.125" y="1" />
+                    </collision-poly>
+                </tile>
+                <tile id="8">
+                    <collision-poly>
+                        <point x="0" y="0" />
+                        <point x="0.875" y="0" />
+                        <point x="0.875" y="0.875" />
+                        <point x="0" y="0.875" />
+                    </collision-poly>
+                </tile>
+                <tile id="9">
+                    <collision-poly>
+                        <point x="0.125" y="0" />
+                        <point x="0.875" y="0" />
+                        <point x="0.875" y="1" />
+                        <point x="0.125" y="1" />
+                    </collision-poly>
+                </tile>
+                <tile id="10">
+                    <collision-poly>
+                        <point x="0.125" y="0.015625" />
+                        <point x="1" y="0" />
+                        <point x="1" y="0.875" />
+                        <point x="0.125" y="0.875" />
+                    </collision-poly>
+                </tile>
+                <tile id="11">
+                    <collision-poly>
+                        <point x="0.125" y="0" />
+                        <point x="0.875" y="0" />
+                        <point x="0.875" y="0.875" />
+                        <point x="0.125" y="0.875" />
+                    </collision-poly>
+                </tile>
+                <tile id="12">
+                    <collision-poly>
+                        <point x="0.125" y="0.125" />
+                        <point x="1" y="0.125" />
+                        <point x="1" y="0.875" />
+                        <point x="0.125" y="0.875" />
+                    </collision-poly>
+                </tile>
+                <tile id="13">
+                    <collision-poly>
+                        <point x="0.125" y="0.125" />
+                        <point x="0.875" y="0.125" />
+                        <point x="0.875" y="1" />
+                        <point x="0.125" y="1" />
+                    </collision-poly>
+                </tile>
+                <tile id="14">
+                    <collision-poly>
+                        <point x="0" y="0.125" />
+                        <point x="0.875" y="0.125" />
+                        <point x="0.875" y="0.875" />
+                        <point x="0" y="0.875" />
+                    </collision-poly>
+                </tile>
+                <tile id="15">
+                    <collision-poly>
+                        <point x="0.125" y="0.125" />
+                        <point x="0.875" y="0.125" />
+                        <point x="0.875" y="0.875" />
+                        <point x="0.125" y="0.875" />
+                    </collision-poly>
+                </tile>
+            </tiles>
+        </object-type>
+        <object-type global="1" name="A_Destroyer" sid="971710179297765">
+            <plugin id="Arr" />
+        </object-type>
+        <object-type global="1" name="A_Level" sid="654013946851209">
+            <plugin id="Arr" />
+        </object-type>
+        <object-type name="9P_Inventory" sid="124734915505969">
+            <plugin id="NinePatch" />
+            <texture original-source="N:\Users\two\drive\bit detective\dialog.png" />
+        </object-type>
+        <object-type name="SF_StaticText" sid="878985894041159">
+            <plugin id="Spritefont2" />
+            <instance-variables>
+                <instance-variable name="current" sid="920986948461388" type="string" />
+            </instance-variables>
+            <texture original-source="C:\Users\amphe\Downloads\LDJAM55\SOURCES\Font-En-Black.png" />
+        </object-type>
+        <object-type global="1" name="A_Inventory" sid="124582522332120">
+            <plugin id="Arr" />
+        </object-type>
+        <object-type name="S_What" sid="377598708876160">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="Type" sid="328600876002916" type="string" />
+                <instance-variable name="Name" sid="469237520349416" type="string" />
+                <instance-variable name="InPuzzle" sid="722913105876771" type="boolean" />
+                <instance-variable name="Damage" sid="894256072715208" type="number" />
+                <instance-variable name="Price" sid="350645026538843" type="number" />
+                <instance-variable name="Heal" sid="713835315177612" type="number" />
+                <instance-variable name="edible" sid="655522923464404" type="boolean" />
+            </instance-variables>
+            <behaviors>
+                <behavior-type name="Bullet" sid="444018971215816">
+                    <behavior id="Bullet" />
+                </behavior-type>
+                <behavior-type name="Sine" sid="219174514575448">
+                    <behavior id="Sin" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="5" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="577706342485479" speed="0">
+                    <frame duration="1" hotspotX="0.5" hotspotY="1" original-source="C:\Users\amphe\Downloads\LDJAM55\SOURCES\dagger.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="1" original-source="C:\Users\amphe\Downloads\LDJAM55\SOURCES\boot.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="1" original-source="C:\Users\amphe\Downloads\LDJAM55\SOURCES\rock.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="1" original-source="C:\Users\amphe\Downloads\LDJAM55\SOURCES\apple.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="1" original-source="C:\Users\amphe\Downloads\LDJAM55\SOURCES\potion.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="S_Whom" sid="859319285231716">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="Type" sid="578972415572409" type="string" />
+                <instance-variable name="Name" sid="160174681983392" type="string" />
+                <instance-variable name="inPuzzle" sid="372182264257441" type="boolean" />
+                <instance-variable name="CurrentHP" sid="529544107774500" type="number" />
+                <instance-variable name="MaxHP" sid="889298437971968" type="number" />
+                <instance-variable name="relation" sid="604329760729675" type="number" />
+                <instance-variable name="exp" sid="599829732305811" type="number" />
+                <instance-variable name="Money" sid="969319649681473" type="number" />
+                <instance-variable name="Damage" sid="142641610573732" type="number" />
+            </instance-variables>
+            <animation-folder>
+                <animation framecount="4" loop="1" name="SkeletonIdle" pingpong="0" repeatcount="1" repeatto="0" sid="476654028224483" speed="5">
+                    <frame duration="5" hotspotX="0.5" hotspotY="1" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="1" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="1" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="1" />
+                </animation>
+                <animation framecount="4" loop="1" name="KnightIdle" pingpong="0" repeatcount="1" repeatto="0" sid="857853221047798" speed="5">
+                    <frame duration="5" hotspotX="0.529412" hotspotY="1" />
+                    <frame duration="1" hotspotX="0.529412" hotspotY="1" />
+                    <frame duration="1" hotspotX="0.529412" hotspotY="1" />
+                    <frame duration="1" hotspotX="0.529412" hotspotY="1" />
+                </animation>
+                <animation framecount="5" loop="1" name="MerchantIdle" pingpong="0" repeatcount="1" repeatto="0" sid="914224130594099" speed="5">
+                    <frame duration="5" hotspotX="0.5" hotspotY="1" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="1" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="1" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="1" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="1" />
+                </animation>
+                <animation framecount="4" loop="1" name="SkeletonWalk" pingpong="0" repeatcount="1" repeatto="0" sid="257265221765744" speed="10">
+                    <frame duration="5" hotspotX="0.5" hotspotY="1" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="1" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="1" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="1" />
+                </animation>
+                <animation framecount="4" loop="1" name="KnightWalk" pingpong="0" repeatcount="1" repeatto="0" sid="752447256995675" speed="10">
+                    <frame duration="1" hotspotX="0.529412" hotspotY="1" />
+                    <frame duration="1" hotspotX="0.529412" hotspotY="1" />
+                    <frame duration="1" hotspotX="0.529412" hotspotY="1" />
+                    <frame duration="1" hotspotX="0.529412" hotspotY="1" />
+                </animation>
+                <animation framecount="5" loop="1" name="MerchantWalk" pingpong="0" repeatcount="1" repeatto="0" sid="829220757093511" speed="10">
+                    <frame duration="1" hotspotX="0.5" hotspotY="1" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="1" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="1" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="1" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type global="1" name="A_QueryActions" sid="225769294038182">
+            <plugin id="Arr" />
+        </object-type>
+        <object-type name="P_Magic" sid="942587116451948">
+            <plugin id="Particles" />
+            <texture />
+        </object-type>
+        <object-type name="Mouse" sid="550089780195453">
+            <plugin id="Mouse" />
+        </object-type>
+        <object-type name="T_HUD" sid="199418661989633">
+            <plugin id="TiledBg" />
+            <texture original-source="C:\Users\amphe\Downloads\LDJAM55\SOURCES\hud.png" />
+        </object-type>
+        <object-type name="TM_LevelGround" sid="810278175755712">
+            <plugin id="Tilemap" />
+            <texture original-source="C:\Users\amphe\Downloads\LDJAM55\SOURCES\tilemap-black.png" />
+            <tiles>
+                <tile id="1">
+                    <collision-poly>
+                        <point x="0" y="0.125" />
+                        <point x="1" y="0.125" />
+                        <point x="1" y="1" />
+                        <point x="0" y="1" />
+                    </collision-poly>
+                </tile>
+                <tile id="2">
+                    <collision-poly>
+                        <point x="0" y="0" />
+                        <point x="0.875" y="0" />
+                        <point x="0.875" y="1" />
+                        <point x="0" y="1" />
+                    </collision-poly>
+                </tile>
+                <tile id="3">
+                    <collision-poly>
+                        <point x="0" y="0" />
+                        <point x="1" y="0" />
+                        <point x="1" y="0.875" />
+                        <point x="0" y="0.875" />
+                    </collision-poly>
+                </tile>
+                <tile id="4">
+                    <collision-poly>
+                        <point x="0.125" y="0" />
+                        <point x="1" y="0" />
+                        <point x="1" y="1" />
+                        <point x="0.125" y="1" />
+                    </collision-poly>
+                </tile>
+                <tile id="5">
+                    <collision-poly>
+                        <point x="0" y="0.125" />
+                        <point x="0.875" y="0.125" />
+                        <point x="0.875" y="1" />
+                        <point x="0" y="1" />
+                    </collision-poly>
+                </tile>
+                <tile id="6">
+                    <collision-poly>
+                        <point x="0" y="0.125" />
+                        <point x="1" y="0.125" />
+                        <point x="1" y="0.875" />
+                        <point x="0" y="0.875" />
+                    </collision-poly>
+                </tile>
+                <tile id="7">
+                    <collision-poly>
+                        <point x="0.125" y="0.125" />
+                        <point x="1" y="0.125" />
+                        <point x="1" y="1" />
+                        <point x="0.125" y="1" />
+                    </collision-poly>
+                </tile>
+                <tile id="8">
+                    <collision-poly>
+                        <point x="0" y="0" />
+                        <point x="0.875" y="0" />
+                        <point x="0.875" y="0.875" />
+                        <point x="0" y="0.875" />
+                    </collision-poly>
+                </tile>
+                <tile id="9">
+                    <collision-poly>
+                        <point x="0.125" y="0" />
+                        <point x="0.875" y="0" />
+                        <point x="0.875" y="1" />
+                        <point x="0.125" y="1" />
+                    </collision-poly>
+                </tile>
+                <tile id="10">
+                    <collision-poly>
+                        <point x="0.125" y="0.015625" />
+                        <point x="1" y="0" />
+                        <point x="1" y="0.875" />
+                        <point x="0.125" y="0.875" />
+                    </collision-poly>
+                </tile>
+                <tile id="11">
+                    <collision-poly>
+                        <point x="0.125" y="0" />
+                        <point x="0.875" y="0" />
+                        <point x="0.875" y="0.875" />
+                        <point x="0.125" y="0.875" />
+                    </collision-poly>
+                </tile>
+                <tile id="12">
+                    <collision-poly>
+                        <point x="0.125" y="0.125" />
+                        <point x="1" y="0.125" />
+                        <point x="1" y="0.875" />
+                        <point x="0.125" y="0.875" />
+                    </collision-poly>
+                </tile>
+                <tile id="13">
+                    <collision-poly>
+                        <point x="0.125" y="0.125" />
+                        <point x="0.875" y="0.125" />
+                        <point x="0.875" y="1" />
+                        <point x="0.125" y="1" />
+                    </collision-poly>
+                </tile>
+                <tile id="14">
+                    <collision-poly>
+                        <point x="0" y="0.125" />
+                        <point x="0.875" y="0.125" />
+                        <point x="0.875" y="0.875" />
+                        <point x="0" y="0.875" />
+                    </collision-poly>
+                </tile>
+                <tile id="15">
+                    <collision-poly>
+                        <point x="0.125" y="0.125" />
+                        <point x="0.875" y="0.125" />
+                        <point x="0.875" y="0.875" />
+                        <point x="0.125" y="0.875" />
+                    </collision-poly>
+                </tile>
+            </tiles>
+        </object-type>
+        <object-type name="SF_InteractSummury" sid="203100021976514">
+            <plugin id="Spritefont2" />
+            <behaviors>
+                <behavior-type name="Bullet" sid="562517108726162">
+                    <behavior id="Bullet" />
+                </behavior-type>
+            </behaviors>
+            <texture original-source="C:\Users\amphe\Downloads\LDJAM55\SOURCES\Font-En-Black-outline.png" />
+        </object-type>
+        <object-type name="SF_HP" sid="760851352011637">
+            <plugin id="Spritefont2" />
+            <instance-variables>
+                <instance-variable name="current" sid="292029622034390" type="string" />
+            </instance-variables>
+            <texture original-source="C:\Users\amphe\Downloads\LDJAM55\SOURCES\Font-En-Black.png" />
+        </object-type>
+        <object-type name="SF_GOLD" sid="210836676200863">
+            <plugin id="Spritefont2" />
+            <instance-variables>
+                <instance-variable name="current" sid="273688234131224" type="string" />
+            </instance-variables>
+            <texture original-source="C:\Users\amphe\Downloads\LDJAM55\SOURCES\Font-En-Black.png" />
+        </object-type>
+        <object-type name="SF_LVL" sid="257341998371348">
+            <plugin id="Spritefont2" />
+            <instance-variables>
+                <instance-variable name="current" sid="830471432321716" type="string" />
+            </instance-variables>
+            <texture original-source="C:\Users\amphe\Downloads\LDJAM55\SOURCES\Font-En-Black.png" />
+        </object-type>
+        <object-type name="SF_DAMAGE" sid="392425476559045">
+            <plugin id="Spritefont2" />
+            <instance-variables>
+                <instance-variable name="current" sid="922395958164109" type="string" />
+            </instance-variables>
+            <texture original-source="C:\Users\amphe\Downloads\LDJAM55\SOURCES\Font-En-Black.png" />
+        </object-type>
+        <object-type name="T_DEAD" sid="778625357187221">
+            <plugin id="TiledBg" />
+            <texture original-source="C:\Users\amphe\Downloads\LDJAM55\SOURCES\dead.png" />
+        </object-type>
+        <object-type name="SF_Title" sid="666902584048587">
+            <plugin id="Spritefont2" />
+            <instance-variables>
+                <instance-variable name="current" sid="841993580615535" type="string" />
+            </instance-variables>
+            <texture original-source="C:\Users\amphe\Downloads\LDJAM55\SOURCES\Font-En-Black.png" />
+        </object-type>
+    </object-folder>
+    <families>
+        <family name="Sort" plugin-id="Sprite" sid="386315634379267">
+            <members>
+                <member>S_Hero</member>
+                <member>S_What</member>
+                <member>S_Whom</member>
+            </members>
+        </family>
+    </families>
+    <layout-folder>
+        <layout>Layout 1.xml</layout>
+    </layout-folder>
+    <event-folder>
+        <event-sheet>Event sheet 1.xml</event-sheet>
+    </event-folder>
+    <global-instances>
+        <global-instance type="Touch" uid="4">
+            <properties>
+                <use-mouse-input>Yes</use-mouse-input>
+            </properties>
+        </global-instance>
+        <global-instance type="Function" uid="10" />
+        <global-instance type="Keyboard" uid="26" />
+        <global-instance type="Mouse" uid="6" />
+    </global-instances>
+    <sounds-folder />
+    <music-folder />
+    <files-folder>
+        <file-folder name="Icons">
+            <file name="icon-16.png" />
+            <file name="icon-32.png" />
+            <file name="icon-114.png" />
+            <file name="icon-128.png" />
+            <file name="icon-256.png" />
+            <file name="loading-logo.png" />
+        </file-folder>
+    </files-folder>
+</c2project>
