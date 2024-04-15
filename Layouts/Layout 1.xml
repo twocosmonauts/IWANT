@@ -136,6 +136,7 @@
                         <NewLevelExp>100</NewLevelExp>
                         <Level>1</Level>
                         <Money>0</Money>
+                        <CurrentHP>100</CurrentHP>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="ScrollTo">

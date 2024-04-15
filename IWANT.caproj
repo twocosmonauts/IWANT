@@ -192,6 +192,7 @@
                 <instance-variable name="NewLevelExp" sid="862990644810648" type="number" />
                 <instance-variable name="Level" sid="571011155325048" type="number" />
                 <instance-variable name="Money" sid="208785808867323" type="number" />
+                <instance-variable name="CurrentHP" sid="614522706438107" type="number" />
             </instance-variables>
             <behaviors>
                 <behavior-type name="ScrollTo" sid="984351700477044">

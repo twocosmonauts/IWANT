@@ -3642,7 +3642,7 @@
                     <param id="0" name="Text">&quot;gold:&quot;&amp;S_Hero.money</param>
                 </action>
                 <action id="0" name="Set text" sid="381353400020659" type="SF_HP">
-                    <param id="0" name="Text">&quot;health:&quot;&amp;S_Hero.currentXP</param>
+                    <param id="0" name="Text">&quot;health:&quot;&amp;S_Hero.currentHP</param>
                 </action>
                 <action id="0" name="Set text" sid="924063817985010" type="SF_DAMAGE">
                     <param id="0" name="Text">&quot;damage:&quot;&amp;S_Hero.damage</param>
@@ -5253,7 +5253,7 @@
                 <event-block sid="169067517292666">
                     <conditions>
                         <condition id="-7" name="Compare instance variable" sid="867154013950327" type="S_Hero">
-                            <param id="0" name="Instance variable">currentXP</param>
+                            <param id="0" name="Instance variable">CurrentHP</param>
                             <param id="1" name="Comparison">3</param>
                             <param id="2" name="Value">0</param>
                         </condition>
