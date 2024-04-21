@@ -11,7 +11,6 @@
     <saved-with-version>28000</saved-with-version>
     <used-plugins>
         <plugin author="Scirra" id="Arr" version="1">Array</plugin>
-        <plugin author="Scirra" id="Dictionary" version="1">Dictionary</plugin>
         <plugin author="Scirra" id="Function" version="1">Function</plugin>
         <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
         <plugin author="Scirra" id="Mouse" version="1">Mouse</plugin>
@@ -72,16 +71,14 @@
         <object-type global="1" name="A_Map" sid="841934801715512">
             <plugin id="Arr" />
         </object-type>
-        <object-type name="S_Idea" sid="990002395331653">
+        <object-type name="Idea" sid="990002395331653">
             <plugin id="Sprite" />
             <instance-variables>
-                <instance-variable name="GridPositionX" sid="663780115732739" type="number" />
-                <instance-variable name="GridPositionY" sid="431627111519995" type="number" />
-                <instance-variable name="DragPositionX" sid="943058226795204" type="number" />
-                <instance-variable name="DragPositionY" sid="461742593234943" type="number" />
                 <instance-variable name="Type" sid="186756785487278" type="string" />
                 <instance-variable name="Name" sid="565042841038335" type="string" />
                 <instance-variable name="UIDOnMap" sid="867694029265835" type="number" />
+                <instance-variable name="XX" sid="529049062356819" type="number" />
+                <instance-variable name="YY" sid="388211722681575" type="number" />
             </instance-variables>
             <behaviors>
                 <behavior-type name="DragDrop" sid="301788155607218">
@@ -91,83 +88,68 @@
                     <behavior id="Flash" />
                 </behavior-type>
             </behaviors>
-            <container>
-                <type>S_Idea</type>
-                <type>A_Idea</type>
-                <type>D_LinksUID</type>
-                <type>D_LinksType</type>
-            </container>
             <animation-folder>
                 <animation framecount="1" loop="1" name="How" pingpong="0" repeatcount="1" repeatto="0" sid="887370384049770" speed="0">
                     <frame duration="1" hotspotX="0" hotspotY="0.5">
                         <collision-poly>
-                            <point x="0" y="0" />
-                            <point x="0.25" y="0" />
-                            <point x="0.25" y="1" />
-                            <point x="0" y="1" />
+                            <point x="0.0625" y="0.015625" />
+                            <point x="0.9375" y="0.015625" />
+                            <point x="0.9375" y="0.984375" />
+                            <point x="0.0625" y="0.984375" />
                         </collision-poly>
                     </frame>
                 </animation>
                 <animation framecount="1" loop="1" name="Do" pingpong="0" repeatcount="1" repeatto="0" sid="876539684514634" speed="0">
-                    <frame duration="1" hotspotX="0" hotspotY="0.25">
+                    <frame duration="1" hotspotX="0" hotspotY="0.333333">
                         <collision-poly>
-                            <point x="0" y="0" />
-                            <point x="0.25" y="0" />
-                            <point x="0.25" y="0.25" />
-                            <point x="0.5" y="0.25" />
-                            <point x="0.5" y="0.5" />
-                            <point x="0.25" y="0.5" />
-                            <point x="0.25" y="0.75" />
-                            <point x="0" y="0.75" />
+                            <point x="0.03125" y="0.0208333" />
+                            <point x="0.46875" y="0.0208333" />
+                            <point x="0.46875" y="0.354167" />
+                            <point x="0.96875" y="0.354167" />
+                            <point x="0.96875" y="0.645833" />
+                            <point x="0.46875" y="0.645833" />
+                            <point x="0.46875" y="0.979167" />
+                            <point x="0.03125" y="0.979167" />
                         </collision-poly>
                     </frame>
                 </animation>
                 <animation framecount="1" loop="1" name="what" pingpong="0" repeatcount="1" repeatto="0" sid="196885742446065" speed="0">
-                    <frame duration="1" hotspotX="0" hotspotY="0.25">
+                    <frame duration="1" hotspotX="0" hotspotY="0.333333">
                         <collision-poly>
-                            <point x="0" y="0" />
-                            <point x="0.5" y="0" />
-                            <point x="0.5" y="0.25" />
-                            <point x="0.25" y="0.25" />
-                            <point x="0.25" y="0.75" />
-                            <point x="0" y="0.75" />
+                            <point x="0.03125" y="0.0208333" />
+                            <point x="0.96875" y="0.0208333" />
+                            <point x="0.96875" y="0.3125" />
+                            <point x="0.46875" y="0.3125" />
+                            <point x="0.46875" y="0.979167" />
+                            <point x="0.03125" y="0.979167" />
                         </collision-poly>
                     </frame>
                 </animation>
                 <animation framecount="1" loop="1" name="whom" pingpong="0" repeatcount="1" repeatto="0" sid="189588402065759" speed="0">
-                    <frame duration="1" hotspotX="0.25" hotspotY="0.25">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.333333">
                         <collision-poly>
-                            <point x="0" y="0" />
-                            <point x="0.25" y="0" />
-                            <point x="0.25" y="0.25" />
-                            <point x="0.5" y="0.25" />
-                            <point x="0.5" y="0.75" />
-                            <point x="0.25" y="0.75" />
-                            <point x="0.25" y="0.5" />
-                            <point x="0" y="0.5" />
+                            <point x="0.03125" y="0.0208333" />
+                            <point x="0.46875" y="0.0208333" />
+                            <point x="0.46875" y="0.354167" />
+                            <point x="0.96875" y="0.354167" />
+                            <point x="0.96875" y="0.979167" />
+                            <point x="0.53125" y="0.979167" />
+                            <point x="0.53125" y="0.645833" />
+                            <point x="0.03125" y="0.645833" />
                         </collision-poly>
                     </frame>
                 </animation>
                 <animation framecount="1" loop="1" name="want" pingpong="0" repeatcount="1" repeatto="0" sid="898931254550473" speed="0">
-                    <frame duration="1" hotspotX="0.75" hotspotY="0.25">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
                         <collision-poly>
-                            <point x="1" y="0" />
-                            <point x="1" y="0.5" />
-                            <point x="0.5" y="0.5" />
-                            <point x="0.5" y="0" />
+                            <point x="0.96875" y="0.03125" />
+                            <point x="0.96875" y="0.96875" />
+                            <point x="0.03125" y="0.96875" />
+                            <point x="0.03125" y="0.03125" />
                         </collision-poly>
                     </frame>
                 </animation>
             </animation-folder>
-        </object-type>
-        <object-type global="1" name="A_Idea" sid="692432402991255">
-            <plugin id="Arr" />
-            <container>
-                <type>S_Idea</type>
-                <type>A_Idea</type>
-                <type>D_LinksUID</type>
-                <type>D_LinksType</type>
-            </container>
         </object-type>
         <object-type name="Touch" sid="265160493340784">
             <plugin id="Touch" />
@@ -183,28 +165,10 @@
             <plugin id="Spritefont2" />
             <texture original-source="C:\Users\amphe\Downloads\LDJAM55\SOURCES\Font-En.png" />
         </object-type>
-        <object-type global="1" name="D_LinksUID" sid="985154404190490">
-            <plugin id="Dictionary" />
-            <container>
-                <type>S_Idea</type>
-                <type>A_Idea</type>
-                <type>D_LinksUID</type>
-                <type>D_LinksType</type>
-            </container>
-        </object-type>
-        <object-type global="1" name="D_LinksType" sid="209359574959359">
-            <plugin id="Dictionary" />
-            <container>
-                <type>S_Idea</type>
-                <type>A_Idea</type>
-                <type>D_LinksUID</type>
-                <type>D_LinksType</type>
-            </container>
-        </object-type>
         <object-type global="1" name="A_FinalPhrase" sid="763274684334211">
             <plugin id="Arr" />
         </object-type>
-        <object-type name="S_Hero" sid="608560004997178">
+        <object-type name="Hero" sid="608560004997178">
             <plugin id="Sprite" />
             <instance-variables>
                 <instance-variable name="Direction" sid="105547683142388" type="number" />
@@ -455,7 +419,7 @@
         <object-type global="1" name="A_Inventory" sid="124582522332120">
             <plugin id="Arr" />
         </object-type>
-        <object-type name="S_What" sid="377598708876160">
+        <object-type name="Item" sid="377598708876160">
             <plugin id="Sprite" />
             <instance-variables>
                 <instance-variable name="Type" sid="328600876002916" type="string" />
@@ -487,7 +451,7 @@
                 </animation>
             </animation-folder>
         </object-type>
-        <object-type name="S_Whom" sid="859319285231716">
+        <object-type name="NPC" sid="859319285231716">
             <plugin id="Sprite" />
             <instance-variables>
                 <instance-variable name="Type" sid="578972415572409" type="string" />
@@ -549,7 +513,7 @@
         <object-type global="1" name="A_QueryActions" sid="225769294038182">
             <plugin id="Arr" />
         </object-type>
-        <object-type name="P_Magic" sid="942587116451948">
+        <object-type name="Magic" sid="942587116451948">
             <plugin id="Particles" />
             <texture />
         </object-type>
@@ -734,24 +698,18 @@
             </instance-variables>
             <texture original-source="C:\Users\amphe\Downloads\LDJAM55\IWANT\ART-SOURCES\Font-En-Black.png" />
         </object-type>
-        <object-type global="1" name="A_IdeaRotateHelper" sid="904184283284940">
-            <plugin id="Arr" />
-        </object-type>
-        <object-type name="S_Square" sid="194957116366145">
-            <plugin id="Sprite" />
-            <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="251186742173330" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
-                </animation>
-            </animation-folder>
-        </object-type>
     </object-folder>
     <families>
         <family name="Sort" plugin-id="Sprite" sid="386315634379267">
             <members>
-                <member>S_Hero</member>
-                <member>S_What</member>
-                <member>S_Whom</member>
+                <member>Hero</member>
+                <member>Item</member>
+                <member>NPC</member>
+            </members>
+        </family>
+        <family name="Ideas" plugin-id="Sprite" sid="674023879463034">
+            <members>
+                <member>Idea</member>
             </members>
         </family>
     </families>

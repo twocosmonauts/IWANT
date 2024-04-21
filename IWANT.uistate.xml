@@ -10,8 +10,8 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <display name="HTML5" />
     </configurations>
     <open-tabs>
-        <layout active="1" order="2">Layout 1</layout>
-        <event-sheet order="1">Event sheet 1</event-sheet>
+        <layout order="2">Layout 1</layout>
+        <event-sheet active="1" order="1">Event sheet 1</event-sheet>
     </open-tabs>
     <properties>
         <property expanded="1" name="About" />
@@ -21,6 +21,7 @@ you probably do not want to add any .uistate.xml files to the repository.-->
     </properties>
     <families-expanded root="1">
         <family expanded="0" name="Sort" />
+        <family expanded="0" name="Ideas" />
     </families-expanded>
     <folders-expanded>
         <folder expanded="1" path="object-folder/" />
@@ -30,10 +31,9 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <folder expanded="1" path="sound-folder/" />
         <folder expanded="1" path="music-folder/" />
         <folder expanded="0" path="file-folder/Icons/" />
-        <folder expanded="1" path="animation-folder/S_Idea/" />
-        <folder expanded="1" path="animation-folder/S_Hero/" />
-        <folder expanded="1" path="animation-folder/S_What/" />
-        <folder expanded="1" path="animation-folder/S_Whom/" />
-        <folder expanded="1" path="animation-folder/S_Square/" />
+        <folder expanded="1" path="animation-folder/Idea/" />
+        <folder expanded="1" path="animation-folder/Hero/" />
+        <folder expanded="1" path="animation-folder/Item/" />
+        <folder expanded="1" path="animation-folder/NPC/" />
     </folders-expanded>
 </c2uistate>

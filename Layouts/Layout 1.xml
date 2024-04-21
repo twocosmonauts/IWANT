@@ -119,7 +119,7 @@
             <blend-mode>0</blend-mode>
             <effect-fallback>9</effect-fallback>
             <instances>
-                <instance type="S_Hero" uid="22">
+                <instance type="Hero" uid="22">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-animation>idle</initial-animation>
@@ -174,7 +174,7 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="S_What" uid="33">
+                <instance type="Item" uid="33">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-animation>Default</initial-animation>
@@ -231,7 +231,7 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="S_Whom" uid="40">
+                <instance type="NPC" uid="40">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-animation>skeletonidle</initial-animation>
@@ -267,7 +267,7 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="P_Magic" uid="5">
+                <instance type="Magic" uid="5">
                     <properties>
                         <rate>32</rate>
                         <spray-cone>360</spray-cone>
@@ -426,28 +426,6 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="S_Square" uid="36">
-                    <properties>
-                        <initial-visibility>Visible</initial-visibility>
-                        <initial-animation>Default</initial-animation>
-                        <initial-frame>0</initial-frame>
-                        <collisions>Enabled</collisions>
-                    </properties>
-                    <blend-mode>0</blend-mode>
-                    <effect-fallback>0</effect-fallback>
-                    <world>
-                        <x>-88</x>
-                        <y>-64</y>
-                        <z>0</z>
-                        <width>16</width>
-                        <height>16</height>
-                        <depth>0</depth>
-                        <hotspotX>0.5</hotspotX>
-                        <hotspotY>0.5</hotspotY>
-                        <angle>0</angle>
-                        <opacity>1</opacity>
-                    </world>
-                </instance>
             </instances>
             <effects />
         </layer>
@@ -547,21 +525,19 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="S_Idea" uid="17">
+                <instance type="Idea" uid="17">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
-                        <initial-animation>want</initial-animation>
+                        <initial-animation>how</initial-animation>
                         <initial-frame>0</initial-frame>
                         <collisions>Enabled</collisions>
                     </properties>
                     <instance-variables>
-                        <GridPositionX>0</GridPositionX>
-                        <GridPositionY>0</GridPositionY>
-                        <DragPositionX>0</DragPositionX>
-                        <DragPositionY>0</DragPositionY>
-                        <Type>&quot;Want&quot;</Type>
+                        <Type>&quot;want&quot;</Type>
                         <Name>&quot;i want&quot;</Name>
                         <UIDOnMap>0</UIDOnMap>
+                        <XX>0</XX>
+                        <YY>0</YY>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="DragDrop">
@@ -575,14 +551,204 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>78</x>
-                        <y>88</y>
+                        <x>96</x>
+                        <y>64</y>
                         <z>0</z>
-                        <width>32</width>
+                        <width>8</width>
                         <height>32</height>
                         <depth>0</depth>
-                        <hotspotX>0.75</hotspotX>
-                        <hotspotY>0.25</hotspotY>
+                        <hotspotX>0</hotspotX>
+                        <hotspotY>0.5</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="Idea" uid="37">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>do</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <instance-variables>
+                        <Type>&quot;want&quot;</Type>
+                        <Name>&quot;i want&quot;</Name>
+                        <UIDOnMap>0</UIDOnMap>
+                        <XX>0</XX>
+                        <YY>0</YY>
+                    </instance-variables>
+                    <behavior-instances>
+                        <behavior-instance type="DragDrop">
+                            <properties>
+                                <axes>Both</axes>
+                                <initial-state>Enabled</initial-state>
+                            </properties>
+                        </behavior-instance>
+                        <behavior-instance type="Flash" />
+                    </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>116</x>
+                        <y>60</y>
+                        <z>0</z>
+                        <width>16</width>
+                        <height>24</height>
+                        <depth>0</depth>
+                        <hotspotX>0</hotspotX>
+                        <hotspotY>0.333333343</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="Idea" uid="38">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>what</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <instance-variables>
+                        <Type>&quot;want&quot;</Type>
+                        <Name>&quot;i want&quot;</Name>
+                        <UIDOnMap>0</UIDOnMap>
+                        <XX>0</XX>
+                        <YY>0</YY>
+                    </instance-variables>
+                    <behavior-instances>
+                        <behavior-instance type="DragDrop">
+                            <properties>
+                                <axes>Both</axes>
+                                <initial-state>Enabled</initial-state>
+                            </properties>
+                        </behavior-instance>
+                        <behavior-instance type="Flash" />
+                    </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>56</x>
+                        <y>80</y>
+                        <z>0</z>
+                        <width>16</width>
+                        <height>24</height>
+                        <depth>0</depth>
+                        <hotspotX>0</hotspotX>
+                        <hotspotY>0.333333343</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="Idea" uid="39">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>whom</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <instance-variables>
+                        <Type>&quot;want&quot;</Type>
+                        <Name>&quot;i want&quot;</Name>
+                        <UIDOnMap>0</UIDOnMap>
+                        <XX>0</XX>
+                        <YY>0</YY>
+                    </instance-variables>
+                    <behavior-instances>
+                        <behavior-instance type="DragDrop">
+                            <properties>
+                                <axes>Both</axes>
+                                <initial-state>Enabled</initial-state>
+                            </properties>
+                        </behavior-instance>
+                        <behavior-instance type="Flash" />
+                    </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>76</x>
+                        <y>44</y>
+                        <z>0</z>
+                        <width>16</width>
+                        <height>24</height>
+                        <depth>0</depth>
+                        <hotspotX>0.5</hotspotX>
+                        <hotspotY>0.333333343</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="Idea" uid="41">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>want</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <instance-variables>
+                        <Type>&quot;want&quot;</Type>
+                        <Name>&quot;i want&quot;</Name>
+                        <UIDOnMap>0</UIDOnMap>
+                        <XX>0</XX>
+                        <YY>0</YY>
+                    </instance-variables>
+                    <behavior-instances>
+                        <behavior-instance type="DragDrop">
+                            <properties>
+                                <axes>Both</axes>
+                                <initial-state>Enabled</initial-state>
+                            </properties>
+                        </behavior-instance>
+                        <behavior-instance type="Flash" />
+                    </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>88</x>
+                        <y>96</y>
+                        <z>0</z>
+                        <width>16</width>
+                        <height>16</height>
+                        <depth>0</depth>
+                        <hotspotX>0.5</hotspotX>
+                        <hotspotY>0.5</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="Idea" uid="42">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>want</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <instance-variables>
+                        <Type>&quot;want&quot;</Type>
+                        <Name>&quot;i want&quot;</Name>
+                        <UIDOnMap>0</UIDOnMap>
+                        <XX>0</XX>
+                        <YY>0</YY>
+                    </instance-variables>
+                    <behavior-instances>
+                        <behavior-instance type="DragDrop">
+                            <properties>
+                                <axes>Both</axes>
+                                <initial-state>Enabled</initial-state>
+                            </properties>
+                        </behavior-instance>
+                        <behavior-instance type="Flash" />
+                    </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>124</x>
+                        <y>96</y>
+                        <z>0</z>
+                        <width>16</width>
+                        <height>16</height>
+                        <depth>0</depth>
+                        <hotspotX>0.5</hotspotX>
+                        <hotspotY>0.5</hotspotY>
                         <angle>0</angle>
                         <opacity>1</opacity>
                     </world>
@@ -832,8 +998,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>268</x>
-                        <y>172</y>
+                        <x>178</x>
+                        <y>-24</y>
                         <z>0</z>
                         <width>52</width>
                         <height>8</height>
@@ -922,15 +1088,6 @@
                 <depth>1</depth>
             </properties>
         </instance>
-        <instance type="A_Idea" uid="3">
-            <properties>
-                <width>4</width>
-                <height>4</height>
-                <depth>1</depth>
-            </properties>
-        </instance>
-        <instance type="D_LinksUID" uid="14" />
-        <instance type="D_LinksType" uid="20" />
         <instance type="A_FinalPhrase" uid="21">
             <properties>
                 <width>5</width>
@@ -962,13 +1119,6 @@
         <instance type="A_QueryActions" uid="2">
             <properties>
                 <width>5</width>
-                <height>1</height>
-                <depth>1</depth>
-            </properties>
-        </instance>
-        <instance type="A_IdeaRotateHelper" uid="35">
-            <properties>
-                <width>10</width>
                 <height>1</height>
                 <depth>1</depth>
             </properties>
