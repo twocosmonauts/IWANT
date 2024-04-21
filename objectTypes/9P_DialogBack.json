@@ -1,0 +1,21 @@
+{
+	"name": "9P_DialogBack",
+	"plugin-id": "NinePatch",
+	"sid": 358428824566310,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"image": {
+		"width": 8,
+		"height": 8,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "N:\\Users\\two\\drive\\bit detective\\dialog.png",
+		"exportFormat": "lossless",
+		"exportQuality": 0.8,
+		"imageSpriteId": 5508049,
+		"useCollisionPoly": true,
+		"tag": ""
+	}
+}

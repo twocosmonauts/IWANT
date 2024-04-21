@@ -1,0 +1,29 @@
+{
+	"name": "SF_Title",
+	"plugin-id": "Spritefont2",
+	"sid": 666902584048587,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "current",
+			"type": "string",
+			"desc": "",
+			"show": true,
+			"sid": 841993580615535
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"image": {
+		"width": 42,
+		"height": 42,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "C:\\Users\\amphe\\Downloads\\LDJAM55\\IWANT\\ART-SOURCES\\Font-En-Black.png",
+		"exportFormat": "lossless",
+		"exportQuality": 0.8,
+		"imageSpriteId": 2231316,
+		"useCollisionPoly": true,
+		"tag": ""
+	}
+}

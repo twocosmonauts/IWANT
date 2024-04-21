@@ -1,0 +1,21 @@
+{
+	"name": "Magic",
+	"plugin-id": "Particles",
+	"sid": 942587116451948,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"image": {
+		"width": 3,
+		"height": 3,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "",
+		"exportFormat": "lossless",
+		"exportQuality": 0.8,
+		"imageSpriteId": 8859004,
+		"useCollisionPoly": true,
+		"tag": ""
+	}
+}

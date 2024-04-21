@@ -1,0 +1,21 @@
+{
+	"name": "T_Grid",
+	"plugin-id": "TiledBg",
+	"sid": 359987097089143,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"image": {
+		"width": 8,
+		"height": 8,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "D:\\N\\Users\\two\\drive\\bit detective\\Detective Tycoon prototype\\Textures\\grid.png",
+		"exportFormat": "lossless",
+		"exportQuality": 0.8,
+		"imageSpriteId": 947871,
+		"useCollisionPoly": true,
+		"tag": ""
+	}
+}

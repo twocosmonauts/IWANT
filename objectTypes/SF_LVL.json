@@ -1,0 +1,29 @@
+{
+	"name": "SF_LVL",
+	"plugin-id": "Spritefont2",
+	"sid": 257341998371348,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "current",
+			"type": "string",
+			"desc": "",
+			"show": true,
+			"sid": 830471432321716
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"image": {
+		"width": 42,
+		"height": 42,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "C:\\Users\\amphe\\Downloads\\LDJAM55\\SOURCES\\Font-En-Black.png",
+		"exportFormat": "lossless",
+		"exportQuality": 0.8,
+		"imageSpriteId": 9403292,
+		"useCollisionPoly": true,
+		"tag": ""
+	}
+}

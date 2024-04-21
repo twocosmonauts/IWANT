@@ -1,0 +1,21 @@
+{
+	"name": "SF_IdeaName",
+	"plugin-id": "Spritefont2",
+	"sid": 250621311902972,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"image": {
+		"width": 42,
+		"height": 42,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "C:\\Users\\amphe\\Downloads\\LDJAM55\\SOURCES\\Font-En.png",
+		"exportFormat": "lossless",
+		"exportQuality": 0.8,
+		"imageSpriteId": 9865818,
+		"useCollisionPoly": true,
+		"tag": ""
+	}
+}

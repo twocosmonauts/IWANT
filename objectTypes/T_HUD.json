@@ -1,0 +1,21 @@
+{
+	"name": "T_HUD",
+	"plugin-id": "TiledBg",
+	"sid": 199418661989633,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"image": {
+		"width": 320,
+		"height": 180,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "C:\\Users\\amphe\\Downloads\\LDJAM55\\SOURCES\\hud.png",
+		"exportFormat": "lossless",
+		"exportQuality": 0.8,
+		"imageSpriteId": 5268222,
+		"useCollisionPoly": true,
+		"tag": ""
+	}
+}

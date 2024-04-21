@@ -1,0 +1,27 @@
+{
+	"name": "SF_InteractSummury",
+	"plugin-id": "Spritefont2",
+	"sid": 203100021976514,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Bullet",
+			"name": "Bullet",
+			"sid": 562517108726162
+		}
+	],
+	"effectTypes": [],
+	"image": {
+		"width": 42,
+		"height": 42,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "C:\\Users\\amphe\\Downloads\\LDJAM55\\SOURCES\\Font-En-Black-outline.png",
+		"exportFormat": "lossless",
+		"exportQuality": 0.8,
+		"imageSpriteId": 1846446,
+		"useCollisionPoly": true,
+		"tag": ""
+	}
+}

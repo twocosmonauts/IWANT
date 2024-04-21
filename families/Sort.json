@@ -1,0 +1,13 @@
+{
+	"name": "Sort",
+	"plugin-id": "Sprite",
+	"sid": 386315634379267,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"Hero",
+		"Item",
+		"NPC"
+	]
+}

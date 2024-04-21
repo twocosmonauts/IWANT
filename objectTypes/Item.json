@@ -1,0 +1,156 @@
+{
+	"name": "Item",
+	"plugin-id": "Sprite",
+	"sid": 377598708876160,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "Type",
+			"type": "string",
+			"desc": "",
+			"show": true,
+			"sid": 328600876002916
+		},
+		{
+			"name": "Name",
+			"type": "string",
+			"desc": "",
+			"show": true,
+			"sid": 469237520349416
+		},
+		{
+			"name": "InPuzzle",
+			"type": "boolean",
+			"desc": "",
+			"show": true,
+			"sid": 722913105876771
+		},
+		{
+			"name": "Damage",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 894256072715208
+		},
+		{
+			"name": "Price",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 350645026538843
+		},
+		{
+			"name": "Heal",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 713835315177612
+		},
+		{
+			"name": "edible",
+			"type": "boolean",
+			"desc": "",
+			"show": true,
+			"sid": 655522923464404
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Bullet",
+			"name": "Bullet",
+			"sid": 444018971215816
+		},
+		{
+			"behaviorId": "Sin",
+			"name": "Sine",
+			"sid": 219174514575448
+		},
+		{
+			"behaviorId": "Flash",
+			"name": "Flash",
+			"sid": 952367732240515
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 8,
+						"height": 8,
+						"originX": 0.5,
+						"originY": 1,
+						"originalSource": "C:\\Users\\amphe\\Downloads\\LDJAM55\\SOURCES\\dagger.png",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 8971952,
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					},
+					{
+						"width": 8,
+						"height": 8,
+						"originX": 0.5,
+						"originY": 1,
+						"originalSource": "C:\\Users\\amphe\\Downloads\\LDJAM55\\SOURCES\\boot.png",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 2469867,
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					},
+					{
+						"width": 8,
+						"height": 8,
+						"originX": 0.5,
+						"originY": 1,
+						"originalSource": "C:\\Users\\amphe\\Downloads\\LDJAM55\\SOURCES\\rock.png",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 8590416,
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					},
+					{
+						"width": 8,
+						"height": 8,
+						"originX": 0.5,
+						"originY": 1,
+						"originalSource": "C:\\Users\\amphe\\Downloads\\LDJAM55\\SOURCES\\apple.png",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 4919092,
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					},
+					{
+						"width": 8,
+						"height": 8,
+						"originX": 0.5,
+						"originY": 1,
+						"originalSource": "C:\\Users\\amphe\\Downloads\\LDJAM55\\SOURCES\\potion.png",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 7256062,
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 577706342485479,
+				"name": "Default",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 0
+			}
+		],
+		"subfolders": []
+	}
+}

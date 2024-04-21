@@ -1,0 +1,254 @@
+{
+	"name": "TM_LevelWall",
+	"plugin-id": "Tilemap",
+	"sid": 907389226486556,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "solid",
+			"name": "Solid",
+			"sid": 106430451223566
+		}
+	],
+	"effectTypes": [],
+	"image": {
+		"width": 64,
+		"height": 64,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "C:\\Users\\amphe\\Downloads\\LDJAM55\\SOURCES\\tilemap.png",
+		"exportFormat": "lossless",
+		"exportQuality": 0.8,
+		"imageSpriteId": 6194186,
+		"useCollisionPoly": true,
+		"tag": ""
+	},
+	"tile-collision-polys": {
+		"1": {
+			"collisionPoly": {
+				"points": [
+					0,
+					0.125,
+					1,
+					0.125,
+					1,
+					1,
+					0,
+					1
+				]
+			},
+			"useCollisionPoly": true
+		},
+		"2": {
+			"collisionPoly": {
+				"points": [
+					0,
+					0,
+					0.875,
+					0,
+					0.875,
+					1,
+					0,
+					1
+				]
+			},
+			"useCollisionPoly": true
+		},
+		"3": {
+			"collisionPoly": {
+				"points": [
+					0,
+					0,
+					1,
+					0,
+					1,
+					0.875,
+					0,
+					0.875
+				]
+			},
+			"useCollisionPoly": true
+		},
+		"4": {
+			"collisionPoly": {
+				"points": [
+					0.125,
+					0,
+					1,
+					0,
+					1,
+					1,
+					0.125,
+					1
+				]
+			},
+			"useCollisionPoly": true
+		},
+		"5": {
+			"collisionPoly": {
+				"points": [
+					0,
+					0.125,
+					0.875,
+					0.125,
+					0.875,
+					1,
+					0,
+					1
+				]
+			},
+			"useCollisionPoly": true
+		},
+		"6": {
+			"collisionPoly": {
+				"points": [
+					0,
+					0.125,
+					1,
+					0.125,
+					1,
+					0.875,
+					0,
+					0.875
+				]
+			},
+			"useCollisionPoly": true
+		},
+		"7": {
+			"collisionPoly": {
+				"points": [
+					0.125,
+					0.125,
+					1,
+					0.125,
+					1,
+					1,
+					0.125,
+					1
+				]
+			},
+			"useCollisionPoly": true
+		},
+		"8": {
+			"collisionPoly": {
+				"points": [
+					0,
+					0,
+					0.875,
+					0,
+					0.875,
+					0.875,
+					0,
+					0.875
+				]
+			},
+			"useCollisionPoly": true
+		},
+		"9": {
+			"collisionPoly": {
+				"points": [
+					0.125,
+					0,
+					0.875,
+					0,
+					0.875,
+					1,
+					0.125,
+					1
+				]
+			},
+			"useCollisionPoly": true
+		},
+		"10": {
+			"collisionPoly": {
+				"points": [
+					0.125,
+					0.015625,
+					1,
+					0,
+					1,
+					0.875,
+					0.125,
+					0.875
+				]
+			},
+			"useCollisionPoly": true
+		},
+		"11": {
+			"collisionPoly": {
+				"points": [
+					0.125,
+					0,
+					0.875,
+					0,
+					0.875,
+					0.875,
+					0.125,
+					0.875
+				]
+			},
+			"useCollisionPoly": true
+		},
+		"12": {
+			"collisionPoly": {
+				"points": [
+					0.125,
+					0.125,
+					1,
+					0.125,
+					1,
+					0.875,
+					0.125,
+					0.875
+				]
+			},
+			"useCollisionPoly": true
+		},
+		"13": {
+			"collisionPoly": {
+				"points": [
+					0.125,
+					0.125,
+					0.875,
+					0.125,
+					0.875,
+					1,
+					0.125,
+					1
+				]
+			},
+			"useCollisionPoly": true
+		},
+		"14": {
+			"collisionPoly": {
+				"points": [
+					0,
+					0.125,
+					0.875,
+					0.125,
+					0.875,
+					0.875,
+					0,
+					0.875
+				]
+			},
+			"useCollisionPoly": true
+		},
+		"15": {
+			"collisionPoly": {
+				"points": [
+					0.125,
+					0.125,
+					0.875,
+					0.125,
+					0.875,
+					0.875,
+					0.125,
+					0.875
+				]
+			},
+			"useCollisionPoly": true
+		}
+	}
+}
