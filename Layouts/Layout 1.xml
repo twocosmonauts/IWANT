@@ -214,6 +214,7 @@
                                 <magnitude-random>0</magnitude-random>
                             </properties>
                         </behavior-instance>
+                        <behavior-instance type="Flash" />
                     </behavior-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
@@ -248,6 +249,9 @@
                         <Money>3</Money>
                         <Damage>10</Damage>
                     </instance-variables>
+                    <behavior-instances>
+                        <behavior-instance type="Flash" />
+                    </behavior-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
@@ -384,7 +388,7 @@
                     <properties>
                         <character-width>6</character-width>
                         <character-height>6</character-height>
-                        <character-set>abcdefghijklmnopqrstuvwxyz:1234567890!.+</character-set>
+                        <character-set>abcdefghijklmnopqrstuvwxyz:1234567890!.+-</character-set>
                         <text>Text</text>
                         <scale>1</scale>
                         <initial-visibility>Visible</initial-visibility>
@@ -418,6 +422,28 @@
                         <depth>0</depth>
                         <hotspotX>0.5</hotspotX>
                         <hotspotY>1</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="S_Square" uid="36">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>-88</x>
+                        <y>-64</y>
+                        <z>0</z>
+                        <width>16</width>
+                        <height>16</height>
+                        <depth>0</depth>
+                        <hotspotX>0.5</hotspotX>
+                        <hotspotY>0.5</hotspotY>
                         <angle>0</angle>
                         <opacity>1</opacity>
                     </world>
@@ -524,8 +550,8 @@
                 <instance type="S_Idea" uid="17">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
-                        <initial-animation>Default</initial-animation>
-                        <initial-frame>4</initial-frame>
+                        <initial-animation>want</initial-animation>
+                        <initial-frame>0</initial-frame>
                         <collisions>Enabled</collisions>
                     </properties>
                     <instance-variables>
@@ -544,6 +570,7 @@
                                 <initial-state>Enabled</initial-state>
                             </properties>
                         </behavior-instance>
+                        <behavior-instance type="Flash" />
                     </behavior-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
@@ -554,8 +581,8 @@
                         <width>32</width>
                         <height>32</height>
                         <depth>0</depth>
-                        <hotspotX>0</hotspotX>
-                        <hotspotY>0</hotspotY>
+                        <hotspotX>0.75</hotspotX>
+                        <hotspotY>0.25</hotspotY>
                         <angle>0</angle>
                         <opacity>1</opacity>
                     </world>
@@ -838,8 +865,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>0</x>
-                        <y>0</y>
+                        <x>14</x>
+                        <y>-40</y>
                         <z>0</z>
                         <width>124</width>
                         <height>8</height>
@@ -872,7 +899,7 @@
                     <effect-fallback>0</effect-fallback>
                     <world>
                         <x>0</x>
-                        <y>8</y>
+                        <y>-24</y>
                         <z>0</z>
                         <width>140</width>
                         <height>8</height>
@@ -939,6 +966,13 @@
                 <depth>1</depth>
             </properties>
         </instance>
+        <instance type="A_IdeaRotateHelper" uid="35">
+            <properties>
+                <width>10</width>
+                <height>1</height>
+                <depth>1</depth>
+            </properties>
+        </instance>
     </nonworld-instances>
     <effects>
         <effect-type name="ReplaceColor">
@@ -959,8 +993,24 @@
             <effect id="noise" />
             <effect-instance type="Noise">
                 <parameters>
-                    <color>1</color>
+                    <color>0</color>
                     <intensity>0.2</intensity>
+                </parameters>
+            </effect-instance>
+        </effect-type>
+        <effect-type name="BlurHorizontal">
+            <effect id="blurhorizontal" />
+            <effect-instance type="BlurHorizontal">
+                <parameters>
+                    <intensity>0.3</intensity>
+                </parameters>
+            </effect-instance>
+        </effect-type>
+        <effect-type name="GlowHorizontal">
+            <effect id="glowhorizontal" />
+            <effect-instance type="GlowHorizontal">
+                <parameters>
+                    <intensity>0.5</intensity>
                 </parameters>
             </effect-instance>
         </effect-type>

@@ -24,9 +24,8 @@
                     <sub-events>
                         <event-block sid="245656133176903">
                             <conditions>
-                                <condition id="3" name="Compare frame" sid="630614412582221" type="S_Idea">
-                                    <param id="0" name="Comparison">0</param>
-                                    <param id="1" name="Number">4</param>
+                                <condition id="2" name="Is playing" sid="630614412582221" type="S_Idea">
+                                    <param id="0" name="Animation">&quot;want&quot;</param>
                                 </condition>
                             </conditions>
                             <actions>
@@ -42,6 +41,10 @@
                                 <action id="-10" name="Set value" sid="211370433225979" type="S_Idea">
                                     <param id="0" name="Instance variable">Name</param>
                                     <param id="1" name="Value">&quot;i want&quot;</param>
+                                </action>
+                                <action id="4" name="Set animation" sid="196826749177481" type="S_Idea">
+                                    <param id="0" name="Animation">&quot;want&quot;</param>
+                                    <param id="1" name="From">1</param>
                                 </action>
                             </actions>
                             <sub-events>
@@ -182,6 +185,9 @@
                                             <param id="0" name="X">S_Idea.GridPositionX*CellSize+CellOffset</param>
                                             <param id="1" name="Y">S_Idea.GridPositionY*CellSize+CellOffset</param>
                                         </action>
+                                        <action id="-18" name="Rotate clockwise" sid="679791402523605" type="S_Idea">
+                                            <param id="0" name="Degrees">90</param>
+                                        </action>
                                         <action id="0" name="Call function" sid="704965027830170" type="Function">
                                             <param id="0" name="Name">&quot;RedrawMap&quot;</param>
                                             <param id="1" name="Parameter {n}"></param>
@@ -279,22 +285,34 @@
                             <param id="1" name="Y">S_Idea.DragPositionY*CellSize+CellOffset</param>
                         </action>
                     </actions>
-                </event-block>
-                <event-block sid="877913486053214">
-                    <conditions>
-                        <condition id="0" name="On function" sid="302333158043307" type="Function">
-                            <param id="0" name="Name">&quot;DebugGrid&quot;</param>
-                        </condition>
-                    </conditions>
-                    <actions />
                     <sub-events>
-                        <event-block disabled="1" sid="498296772018949">
+                        <event-block sid="298709626920129">
                             <conditions>
-                                <condition id="3" name="For each element" sid="851388924284328" type="A_Map">
-                                    <param id="0" name="Axes">1</param>
+                                <condition id="0" name="On key pressed" sid="866046365653340" type="Keyboard">
+                                    <param id="0" name="Key">82</param>
                                 </condition>
                             </conditions>
-                            <actions />
+                            <actions>
+                                <action id="-18" name="Rotate clockwise" sid="177593262929373" type="S_Idea">
+                                    <param id="0" name="Degrees">90</param>
+                                </action>
+                                <action disabled="1" id="0" name="Call function" sid="126465403206366" type="Function">
+                                    <param id="0" name="Name">&quot;IdeaRotate&quot;</param>
+                                    <param id="1" name="Parameter {n}">s_idea.UID</param>
+                                </action>
+                                <action disabled="1" id="0" name="Call function" sid="976838587329450" type="Function">
+                                    <param id="0" name="Name">&quot;RedrawMap&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                                <action disabled="1" id="0" name="Call function" sid="977930322521724" type="Function">
+                                    <param id="0" name="Name">&quot;CheckSpawnIdea&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                                <action disabled="1" id="0" name="Call function" sid="186018198139460" type="Function">
+                                    <param id="0" name="Name">&quot;SetLinksWeight&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                            </actions>
                         </event-block>
                     </sub-events>
                 </event-block>
@@ -375,10 +393,6 @@
                                     <param id="0" name="X">S_Idea.GridPositionX*CellSize+CellOffset</param>
                                     <param id="1" name="Y">S_Idea.GridPositionY*CellSize+CellOffset</param>
                                 </action>
-                                <action id="0" name="Call function" sid="653053538149235" type="Function">
-                                    <param id="0" name="Name">&quot;DebugGrid&quot;</param>
-                                    <param id="1" name="Parameter {n}"></param>
-                                </action>
                             </actions>
                         </event-block>
                     </sub-events>
@@ -396,8 +410,9 @@
                             <param id="2" name="X">-100</param>
                             <param id="3" name="Y">-100</param>
                         </action>
-                        <action id="5" name="Set frame" sid="961471352124039" type="S_Idea">
-                            <param id="0" name="Frame number">Function.Param(0)</param>
+                        <action id="4" name="Set animation" sid="961471352124039" type="S_Idea">
+                            <param id="0" name="Animation">Function.Param(0)</param>
+                            <param id="1" name="From">1</param>
                         </action>
                         <action id="-10" name="Set value" sid="118490972155038" type="S_Idea">
                             <param id="0" name="Instance variable">UIDOnMap</param>
@@ -407,9 +422,8 @@
                     <sub-events>
                         <event-block sid="500515958107600">
                             <conditions>
-                                <condition id="3" name="Compare frame" sid="315584069222434" type="S_Idea">
-                                    <param id="0" name="Comparison">0</param>
-                                    <param id="1" name="Number">0</param>
+                                <condition id="2" name="Is playing" sid="315584069222434" type="S_Idea">
+                                    <param id="0" name="Animation">&quot;how&quot;</param>
                                 </condition>
                             </conditions>
                             <actions>
@@ -446,9 +460,8 @@
                         </event-block>
                         <event-block sid="764166679524413">
                             <conditions>
-                                <condition id="3" name="Compare frame" sid="650881078433002" type="S_Idea">
-                                    <param id="0" name="Comparison">0</param>
-                                    <param id="1" name="Number">1</param>
+                                <condition id="2" name="Is playing" sid="692581150884941" type="S_Idea">
+                                    <param id="0" name="Animation">&quot;Do&quot;</param>
                                 </condition>
                             </conditions>
                             <actions>
@@ -502,9 +515,8 @@
                         </event-block>
                         <event-block sid="960977121283462">
                             <conditions>
-                                <condition id="3" name="Compare frame" sid="534943668662421" type="S_Idea">
-                                    <param id="0" name="Comparison">0</param>
-                                    <param id="1" name="Number">2</param>
+                                <condition id="2" name="Is playing" sid="923454980369268" type="S_Idea">
+                                    <param id="0" name="Animation">&quot;what&quot;</param>
                                 </condition>
                             </conditions>
                             <actions>
@@ -558,9 +570,8 @@
                         </event-block>
                         <event-block sid="242637684833559">
                             <conditions>
-                                <condition id="3" name="Compare frame" sid="345746005860114" type="S_Idea">
-                                    <param id="0" name="Comparison">0</param>
-                                    <param id="1" name="Number">3</param>
+                                <condition id="2" name="Is playing" sid="226135994163071" type="S_Idea">
+                                    <param id="0" name="Animation">&quot;whom&quot;</param>
                                 </condition>
                             </conditions>
                             <actions>
@@ -614,9 +625,8 @@
                         </event-block>
                         <event-block sid="749600839220642">
                             <conditions>
-                                <condition id="3" name="Compare frame" sid="274933146575005" type="S_Idea">
-                                    <param id="0" name="Comparison">0</param>
-                                    <param id="1" name="Number">4</param>
+                                <condition id="2" name="Is playing" sid="811385823596685" type="S_Idea">
+                                    <param id="0" name="Animation">&quot;want&quot;</param>
                                 </condition>
                             </conditions>
                             <actions>
@@ -818,9 +828,8 @@
                             <sub-events>
                                 <event-block sid="987387631010995">
                                     <conditions>
-                                        <condition id="3" name="Compare frame" sid="983946182367946" type="S_Idea">
-                                            <param id="0" name="Comparison">0</param>
-                                            <param id="1" name="Number">0</param>
+                                        <condition id="2" name="Is playing" sid="674603887613026" type="S_Idea">
+                                            <param id="0" name="Animation">&quot;how&quot;</param>
                                         </condition>
                                     </conditions>
                                     <actions>
@@ -849,9 +858,8 @@
                                 </event-block>
                                 <event-block sid="924565339242969">
                                     <conditions>
-                                        <condition id="3" name="Compare frame" sid="372966471317865" type="S_Idea">
-                                            <param id="0" name="Comparison">0</param>
-                                            <param id="1" name="Number">1</param>
+                                        <condition id="2" name="Is playing" sid="327224558844580" type="S_Idea">
+                                            <param id="0" name="Animation">&quot;Do&quot;</param>
                                         </condition>
                                     </conditions>
                                     <actions>
@@ -897,9 +905,8 @@
                                 </event-block>
                                 <event-block sid="398405803921641">
                                     <conditions>
-                                        <condition id="3" name="Compare frame" sid="156979007646144" type="S_Idea">
-                                            <param id="0" name="Comparison">0</param>
-                                            <param id="1" name="Number">2</param>
+                                        <condition id="2" name="Is playing" sid="482099465182980" type="S_Idea">
+                                            <param id="0" name="Animation">&quot;what&quot;</param>
                                         </condition>
                                     </conditions>
                                     <actions>
@@ -945,9 +952,8 @@
                                 </event-block>
                                 <event-block sid="487013438987600">
                                     <conditions>
-                                        <condition id="3" name="Compare frame" sid="979011249754957" type="S_Idea">
-                                            <param id="0" name="Comparison">0</param>
-                                            <param id="1" name="Number">3</param>
+                                        <condition id="2" name="Is playing" sid="951208482789954" type="S_Idea">
+                                            <param id="0" name="Animation">&quot;whom&quot;</param>
                                         </condition>
                                     </conditions>
                                     <actions>
@@ -993,9 +999,8 @@
                                 </event-block>
                                 <event-block sid="395594535558987">
                                     <conditions>
-                                        <condition id="3" name="Compare frame" sid="821834108602724" type="S_Idea">
-                                            <param id="0" name="Comparison">0</param>
-                                            <param id="1" name="Number">4</param>
+                                        <condition id="2" name="Is playing" sid="108003906339775" type="S_Idea">
+                                            <param id="0" name="Animation">&quot;want&quot;</param>
                                         </condition>
                                     </conditions>
                                     <actions>
@@ -1034,6 +1039,80 @@
                                     <param id="1" name="Parameter {n}"></param>
                                 </action>
                             </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="165755588161534">
+                    <conditions>
+                        <condition id="0" name="On function" sid="777507174735884" type="Function">
+                            <param id="0" name="Name">&quot;IdeaRotate&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="702254467565075">
+                            <conditions>
+                                <condition id="-14" name="Pick by unique ID" sid="117873720252897" type="S_Idea">
+                                    <param id="0" name="Unique ID">Function.Param(0)</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="1" name="Set size" sid="970017250679314" type="A_IdeaRotateHelper">
+                                    <param id="0" name="Width"> A_Idea.Height</param>
+                                    <param id="1" name="Height">A_Idea.Width</param>
+                                    <param id="2" name="Depth">1</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="198724349614144">
+                                    <conditions>
+                                        <condition id="3" name="For each element" sid="828795458827240" type="A_Idea">
+                                            <param id="0" name="Axes">1</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="3" name="Set at XY" sid="651180914910262" type="A_IdeaRotateHelper">
+                                            <param id="0" name="X">A_Idea.CurY</param>
+                                            <param id="1" name="Y">A_Idea.Width-1-A_Idea.CurX</param>
+                                            <param id="2" name="Value">A_Idea.Curvalue</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="253923049446000">
+                            <conditions>
+                                <condition id="-4" name="Trigger once while true" sid="220208651662616" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="1" name="Set size" sid="455689570549247" type="A_Idea">
+                                    <param id="0" name="Width"> A_IdeaRotateHelper.Height</param>
+                                    <param id="1" name="Height">A_IdeaRotateHelper.Width</param>
+                                    <param id="2" name="Depth">1</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="272605817186415">
+                                    <conditions>
+                                        <condition id="3" name="For each element" sid="393389851861294" type="A_IdeaRotateHelper">
+                                            <param id="0" name="Axes">1</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="3" name="Set at XY" sid="398883007428504" type="A_Idea">
+                                            <param id="0" name="X">A_IdeaRotateHelper.CurX</param>
+                                            <param id="1" name="Y">A_IdeaRotateHelper.CurY</param>
+                                            <param id="2" name="Value">A_IdeaRotateHelper.Curvalue</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="802188153979670">
+                            <conditions>
+                                <condition id="-4" name="Trigger once while true" sid="926557707394480" type="System" />
+                            </conditions>
+                            <actions />
                         </event-block>
                     </sub-events>
                 </event-block>
@@ -1823,7 +1902,7 @@
                                             <actions>
                                                 <action id="0" name="Call function" sid="939504267395087" type="Function">
                                                     <param id="0" name="Name">&quot;SpawnNewThink&quot;</param>
-                                                    <param id="1" name="Parameter {n}">2{###}S_What.Name{###}S_What.UID</param>
+                                                    <param id="1" name="Parameter {n}">&quot;what&quot;{###}S_What.Name{###}S_What.UID</param>
                                                 </action>
                                                 <action id="-13" name="Set boolean" sid="591231215598987" type="S_What">
                                                     <param id="0" name="Instance variable">InPuzzle</param>
@@ -1864,7 +1943,7 @@
                                             <actions>
                                                 <action id="0" name="Call function" sid="575513301995510" type="Function">
                                                     <param id="0" name="Name">&quot;SpawnNewThink&quot;</param>
-                                                    <param id="1" name="Parameter {n}">3{###}S_Whom.Name{###}S_Whom.UID</param>
+                                                    <param id="1" name="Parameter {n}">&quot;whom&quot;{###}S_Whom.Name{###}S_Whom.UID</param>
                                                 </action>
                                                 <action id="-13" name="Set boolean" sid="903946077694414" type="S_Whom">
                                                     <param id="0" name="Instance variable">inPuzzle</param>
@@ -1887,11 +1966,7 @@
                             <actions>
                                 <action id="0" name="Call function" sid="567120902717040" type="Function">
                                     <param id="0" name="Name">&quot;SpawnNewThink&quot;</param>
-                                    <param id="1" name="Parameter {n}">1{###}choose(&quot;fight with&quot;, &quot;cast spell on&quot;, &quot;to feed&quot;, &quot;trade with&quot;, &quot;argue with&quot;, &quot;pickpocket from&quot;, &quot;hug&quot;)</param>
-                                </action>
-                                <action disabled="1" id="0" name="Call function" sid="688302442634669" type="Function">
-                                    <param id="0" name="Name">&quot;SpawnNewThink&quot;</param>
-                                    <param id="1" name="Parameter {n}">1{###}&quot;fight with&quot;</param>
+                                    <param id="1" name="Parameter {n}">&quot;do&quot;{###}choose(&quot;fight with&quot;, &quot;cast spell on&quot;, &quot;to feed&quot;, &quot;trade with&quot;, &quot;argue with&quot;, &quot;pickpocket from&quot;, &quot;hug&quot;)</param>
                                 </action>
                             </actions>
                         </event-block>
@@ -1906,7 +1981,7 @@
                             <actions>
                                 <action id="0" name="Call function" sid="421681790041752" type="Function">
                                     <param id="0" name="Name">&quot;SpawnNewThink&quot;</param>
-                                    <param id="1" name="Parameter {n}">0{###}choose(&quot;quickly&quot;, &quot;stealthily&quot;, &quot;brutally&quot;, &quot;wisely&quot;, &quot;magically&quot;, &quot;with force&quot;, &quot;carefully&quot;, &quot;with charm&quot;, &quot;loudly&quot;)</param>
+                                    <param id="1" name="Parameter {n}">&quot;how&quot;{###}choose(&quot;quickly&quot;, &quot;stealthily&quot;, &quot;brutally&quot;, &quot;wisely&quot;, &quot;magically&quot;, &quot;with force&quot;, &quot;carefully&quot;, &quot;with charm&quot;, &quot;loudly&quot;)</param>
                                 </action>
                             </actions>
                         </event-block>
@@ -1921,7 +1996,7 @@
                             <actions>
                                 <action id="0" name="Call function" sid="918363070805094" type="Function">
                                     <param id="0" name="Name">&quot;SpawnNewThink&quot;</param>
-                                    <param id="1" name="Parameter {n}">4{###}&quot;want&quot;</param>
+                                    <param id="1" name="Parameter {n}">&quot;want&quot;{###}&quot;want&quot;</param>
                                 </action>
                             </actions>
                         </event-block>
@@ -3623,6 +3698,23 @@
                             <actions>
                                 <action id="-9" name="Destroy" sid="966195300122152" type="S_What" />
                             </actions>
+                            <sub-events>
+                                <event-block disabled="1" sid="310911429766510">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="967860799968849" type="S_Idea">
+                                            <param id="0" name="Instance variable">UIDOnMap</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">S_What.UID</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Call function" sid="451511638079818" type="Function">
+                                            <param id="0" name="Name">&quot;DestroyIdeas&quot;</param>
+                                            <param id="1" name="Parameter {n}">S_Idea.UID</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
                         </event-block>
                     </sub-events>
                 </event-block>
@@ -3912,7 +4004,7 @@
                                             <param id="3" name="Y">S_Hero.y-16</param>
                                         </action>
                                         <action id="0" name="Set text" sid="153881708833943" type="SF_InteractSummury">
-                                            <param id="0" name="Text">S_Whom.Name&amp;&quot; relation +&quot;&amp;floor(FinalRelation)</param>
+                                            <param id="0" name="Text">S_Whom.Name&amp;&quot; relation &quot;&amp;floor(FinalRelation)</param>
                                         </action>
                                         <action id="-3" name="Create object" sid="796714696096712" type="System">
                                             <param id="0" name="Object to create">SF_InteractSummury</param>
@@ -4148,7 +4240,7 @@
                                             <param id="3" name="Y">S_Hero.y-16</param>
                                         </action>
                                         <action id="0" name="Set text" sid="227994728795720" type="SF_InteractSummury">
-                                            <param id="0" name="Text">S_Whom.Name&amp;&quot; relation +&quot;&amp;floor(FinalRelation)</param>
+                                            <param id="0" name="Text">S_Whom.Name&amp;&quot; relation &quot;&amp;floor(FinalRelation)</param>
                                         </action>
                                         <action id="-3" name="Create object" sid="684947257417999" type="System">
                                             <param id="0" name="Object to create">SF_InteractSummury</param>
@@ -4407,7 +4499,7 @@
                                             <param id="3" name="Y">S_Hero.y-24</param>
                                         </action>
                                         <action id="0" name="Set text" sid="772666231519874" type="SF_InteractSummury">
-                                            <param id="0" name="Text">S_Whom.Name&amp;&quot; relation +&quot;&amp;floor(FinalRelation)</param>
+                                            <param id="0" name="Text">S_Whom.Name&amp;&quot; relation &quot;&amp;floor(FinalRelation)</param>
                                         </action>
                                         <action id="-3" name="Create object" sid="189287962569898" type="System">
                                             <param id="0" name="Object to create">SF_InteractSummury</param>
@@ -4621,7 +4713,7 @@
                                             <param id="3" name="Y">S_Hero.y-8</param>
                                         </action>
                                         <action id="0" name="Set text" sid="980537682353240" type="SF_InteractSummury">
-                                            <param id="0" name="Text">S_Whom.Name&amp;&quot; relation +&quot;&amp;floor(FinalRelation)</param>
+                                            <param id="0" name="Text">S_Whom.Name&amp;&quot; relation &quot;&amp;floor(FinalRelation)</param>
                                         </action>
                                         <action id="-3" name="Create object" sid="895655699092488" type="System">
                                             <param id="0" name="Object to create">SF_InteractSummury</param>
@@ -4806,7 +4898,7 @@
                                             <param id="3" name="Y">S_Hero.y-8</param>
                                         </action>
                                         <action id="0" name="Set text" sid="210535845268166" type="SF_InteractSummury">
-                                            <param id="0" name="Text">S_Whom.Name&amp;&quot; relation +&quot;&amp;floor(FinalRelation)</param>
+                                            <param id="0" name="Text">S_Whom.Name&amp;&quot; relation &quot;&amp;floor(FinalRelation)</param>
                                         </action>
                                         <action id="-11" name="Add to" sid="814174169958785" type="S_Whom">
                                             <param id="0" name="Instance variable">relation</param>
@@ -5045,7 +5137,7 @@
                                                     <param id="3" name="Y">S_Hero.y-8</param>
                                                 </action>
                                                 <action id="0" name="Set text" sid="622136679208297" type="SF_InteractSummury">
-                                                    <param id="0" name="Text">S_Whom.Name&amp;&quot; relation +&quot;&amp;floor(FinalRelation)</param>
+                                                    <param id="0" name="Text">S_Whom.Name&amp;&quot; relation &quot;&amp;floor(FinalRelation)</param>
                                                 </action>
                                                 <action id="-3" name="Create object" sid="449940251195898" type="System">
                                                     <param id="0" name="Object to create">SF_InteractSummury</param>
@@ -5094,7 +5186,7 @@
                                                     <param id="3" name="Y">S_Hero.y-8</param>
                                                 </action>
                                                 <action id="0" name="Set text" sid="693887762500639" type="SF_InteractSummury">
-                                                    <param id="0" name="Text">S_Whom.Name&amp;&quot; relation +&quot;&amp;floor(FinalRelation)</param>
+                                                    <param id="0" name="Text">S_Whom.Name&amp;&quot; relation &quot;&amp;floor(FinalRelation)</param>
                                                 </action>
                                                 <action id="-11" name="Add to" sid="364124408816436" type="S_Whom">
                                                     <param id="0" name="Instance variable">relation</param>
@@ -5234,7 +5326,7 @@
                                             <param id="3" name="Y">S_Hero.y-8</param>
                                         </action>
                                         <action id="0" name="Set text" sid="492539142024606" type="SF_InteractSummury">
-                                            <param id="0" name="Text">S_Whom.Name&amp;&quot; relation +&quot;&amp;floor(FinalRelation)</param>
+                                            <param id="0" name="Text">S_Whom.Name&amp;&quot; relation &quot;&amp;floor(FinalRelation)</param>
                                         </action>
                                         <action id="-11" name="Add to" sid="311583013950611" type="S_Whom">
                                             <param id="0" name="Instance variable">relation</param>
@@ -5315,6 +5407,23 @@
                 </action>
                 <action id="-9" name="Destroy" sid="571134192811231" type="S_Whom" />
             </actions>
+            <sub-events>
+                <event-block sid="666860765918718">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="155289229814018" type="S_Idea">
+                            <param id="0" name="Instance variable">UIDOnMap</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">S_Whom.UID</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="214703155608309" type="Function">
+                            <param id="0" name="Name">&quot;DestroyIdeas&quot;</param>
+                            <param id="1" name="Parameter {n}">S_Idea.UID</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
         </event-block>
         <event-block sid="747002939622398">
             <conditions>
@@ -5327,6 +5436,74 @@
                     <param id="0" name="Text">S_Idea.Name</param>
                 </action>
             </actions>
+            <sub-events>
+                <event-block sid="715926342513670">
+                    <conditions>
+                        <condition id="3" name="Compare frame" sid="297757623742841" type="S_Idea">
+                            <param id="0" name="Comparison">0</param>
+                            <param id="1" name="Number">2</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="555541402717776">
+                            <conditions>
+                                <condition id="-14" name="Pick by unique ID" sid="609160456763655" type="S_What">
+                                    <param id="0" name="Unique ID">S_Idea.UIDOnMap</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="483115889633687">
+                                    <conditions>
+                                        <condition id="-4" name="Trigger once while true" sid="318012093661971" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="Flash" id="0" name="Flash" sid="997066975038090" type="S_What">
+                                            <param id="0" name="&apos;On&apos; time">0.2</param>
+                                            <param id="1" name="&apos;Off&apos; time">0.2</param>
+                                            <param id="2" name="Duration">999</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="250528275403838">
+                    <conditions>
+                        <condition id="3" name="Compare frame" sid="575943763050536" type="S_Idea">
+                            <param id="0" name="Comparison">0</param>
+                            <param id="1" name="Number">3</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="749932722396136">
+                            <conditions>
+                                <condition id="-14" name="Pick by unique ID" sid="526579256246787" type="S_Whom">
+                                    <param id="0" name="Unique ID">S_Idea.UIDOnMap</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="491381255691791">
+                                    <conditions>
+                                        <condition id="-4" name="Trigger once while true" sid="509358685474686" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="Flash" id="0" name="Flash" sid="849202828174629" type="S_Whom">
+                                            <param id="0" name="&apos;On&apos; time">0.2</param>
+                                            <param id="1" name="&apos;Off&apos; time">0.2</param>
+                                            <param id="2" name="Duration">999</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
         </event-block>
         <event-block sid="475836510246280">
             <conditions>
@@ -5342,6 +5519,32 @@
                     <param id="0" name="Text">S_What.Name</param>
                 </action>
             </actions>
+            <sub-events>
+                <event-block sid="857490503319393">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="804778860107959" type="S_Idea">
+                            <param id="0" name="Instance variable">UIDOnMap</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">S_What.UID</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="387807474477810">
+                            <conditions>
+                                <condition id="-4" name="Trigger once while true" sid="970347864720843" type="System" />
+                            </conditions>
+                            <actions>
+                                <action behavior="Flash" id="0" name="Flash" sid="631301548549269" type="S_Idea">
+                                    <param id="0" name="&apos;On&apos; time">0.2</param>
+                                    <param id="1" name="&apos;Off&apos; time">0.2</param>
+                                    <param id="2" name="Duration">999</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
         </event-block>
         <event-block sid="213393895260256">
             <conditions>
@@ -5357,6 +5560,32 @@
                     <param id="0" name="Text">S_Whom.Name&amp;newline&amp;&quot;relation &quot;&amp;floor(S_Whom.relation)&amp;newline&amp;&quot;health: &quot;&amp;floor(S_Whom.currentHP)</param>
                 </action>
             </actions>
+            <sub-events>
+                <event-block sid="787285905865038">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="168266677762088" type="S_Idea">
+                            <param id="0" name="Instance variable">UIDOnMap</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">S_Whom.UID</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="104719749163458">
+                            <conditions>
+                                <condition id="-4" name="Trigger once while true" sid="494121450071471" type="System" />
+                            </conditions>
+                            <actions>
+                                <action behavior="Flash" id="0" name="Flash" sid="764935276262126" type="S_Idea">
+                                    <param id="0" name="&apos;On&apos; time">0.2</param>
+                                    <param id="1" name="&apos;Off&apos; time">0.2</param>
+                                    <param id="2" name="Duration">999</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
         </event-block>
         <event-block sid="648024348614326">
             <conditions>
@@ -5389,6 +5618,9 @@
                 <action id="0" name="Set text" sid="631352559426450" type="SF_StaticText">
                     <param id="0" name="Text">&quot;&quot;</param>
                 </action>
+                <action behavior="Flash" id="1" name="Stop flashing" sid="430475752862547" type="S_Whom" />
+                <action behavior="Flash" id="1" name="Stop flashing" sid="247654570135494" type="S_What" />
+                <action behavior="Flash" id="1" name="Stop flashing" sid="537996723302475" type="S_Idea" />
             </actions>
         </event-block>
         <event-block sid="921575796525056">
