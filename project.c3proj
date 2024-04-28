@@ -1,6 +1,6 @@
 {
 	"projectFormatVersion": 1,
-	"savedWithRelease": 37900,
+	"savedWithRelease": 38802,
 	"name": "IWANT",
 	"runtime": "c3",
 	"useWorker": "auto",
@@ -10,6 +10,13 @@
 			"type": "plugin",
 			"id": "Arr",
 			"name": "Array",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Dictionary",
+			"name": "Dictionary",
 			"author": "Scirra",
 			"bundled": false
 		},
@@ -134,6 +141,14 @@
 		},
 		{
 			"type": "effect",
+			"id": "Lottes",
+			"name": "Lottes CRT",
+			"author": "Timothy Lottes / converted by Erik Thon",
+			"bundled": false,
+			"version": "1.0.0.0"
+		},
+		{
+			"type": "effect",
 			"id": "blurhorizontal",
 			"name": "Blur horizontal",
 			"author": "Scirra",
@@ -143,6 +158,13 @@
 			"type": "effect",
 			"id": "glowhorizontal",
 			"name": "Glow horizontal",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "effect",
+			"id": "glowvertical",
+			"name": "Glow vertical",
 			"author": "Scirra",
 			"bundled": false
 		},
@@ -195,12 +217,20 @@
 			"SF_LVL",
 			"SF_DAMAGE",
 			"T_DEAD",
-			"SF_Title"
+			"SF_Title",
+			"OverlappingIdeas"
 		],
 		"subfolders": []
 	},
 	"autosaveData": null,
-	"containers": [],
+	"containers": [
+		{
+			"members": [
+				"Idea",
+				"OverlappingIdeas"
+			]
+		}
+	],
 	"families": {
 		"items": [
 			"Sort",
@@ -319,7 +349,7 @@
 		"authorEmail": "CO5MONAUTMONEY@GMAIL>COM",
 		"authorWebsite": "http://5WORD.TEAM",
 		"appId": "COM.CO5MONAUT.IWANT",
-		"pixelRounding": true,
+		"pixelRounding": false,
 		"zAxisScale": "normalized",
 		"fov": 0.7853981633974483,
 		"useLoaderLayout": false,
@@ -338,7 +368,7 @@
 			1,
 			0
 		],
-		"useThemeColor": false,
+		"useThemeColor": true,
 		"themeColor": [
 			1,
 			1,

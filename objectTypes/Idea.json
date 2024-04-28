@@ -38,6 +38,13 @@
 			"desc": "",
 			"show": true,
 			"sid": 388211722681575
+		},
+		{
+			"name": "AdjacentScore",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 378544965558724
 		}
 	],
 	"behaviorTypes": [
@@ -97,7 +104,7 @@
 						"width": 32,
 						"height": 48,
 						"originX": 0,
-						"originY": 0.333333,
+						"originY": 0.3333333333333333,
 						"originalSource": "",
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
@@ -141,7 +148,7 @@
 						"width": 32,
 						"height": 48,
 						"originX": 0,
-						"originY": 0.333333,
+						"originY": 0.3333333333333333,
 						"originalSource": "",
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,

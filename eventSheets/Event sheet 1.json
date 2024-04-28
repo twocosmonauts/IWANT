@@ -134,6 +134,15 @@
 									"parameters": {
 										"object": "Ideas"
 									}
+								},
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Idea",
+									"sid": 606012682647366,
+									"parameters": {
+										"object": "T_Grid"
+									},
+									"isInverted": true
 								}
 							],
 							"actions": [
@@ -147,7 +156,33 @@
 									}
 								}
 							],
-							"sid": 720632132074176
+							"sid": 720632132074176,
+							"isOrBlock": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-x",
+									"objectClass": "Idea",
+									"sid": 647828300830003,
+									"parameters": {
+										"comparison": 0,
+										"x-co-ordinate": "Idea.XX"
+									}
+								},
+								{
+									"id": "compare-y",
+									"objectClass": "Idea",
+									"sid": 433841492831881,
+									"parameters": {
+										"comparison": 0,
+										"y-co-ordinate": "Idea.YY"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 449086296331286
 						},
 						{
 							"eventType": "block",
@@ -160,11 +195,29 @@
 							],
 							"actions": [
 								{
+									"id": "set-position",
+									"objectClass": "Idea",
+									"sid": 206914348443491,
+									"parameters": {
+										"x": "clamp((floor(Mouse.X(\"puzzle\")/CellSize)*CellSize),T_Grid.X+Idea.X-idea.BBoxLeft,T_Grid.X+T_Grid.Width+Idea.X-idea.BBoxRight)",
+										"y": "clamp((floor(Mouse.Y(\"puzzle\")/CellSize)*CellSize),T_Grid.Y+Idea.Y-idea.BBoxTop,T_Grid.y+T_Grid.height+Idea.Y-idea.BBoxBottom)"
+									}
+								},
+								{
 									"id": "call-function",
 									"objectClass": "Function",
 									"sid": 785199019328412,
 									"parameters": {
 										"name": "\"CheckSpawnIdea\"",
+										"parameter-n": []
+									}
+								},
+								{
+									"id": "call-function",
+									"objectClass": "Function",
+									"sid": 695932485963534,
+									"parameters": {
+										"name": "\"CheckAdjacentIdeas\"",
 										"parameter-n": []
 									}
 								}
@@ -748,6 +801,520 @@
 								}
 							],
 							"sid": 727665654070158
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-function",
+							"objectClass": "Function",
+							"sid": 286190117805421,
+							"parameters": {
+								"name": "\"CheckAdjacentIdeas\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 911266136414378,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 493336225202797,
+									"parameters": {
+										"object": "Idea"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Idea",
+									"sid": 834612266823732,
+									"parameters": {
+										"instance-variable": "AdjacentScore",
+										"value": "0"
+									}
+								},
+								{
+									"id": "clear",
+									"objectClass": "OverlappingIdeas",
+									"sid": 753279634501090
+								}
+							],
+							"sid": 621423035556805,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-at-offset",
+											"objectClass": "Idea",
+											"sid": 895453043090314,
+											"parameters": {
+												"object": "Ideas",
+												"offset-x": "7",
+												"offset-y": "0"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 281622862630060,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "for-each",
+													"objectClass": "System",
+													"sid": 897719583789050,
+													"parameters": {
+														"object": "Ideas"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Idea",
+													"sid": 402307073732918,
+													"parameters": {
+														"instance-variable": "AdjacentScore",
+														"value": "1"
+													}
+												},
+												{
+													"id": "call-function",
+													"objectClass": "Function",
+													"sid": 846295564626683,
+													"parameters": {
+														"name": "\"GetType\"",
+														"parameter-n": [
+															"Ideas.UID"
+														]
+													}
+												},
+												{
+													"id": "add-key",
+													"objectClass": "OverlappingIdeas",
+													"sid": 388883966974104,
+													"parameters": {
+														"key": "Function.ReturnValue",
+														"value": "Idea.UIDOnMap"
+													}
+												}
+											],
+											"sid": 499977537157427
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-at-offset",
+											"objectClass": "Idea",
+											"sid": 411854764494019,
+											"parameters": {
+												"object": "Ideas",
+												"offset-x": "0",
+												"offset-y": "7"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 238416978877937,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "for-each",
+													"objectClass": "System",
+													"sid": 702662987278181,
+													"parameters": {
+														"object": "Ideas"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Idea",
+													"sid": 170546418360541,
+													"parameters": {
+														"instance-variable": "AdjacentScore",
+														"value": "1"
+													}
+												},
+												{
+													"id": "call-function",
+													"objectClass": "Function",
+													"sid": 132931072245849,
+													"parameters": {
+														"name": "\"GetType\"",
+														"parameter-n": [
+															"Ideas.UID"
+														]
+													}
+												},
+												{
+													"id": "add-key",
+													"objectClass": "OverlappingIdeas",
+													"sid": 461682642481581,
+													"parameters": {
+														"key": "Function.ReturnValue",
+														"value": "Idea.UIDOnMap"
+													}
+												}
+											],
+											"sid": 936757004512395
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-at-offset",
+											"objectClass": "Idea",
+											"sid": 775166184975472,
+											"parameters": {
+												"object": "Ideas",
+												"offset-x": "-7",
+												"offset-y": "0"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 380568665128739,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "for-each",
+													"objectClass": "System",
+													"sid": 865512808962644,
+													"parameters": {
+														"object": "Ideas"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Idea",
+													"sid": 961576017203120,
+													"parameters": {
+														"instance-variable": "AdjacentScore",
+														"value": "1"
+													}
+												},
+												{
+													"id": "call-function",
+													"objectClass": "Function",
+													"sid": 836529090887282,
+													"parameters": {
+														"name": "\"GetType\"",
+														"parameter-n": [
+															"Ideas.UID"
+														]
+													}
+												},
+												{
+													"id": "add-key",
+													"objectClass": "OverlappingIdeas",
+													"sid": 285159861343267,
+													"parameters": {
+														"key": "Function.ReturnValue",
+														"value": "Idea.UIDOnMap"
+													}
+												}
+											],
+											"sid": 741133864938998
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-at-offset",
+											"objectClass": "Idea",
+											"sid": 577864942578535,
+											"parameters": {
+												"object": "Ideas",
+												"offset-x": "0",
+												"offset-y": "-7"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 949365824187051,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "for-each",
+													"objectClass": "System",
+													"sid": 101032988163222,
+													"parameters": {
+														"object": "Ideas"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Idea",
+													"sid": 552729832910640,
+													"parameters": {
+														"instance-variable": "AdjacentScore",
+														"value": "1"
+													}
+												},
+												{
+													"id": "call-function",
+													"objectClass": "Function",
+													"sid": 309075969590625,
+													"parameters": {
+														"name": "\"GetType\"",
+														"parameter-n": [
+															"Ideas.UID"
+														]
+													}
+												},
+												{
+													"id": "add-key",
+													"objectClass": "OverlappingIdeas",
+													"sid": 296280560521449,
+													"parameters": {
+														"key": "Function.ReturnValue",
+														"value": "Idea.UIDOnMap"
+													}
+												}
+											],
+											"sid": 172262191697590
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 617988262493693,
+									"parameters": {
+										"first-value": "OverlappingIdeas.KeyCount",
+										"comparison": 0,
+										"second-value": "4"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 192138071412234,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each-key",
+											"objectClass": "OverlappingIdeas",
+											"sid": 361309783416348
+										}
+									],
+									"actions": [
+										{
+											"id": "set-at-x",
+											"objectClass": "A_QueryActions",
+											"sid": 265550576043122,
+											"parameters": {
+												"x": "0",
+												"value": "\"i want\""
+											}
+										}
+									],
+									"sid": 371846309422308,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "has-key",
+													"objectClass": "OverlappingIdeas",
+													"sid": 511814365730618,
+													"parameters": {
+														"key": "\"do\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "call-function",
+													"objectClass": "Function",
+													"sid": 780247200600747,
+													"parameters": {
+														"name": "\"GetUIDOnMap\"",
+														"parameter-n": [
+															"OverlappingIdeas.CurrentValue"
+														]
+													}
+												},
+												{
+													"id": "set-at-x",
+													"objectClass": "A_QueryActions",
+													"sid": 688785942159446,
+													"parameters": {
+														"x": "1",
+														"value": "Function.ReturnValue"
+													}
+												}
+											],
+											"sid": 777609616093824
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "has-key",
+													"objectClass": "OverlappingIdeas",
+													"sid": 411313896052735,
+													"parameters": {
+														"key": "\"whom\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "call-function",
+													"objectClass": "Function",
+													"sid": 835278928787192,
+													"parameters": {
+														"name": "\"GetUIDOnMap\"",
+														"parameter-n": [
+															"OverlappingIdeas.CurrentValue"
+														]
+													}
+												},
+												{
+													"id": "set-at-x",
+													"objectClass": "A_QueryActions",
+													"sid": 738439566612208,
+													"parameters": {
+														"x": "2",
+														"value": "Function.ReturnValue"
+													}
+												}
+											],
+											"sid": 192713110188864
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "has-key",
+													"objectClass": "OverlappingIdeas",
+													"sid": 853814608962408,
+													"parameters": {
+														"key": "\"what\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "call-function",
+													"objectClass": "Function",
+													"sid": 785327651593886,
+													"parameters": {
+														"name": "\"GetUIDOnMap\"",
+														"parameter-n": [
+															"OverlappingIdeas.CurrentValue"
+														]
+													}
+												},
+												{
+													"id": "set-at-x",
+													"objectClass": "A_QueryActions",
+													"sid": 517540947686269,
+													"parameters": {
+														"x": "3",
+														"value": "Function.ReturnValue"
+													}
+												}
+											],
+											"sid": 963926763759923
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "has-key",
+													"objectClass": "OverlappingIdeas",
+													"sid": 305577102668103,
+													"parameters": {
+														"key": "\"how\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "call-function",
+													"objectClass": "Function",
+													"sid": 691835806566203,
+													"parameters": {
+														"name": "\"GetUIDOnMap\"",
+														"parameter-n": [
+															"OverlappingIdeas.CurrentValue"
+														]
+													}
+												},
+												{
+													"id": "set-at-x",
+													"objectClass": "A_QueryActions",
+													"sid": 802023993980066,
+													"parameters": {
+														"x": "4",
+														"value": "Function.ReturnValue"
+													}
+												}
+											],
+											"sid": 265694925793660
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 641274699858863
+										}
+									],
+									"actions": [
+										{
+											"id": "call-function",
+											"objectClass": "Function",
+											"sid": 608910121725659,
+											"parameters": {
+												"name": "\"InteractWithSomeone\"",
+												"parameter-n": []
+											}
+										}
+									],
+									"sid": 485463036480320
+								}
+							]
 						}
 					]
 				}
@@ -7276,12 +7843,6 @@
 									"sid": 310853087956649
 								}
 							]
-						},
-						{
-							"eventType": "block",
-							"conditions": [],
-							"actions": [],
-							"sid": 575184848665616
 						}
 					],
 					"sid": 893166498708004
