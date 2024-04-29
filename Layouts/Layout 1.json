@@ -186,6 +186,19 @@
 								"direct-movement": "to-destination",
 								"enabled": true
 							}
+						},
+						"TileMovement": {
+							"properties": {
+								"grid-width": 8,
+								"grid-height": 8,
+								"grid-offset-x": 24,
+								"grid-offset-y": 24,
+								"speed-x": 24,
+								"speed-y": 24,
+								"enabled": true,
+								"default-controls": true,
+								"isometric": false
+							}
 						}
 					},
 					"world": {
@@ -350,6 +363,35 @@
 						"height": 128,
 						"originX": 0,
 						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Vision",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 20,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 960,
+						"y": 960,
+						"width": 128,
+						"height": 128,
+						"originX": 0.5,
+						"originY": 0.5625,
 						"color": [
 							1,
 							1,
@@ -686,9 +728,12 @@
 						"Type": "\"want\"",
 						"Name": "\"i want\"",
 						"UIDOnMap": 0,
-						"XX": 0,
-						"YY": 0,
-						"AdjacentScore": 0
+						"PrevX": 0,
+						"PrevY": 0,
+						"AdjacentScore": 0,
+						"dX": 0,
+						"dY": 0,
+						"cnt": 0
 					},
 					"behaviors": {
 						"DragDrop": {
@@ -703,7 +748,7 @@
 					},
 					"world": {
 						"x": 88,
-						"y": 80,
+						"y": 88,
 						"width": 16,
 						"height": 16,
 						"originX": 0.5,
@@ -1062,7 +1107,7 @@
 					"behaviors": {},
 					"world": {
 						"x": 24,
-						"y": 160,
+						"y": 192,
 						"width": 52,
 						"height": 8,
 						"originX": 0,

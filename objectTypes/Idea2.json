@@ -1,7 +1,7 @@
 {
-	"name": "Idea",
+	"name": "Idea2",
 	"plugin-id": "Sprite",
-	"sid": 990002395331653,
+	"sid": 916381813067489,
 	"isGlobal": false,
 	"instanceVariables": [
 		{
@@ -9,75 +9,75 @@
 			"type": "string",
 			"desc": "",
 			"show": true,
-			"sid": 186756785487278
+			"sid": 610553988297521
 		},
 		{
 			"name": "Name",
 			"type": "string",
 			"desc": "",
 			"show": true,
-			"sid": 565042841038335
+			"sid": 995405186829842
 		},
 		{
 			"name": "UIDOnMap",
 			"type": "number",
 			"desc": "",
 			"show": true,
-			"sid": 867694029265835
+			"sid": 422656922096611
 		},
 		{
 			"name": "PrevX",
 			"type": "number",
 			"desc": "",
 			"show": true,
-			"sid": 529049062356819
+			"sid": 728296738101978
 		},
 		{
 			"name": "PrevY",
 			"type": "number",
 			"desc": "",
 			"show": true,
-			"sid": 388211722681575
+			"sid": 897224937039778
 		},
 		{
 			"name": "AdjacentScore",
 			"type": "number",
 			"desc": "",
 			"show": true,
-			"sid": 378544965558724
+			"sid": 386333070077020
 		},
 		{
 			"name": "dX",
 			"type": "number",
 			"desc": "",
 			"show": true,
-			"sid": 256597976134259
+			"sid": 546856855609987
 		},
 		{
 			"name": "dY",
 			"type": "number",
 			"desc": "",
 			"show": true,
-			"sid": 628821761587461
+			"sid": 436522203631352
 		},
 		{
 			"name": "cnt",
 			"type": "number",
 			"desc": "",
 			"show": true,
-			"sid": 580838665990825
+			"sid": 931568801748558
 		}
 	],
 	"behaviorTypes": [
 		{
 			"behaviorId": "DragnDrop",
 			"name": "DragDrop",
-			"sid": 301788155607218
+			"sid": 442392403438713
 		},
 		{
 			"behaviorId": "Flash",
 			"name": "Flash",
-			"sid": 786166810274121
+			"sid": 141287490509555
 		}
 	],
 	"effectTypes": [],
@@ -93,7 +93,7 @@
 						"originalSource": "",
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
-						"imageSpriteId": 3547099,
+						"imageSpriteId": 44916,
 						"collisionPoly": {
 							"points": [
 								0.0625,
@@ -111,7 +111,7 @@
 						"tag": ""
 					}
 				],
-				"sid": 887370384049770,
+				"sid": 377649426996803,
 				"name": "How",
 				"isLooping": true,
 				"isPingPong": false,
@@ -129,7 +129,7 @@
 						"originalSource": "",
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
-						"imageSpriteId": 1246806,
+						"imageSpriteId": 7999520,
 						"collisionPoly": {
 							"points": [
 								0.03125,
@@ -155,7 +155,7 @@
 						"tag": ""
 					}
 				],
-				"sid": 876539684514634,
+				"sid": 423304532951763,
 				"name": "Do",
 				"isLooping": true,
 				"isPingPong": false,
@@ -173,7 +173,7 @@
 						"originalSource": "",
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
-						"imageSpriteId": 8349633,
+						"imageSpriteId": 8991704,
 						"collisionPoly": {
 							"points": [
 								0.03125,
@@ -195,7 +195,7 @@
 						"tag": ""
 					}
 				],
-				"sid": 196885742446065,
+				"sid": 394668901915293,
 				"name": "what",
 				"isLooping": true,
 				"isPingPong": false,
@@ -213,7 +213,7 @@
 						"originalSource": "",
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
-						"imageSpriteId": 6645160,
+						"imageSpriteId": 6010601,
 						"collisionPoly": {
 							"points": [
 								0.03125,
@@ -239,7 +239,7 @@
 						"tag": ""
 					}
 				],
-				"sid": 189588402065759,
+				"sid": 221353285802868,
 				"name": "whom",
 				"isLooping": true,
 				"isPingPong": false,
@@ -257,7 +257,7 @@
 						"originalSource": "",
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
-						"imageSpriteId": 4448877,
+						"imageSpriteId": 51271,
 						"collisionPoly": {
 							"points": [
 								0.96875,
@@ -275,7 +275,7 @@
 						"tag": ""
 					}
 				],
-				"sid": 898931254550473,
+				"sid": 748585939447431,
 				"name": "want",
 				"isLooping": true,
 				"isPingPong": false,

@@ -85,6 +85,11 @@
 			"behaviorId": "Pathfinding",
 			"name": "Pathfinding",
 			"sid": 876416182819420
+		},
+		{
+			"behaviorId": "TileMovement",
+			"name": "TileMovement",
+			"sid": 968887956986169
 		}
 	],
 	"effectTypes": [],
