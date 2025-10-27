@@ -296,60 +296,6 @@
 							"id": "move-to-top",
 							"objectClass": "Idea",
 							"sid": 288362481003266
-						},
-						{
-							"id": "set-instvar-value",
-							"objectClass": "Idea",
-							"sid": 961996110680331,
-							"parameters": {
-								"instance-variable": "dX",
-								"value": "Idea.X-Idea.PrevX"
-							}
-						},
-						{
-							"id": "set-instvar-value",
-							"objectClass": "Idea",
-							"sid": 139751807267583,
-							"parameters": {
-								"instance-variable": "dY",
-								"value": "Idea.Y-Idea.PrevY"
-							}
-						},
-						{
-							"id": "set-position",
-							"objectClass": "Idea",
-							"sid": 980864860161126,
-							"parameters": {
-								"x": "Idea.PrevX",
-								"y": "Idea.PrevY"
-							}
-						},
-						{
-							"id": "set-instvar-value",
-							"objectClass": "Idea",
-							"sid": 617528180407002,
-							"parameters": {
-								"instance-variable": "cnt",
-								"value": "10*max(abs(Idea.dx), abs(Idea.dy))"
-							}
-						},
-						{
-							"id": "set-instvar-value",
-							"objectClass": "Idea",
-							"sid": 575522823397716,
-							"parameters": {
-								"instance-variable": "dX",
-								"value": "Idea.dX/Idea.cnt"
-							}
-						},
-						{
-							"id": "set-instvar-value",
-							"objectClass": "Idea",
-							"sid": 834502778878296,
-							"parameters": {
-								"instance-variable": "dY",
-								"value": "Idea.dY/Idea.cnt"
-							}
 						}
 					],
 					"sid": 224391444318302,
@@ -377,124 +323,6 @@
 								}
 							],
 							"sid": 298709626920129
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "repeat",
-									"objectClass": "System",
-									"sid": 242696886845089,
-									"parameters": {
-										"count": "min(Idea.cnt,1000)"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-position",
-									"objectClass": "Idea",
-									"sid": 298327481617517,
-									"parameters": {
-										"x": "idea.X+Idea.dX",
-										"y": "Idea.Y"
-									}
-								}
-							],
-							"sid": 636097382806177,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "is-overlapping-another-object",
-											"objectClass": "Idea",
-											"sid": 963145340711172,
-											"parameters": {
-												"object": "Ideas"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-position",
-											"objectClass": "Idea",
-											"sid": 344143876127378,
-											"parameters": {
-												"x": "idea.X-Idea.dX",
-												"y": "Idea.Y"
-											}
-										}
-									],
-									"sid": 817945711893283
-								},
-								{
-									"eventType": "block",
-									"conditions": [],
-									"actions": [
-										{
-											"id": "set-position",
-											"objectClass": "Idea",
-											"sid": 657983638826541,
-											"parameters": {
-												"x": "idea.X",
-												"y": "Idea.Y+Idea.dY"
-											}
-										}
-									],
-									"sid": 544840531793639
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "is-overlapping-another-object",
-											"objectClass": "Idea",
-											"sid": 553325825400236,
-											"parameters": {
-												"object": "Ideas"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-position",
-											"objectClass": "Idea",
-											"sid": 491513662797747,
-											"parameters": {
-												"x": "idea.X",
-												"y": "Idea.Y-Idea.dY"
-											}
-										}
-									],
-									"sid": 711966140615827
-								},
-								{
-									"eventType": "block",
-									"conditions": [],
-									"actions": [
-										{
-											"id": "set-instvar-value",
-											"objectClass": "Idea",
-											"sid": 225642358530424,
-											"parameters": {
-												"instance-variable": "PrevX",
-												"value": "Idea.X"
-											}
-										},
-										{
-											"id": "set-instvar-value",
-											"objectClass": "Idea",
-											"sid": 243104432751852,
-											"parameters": {
-												"instance-variable": "PrevY",
-												"value": "Idea.Y"
-											}
-										}
-									],
-									"sid": 993645036907867
-								}
-							]
 						}
 					]
 				},
@@ -3925,238 +3753,6 @@
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "is-overlapping-another-object",
-									"objectClass": "Vision",
-									"sid": 459210953802743,
-									"parameters": {
-										"object": "Item"
-									},
-									"isInverted": true
-								}
-							],
-							"actions": [],
-							"sid": 923287602940538,
-							"disabled": true,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "for-each",
-											"objectClass": "System",
-											"sid": 703120913840899,
-											"parameters": {
-												"object": "Item"
-											}
-										}
-									],
-									"actions": [],
-									"sid": 292696964642546,
-									"disabled": true
-								}
-							]
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "is-overlapping-another-object",
-									"objectClass": "Vision",
-									"sid": 429190814012300,
-									"parameters": {
-										"object": "NPC"
-									},
-									"isInverted": true
-								}
-							],
-							"actions": [],
-							"sid": 822718521927235,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "for-each",
-											"objectClass": "System",
-											"sid": 825665856244402,
-											"parameters": {
-												"object": "NPC"
-											}
-										}
-									],
-									"actions": [],
-									"sid": 169156835668488,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "is-boolean-instance-variable-set",
-													"objectClass": "NPC",
-													"sid": 910557001639158,
-													"parameters": {
-														"instance-variable": "inPuzzle"
-													}
-												}
-											],
-											"actions": [],
-											"sid": 396906013157882,
-											"children": [
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "compare-instance-variable",
-															"objectClass": "Idea",
-															"sid": 338841453818211,
-															"parameters": {
-																"instance-variable": "UIDOnMap",
-																"comparison": 0,
-																"value": "NPC.UID"
-															}
-														}
-													],
-													"actions": [
-														{
-															"id": "set-boolean-instvar",
-															"objectClass": "NPC",
-															"sid": 821751208652702,
-															"parameters": {
-																"instance-variable": "inPuzzle",
-																"value": "false"
-															}
-														},
-														{
-															"id": "call-function",
-															"objectClass": "Function",
-															"sid": 400548556560256,
-															"parameters": {
-																"name": "\"DestroyIdeas\"",
-																"parameter-n": [
-																	"Idea.UID"
-																]
-															}
-														}
-													],
-													"sid": 994597570604267
-												}
-											]
-										}
-									]
-								}
-							]
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "is-overlapping-another-object",
-									"objectClass": "Vision",
-									"sid": 840300866116182,
-									"parameters": {
-										"object": "Item"
-									}
-								}
-							],
-							"actions": [],
-							"sid": 113584385234003,
-							"disabled": true,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "for-each",
-											"objectClass": "System",
-											"sid": 224634955842953,
-											"parameters": {
-												"object": "Item"
-											}
-										}
-									],
-									"actions": [],
-									"sid": 446688707598748,
-									"disabled": true
-								}
-							]
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "is-overlapping-another-object",
-									"objectClass": "Vision",
-									"sid": 681421027129516,
-									"parameters": {
-										"object": "NPC"
-									}
-								}
-							],
-							"actions": [],
-							"sid": 999648133598465,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "for-each",
-											"objectClass": "System",
-											"sid": 824402976907391,
-											"parameters": {
-												"object": "NPC"
-											}
-										}
-									],
-									"actions": [],
-									"sid": 729656611034295,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "is-boolean-instance-variable-set",
-													"objectClass": "NPC",
-													"sid": 832090108162809,
-													"parameters": {
-														"instance-variable": "inPuzzle"
-													},
-													"isInverted": true
-												}
-											],
-											"actions": [
-												{
-													"id": "call-function",
-													"objectClass": "Function",
-													"sid": 672057128315242,
-													"parameters": {
-														"name": "\"SpawnNewThink\"",
-														"parameter-n": [
-															"\"whom\"",
-															"NPC.Name",
-															"NPC.UID"
-														]
-													}
-												},
-												{
-													"id": "set-boolean-instvar",
-													"objectClass": "NPC",
-													"sid": 835673410495669,
-													"parameters": {
-														"instance-variable": "inPuzzle",
-														"value": "true"
-													}
-												}
-											],
-											"sid": 502742911225326
-										}
-									]
-								}
-							]
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
 									"id": "for-each",
 									"objectClass": "System",
 									"sid": 668320783365894,
@@ -4205,7 +3801,7 @@
 										{
 											"id": "call-function",
 											"objectClass": "Function",
-											"sid": 351101161137051,
+											"sid": 497893625516697,
 											"parameters": {
 												"name": "\"SpawnNewThink\"",
 												"parameter-n": [
@@ -4291,6 +3887,151 @@
 														}
 													],
 													"sid": 117402166126107
+												}
+											]
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 662780954593462,
+									"parameters": {
+										"object": "NPC"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 202470376741545,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-between-values",
+											"objectClass": "System",
+											"sid": 508598077857962,
+											"parameters": {
+												"value": "NPC.X",
+												"lower-bound": "Hero.X-64",
+												"upper-bound": "Hero.X+64"
+											}
+										},
+										{
+											"id": "is-between-values",
+											"objectClass": "System",
+											"sid": 743487165397146,
+											"parameters": {
+												"value": "NPC.Y",
+												"lower-bound": "Hero.Y-64",
+												"upper-bound": "Hero.Y+64"
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "NPC",
+											"sid": 786535842980760,
+											"parameters": {
+												"instance-variable": "inPuzzle"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "call-function",
+											"objectClass": "Function",
+											"sid": 264573961235087,
+											"parameters": {
+												"name": "\"SpawnNewThink\"",
+												"parameter-n": [
+													"\"whom\"",
+													"NPC.Name",
+													"NPC.UID"
+												]
+											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "NPC",
+											"sid": 977743274239612,
+											"parameters": {
+												"instance-variable": "inPuzzle",
+												"value": "true"
+											}
+										}
+									],
+									"sid": 651228807089561
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 949445625623866
+										}
+									],
+									"actions": [],
+									"sid": 764643830840266,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "NPC",
+													"sid": 818323090703172,
+													"parameters": {
+														"instance-variable": "inPuzzle"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 942309279769099,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "Idea",
+															"sid": 425249704753500,
+															"parameters": {
+																"instance-variable": "UIDOnMap",
+																"comparison": 0,
+																"value": "NPC.UID"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-boolean-instvar",
+															"objectClass": "NPC",
+															"sid": 478308333953180,
+															"parameters": {
+																"instance-variable": "inPuzzle",
+																"value": "false"
+															}
+														},
+														{
+															"id": "call-function",
+															"objectClass": "Function",
+															"sid": 166099424222811,
+															"parameters": {
+																"name": "\"DestroyIdeas\"",
+																"parameter-n": [
+																	"Idea.UID"
+																]
+															}
+														}
+													],
+													"sid": 384337551464337
 												}
 											]
 										}
@@ -8885,16 +8626,6 @@
 								{
 									"id": "set-position",
 									"objectClass": "SF_SpeechText",
-									"sid": 958467765199229,
-									"disabled": true,
-									"parameters": {
-										"x": "Hero.X+1",
-										"y": "Hero.Y-13"
-									}
-								},
-								{
-									"id": "set-position",
-									"objectClass": "SF_SpeechText",
 									"sid": 714740302173655,
 									"parameters": {
 										"x": "9P_DialogBack.X",
@@ -9792,32 +9523,6 @@
 						}
 					],
 					"sid": 821568328625457
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "every-x-seconds",
-							"objectClass": "System",
-							"sid": 941672702553228,
-							"parameters": {
-								"interval-seconds": "1.0"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "call-function",
-							"objectClass": "Function",
-							"sid": 842256436349062,
-							"parameters": {
-								"name": "\"CheckSpawnNewIdea\"",
-								"parameter-n": []
-							}
-						}
-					],
-					"sid": 594680508555664,
-					"disabled": true
 				}
 			],
 			"sid": 504850293771682

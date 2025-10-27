@@ -186,19 +186,6 @@
 								"direct-movement": "to-destination",
 								"enabled": true
 							}
-						},
-						"TileMovement": {
-							"properties": {
-								"grid-width": 8,
-								"grid-height": 8,
-								"grid-offset-x": 24,
-								"grid-offset-y": 24,
-								"speed-x": 24,
-								"speed-y": 24,
-								"enabled": true,
-								"default-controls": true,
-								"isometric": false
-							}
 						}
 					},
 					"world": {

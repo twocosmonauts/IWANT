@@ -1,6 +1,6 @@
 {
 	"projectFormatVersion": 1,
-	"savedWithRelease": 38802,
+	"savedWithRelease": 45800,
 	"name": "IWANT",
 	"runtime": "c3",
 	"useWorker": "auto",
@@ -127,13 +127,6 @@
 		},
 		{
 			"type": "behavior",
-			"id": "TileMovement",
-			"name": "Tile movement",
-			"author": "Scirra",
-			"bundled": false
-		},
-		{
-			"type": "behavior",
 			"id": "scrollto",
 			"name": "Scroll To",
 			"author": "Scirra",
@@ -150,9 +143,9 @@
 			"type": "effect",
 			"id": "Lottes",
 			"name": "Lottes CRT",
-			"author": "Timothy Lottes / converted by Erik Thon",
+			"author": "Timothy Lottes / converted by Erik Thon and Ossama Jouini",
 			"bundled": false,
-			"version": "1.0.0.0"
+			"version": "1.0.0.2"
 		},
 		{
 			"type": "effect",
@@ -231,6 +224,7 @@
 		],
 		"subfolders": []
 	},
+	"functionsName": "Functions",
 	"autosaveData": null,
 	"containers": [
 		{
@@ -354,6 +348,7 @@
 	"properties": {
 		"description": "",
 		"version": "1.0.0.0",
+		"autoIncrementVersion": false,
 		"author": "CO5MONAUT",
 		"authorEmail": "CO5MONAUTMONEY@GMAIL>COM",
 		"authorWebsite": "http://5WORD.TEAM",
@@ -386,10 +381,9 @@
 		],
 		"orientations": "landscape",
 		"webgpu": "auto",
+		"multitexturing": "auto",
 		"gpuPreference": "high-performance",
-		"scriptsType": "module",
 		"framerateMode": "vsync",
-		"compositingMode": "standard",
 		"sampling": "nearest",
 		"downscaling": "medium",
 		"renderingMode": "2d",
@@ -399,11 +393,11 @@
 		"maxSpriteSheetSize": 2048,
 		"loaderStyle": "splash",
 		"preloadSounds": true,
+		"uidAllocationMode": "increment",
 		"cordovaiOSScheme": "app",
 		"cordovaAndroidScheme": "https",
-		"autoReloadScriptsOnPreview": false,
-		"exportFileStructure": "flat",
-		"uidAllocationMode": "increment"
+		"exportFileStructure": "folders",
+		"scriptsType": "module"
 	},
 	"viewportWidth": 320,
 	"viewportHeight": 180,
