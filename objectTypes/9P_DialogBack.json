@@ -3,6 +3,7 @@
 	"plugin-id": "NinePatch",
 	"sid": 358428824566310,
 	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
 	"instanceVariables": [],
 	"behaviorTypes": [],
 	"effectTypes": [],
@@ -14,6 +15,7 @@
 		"originalSource": "N:\\Users\\two\\drive\\bit detective\\dialog.png",
 		"exportFormat": "lossless",
 		"exportQuality": 0.8,
+		"fileType": "image/png",
 		"imageSpriteId": 5508049,
 		"useCollisionPoly": true,
 		"tag": ""

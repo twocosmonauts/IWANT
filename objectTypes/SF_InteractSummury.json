@@ -3,6 +3,7 @@
 	"plugin-id": "Spritefont2",
 	"sid": 203100021976514,
 	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
 	"instanceVariables": [],
 	"behaviorTypes": [
 		{
@@ -20,7 +21,8 @@
 		"originalSource": "C:\\Users\\amphe\\Downloads\\LDJAM55\\SOURCES\\Font-En-Black-outline.png",
 		"exportFormat": "lossless",
 		"exportQuality": 0.8,
-		"imageSpriteId": 1846446,
+		"fileType": "image/png",
+		"imageSpriteId": 5905782,
 		"useCollisionPoly": true,
 		"tag": ""
 	}

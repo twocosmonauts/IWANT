@@ -62,10 +62,64 @@
 							"id": "destroy",
 							"objectClass": "Magic",
 							"sid": 861984342915859
+						},
+						{
+							"id": "set-pixel-rounding",
+							"objectClass": "System",
+							"sid": 353566119344286,
+							"parameters": {
+								"mode": "enabled"
+							}
 						}
 					],
 					"sid": 822939544495860,
 					"children": [
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "wait-for-signal",
+									"objectClass": "System",
+									"sid": 330153527170633,
+									"parameters": {
+										"tag": "\"spawn\""
+									}
+								},
+								{
+									"id": "call-function",
+									"objectClass": "Function",
+									"sid": 153563105789270,
+									"parameters": {
+										"name": "\"CheckSpawnIdea\"",
+										"parameter-n": []
+									}
+								},
+								{
+									"id": "call-function",
+									"objectClass": "Function",
+									"sid": 740091835635457,
+									"parameters": {
+										"name": "\"CheckSpawnNewIdea\"",
+										"parameter-n": []
+									}
+								},
+								{
+									"id": "call-function",
+									"objectClass": "Function",
+									"sid": 324618182914294,
+									"parameters": {
+										"name": "\"CheckAdjacentIdeas\"",
+										"parameter-n": []
+									}
+								},
+								{
+									"callFunction": "UpdateText",
+									"sid": 914217896115428
+								}
+							],
+							"sid": 330215424188215
+						},
 						{
 							"eventType": "block",
 							"conditions": [
@@ -104,6 +158,15 @@
 									"parameters": {
 										"animation": "\"want\"",
 										"from": "beginning"
+									}
+								},
+								{
+									"id": "set-enabled",
+									"objectClass": "Idea",
+									"sid": 447307362971731,
+									"behaviorType": "DragDrop",
+									"parameters": {
+										"state": "disabled"
 									}
 								}
 							],
@@ -209,6 +272,15 @@
 									"sid": 299960116738528,
 									"parameters": {
 										"name": "\"CheckSpawnIdea\"",
+										"parameter-n": []
+									}
+								},
+								{
+									"id": "call-function",
+									"objectClass": "Function",
+									"sid": 986061521671963,
+									"parameters": {
+										"name": "\"CheckSpawnNewIdea\"",
 										"parameter-n": []
 									}
 								},
@@ -538,6 +610,15 @@
 									"parameters": {
 										"instance-variable": "Name",
 										"value": "\"i want\""
+									}
+								},
+								{
+									"id": "set-enabled",
+									"objectClass": "Idea",
+									"sid": 877698117725807,
+									"behaviorType": "DragDrop",
+									"parameters": {
+										"state": "disabled"
 									}
 								}
 							],
@@ -3440,6 +3521,21 @@
 									]
 								}
 							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "signal",
+									"objectClass": "System",
+									"sid": 820485066273950,
+									"parameters": {
+										"tag": "\"spawn\""
+									}
+								}
+							],
+							"sid": 471402862449821
 						}
 					]
 				}
@@ -3786,42 +3882,51 @@
 												"lower-bound": "Hero.Y-64",
 												"upper-bound": "Hero.Y+64"
 											}
-										},
-										{
-											"id": "is-boolean-instance-variable-set",
-											"objectClass": "Item",
-											"sid": 681706299156316,
-											"parameters": {
-												"instance-variable": "InPuzzle"
-											},
-											"isInverted": true
 										}
 									],
-									"actions": [
+									"actions": [],
+									"sid": 793835840341109,
+									"children": [
 										{
-											"id": "call-function",
-											"objectClass": "Function",
-											"sid": 497893625516697,
-											"parameters": {
-												"name": "\"SpawnNewThink\"",
-												"parameter-n": [
-													"\"what\"",
-													"Item.Name",
-													"Item.UID"
-												]
-											}
-										},
-										{
-											"id": "set-boolean-instvar",
-											"objectClass": "Item",
-											"sid": 397731291333845,
-											"parameters": {
-												"instance-variable": "InPuzzle",
-												"value": "true"
-											}
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "Item",
+													"sid": 459132373536259,
+													"parameters": {
+														"instance-variable": "InPuzzle"
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [
+												{
+													"id": "call-function",
+													"objectClass": "Function",
+													"sid": 613255994669895,
+													"parameters": {
+														"name": "\"SpawnNewThink\"",
+														"parameter-n": [
+															"\"what\"",
+															"Item.Name",
+															"Item.UID"
+														]
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Item",
+													"sid": 725440379878666,
+													"parameters": {
+														"instance-variable": "InPuzzle",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 658990679755653
 										}
-									],
-									"sid": 793835840341109
+									]
 								},
 								{
 									"eventType": "block",
@@ -3931,42 +4036,51 @@
 												"lower-bound": "Hero.Y-64",
 												"upper-bound": "Hero.Y+64"
 											}
-										},
-										{
-											"id": "is-boolean-instance-variable-set",
-											"objectClass": "NPC",
-											"sid": 786535842980760,
-											"parameters": {
-												"instance-variable": "inPuzzle"
-											},
-											"isInverted": true
 										}
 									],
-									"actions": [
+									"actions": [],
+									"sid": 651228807089561,
+									"children": [
 										{
-											"id": "call-function",
-											"objectClass": "Function",
-											"sid": 264573961235087,
-											"parameters": {
-												"name": "\"SpawnNewThink\"",
-												"parameter-n": [
-													"\"whom\"",
-													"NPC.Name",
-													"NPC.UID"
-												]
-											}
-										},
-										{
-											"id": "set-boolean-instvar",
-											"objectClass": "NPC",
-											"sid": 977743274239612,
-											"parameters": {
-												"instance-variable": "inPuzzle",
-												"value": "true"
-											}
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "NPC",
+													"sid": 422297452124664,
+													"parameters": {
+														"instance-variable": "inPuzzle"
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [
+												{
+													"id": "call-function",
+													"objectClass": "Function",
+													"sid": 450437011931188,
+													"parameters": {
+														"name": "\"SpawnNewThink\"",
+														"parameter-n": [
+															"\"whom\"",
+															"NPC.Name",
+															"NPC.UID"
+														]
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "NPC",
+													"sid": 192534826618852,
+													"parameters": {
+														"instance-variable": "inPuzzle",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 374451134593218
 										}
-									],
-									"sid": 651228807089561
+									]
 								},
 								{
 									"eventType": "block",
@@ -4048,6 +4162,117 @@
 					"description": "",
 					"isActiveOnStart": true,
 					"children": [
+						{
+							"functionName": "UpdateText",
+							"functionDescription": "",
+							"functionCategory": "",
+							"functionReturnType": "none",
+							"functionCopyPicked": false,
+							"functionIsAsync": false,
+							"functionParameters": [],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "SF_LVL",
+									"sid": 231148618403779,
+									"parameters": {
+										"text": "\"lvl\"&Hero.Level&\"(\"&floor(Hero.currentXP)&\"/\"&floor(Hero.NewLevelExp)&\")\""
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "SF_GOLD",
+									"sid": 501012605964953,
+									"parameters": {
+										"text": "\"gold:\"&floor(Hero.money)"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "SF_HP",
+									"sid": 282939115412177,
+									"parameters": {
+										"text": "\"health:\"&floor(Hero.currentHP)"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "SF_DAMAGE",
+									"sid": 317041125307240,
+									"parameters": {
+										"text": "\"damage:\"&floor(Hero.damage)"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Hero",
+									"sid": 203996893287027,
+									"parameters": {
+										"instance-variable": "NewLevelExp",
+										"value": "floor(Hero.level*10*0.8)"
+									}
+								}
+							],
+							"sid": 917531965166227,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Hero",
+											"sid": 904285801851475,
+											"parameters": {
+												"instance-variable": "currentXP",
+												"comparison": 5,
+												"value": "Hero.NewLevelExp"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Hero",
+											"sid": 129526254519811,
+											"parameters": {
+												"instance-variable": "currentXP",
+												"value": "Hero.currentXP-Hero.NewLevelExp"
+											}
+										},
+										{
+											"id": "add-to-instvar",
+											"objectClass": "Hero",
+											"sid": 186692543594114,
+											"parameters": {
+												"instance-variable": "Level",
+												"value": "1"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Hero",
+											"sid": 112303056954597,
+											"parameters": {
+												"instance-variable": "NewLevelExp",
+												"value": "floor(Hero.level*10*0.8)"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Hero",
+											"sid": 345521038804864,
+											"parameters": {
+												"instance-variable": "Damage",
+												"value": "floor(Hero.Level*1.2)+4"
+											}
+										}
+									],
+									"sid": 493643665253176
+								}
+							]
+						},
 						{
 							"eventType": "block",
 							"conditions": [
@@ -4436,106 +4661,9 @@
 										"object": "Item",
 										"image-point-optional": "0"
 									}
-								},
-								{
-									"id": "set-text",
-									"objectClass": "SF_LVL",
-									"sid": 832526855191863,
-									"parameters": {
-										"text": "\"lvl\"&Hero.Level&\"(\"&floor(Hero.currentXP)&\"/\"&floor(Hero.NewLevelExp)&\")\""
-									}
-								},
-								{
-									"id": "set-text",
-									"objectClass": "SF_GOLD",
-									"sid": 140565487686826,
-									"parameters": {
-										"text": "\"gold:\"&floor(Hero.money)"
-									}
-								},
-								{
-									"id": "set-text",
-									"objectClass": "SF_HP",
-									"sid": 381353400020659,
-									"parameters": {
-										"text": "\"health:\"&floor(Hero.currentHP)"
-									}
-								},
-								{
-									"id": "set-text",
-									"objectClass": "SF_DAMAGE",
-									"sid": 924063817985010,
-									"parameters": {
-										"text": "\"damage:\"&floor(Hero.damage)"
-									}
-								},
-								{
-									"id": "set-instvar-value",
-									"objectClass": "Hero",
-									"sid": 991523386077527,
-									"parameters": {
-										"instance-variable": "NewLevelExp",
-										"value": "floor(Hero.level*10*0.8)"
-									}
 								}
 							],
-							"sid": 782292639824554,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "Hero",
-											"sid": 319019094811564,
-											"parameters": {
-												"instance-variable": "currentXP",
-												"comparison": 5,
-												"value": "Hero.NewLevelExp"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-instvar-value",
-											"objectClass": "Hero",
-											"sid": 442835993892138,
-											"parameters": {
-												"instance-variable": "currentXP",
-												"value": "Hero.currentXP-Hero.NewLevelExp"
-											}
-										},
-										{
-											"id": "add-to-instvar",
-											"objectClass": "Hero",
-											"sid": 605844376681712,
-											"parameters": {
-												"instance-variable": "Level",
-												"value": "1"
-											}
-										},
-										{
-											"id": "set-instvar-value",
-											"objectClass": "Hero",
-											"sid": 756758297788185,
-											"parameters": {
-												"instance-variable": "NewLevelExp",
-												"value": "floor(Hero.level*10*0.8)"
-											}
-										},
-										{
-											"id": "set-instvar-value",
-											"objectClass": "Hero",
-											"sid": 996231347646770,
-											"parameters": {
-												"instance-variable": "Damage",
-												"value": "floor(Hero.Level*1.2)+4"
-											}
-										}
-									],
-									"sid": 639132641259960
-								}
-							]
+							"sid": 782292639824554
 						},
 						{
 							"eventType": "group",
@@ -4863,7 +4991,8 @@
 															"objectClass": "System",
 															"sid": 124086417885727,
 															"parameters": {
-																"seconds": "0.5"
+																"seconds": "0.5",
+																"use-timescale": true
 															}
 														},
 														{
@@ -5319,7 +5448,8 @@
 															"objectClass": "System",
 															"sid": 386867098624478,
 															"parameters": {
-																"seconds": "0.5"
+																"seconds": "0.5",
+																"use-timescale": true
 															}
 														},
 														{
@@ -6370,7 +6500,8 @@
 															"objectClass": "System",
 															"sid": 678862585001217,
 															"parameters": {
-																"seconds": "0.5"
+																"seconds": "0.5",
+																"use-timescale": true
 															}
 														},
 														{
@@ -6749,7 +6880,8 @@
 															"objectClass": "System",
 															"sid": 727965166149712,
 															"parameters": {
-																"seconds": "0.5"
+																"seconds": "0.5",
+																"use-timescale": true
 															}
 														},
 														{
@@ -7163,7 +7295,8 @@
 															"objectClass": "System",
 															"sid": 686196463454639,
 															"parameters": {
-																"seconds": "0.5"
+																"seconds": "0.5",
+																"use-timescale": true
 															}
 														},
 														{
@@ -7660,7 +7793,8 @@
 															"objectClass": "System",
 															"sid": 637204822946575,
 															"parameters": {
-																"seconds": "0.5"
+																"seconds": "0.5",
+																"use-timescale": true
 															}
 														},
 														{
@@ -7865,7 +7999,8 @@
 											"objectClass": "System",
 											"sid": 751151598125116,
 											"parameters": {
-												"seconds": "5"
+												"seconds": "5",
+												"use-timescale": true
 											}
 										},
 										{
@@ -8423,6 +8558,43 @@
 									"sid": 310853087956649
 								}
 							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-on-screen",
+									"objectClass": "SF_InteractSummury",
+									"sid": 355571059107399,
+									"isInverted": true
+								}
+							],
+							"actions": [],
+							"sid": 101390201988301,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 195520420718608
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "UpdateText",
+											"sid": 442452680851291
+										},
+										{
+											"id": "destroy",
+											"objectClass": "SF_InteractSummury",
+											"sid": 668929972149570
+										}
+									],
+									"sid": 982915753478363
+								}
+							]
 						}
 					],
 					"sid": 893166498708004
@@ -8702,6 +8874,14 @@
 									"objectClass": "Hero",
 									"sid": 480106212111568,
 									"behaviorType": "Pathfinding"
+								},
+								{
+									"id": "set-pixel-rounding",
+									"objectClass": "System",
+									"sid": 514905724140459,
+									"parameters": {
+										"mode": "disabled"
+									}
 								}
 							],
 							"sid": 680726966176607
@@ -9260,7 +9440,16 @@
 									"behaviorType": "Pathfinding"
 								}
 							],
-							"actions": [],
+							"actions": [
+								{
+									"id": "set-pixel-rounding",
+									"objectClass": "System",
+									"sid": 265865621264991,
+									"parameters": {
+										"mode": "enabled"
+									}
+								}
+							],
 							"sid": 391418784426390,
 							"children": [
 								{
@@ -9397,7 +9586,8 @@
 																	"objectClass": "System",
 																	"sid": 930252132447033,
 																	"parameters": {
-																		"seconds": "1"
+																		"seconds": "1",
+																		"use-timescale": true
 																	}
 																},
 																{

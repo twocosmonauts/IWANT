@@ -3,6 +3,7 @@
 	"plugin-id": "TiledBg",
 	"sid": 778625357187221,
 	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
 	"instanceVariables": [],
 	"behaviorTypes": [],
 	"effectTypes": [],
@@ -14,6 +15,7 @@
 		"originalSource": "C:\\Users\\amphe\\Downloads\\LDJAM55\\SOURCES\\dead.png",
 		"exportFormat": "lossless",
 		"exportQuality": 0.8,
+		"fileType": "image/png",
 		"imageSpriteId": 6253931,
 		"useCollisionPoly": true,
 		"tag": ""

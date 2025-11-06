@@ -3,6 +3,7 @@
 	"plugin-id": "Spritefont2",
 	"sid": 666902584048587,
 	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
 	"instanceVariables": [
 		{
 			"name": "current",
@@ -22,7 +23,8 @@
 		"originalSource": "C:\\Users\\amphe\\Downloads\\LDJAM55\\IWANT\\ART-SOURCES\\Font-En-Black.png",
 		"exportFormat": "lossless",
 		"exportQuality": 0.8,
-		"imageSpriteId": 2231316,
+		"fileType": "image/png",
+		"imageSpriteId": 5795864,
 		"useCollisionPoly": true,
 		"tag": ""
 	}

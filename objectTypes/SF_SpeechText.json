@@ -3,6 +3,7 @@
 	"plugin-id": "Spritefont2",
 	"sid": 677285986826873,
 	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
 	"instanceVariables": [
 		{
 			"name": "current",
@@ -22,7 +23,8 @@
 		"originalSource": "C:\\Users\\amphe\\Downloads\\LDJAM55\\SOURCES\\Font-En.png",
 		"exportFormat": "lossless",
 		"exportQuality": 0.8,
-		"imageSpriteId": 4957596,
+		"fileType": "image/png",
+		"imageSpriteId": 7736233,
 		"useCollisionPoly": true,
 		"tag": ""
 	}

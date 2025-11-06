@@ -21,6 +21,8 @@
 						"drawing-mode": "top-to-right"
 					},
 					"uid": 15,
+					"sid": 862358685043292,
+					"tags": "",
 					"instanceVariables": {},
 					"behaviors": {},
 					"ownData": {
@@ -38,6 +40,8 @@
 						"tile-x-spacing": 0,
 						"tile-y-spacing": 0
 					},
+					"showing": true,
+					"locked": false,
 					"world": {
 						"x": 0,
 						"y": 0,
@@ -69,6 +73,8 @@
 						"drawing-mode": "top-to-right"
 					},
 					"uid": 27,
+					"sid": 500892345098496,
+					"tags": "",
 					"instanceVariables": {},
 					"behaviors": {
 						"Solid": {
@@ -93,6 +99,8 @@
 						"tile-x-spacing": 0,
 						"tile-y-spacing": 0
 					},
+					"showing": true,
+					"locked": false,
 					"world": {
 						"x": 0,
 						"y": 0,
@@ -154,6 +162,8 @@
 						"live-preview": false
 					},
 					"uid": 22,
+					"sid": 685078278041958,
+					"tags": "",
 					"instanceVariables": {
 						"Direction": 0,
 						"CarryOn": 0,
@@ -186,8 +196,22 @@
 								"direct-movement": "to-destination",
 								"enabled": true
 							}
+						},
+						"8Direction": {
+							"properties": {
+								"max-speed": 24,
+								"acceleration": 24,
+								"deceleration": 24,
+								"directions": "dir-4",
+								"set-angle": "no",
+								"allow-sliding": false,
+								"default-controls": true,
+								"enabled": true
+							}
 						}
 					},
+					"showing": true,
+					"locked": false,
 					"world": {
 						"x": 960,
 						"y": 960,
@@ -215,6 +239,8 @@
 						"live-preview": false
 					},
 					"uid": 33,
+					"sid": 702015404832377,
+					"tags": "",
 					"instanceVariables": {
 						"Type": "What",
 						"Name": "potion",
@@ -254,6 +280,8 @@
 							"properties": {}
 						}
 					},
+					"showing": true,
+					"locked": false,
 					"world": {
 						"x": 1258,
 						"y": -76,
@@ -281,6 +309,8 @@
 						"live-preview": false
 					},
 					"uid": 40,
+					"sid": 491727778950156,
+					"tags": "",
 					"instanceVariables": {
 						"Type": "Whom",
 						"Name": "skeleton",
@@ -297,6 +327,8 @@
 							"properties": {}
 						}
 					},
+					"showing": true,
+					"locked": false,
 					"world": {
 						"x": 1254,
 						"y": -88,
@@ -341,8 +373,12 @@
 						"timeout": 0.3
 					},
 					"uid": 5,
+					"sid": 706099457538068,
+					"tags": "",
 					"instanceVariables": {},
 					"behaviors": {},
+					"showing": true,
+					"locked": false,
 					"world": {
 						"x": -402,
 						"y": 632,
@@ -370,8 +406,12 @@
 						"live-preview": false
 					},
 					"uid": 20,
+					"sid": 922194292483961,
+					"tags": "",
 					"instanceVariables": {},
 					"behaviors": {},
+					"showing": true,
+					"locked": false,
 					"world": {
 						"x": 960,
 						"y": 960,
@@ -433,13 +473,19 @@
 						"bottom-margin": 1,
 						"edges": "tile",
 						"fill": "tile",
+						"image-scale-x": 1,
+						"image-scale-y": 1,
 						"initially-visible": false,
 						"origin": "bottom",
 						"seams": "overlap"
 					},
 					"uid": 24,
+					"sid": 267102782214091,
+					"tags": "",
 					"instanceVariables": {},
 					"behaviors": {},
+					"showing": true,
+					"locked": false,
 					"world": {
 						"x": -72,
 						"y": 868,
@@ -477,10 +523,14 @@
 						"read-aloud": false
 					},
 					"uid": 23,
+					"sid": 511541676399248,
+					"tags": "",
 					"instanceVariables": {
 						"current": ""
 					},
 					"behaviors": {},
+					"showing": true,
+					"locked": false,
 					"world": {
 						"x": 328.955657959,
 						"y": 136.631408691,
@@ -518,6 +568,8 @@
 						"read-aloud": false
 					},
 					"uid": 16,
+					"sid": 576504037204602,
+					"tags": "",
 					"instanceVariables": {},
 					"behaviors": {
 						"Bullet": {
@@ -532,6 +584,8 @@
 							}
 						}
 					},
+					"showing": true,
+					"locked": false,
 					"world": {
 						"x": -380,
 						"y": 2008,
@@ -604,8 +658,12 @@
 						"blend-margin-y": 0.1
 					},
 					"uid": 0,
+					"sid": 388237668641370,
+					"tags": "",
 					"instanceVariables": {},
 					"behaviors": {},
+					"showing": true,
+					"locked": false,
 					"world": {
 						"x": 24,
 						"y": 24,
@@ -643,8 +701,12 @@
 						"read-aloud": false
 					},
 					"uid": 11,
+					"sid": 728724875457183,
+					"tags": "",
 					"instanceVariables": {},
 					"behaviors": {},
+					"showing": true,
+					"locked": false,
 					"world": {
 						"x": 8,
 						"y": -80,
@@ -682,8 +744,12 @@
 						"read-aloud": false
 					},
 					"uid": 12,
+					"sid": 906933133494663,
+					"tags": "",
 					"instanceVariables": {},
 					"behaviors": {},
+					"showing": true,
+					"locked": false,
 					"world": {
 						"x": -158,
 						"y": 195,
@@ -711,6 +777,8 @@
 						"live-preview": false
 					},
 					"uid": 41,
+					"sid": 596337490282025,
+					"tags": "",
 					"instanceVariables": {
 						"Type": "\"want\"",
 						"Name": "\"i want\"",
@@ -733,6 +801,8 @@
 							"properties": {}
 						}
 					},
+					"showing": true,
+					"locked": false,
 					"world": {
 						"x": 88,
 						"y": 88,
@@ -805,8 +875,12 @@
 						"blend-margin-y": 0.1
 					},
 					"uid": 8,
+					"sid": 523441661246039,
+					"tags": "",
 					"instanceVariables": {},
 					"behaviors": {},
+					"showing": true,
+					"locked": false,
 					"world": {
 						"x": 0,
 						"y": 0,
@@ -844,10 +918,14 @@
 						"read-aloud": false
 					},
 					"uid": 31,
+					"sid": 476579096100433,
+					"tags": "",
 					"instanceVariables": {
 						"current": ""
 					},
 					"behaviors": {},
+					"showing": true,
+					"locked": false,
 					"world": {
 						"x": 160,
 						"y": 166,
@@ -885,10 +963,14 @@
 						"read-aloud": false
 					},
 					"uid": 9,
+					"sid": 750278601085553,
+					"tags": "",
 					"instanceVariables": {
 						"current": ""
 					},
 					"behaviors": {},
+					"showing": true,
+					"locked": false,
 					"world": {
 						"x": 168,
 						"y": 5,
@@ -926,10 +1008,14 @@
 						"read-aloud": false
 					},
 					"uid": 13,
+					"sid": 684236271808833,
+					"tags": "",
 					"instanceVariables": {
 						"current": ""
 					},
 					"behaviors": {},
+					"showing": true,
+					"locked": false,
 					"world": {
 						"x": 168,
 						"y": 12,
@@ -967,10 +1053,14 @@
 						"read-aloud": false
 					},
 					"uid": 18,
+					"sid": 520344389224350,
+					"tags": "",
 					"instanceVariables": {
 						"current": ""
 					},
 					"behaviors": {},
+					"showing": true,
+					"locked": false,
 					"world": {
 						"x": 168,
 						"y": 19,
@@ -1008,10 +1098,14 @@
 						"read-aloud": false
 					},
 					"uid": 19,
+					"sid": 119504302419802,
+					"tags": "",
 					"instanceVariables": {
 						"current": ""
 					},
 					"behaviors": {},
+					"showing": true,
+					"locked": false,
 					"world": {
 						"x": 238,
 						"y": 5,
@@ -1049,8 +1143,12 @@
 						"blend-margin-y": 0.1
 					},
 					"uid": 7,
+					"sid": 983940071461423,
+					"tags": "",
 					"instanceVariables": {},
 					"behaviors": {},
+					"showing": true,
+					"locked": false,
 					"world": {
 						"x": -548,
 						"y": 824,
@@ -1088,10 +1186,14 @@
 						"read-aloud": false
 					},
 					"uid": 25,
+					"sid": 327421500932807,
+					"tags": "",
 					"instanceVariables": {
 						"current": ""
 					},
 					"behaviors": {},
+					"showing": true,
+					"locked": false,
 					"world": {
 						"x": 24,
 						"y": 192,
@@ -1129,10 +1231,14 @@
 						"read-aloud": false
 					},
 					"uid": 30,
+					"sid": 452121459568665,
+					"tags": "",
 					"instanceVariables": {
 						"current": ""
 					},
 					"behaviors": {},
+					"showing": true,
+					"locked": false,
 					"world": {
 						"x": 14,
 						"y": -40,
@@ -1170,10 +1276,14 @@
 						"read-aloud": false
 					},
 					"uid": 34,
+					"sid": 202517832177638,
+					"tags": "",
 					"instanceVariables": {
 						"current": ""
 					},
 					"behaviors": {},
+					"showing": true,
+					"locked": false,
 					"world": {
 						"x": 0,
 						"y": -24,
@@ -1222,6 +1332,10 @@
 			"global": false
 		}
 	],
+	"scene-graphs-folder-root": {
+		"items": [],
+		"subfolders": []
+	},
 	"sid": 604191020438958,
 	"nonworld-instances": [
 		{
@@ -1232,6 +1346,8 @@
 				"depth": 1
 			},
 			"uid": 1,
+			"sid": 874391239924983,
+			"tags": "",
 			"instanceVariables": {}
 		},
 		{
@@ -1242,6 +1358,8 @@
 				"depth": 1
 			},
 			"uid": 21,
+			"sid": 919108651585485,
+			"tags": "",
 			"instanceVariables": {}
 		},
 		{
@@ -1252,6 +1370,8 @@
 				"depth": 1
 			},
 			"uid": 28,
+			"sid": 237551801851424,
+			"tags": "",
 			"instanceVariables": {}
 		},
 		{
@@ -1262,6 +1382,8 @@
 				"depth": 1
 			},
 			"uid": 29,
+			"sid": 771335477155814,
+			"tags": "",
 			"instanceVariables": {}
 		},
 		{
@@ -1272,6 +1394,8 @@
 				"depth": 1
 			},
 			"uid": 32,
+			"sid": 455047194020231,
+			"tags": "",
 			"instanceVariables": {}
 		},
 		{
@@ -1282,12 +1406,16 @@
 				"depth": 1
 			},
 			"uid": 2,
+			"sid": 417073060137579,
+			"tags": "",
 			"instanceVariables": {}
 		},
 		{
 			"type": "OverlappingIdeas",
 			"properties": {},
 			"uid": 17,
+			"sid": 774816734287213,
+			"tags": "",
 			"instanceVariables": {}
 		}
 	],
@@ -1318,7 +1446,7 @@
 			"effectId": "noise",
 			"name": "Noise",
 			"instance": {
-				"isEnabled": false,
+				"isEnabled": true,
 				"parameters": {
 					"intensity": 0.2,
 					"color": 0
