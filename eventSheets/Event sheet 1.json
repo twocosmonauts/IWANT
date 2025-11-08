@@ -108,6 +108,7 @@
 									"id": "call-function",
 									"objectClass": "Function",
 									"sid": 324618182914294,
+									"disabled": true,
 									"parameters": {
 										"name": "\"CheckAdjacentIdeas\"",
 										"parameter-n": []
@@ -281,15 +282,6 @@
 									"sid": 986061521671963,
 									"parameters": {
 										"name": "\"CheckSpawnNewIdea\"",
-										"parameter-n": []
-									}
-								},
-								{
-									"id": "call-function",
-									"objectClass": "Function",
-									"sid": 695932485963534,
-									"parameters": {
-										"name": "\"CheckAdjacentIdeas\"",
 										"parameter-n": []
 									}
 								}
@@ -1330,22 +1322,63 @@
 										{
 											"id": "compare-two-values",
 											"objectClass": "System",
-											"sid": 974492407631075,
+											"sid": 349840786681908,
 											"parameters": {
 												"first-value": "OverlappingIdeas.KeyCount",
 												"comparison": 5,
-												"second-value": "4"
+												"second-value": "2"
+											}
+										},
+										{
+											"id": "has-key",
+											"objectClass": "OverlappingIdeas",
+											"sid": 162815741207248,
+											"parameters": {
+												"key": "\"Whom\""
+											}
+										},
+										{
+											"id": "has-key",
+											"objectClass": "OverlappingIdeas",
+											"sid": 810881518762024,
+											"parameters": {
+												"key": "\"Do\""
 											}
 										}
 									],
 									"actions": [
 										{
+											"id": "clear",
+											"objectClass": "A_QueryActions",
+											"sid": 333726419320237,
+											"parameters": {
+												"value": "0"
+											}
+										},
+										{
+											"id": "clear",
+											"objectClass": "A_FinalPhrase",
+											"sid": 910018750226253,
+											"parameters": {
+												"value": "0"
+											}
+										},
+										{
 											"id": "set-at-x",
 											"objectClass": "A_FinalPhrase",
-											"sid": 106806816175084,
+											"sid": 726962021811441,
 											"parameters": {
 												"x": "0",
 												"value": "\"i want \""
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Hero",
+											"sid": 384645001793282,
+											"parameters": {
+												"instance-variable": "State",
+												"value": "\"\""
 											}
 										}
 									],
@@ -1572,6 +1605,60 @@
 														}
 													],
 													"sid": 968898701157257
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-at-x",
+															"objectClass": "A_FinalPhrase",
+															"sid": 701558007326336,
+															"parameters": {
+																"x": "3",
+																"comparison": 0,
+																"value": "0"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-at-x",
+															"objectClass": "A_FinalPhrase",
+															"sid": 345744560805592,
+															"parameters": {
+																"x": "3",
+																"value": "\"using \"&\"nothing\"&\" \""
+															}
+														}
+													],
+													"sid": 878506279842573
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-at-x",
+															"objectClass": "A_FinalPhrase",
+															"sid": 760263942329377,
+															"parameters": {
+																"x": "4",
+																"comparison": 0,
+																"value": "0"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-at-x",
+															"objectClass": "A_FinalPhrase",
+															"sid": 947829896709506,
+															"parameters": {
+																"x": "4",
+																"value": "\"routinely\"&\"!\""
+															}
+														}
+													],
+													"sid": 807871342123535
 												},
 												{
 													"eventType": "block",
@@ -4784,6 +4871,16 @@
 													"parameters": {
 														"unique-id": "Function.Param(1)"
 													}
+												},
+												{
+													"id": "compare-at-x",
+													"objectClass": "A_QueryActions",
+													"sid": 363700501829611,
+													"parameters": {
+														"x": "3",
+														"comparison": 0,
+														"value": "\"nothing\""
+													}
 												}
 											],
 											"actions": [
@@ -5207,7 +5304,8 @@
 													],
 													"sid": 232273126951439
 												}
-											]
+											],
+											"isOrBlock": true
 										}
 									]
 								}
@@ -5282,6 +5380,16 @@
 													"sid": 536740987283839,
 													"parameters": {
 														"unique-id": "Function.Param(1)"
+													}
+												},
+												{
+													"id": "compare-at-x",
+													"objectClass": "A_QueryActions",
+													"sid": 380913125946394,
+													"parameters": {
+														"x": "3",
+														"comparison": 0,
+														"value": "\"nothing\""
 													}
 												}
 											],
@@ -5709,7 +5817,8 @@
 													],
 													"sid": 507451961017509
 												}
-											]
+											],
+											"isOrBlock": true
 										}
 									]
 								}
@@ -5794,6 +5903,16 @@
 													"sid": 210406065313440,
 													"parameters": {
 														"unique-id": "Function.Param(1)"
+													}
+												},
+												{
+													"id": "compare-at-x",
+													"objectClass": "A_QueryActions",
+													"sid": 112800330800074,
+													"parameters": {
+														"x": "3",
+														"comparison": 0,
+														"value": "\"nothing\""
 													}
 												}
 											],
@@ -6278,7 +6397,8 @@
 													],
 													"sid": 449166124832319
 												}
-											]
+											],
+											"isOrBlock": true
 										}
 									]
 								}
@@ -6343,6 +6463,16 @@
 													"sid": 672975496616275,
 													"parameters": {
 														"unique-id": "Function.Param(1)"
+													}
+												},
+												{
+													"id": "compare-at-x",
+													"objectClass": "A_QueryActions",
+													"sid": 623280464723514,
+													"parameters": {
+														"x": "3",
+														"comparison": 0,
+														"value": "\"nothing\""
 													}
 												}
 											],
@@ -6713,7 +6843,8 @@
 													],
 													"sid": 409406090256981
 												}
-											]
+											],
+											"isOrBlock": true
 										}
 									]
 								}
@@ -6768,6 +6899,16 @@
 													"sid": 220508441291734,
 													"parameters": {
 														"unique-id": "Function.Param(1)"
+													}
+												},
+												{
+													"id": "compare-at-x",
+													"objectClass": "A_QueryActions",
+													"sid": 272071619215641,
+													"parameters": {
+														"x": "3",
+														"comparison": 0,
+														"value": "\"nothing\""
 													}
 												}
 											],
@@ -7045,7 +7186,8 @@
 													],
 													"sid": 802697683411240
 												}
-											]
+											],
+											"isOrBlock": true
 										}
 									]
 								}
@@ -7120,6 +7262,16 @@
 													"sid": 843929274534136,
 													"parameters": {
 														"unique-id": "Function.Param(1)"
+													}
+												},
+												{
+													"id": "compare-at-x",
+													"objectClass": "A_QueryActions",
+													"sid": 303745798437759,
+													"parameters": {
+														"x": "3",
+														"comparison": 0,
+														"value": "\"nothing\""
 													}
 												}
 											],
@@ -7653,7 +7805,8 @@
 														}
 													]
 												}
-											]
+											],
+											"isOrBlock": true
 										}
 									]
 								}
@@ -7708,6 +7861,16 @@
 													"sid": 609972159620626,
 													"parameters": {
 														"unique-id": "Function.Param(1)"
+													}
+												},
+												{
+													"id": "compare-at-x",
+													"objectClass": "A_QueryActions",
+													"sid": 757381609260870,
+													"parameters": {
+														"x": "3",
+														"comparison": 0,
+														"value": "\"nothing\""
 													}
 												}
 											],
@@ -7931,7 +8094,8 @@
 													],
 													"sid": 812197970985659
 												}
-											]
+											],
+											"isOrBlock": true
 										}
 									]
 								}
@@ -9187,36 +9351,118 @@
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "pick-by-unique-id",
-											"objectClass": "Item",
-											"sid": 897850237051076,
+											"id": "compare-at-x",
+											"objectClass": "A_QueryActions",
+											"sid": 718217977371000,
 											"parameters": {
-												"unique-id": "A_QueryActions.At(3)"
+												"x": "3",
+												"comparison": 1,
+												"value": "0"
 											}
 										}
 									],
-									"actions": [
+									"actions": [],
+									"sid": 100923459723724,
+									"children": [
 										{
-											"id": "set-instvar-value",
-											"objectClass": "Hero",
-											"sid": 318000265902860,
-											"parameters": {
-												"instance-variable": "State",
-												"value": "\"MoveToWhat\""
-											}
-										},
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-by-unique-id",
+													"objectClass": "Item",
+													"sid": 594794506158432,
+													"parameters": {
+														"unique-id": "A_QueryActions.At(3)"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Hero",
+													"sid": 433352487068042,
+													"parameters": {
+														"instance-variable": "State",
+														"value": "\"MoveToWhat\""
+													}
+												},
+												{
+													"id": "find-path",
+													"objectClass": "Hero",
+													"sid": 277310391995488,
+													"behaviorType": "Pathfinding",
+													"parameters": {
+														"x": "Item.X",
+														"y": "Item.Y"
+													}
+												}
+											],
+											"sid": 705239714258414
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
 										{
-											"id": "find-path",
-											"objectClass": "Hero",
-											"sid": 829191772342629,
-											"behaviorType": "Pathfinding",
+											"id": "compare-at-x",
+											"objectClass": "A_QueryActions",
+											"sid": 875248722743653,
 											"parameters": {
-												"x": "Item.X",
-												"y": "Item.Y"
+												"x": "3",
+												"comparison": 0,
+												"value": "0"
 											}
 										}
 									],
-									"sid": 677585600215887
+									"actions": [],
+									"sid": 204832695283126,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-by-unique-id",
+													"objectClass": "NPC",
+													"sid": 958900624189024,
+													"parameters": {
+														"unique-id": "A_QueryActions.At(2)"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Hero",
+													"sid": 710794604033335,
+													"parameters": {
+														"instance-variable": "State",
+														"value": "\"MoveToWhom\""
+													}
+												},
+												{
+													"id": "find-path",
+													"objectClass": "Hero",
+													"sid": 684879619389462,
+													"behaviorType": "Pathfinding",
+													"parameters": {
+														"x": "NPC.X",
+														"y": "NPC.Y"
+													}
+												},
+												{
+													"id": "set-at-x",
+													"objectClass": "A_QueryActions",
+													"sid": 158280108486637,
+													"parameters": {
+														"x": "3",
+														"value": "\"nothing\""
+													}
+												}
+											],
+											"sid": 809313841838300
+										}
+									]
 								},
 								{
 									"eventType": "block",
@@ -9713,6 +9959,43 @@
 						}
 					],
 					"sid": 821568328625457
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-object-clicked",
+							"objectClass": "Mouse",
+							"sid": 254606191812467,
+							"parameters": {
+								"mouse-button": "left",
+								"click-type": "clicked",
+								"object-clicked": "Idea"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Idea",
+							"sid": 829467560174170,
+							"parameters": {
+								"instance-variable": "Type",
+								"comparison": 0,
+								"value": "\"Want\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "call-function",
+							"objectClass": "Function",
+							"sid": 695932485963534,
+							"parameters": {
+								"name": "\"CheckAdjacentIdeas\"",
+								"parameter-n": []
+							}
+						}
+					],
+					"sid": 842111020854426
 				}
 			],
 			"sid": 504850293771682
