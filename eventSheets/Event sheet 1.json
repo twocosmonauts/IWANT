@@ -270,16 +270,7 @@
 								{
 									"id": "call-function",
 									"objectClass": "Function",
-									"sid": 299960116738528,
-									"parameters": {
-										"name": "\"CheckSpawnIdea\"",
-										"parameter-n": []
-									}
-								},
-								{
-									"id": "call-function",
-									"objectClass": "Function",
-									"sid": 986061521671963,
+									"sid": 990944096760167,
 									"parameters": {
 										"name": "\"CheckSpawnNewIdea\"",
 										"parameter-n": []
@@ -3953,21 +3944,21 @@
 										{
 											"id": "is-between-values",
 											"objectClass": "System",
-											"sid": 845637965139489,
+											"sid": 693207956996431,
 											"parameters": {
 												"value": "Item.X",
-												"lower-bound": "Hero.X-64",
-												"upper-bound": "Hero.X+64"
+												"lower-bound": "Hero.X-60",
+												"upper-bound": "Hero.X+60"
 											}
 										},
 										{
 											"id": "is-between-values",
 											"objectClass": "System",
-											"sid": 236910121713757,
+											"sid": 475849483564790,
 											"parameters": {
 												"value": "Item.Y",
-												"lower-bound": "Hero.Y-64",
-												"upper-bound": "Hero.Y+64"
+												"lower-bound": "Hero.Y-60",
+												"upper-bound": "Hero.Y+60"
 											}
 										}
 									],
@@ -4107,21 +4098,21 @@
 										{
 											"id": "is-between-values",
 											"objectClass": "System",
-											"sid": 508598077857962,
+											"sid": 231882455585114,
 											"parameters": {
 												"value": "NPC.X",
-												"lower-bound": "Hero.X-64",
-												"upper-bound": "Hero.X+64"
+												"lower-bound": "Hero.X-60",
+												"upper-bound": "Hero.X+60"
 											}
 										},
 										{
 											"id": "is-between-values",
 											"objectClass": "System",
-											"sid": 743487165397146,
+											"sid": 384082769900738,
 											"parameters": {
 												"value": "NPC.Y",
-												"lower-bound": "Hero.Y-64",
-												"upper-bound": "Hero.Y+64"
+												"lower-bound": "Hero.Y-60",
+												"upper-bound": "Hero.Y+60"
 											}
 										}
 									],
@@ -4239,6 +4230,28 @@
 									]
 								}
 							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 233915146493068
+								}
+							],
+							"actions": [
+								{
+									"id": "call-function",
+									"objectClass": "Function",
+									"sid": 299960116738528,
+									"parameters": {
+										"name": "\"CheckSpawnIdea\"",
+										"parameter-n": []
+									}
+								}
+							],
+							"sid": 330147159332358
 						}
 					]
 				},
