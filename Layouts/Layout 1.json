@@ -347,56 +347,6 @@
 					}
 				},
 				{
-					"type": "Magic",
-					"properties": {
-						"rate": 32,
-						"spray-cone": 360,
-						"type": "continuous-spray",
-						"object": -1,
-						"initially-visible": true,
-						"live-preview": false,
-						"speed": 0,
-						"size": 3,
-						"opacity": 100,
-						"grow-rate": 0,
-						"x-randomiser": 12,
-						"y-randomiser": 12,
-						"initial-speed-randomiser": 0,
-						"size-randomiser": 0,
-						"grow-rate-randomiser": 0,
-						"acceleration": 0,
-						"gravity": 64,
-						"angle-randomiser": 0,
-						"life-speed-randomiser": 32,
-						"opacity-randomiser": 0,
-						"destroy-mode": "timeout-expired",
-						"timeout": 0.3
-					},
-					"uid": 5,
-					"sid": 706099457538068,
-					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {},
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": -402,
-						"y": 632,
-						"width": 128,
-						"height": 128,
-						"originX": 0,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
 					"type": "Vision",
 					"properties": {
 						"initially-visible": true,
@@ -593,6 +543,60 @@
 						"height": 140,
 						"originX": 0.5,
 						"originY": 1,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Magic",
+					"properties": {
+						"rate": 16,
+						"spray-cone": 360,
+						"type": "continuous-spray",
+						"object": -1,
+						"initially-visible": true,
+						"live-preview": false,
+						"speed": 0,
+						"size": 3,
+						"opacity": 100,
+						"grow-rate": 0,
+						"x-randomiser": 12,
+						"y-randomiser": 12,
+						"initial-speed-randomiser": 0,
+						"size-randomiser": 0,
+						"grow-rate-randomiser": 0,
+						"acceleration": 0,
+						"gravity": 64,
+						"angle-randomiser": 0,
+						"life-speed-randomiser": 32,
+						"opacity-randomiser": 0,
+						"destroy-mode": "timeout-expired",
+						"timeout": 0.5
+					},
+					"uid": 5,
+					"sid": 128501000393605,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {},
+					"instanceFolderItem": {
+						"sid": 128501000393605,
+						"expanded": true
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 792,
+						"y": -152,
+						"width": 64,
+						"height": 64,
+						"originX": 0,
+						"originY": 0.5,
 						"color": [
 							1,
 							1,
@@ -799,6 +803,31 @@
 						},
 						"Flash": {
 							"properties": {}
+						},
+						"Sine": {
+							"properties": {
+								"movement": "size",
+								"wave": "square",
+								"period": 1,
+								"period-random": 0,
+								"period-offset": 0,
+								"period-offset-random": 0,
+								"magnitude": 1,
+								"magnitude-random": 0,
+								"enabled": false,
+								"live-preview": false
+							}
+						},
+						"MoveTo": {
+							"properties": {
+								"max-speed": 200,
+								"acceleration": 600,
+								"deceleration": 600,
+								"rotate-speed": 0,
+								"set-angle": false,
+								"stop-on-solids": false,
+								"enabled": false
+							}
 						}
 					},
 					"showing": true,
@@ -880,7 +909,7 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"showing": true,
-					"locked": false,
+					"locked": true,
 					"world": {
 						"x": 0,
 						"y": 0,

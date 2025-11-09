@@ -79,6 +79,16 @@
 			"behaviorId": "Flash",
 			"name": "Flash",
 			"sid": 786166810274121
+		},
+		{
+			"behaviorId": "Sin",
+			"name": "Sine",
+			"sid": 682595078217768
+		},
+		{
+			"behaviorId": "MoveTo",
+			"name": "MoveTo",
+			"sid": 651753526244757
 		}
 	],
 	"effectTypes": [],
@@ -95,7 +105,7 @@
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
 						"fileType": "image/png",
-						"imageSpriteId": 3547099,
+						"imageSpriteId": 5110307,
 						"collisionPoly": {
 							"points": [
 								0.0625,
@@ -132,7 +142,7 @@
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
 						"fileType": "image/png",
-						"imageSpriteId": 1246806,
+						"imageSpriteId": 816469,
 						"collisionPoly": {
 							"points": [
 								0.03125,
@@ -177,7 +187,7 @@
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
 						"fileType": "image/png",
-						"imageSpriteId": 8349633,
+						"imageSpriteId": 6802274,
 						"collisionPoly": {
 							"points": [
 								0.03125,
@@ -218,7 +228,7 @@
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
 						"fileType": "image/png",
-						"imageSpriteId": 6645160,
+						"imageSpriteId": 1224156,
 						"collisionPoly": {
 							"points": [
 								0.03125,
@@ -263,7 +273,7 @@
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
 						"fileType": "image/png",
-						"imageSpriteId": 4448877,
+						"imageSpriteId": 5615615,
 						"collisionPoly": {
 							"points": [
 								0.96875,

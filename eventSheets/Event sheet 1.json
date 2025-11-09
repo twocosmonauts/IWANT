@@ -169,6 +169,15 @@
 									"parameters": {
 										"state": "disabled"
 									}
+								},
+								{
+									"id": "change-tags",
+									"objectClass": "Idea",
+									"sid": 383016049176984,
+									"parameters": {
+										"action": "add",
+										"tags": "\"want\""
+									}
 								}
 							],
 							"sid": 245656133176903
@@ -270,7 +279,23 @@
 								{
 									"id": "call-function",
 									"objectClass": "Function",
-									"sid": 990944096760167,
+									"sid": 495781553693088,
+									"parameters": {
+										"name": "\"CheckAdjacentIdeas\"",
+										"parameter-n": []
+									}
+								},
+								{
+									"callFunction": "WantAnimation",
+									"sid": 764791699704283,
+									"parameters": [
+										"Function.ReturnValue"
+									]
+								},
+								{
+									"id": "call-function",
+									"objectClass": "Function",
+									"sid": 501502491793266,
 									"parameters": {
 										"name": "\"CheckSpawnNewIdea\"",
 										"parameter-n": []
@@ -849,24 +874,117 @@
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "pick-by-unique-id",
-									"objectClass": "Idea",
-									"sid": 532053506311931,
+									"id": "compare-parameter",
+									"objectClass": "Function",
+									"sid": 669337282904337,
 									"parameters": {
-										"unique-id": "Function.Param(0)"
+										"index": "1",
+										"comparison": 1,
+										"value": "\"clear\""
 									}
 								}
 							],
-							"actions": [
+							"actions": [],
+							"sid": 267536021620226,
+							"children": [
 								{
-									"id": "destroy",
-									"objectClass": "Idea",
-									"sid": 413042091525250
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "Idea",
+											"sid": 206552832732050,
+											"parameters": {
+												"unique-id": "Function.Param(0)"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-enabled",
+											"objectClass": "Idea",
+											"sid": 753810482148657,
+											"behaviorType": "MoveTo",
+											"parameters": {
+												"enabled": true
+											}
+										},
+										{
+											"id": "move-to-position",
+											"objectClass": "Idea",
+											"sid": 568017406132736,
+											"behaviorType": "MoveTo",
+											"parameters": {
+												"x": "88",
+												"y": "88",
+												"mode": "direct"
+											}
+										}
+									],
+									"sid": 624623629923399
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-parameter",
+									"objectClass": "Function",
+									"sid": 414502308662468,
+									"parameters": {
+										"index": "1",
+										"comparison": 0,
+										"value": "\"clear\""
+									}
 								}
 							],
-							"sid": 727665654070158
+							"actions": [],
+							"sid": 594969428658445,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "Idea",
+											"sid": 984577048210314,
+											"parameters": {
+												"unique-id": "Function.Param(0)"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "Idea",
+											"sid": 678286674886222
+										}
+									],
+									"sid": 642978485834064
+								}
+							]
 						}
 					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-arrived",
+							"objectClass": "Idea",
+							"sid": 475785147816314,
+							"behaviorType": "MoveTo"
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "Idea",
+							"sid": 310851674251345
+						}
+					],
+					"sid": 559950596870216
 				},
 				{
 					"eventType": "block",
@@ -1603,6 +1721,60 @@
 														{
 															"id": "compare-at-x",
 															"objectClass": "A_FinalPhrase",
+															"sid": 417785227613733,
+															"parameters": {
+																"x": "1",
+																"comparison": 0,
+																"value": "0"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-at-x",
+															"objectClass": "A_FinalPhrase",
+															"sid": 544390572714306,
+															"parameters": {
+																"x": "1",
+																"value": "\"do nothing \""
+															}
+														}
+													],
+													"sid": 115466665789769
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-at-x",
+															"objectClass": "A_FinalPhrase",
+															"sid": 943585457654809,
+															"parameters": {
+																"x": "2",
+																"comparison": 0,
+																"value": "0"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-at-x",
+															"objectClass": "A_FinalPhrase",
+															"sid": 996067870400680,
+															"parameters": {
+																"x": "2",
+																"value": "\"with noone \""
+															}
+														}
+													],
+													"sid": 155080381071180
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-at-x",
+															"objectClass": "A_FinalPhrase",
 															"sid": 701558007326336,
 															"parameters": {
 																"x": "3",
@@ -1655,25 +1827,44 @@
 													"eventType": "block",
 													"conditions": [
 														{
-															"id": "trigger-once-while-true",
-															"objectClass": "System",
-															"sid": 921484800258934
-														}
-													],
-													"actions": [
-														{
-															"id": "call-function",
+															"id": "compare-parameter",
 															"objectClass": "Function",
-															"sid": 616317656350644,
+															"sid": 536231828174641,
 															"parameters": {
-																"name": "\"DestroyIdeas\"",
-																"parameter-n": [
-																	"OverlappingIdeas.CurrentValue"
-																]
+																"index": "0",
+																"comparison": 0,
+																"value": "\"Do\""
 															}
 														}
 													],
-													"sid": 292788713649615
+													"actions": [],
+													"sid": 812304671922006,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "trigger-once-while-true",
+																	"objectClass": "System",
+																	"sid": 619871199250589
+																}
+															],
+															"actions": [
+																{
+																	"id": "call-function",
+																	"objectClass": "Function",
+																	"sid": 761801820009124,
+																	"parameters": {
+																		"name": "\"DestroyIdeas\"",
+																		"parameter-n": [
+																			"OverlappingIdeas.CurrentValue"
+																		]
+																	}
+																}
+															],
+															"sid": 271167448248805
+														}
+													]
 												}
 											]
 										},
@@ -1681,59 +1872,295 @@
 											"eventType": "block",
 											"conditions": [
 												{
-													"id": "for-each-element",
-													"objectClass": "A_FinalPhrase",
-													"sid": 373353702119643,
+													"id": "compare-parameter",
+													"objectClass": "Function",
+													"sid": 109304384104286,
 													"parameters": {
-														"axes": "x"
+														"index": "0",
+														"comparison": 0,
+														"value": "\"Do\""
 													}
 												}
 											],
-											"actions": [
+											"actions": [],
+											"sid": 797817253317881,
+											"children": [
 												{
-													"id": "append-text",
-													"objectClass": "SF_DEBUG",
-													"sid": 646746195481608,
-													"parameters": {
-														"text": "A_FinalPhrase.CurValue"
-													}
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "for-each-element",
+															"objectClass": "A_FinalPhrase",
+															"sid": 203891679589680,
+															"parameters": {
+																"axes": "x"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "append-text",
+															"objectClass": "SF_DEBUG",
+															"sid": 611655795864809,
+															"parameters": {
+																"text": "A_FinalPhrase.CurValue"
+															}
+														}
+													],
+													"sid": 319793852039288
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "trigger-once-while-true",
+															"objectClass": "System",
+															"sid": 362214899335959
+														}
+													],
+													"actions": [
+														{
+															"id": "call-function",
+															"objectClass": "Function",
+															"sid": 846929440815333,
+															"parameters": {
+																"name": "\"SetText\"",
+																"parameter-n": [
+																	"SF_DEBUG.Text"
+																]
+															}
+														},
+														{
+															"id": "set-text",
+															"objectClass": "SF_DEBUG",
+															"sid": 995159662184002,
+															"parameters": {
+																"text": "\"\""
+															}
+														},
+														{
+															"id": "set-return-value",
+															"objectClass": "Function",
+															"sid": 159142407405402,
+															"parameters": {
+																"value": "0"
+															}
+														}
+													],
+													"sid": 159063209485794
 												}
-											],
-											"sid": 373172231966238
+											]
 										},
 										{
 											"eventType": "block",
 											"conditions": [
 												{
-													"id": "trigger-once-while-true",
-													"objectClass": "System",
-													"sid": 758968429881000
+													"id": "compare-parameter",
+													"objectClass": "Function",
+													"sid": 232861869326688,
+													"parameters": {
+														"index": "0",
+														"comparison": 1,
+														"value": "\"Do\""
+													}
 												}
 											],
-											"actions": [
+											"actions": [],
+											"sid": 733865093029000,
+											"children": [
 												{
-													"id": "call-function",
-													"objectClass": "Function",
-													"sid": 918263455396881,
-													"parameters": {
-														"name": "\"SetText\"",
-														"parameter-n": [
-															"SF_DEBUG.Text"
-														]
-													}
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "for-each-element",
+															"objectClass": "A_FinalPhrase",
+															"sid": 191237798405107,
+															"parameters": {
+																"axes": "x"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "append-text",
+															"objectClass": "SF_DEBUG",
+															"sid": 885534581268522,
+															"parameters": {
+																"text": "A_FinalPhrase.CurValue"
+															}
+														}
+													],
+													"sid": 764346830990852
 												},
 												{
-													"id": "set-text",
-													"objectClass": "SF_DEBUG",
-													"sid": 331625940765734,
-													"parameters": {
-														"text": "\"\""
-													}
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "trigger-once-while-true",
+															"objectClass": "System",
+															"sid": 449667707325287
+														}
+													],
+													"actions": [
+														{
+															"id": "set-text",
+															"objectClass": "SF_StaticText",
+															"sid": 291753804949145,
+															"parameters": {
+																"text": "SF_DEBUG.Text"
+															}
+														},
+														{
+															"id": "set-return-value",
+															"objectClass": "Function",
+															"sid": 475268924430732,
+															"parameters": {
+																"value": "OverlappingIdeas.KeyCount"
+															}
+														},
+														{
+															"id": "set-text",
+															"objectClass": "SF_DEBUG",
+															"sid": 772954517153613,
+															"parameters": {
+																"text": "\"\""
+															}
+														}
+													],
+													"sid": 319736369862724
 												}
-											],
-											"sid": 560741028311924
+											]
 										}
 									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"functionName": "WantAnimation",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "Value",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 252679885416637
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 516707262366070,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 954638665223174,
+									"parameters": {
+										"first-value": "Value",
+										"comparison": 4,
+										"second-value": "0"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 917859998869969,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-comparison",
+											"objectClass": "System",
+											"sid": 791766560200800,
+											"parameters": {
+												"object": "Idea",
+												"expression": "Idea.Type",
+												"comparison": 0,
+												"value": "\"Want\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-active",
+											"objectClass": "Idea",
+											"sid": 946146566132396,
+											"behaviorType": "Sine",
+											"parameters": {
+												"state": "active"
+											}
+										},
+										{
+											"id": "set-period",
+											"objectClass": "Idea",
+											"sid": 512581546836257,
+											"behaviorType": "Sine",
+											"parameters": {
+												"period": "2/Value"
+											}
+										}
+									],
+									"sid": 714482144807296
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 880053531495421
+								}
+							],
+							"actions": [],
+							"sid": 761969755817669,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-comparison",
+											"objectClass": "System",
+											"sid": 262549082129366,
+											"parameters": {
+												"object": "Idea",
+												"expression": "Idea.Type",
+												"comparison": 0,
+												"value": "\"Want\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-active",
+											"objectClass": "Idea",
+											"sid": 628777129387106,
+											"behaviorType": "Sine",
+											"parameters": {
+												"state": "inactive"
+											}
+										},
+										{
+											"id": "set-scale",
+											"objectClass": "Idea",
+											"sid": 709549067956445,
+											"parameters": {
+												"scale": "0.5"
+											}
+										}
+									],
+									"sid": 779767286232438
 								}
 							]
 						}
@@ -4060,11 +4487,12 @@
 														{
 															"id": "call-function",
 															"objectClass": "Function",
-															"sid": 886450672046378,
+															"sid": 127282186195297,
 															"parameters": {
 																"name": "\"DestroyIdeas\"",
 																"parameter-n": [
-																	"Idea.UID"
+																	"Idea.UID",
+																	"\"clear\""
 																]
 															}
 														}
@@ -4214,11 +4642,12 @@
 														{
 															"id": "call-function",
 															"objectClass": "Function",
-															"sid": 166099424222811,
+															"sid": 602855098891257,
 															"parameters": {
 																"name": "\"DestroyIdeas\"",
 																"parameter-n": [
-																	"Idea.UID"
+																	"Idea.UID",
+																	"\"clear\""
 																]
 															}
 														}
@@ -4737,6 +5166,15 @@
 												"name": "\"CheckSpawnIdea\"",
 												"parameter-n": []
 											}
+										},
+										{
+											"id": "call-function",
+											"objectClass": "Function",
+											"sid": 135963655604594,
+											"parameters": {
+												"name": "\"CheckSpawnNewIdea\"",
+												"parameter-n": []
+											}
 										}
 									],
 									"sid": 839063109186663
@@ -4757,6 +5195,7 @@
 									"id": "set-position-to-another-object",
 									"objectClass": "Magic",
 									"sid": 425412523823518,
+									"disabled": true,
 									"parameters": {
 										"object": "Item",
 										"image-point-optional": "0"
@@ -8277,16 +8716,7 @@
 									}
 								}
 							],
-							"actions": [
-								{
-									"id": "set-text",
-									"objectClass": "SF_StaticText",
-									"sid": 457455635000263,
-									"parameters": {
-										"text": "Idea.Name"
-									}
-								}
-							],
+							"actions": [],
 							"sid": 747002939622398,
 							"children": [
 								{
@@ -8316,7 +8746,16 @@
 													}
 												}
 											],
-											"actions": [],
+											"actions": [
+												{
+													"id": "set-text",
+													"objectClass": "SF_StaticText",
+													"sid": 395715483550076,
+													"parameters": {
+														"text": "Item.Name&newline&\"damage: \"&floor(Item.Damage)&newline&\"price: \"&floor(Item.Price)"
+													}
+												}
+											],
 											"sid": 555541402717776,
 											"children": [
 												{
@@ -8374,7 +8813,16 @@
 													}
 												}
 											],
-											"actions": [],
+											"actions": [
+												{
+													"id": "set-text",
+													"objectClass": "SF_StaticText",
+													"sid": 380114386018776,
+													"parameters": {
+														"text": "NPC.Name&newline&\"relation: \"&floor(NPC.relation)&newline&\"health: \"&floor(NPC.currentHP)"
+													}
+												}
+											],
 											"sid": 749932722396136,
 											"children": [
 												{
@@ -8400,6 +8848,123 @@
 														}
 													],
 													"sid": 491381255691791
+												}
+											]
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Idea",
+											"sid": 639008406506922,
+											"parameters": {
+												"animation": "\"How\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "SF_StaticText",
+											"sid": 570905514312579,
+											"parameters": {
+												"text": "Idea.Name"
+											}
+										}
+									],
+									"sid": 722891568720361
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Idea",
+											"sid": 900694825650446,
+											"parameters": {
+												"animation": "\"Do\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "SF_StaticText",
+											"sid": 690957530244870,
+											"parameters": {
+												"text": "Idea.Name"
+											}
+										}
+									],
+									"sid": 894294107726489
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Idea",
+											"sid": 624910231616876,
+											"parameters": {
+												"instance-variable": "Type",
+												"comparison": 0,
+												"value": "\"Want\""
+											}
+										}
+									],
+									"actions": [],
+									"sid": 550229008019817,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "trigger-once-while-true",
+													"objectClass": "System",
+													"sid": 714218057853988
+												}
+											],
+											"actions": [
+												{
+													"id": "call-function",
+													"objectClass": "Function",
+													"sid": 970943297920191,
+													"parameters": {
+														"name": "\"CheckAdjacentIdeas\"",
+														"parameter-n": []
+													}
+												}
+											],
+											"sid": 715546467379920,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 254417326045138,
+															"parameters": {
+																"first-value": "SF_StaticText.Text",
+																"comparison": 0,
+																"second-value": "\"\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-text",
+															"objectClass": "SF_StaticText",
+															"sid": 932619306471164,
+															"parameters": {
+																"text": "\"i dont want anything\""
+															}
+														}
+													],
+													"sid": 398086038201262
 												}
 											]
 										}
@@ -8432,9 +8997,9 @@
 								{
 									"id": "set-text",
 									"objectClass": "SF_StaticText",
-									"sid": 421067090014037,
+									"sid": 507605449779377,
 									"parameters": {
-										"text": "Item.Name"
+										"text": "Item.Name&newline&\"damage: \"&floor(Item.Damage)&newline&\"price: \"&floor(Item.Price)"
 									}
 								}
 							],
@@ -8510,9 +9075,9 @@
 								{
 									"id": "set-text",
 									"objectClass": "SF_StaticText",
-									"sid": 345633934050754,
+									"sid": 638896396112385,
 									"parameters": {
-										"text": "NPC.Name&newline&\"relation \"&floor(NPC.relation)&newline&\"health: \"&floor(NPC.currentHP)"
+										"text": "NPC.Name&newline&\"relation: \"&floor(NPC.relation)&newline&\"health: \"&floor(NPC.currentHP)"
 									}
 								}
 							],
@@ -8767,6 +9332,16 @@
 											"id": "destroy",
 											"objectClass": "SF_InteractSummury",
 											"sid": 668929972149570
+										},
+										{
+											"id": "call-function",
+											"objectClass": "Function",
+											"sid": 857535600813504,
+											"disabled": true,
+											"parameters": {
+												"name": "\"CheckSpawnNewIdea\"",
+												"parameter-n": []
+											}
 										}
 									],
 									"sid": 982915753478363
@@ -8984,10 +9559,10 @@
 								{
 									"id": "set-size",
 									"objectClass": "9P_DialogBack",
-									"sid": 224442290886897,
+									"sid": 571441593793377,
 									"parameters": {
 										"width": "clamp(((len(SF_SpeechText.Text))*5),0,100)",
-										"height": "ceil(((len(SF_SpeechText.Text))*6)/100)*6+4"
+										"height": "ceil(((len(SF_SpeechText.Text))*6)/105)*6+4"
 									}
 								},
 								{
@@ -9163,7 +9738,8 @@
 											}
 										}
 									],
-									"sid": 704044535005640
+									"sid": 704044535005640,
+									"disabled": true
 								},
 								{
 									"eventType": "block",
@@ -9190,7 +9766,8 @@
 											}
 										}
 									],
-									"sid": 749399742059131
+									"sid": 749399742059131,
+									"disabled": true
 								},
 								{
 									"eventType": "block",
@@ -9225,7 +9802,8 @@
 											}
 										}
 									],
-									"sid": 411955631785452
+									"sid": 411955631785452,
+									"disabled": true
 								},
 								{
 									"eventType": "block",
@@ -9252,7 +9830,78 @@
 											}
 										}
 									],
-									"sid": 256524185173575
+									"sid": 256524185173575,
+									"disabled": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-between-angles",
+											"objectClass": "System",
+											"sid": 522388350868380,
+											"parameters": {
+												"angle": "Hero.Pathfinding.MovingAngle",
+												"first-angle": "270",
+												"second-angle": "90"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Hero",
+											"sid": 328211736377794,
+											"parameters": {
+												"instance-variable": "Direction",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-mirrored",
+											"objectClass": "Hero",
+											"sid": 816286342632876,
+											"parameters": {
+												"state": "not-mirrored"
+											}
+										}
+									],
+									"sid": 771515172444744
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-between-angles",
+											"objectClass": "System",
+											"sid": 486714453585876,
+											"parameters": {
+												"angle": "Hero.Pathfinding.MovingAngle",
+												"first-angle": "91",
+												"second-angle": "269"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Hero",
+											"sid": 568572430356714,
+											"parameters": {
+												"instance-variable": "Direction",
+												"value": "2"
+											}
+										},
+										{
+											"id": "set-mirrored",
+											"objectClass": "Hero",
+											"sid": 325257273272477,
+											"parameters": {
+												"state": "mirrored"
+											}
+										}
+									],
+									"sid": 299512792882694
 								}
 							]
 						},
@@ -9751,15 +10400,6 @@
 															"NPC.UID"
 														]
 													}
-												},
-												{
-													"id": "call-function",
-													"objectClass": "Function",
-													"sid": 857535600813504,
-													"parameters": {
-														"name": "\"CheckSpawnNewIdea\"",
-														"parameter-n": []
-													}
 												}
 											],
 											"sid": 383976448898666
@@ -10001,11 +10641,20 @@
 						{
 							"id": "call-function",
 							"objectClass": "Function",
-							"sid": 695932485963534,
+							"sid": 681812835237109,
 							"parameters": {
 								"name": "\"CheckAdjacentIdeas\"",
-								"parameter-n": []
+								"parameter-n": [
+									"\"Do\""
+								]
 							}
+						},
+						{
+							"callFunction": "WantAnimation",
+							"sid": 316059069161695,
+							"parameters": [
+								"Function.ReturnValue"
+							]
 						}
 					],
 					"sid": 842111020854426
