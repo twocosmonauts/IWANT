@@ -4,7 +4,7 @@
 	"name": "IWANT",
 	"runtime": "c3",
 	"useWorker": "auto",
-	"bundleAddons": false,
+	"bundleAddons": true,
 	"usedAddons": [
 		{
 			"type": "plugin",
@@ -158,7 +158,7 @@
 			"id": "Lottes",
 			"name": "Lottes CRT",
 			"author": "Timothy Lottes / converted by Erik Thon and Ossama Jouini",
-			"bundled": false,
+			"bundled": true,
 			"version": "1.0.0.2"
 		},
 		{
@@ -244,7 +244,8 @@
 	"families": {
 		"items": [
 			"Sort",
-			"Ideas"
+			"Ideas",
+			"Targets"
 		],
 		"subfolders": []
 	},
@@ -354,7 +355,7 @@
 	},
 	"properties": {
 		"description": "",
-		"version": "1.0.0.0",
+		"version": "1.0.0.1",
 		"autoIncrementVersion": true,
 		"author": "CO5MONAUT",
 		"authorEmail": "CO5MONAUTMONEY@GMAIL>COM",

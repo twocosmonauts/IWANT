@@ -74,6 +74,13 @@
 			"desc": "",
 			"show": true,
 			"sid": 614522706438107
+		},
+		{
+			"name": "InPuzzle",
+			"type": "boolean",
+			"desc": "",
+			"show": true,
+			"sid": 251544150428647
 		}
 	],
 	"behaviorTypes": [
@@ -91,6 +98,11 @@
 			"behaviorId": "EightDir",
 			"name": "8Direction",
 			"sid": 279167114180902
+		},
+		{
+			"behaviorId": "Flash",
+			"name": "Flash",
+			"sid": 185759522477484
 		}
 	],
 	"effectTypes": [],

@@ -1,0 +1,12 @@
+{
+	"name": "Targets",
+	"plugin-id": "Sprite",
+	"sid": 121492158559951,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"Hero",
+		"NPC"
+	]
+}

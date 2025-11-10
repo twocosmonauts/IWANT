@@ -4664,6 +4664,62 @@
 							"eventType": "block",
 							"conditions": [
 								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 591801084153126,
+									"parameters": {
+										"object": "Hero"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 586417596802021,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Hero",
+											"sid": 263368124138663,
+											"parameters": {
+												"instance-variable": "InPuzzle"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "call-function",
+											"objectClass": "Function",
+											"sid": 684508100429630,
+											"parameters": {
+												"name": "\"SpawnNewThink\"",
+												"parameter-n": [
+													"\"whom\"",
+													"\"myself\"",
+													"Hero.UID"
+												]
+											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Hero",
+											"sid": 214932169379968,
+											"parameters": {
+												"instance-variable": "InPuzzle",
+												"value": "true"
+											}
+										}
+									],
+									"sid": 591574031656717
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
 									"id": "trigger-once-while-true",
 									"objectClass": "System",
 									"sid": 233915146493068
@@ -5096,6 +5152,33 @@
 											"eventType": "block",
 											"conditions": [
 												{
+													"id": "compare-at-x",
+													"objectClass": "A_QueryActions",
+													"sid": 952054706106978,
+													"parameters": {
+														"x": "2",
+														"comparison": 0,
+														"value": "Hero.UID"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Hero",
+													"sid": 622782976404307,
+													"parameters": {
+														"instance-variable": "InPuzzle",
+														"value": "false"
+													}
+												}
+											],
+											"sid": 652015619487784
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
 													"id": "pick-by-unique-id",
 													"objectClass": "Item",
 													"sid": 153268999404563,
@@ -5303,7 +5386,7 @@
 									"conditions": [
 										{
 											"id": "pick-by-unique-id",
-											"objectClass": "NPC",
+											"objectClass": "Targets",
 											"sid": 142122744873497,
 											"parameters": {
 												"unique-id": "Function.Param(0)"
@@ -5813,7 +5896,7 @@
 									"conditions": [
 										{
 											"id": "pick-by-unique-id",
-											"objectClass": "NPC",
+											"objectClass": "Targets",
 											"sid": 752231261070747,
 											"parameters": {
 												"unique-id": "Function.Param(0)"
@@ -6336,7 +6419,7 @@
 									"conditions": [
 										{
 											"id": "pick-by-unique-id",
-											"objectClass": "NPC",
+											"objectClass": "Targets",
 											"sid": 220245628414454,
 											"parameters": {
 												"unique-id": "Function.Param(0)"
@@ -6896,7 +6979,7 @@
 									"conditions": [
 										{
 											"id": "pick-by-unique-id",
-											"objectClass": "NPC",
+											"objectClass": "Targets",
 											"sid": 707166951399498,
 											"parameters": {
 												"unique-id": "Function.Param(0)"
@@ -7332,7 +7415,7 @@
 									"conditions": [
 										{
 											"id": "pick-by-unique-id",
-											"objectClass": "NPC",
+											"objectClass": "Targets",
 											"sid": 621349655917177,
 											"parameters": {
 												"unique-id": "Function.Param(0)"
@@ -7695,7 +7778,7 @@
 									"conditions": [
 										{
 											"id": "pick-by-unique-id",
-											"objectClass": "NPC",
+											"objectClass": "Targets",
 											"sid": 624923514653999,
 											"parameters": {
 												"unique-id": "Function.Param(0)"
@@ -8294,7 +8377,7 @@
 									"conditions": [
 										{
 											"id": "pick-by-unique-id",
-											"objectClass": "NPC",
+											"objectClass": "Targets",
 											"sid": 244101686732546,
 											"parameters": {
 												"unique-id": "Function.Param(0)"
@@ -8850,6 +8933,56 @@
 													"sid": 491381255691791
 												}
 											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-by-unique-id",
+													"objectClass": "Hero",
+													"sid": 875951249015749,
+													"parameters": {
+														"unique-id": "Idea.UIDOnMap"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-text",
+													"objectClass": "SF_StaticText",
+													"sid": 981888023927042,
+													"parameters": {
+														"text": "\"me\""
+													}
+												}
+											],
+											"sid": 573716499120721,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "trigger-once-while-true",
+															"objectClass": "System",
+															"sid": 889731960536156
+														}
+													],
+													"actions": [
+														{
+															"id": "flash",
+															"objectClass": "Hero",
+															"sid": 206323891549124,
+															"behaviorType": "Flash",
+															"parameters": {
+																"on-time": "0.2",
+																"off-time": "0.2",
+																"duration": "999"
+															}
+														}
+													],
+													"sid": 396919195934842
+												}
+											]
 										}
 									]
 								},
@@ -9144,13 +9277,58 @@
 								{
 									"id": "set-text",
 									"objectClass": "SF_StaticText",
-									"sid": 275326113005564,
+									"sid": 350989323694421,
 									"parameters": {
-										"text": "\"hero\""
+										"text": "\"me\""
 									}
 								}
 							],
-							"sid": 648024348614326
+							"sid": 648024348614326,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Idea",
+											"sid": 304720792047212,
+											"parameters": {
+												"instance-variable": "UIDOnMap",
+												"comparison": 0,
+												"value": "Hero.UID"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 187781403329542,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "trigger-once-while-true",
+													"objectClass": "System",
+													"sid": 848821398413407
+												}
+											],
+											"actions": [
+												{
+													"id": "flash",
+													"objectClass": "Idea",
+													"sid": 164119038790195,
+													"behaviorType": "Flash",
+													"parameters": {
+														"on-time": "0.2",
+														"off-time": "0.2",
+														"duration": "999"
+													}
+												}
+											],
+											"sid": 339974279160886
+										}
+									]
+								}
+							]
 						},
 						{
 							"eventType": "block",
@@ -9217,6 +9395,12 @@
 									"id": "stop-flashing",
 									"objectClass": "Idea",
 									"sid": 537996723302475,
+									"behaviorType": "Flash"
+								},
+								{
+									"id": "stop-flashing",
+									"objectClass": "Hero",
+									"sid": 200803955786101,
 									"behaviorType": "Flash"
 								}
 							],
@@ -10123,6 +10307,48 @@
 												}
 											],
 											"sid": 809313841838300
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-by-unique-id",
+													"objectClass": "Hero",
+													"sid": 658149675793779,
+													"parameters": {
+														"unique-id": "A_QueryActions.At(2)"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Hero",
+													"sid": 462020038535764,
+													"parameters": {
+														"instance-variable": "State",
+														"value": "\"MoveToWhom\""
+													}
+												},
+												{
+													"id": "instance-signal",
+													"objectClass": "Hero",
+													"sid": 317022976077023,
+													"parameters": {
+														"tag": "\"MoveToMyself\""
+													}
+												},
+												{
+													"id": "set-at-x",
+													"objectClass": "A_QueryActions",
+													"sid": 780922123801892,
+													"parameters": {
+														"x": "3",
+														"value": "\"nothing\""
+													}
+												}
+											],
+											"sid": 471478108943748
 										}
 									]
 								},
@@ -10346,6 +10572,14 @@
 									"objectClass": "Hero",
 									"sid": 457786514908689,
 									"behaviorType": "Pathfinding"
+								},
+								{
+									"id": "on-instance-signal",
+									"objectClass": "Hero",
+									"sid": 605882170760714,
+									"parameters": {
+										"tag": "\"MoveToMyself\""
+									}
 								}
 							],
 							"actions": [
@@ -10403,6 +10637,33 @@
 												}
 											],
 											"sid": 383976448898666
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-by-unique-id",
+													"objectClass": "Hero",
+													"sid": 979260128187044,
+													"parameters": {
+														"unique-id": "A_QueryActions.At(2)"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "call-function",
+													"objectClass": "Function",
+													"sid": 104359109345885,
+													"parameters": {
+														"name": "\"InteractWithSomeone\"",
+														"parameter-n": [
+															"Hero.UID"
+														]
+													}
+												}
+											],
+											"sid": 189961248114471
 										}
 									]
 								},
@@ -10583,7 +10844,8 @@
 										}
 									]
 								}
-							]
+							],
+							"isOrBlock": true
 						}
 					],
 					"sid": 330720593836671
