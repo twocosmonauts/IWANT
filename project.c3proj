@@ -71,6 +71,13 @@
 		},
 		{
 			"type": "plugin",
+			"id": "Text",
+			"name": "Text",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
 			"id": "TiledBg",
 			"name": "Tiled Background",
 			"author": "Scirra",
@@ -234,13 +241,28 @@
 			"SF_Title",
 			"OverlappingIdeas",
 			"Vision",
-			"Idea2"
+			"Idea2",
+			"Text",
+			"Text2"
 		],
 		"subfolders": []
 	},
 	"functionsName": "Functions",
 	"autosaveData": null,
-	"containers": [],
+	"containers": [
+		{
+			"members": [
+				"NPC",
+				"Text"
+			]
+		},
+		{
+			"members": [
+				"Idea",
+				"Text2"
+			]
+		}
+	],
 	"families": {
 		"items": [
 			"Sort",
@@ -257,7 +279,12 @@
 	},
 	"eventSheets": {
 		"items": [
-			"Event sheet 1"
+			"Main",
+			"MapGenerator",
+			"HeroController",
+			"Puzzle",
+			"Hints",
+			"Interaction"
 		],
 		"subfolders": []
 	},

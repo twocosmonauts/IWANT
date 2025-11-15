@@ -1,0 +1,936 @@
+{
+	"name": "Hints",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 904704904038077,
+					"parameters": {
+						"object": "Idea"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 747002939622398,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-animation-playing",
+							"objectClass": "Idea",
+							"sid": 204426437089576,
+							"parameters": {
+								"animation": "\"what\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 715926342513670,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "Item",
+									"sid": 609160456763655,
+									"parameters": {
+										"unique-id": "Idea.UIDOnMap"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "SF_StaticText",
+									"sid": 395715483550076,
+									"parameters": {
+										"text": "Item.Name&newline&\"damage: \"&floor(Item.Damage)&newline&\"price: \"&floor(Item.Price)"
+									}
+								}
+							],
+							"sid": 555541402717776,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 318012093661971
+										}
+									],
+									"actions": [
+										{
+											"id": "flash",
+											"objectClass": "Item",
+											"sid": 997066975038090,
+											"behaviorType": "Flash",
+											"parameters": {
+												"on-time": "0.2",
+												"off-time": "0.2",
+												"duration": "999"
+											}
+										}
+									],
+									"sid": 483115889633687
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-animation-playing",
+							"objectClass": "Idea",
+							"sid": 689304884440883,
+							"parameters": {
+								"animation": "\"whom\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 250528275403838,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "NPC",
+									"sid": 526579256246787,
+									"parameters": {
+										"unique-id": "Idea.UIDOnMap"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "SF_StaticText",
+									"sid": 380114386018776,
+									"parameters": {
+										"text": "NPC.Name&newline&\"relation: \"&floor(NPC.relation)&newline&\"health: \"&floor(NPC.currentHP)"
+									}
+								}
+							],
+							"sid": 749932722396136,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 509358685474686
+										}
+									],
+									"actions": [
+										{
+											"id": "flash",
+											"objectClass": "NPC",
+											"sid": 849202828174629,
+											"behaviorType": "Flash",
+											"parameters": {
+												"on-time": "0.2",
+												"off-time": "0.2",
+												"duration": "999"
+											}
+										}
+									],
+									"sid": 491381255691791
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "Hero",
+									"sid": 875951249015749,
+									"parameters": {
+										"unique-id": "Idea.UIDOnMap"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "SF_StaticText",
+									"sid": 981888023927042,
+									"parameters": {
+										"text": "\"me\""
+									}
+								}
+							],
+							"sid": 573716499120721,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 889731960536156
+										}
+									],
+									"actions": [
+										{
+											"id": "flash",
+											"objectClass": "Hero",
+											"sid": 206323891549124,
+											"behaviorType": "Flash",
+											"parameters": {
+												"on-time": "0.2",
+												"off-time": "0.2",
+												"duration": "999"
+											}
+										}
+									],
+									"sid": 396919195934842
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-animation-playing",
+							"objectClass": "Idea",
+							"sid": 639008406506922,
+							"parameters": {
+								"animation": "\"How\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "SF_StaticText",
+							"sid": 570905514312579,
+							"parameters": {
+								"text": "Idea.Name"
+							}
+						}
+					],
+					"sid": 722891568720361
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-animation-playing",
+							"objectClass": "Idea",
+							"sid": 900694825650446,
+							"parameters": {
+								"animation": "\"Do\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "SF_StaticText",
+							"sid": 690957530244870,
+							"parameters": {
+								"text": "Idea.Name"
+							}
+						}
+					],
+					"sid": 894294107726489
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Idea",
+							"sid": 624910231616876,
+							"parameters": {
+								"instance-variable": "Type",
+								"comparison": 0,
+								"value": "\"Want\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 550229008019817,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 714218057853988
+								}
+							],
+							"actions": [
+								{
+									"id": "call-function",
+									"objectClass": "Function",
+									"sid": 970943297920191,
+									"parameters": {
+										"name": "\"CheckAdjacentIdeas\"",
+										"parameter-n": []
+									}
+								}
+							],
+							"sid": 715546467379920,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 254417326045138,
+											"parameters": {
+												"first-value": "SF_StaticText.Text",
+												"comparison": 0,
+												"second-value": "\"\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "SF_StaticText",
+											"sid": 932619306471164,
+											"parameters": {
+												"text": "\"i dont want anything\""
+											}
+										}
+									],
+									"sid": 398086038201262
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 460279009266910,
+					"parameters": {
+						"object": "Item"
+					}
+				},
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 994619609098250,
+					"parameters": {
+						"object": "T_Grid"
+					},
+					"isInverted": true
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "SF_StaticText",
+					"sid": 507605449779377,
+					"parameters": {
+						"text": "Item.Name&newline&\"damage: \"&floor(Item.Damage)&newline&\"price: \"&floor(Item.Price)"
+					}
+				}
+			],
+			"sid": 475836510246280,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Idea",
+							"sid": 804778860107959,
+							"parameters": {
+								"instance-variable": "UIDOnMap",
+								"comparison": 0,
+								"value": "Item.UID"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 857490503319393,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 970347864720843
+								}
+							],
+							"actions": [
+								{
+									"id": "flash",
+									"objectClass": "Idea",
+									"sid": 631301548549269,
+									"behaviorType": "Flash",
+									"parameters": {
+										"on-time": "0.2",
+										"off-time": "0.2",
+										"duration": "999"
+									}
+								}
+							],
+							"sid": 387807474477810
+						}
+					]
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 328166088378518,
+					"parameters": {
+						"object": "NPC"
+					}
+				},
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 452354439257559,
+					"parameters": {
+						"object": "T_Grid"
+					},
+					"isInverted": true
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "SF_StaticText",
+					"sid": 638896396112385,
+					"parameters": {
+						"text": "NPC.Name&newline&\"relation: \"&floor(NPC.relation)&newline&\"health: \"&floor(NPC.currentHP)"
+					}
+				}
+			],
+			"sid": 213393895260256,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Idea",
+							"sid": 168266677762088,
+							"parameters": {
+								"instance-variable": "UIDOnMap",
+								"comparison": 0,
+								"value": "NPC.UID"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 787285905865038,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 494121450071471
+								}
+							],
+							"actions": [
+								{
+									"id": "flash",
+									"objectClass": "Idea",
+									"sid": 764935276262126,
+									"behaviorType": "Flash",
+									"parameters": {
+										"on-time": "0.2",
+										"off-time": "0.2",
+										"duration": "999"
+									}
+								}
+							],
+							"sid": 104719749163458
+						}
+					]
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 438556532307711,
+					"parameters": {
+						"object": "Hero"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "SF_StaticText",
+					"sid": 350989323694421,
+					"parameters": {
+						"text": "\"me\""
+					}
+				}
+			],
+			"sid": 648024348614326,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Idea",
+							"sid": 304720792047212,
+							"parameters": {
+								"instance-variable": "UIDOnMap",
+								"comparison": 0,
+								"value": "Hero.UID"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 187781403329542,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 848821398413407
+								}
+							],
+							"actions": [
+								{
+									"id": "flash",
+									"objectClass": "Idea",
+									"sid": 164119038790195,
+									"behaviorType": "Flash",
+									"parameters": {
+										"on-time": "0.2",
+										"off-time": "0.2",
+										"duration": "999"
+									}
+								}
+							],
+							"sid": 339974279160886
+						}
+					]
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 694114912977744,
+					"parameters": {
+						"object": "Idea"
+					},
+					"isInverted": true
+				},
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 345728046537033,
+					"parameters": {
+						"object": "Item"
+					},
+					"isInverted": true
+				},
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 774135722901263,
+					"parameters": {
+						"object": "NPC"
+					},
+					"isInverted": true
+				},
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 829532895438280,
+					"parameters": {
+						"object": "Hero"
+					},
+					"isInverted": true
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "SF_StaticText",
+					"sid": 631352559426450,
+					"parameters": {
+						"text": "\"\""
+					}
+				},
+				{
+					"id": "stop-flashing",
+					"objectClass": "NPC",
+					"sid": 430475752862547,
+					"behaviorType": "Flash"
+				},
+				{
+					"id": "stop-flashing",
+					"objectClass": "Item",
+					"sid": 247654570135494,
+					"behaviorType": "Flash"
+				},
+				{
+					"id": "stop-flashing",
+					"objectClass": "Idea",
+					"sid": 537996723302475,
+					"behaviorType": "Flash"
+				},
+				{
+					"id": "stop-flashing",
+					"objectClass": "Hero",
+					"sid": 200803955786101,
+					"behaviorType": "Flash"
+				}
+			],
+			"sid": 673471067803794
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "for-each-ordered",
+					"objectClass": "System",
+					"sid": 628414114039203,
+					"parameters": {
+						"object": "Sort",
+						"expression": "sort.bboxbottom",
+						"order": "ascending"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "move-to-top",
+					"objectClass": "Sort",
+					"sid": 864010343863603
+				}
+			],
+			"sid": 921575796525056
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Text",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 633238554391062,
+							"parameters": {
+								"interval-seconds": "0.05"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "SF_SpeechText",
+							"sid": 883139621065234,
+							"parameters": {
+								"instance-variable": "current",
+								"comparison": 1,
+								"value": "\"\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "SF_SpeechText",
+							"sid": 152086999560698,
+							"parameters": {
+								"text": "left(SF_SpeechText.current,index)"
+							}
+						},
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 740421681359573,
+							"parameters": {
+								"variable": "index",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 402347284753110,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 383948448803170,
+									"parameters": {
+										"variable": "index",
+										"comparison": 4,
+										"value": "len(SF_SpeechText.Text)+100"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "9P_DialogBack",
+									"sid": 693078009876750,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "SF_SpeechText",
+									"sid": 228157742290064,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "SF_SpeechText",
+									"sid": 477217364423212,
+									"parameters": {
+										"text": "\"\""
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "SF_SpeechText",
+									"sid": 504238129348523,
+									"parameters": {
+										"instance-variable": "current",
+										"value": "\"\""
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 470510531071673,
+									"parameters": {
+										"variable": "index",
+										"value": "0"
+									}
+								}
+							],
+							"sid": 875511816901212,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 217842137330805
+										}
+									],
+									"actions": [
+										{
+											"id": "call-function",
+											"objectClass": "Function",
+											"sid": 928376753879550,
+											"parameters": {
+												"name": "\"HeroAction\"",
+												"parameter-n": []
+											}
+										}
+									],
+									"sid": 931310438606386
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-function",
+							"objectClass": "Function",
+							"sid": 253175942968518,
+							"parameters": {
+								"name": "\"SetText\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "9P_DialogBack",
+							"sid": 546420899855869,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "SF_SpeechText",
+							"sid": 874012034985807,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "SF_SpeechText",
+							"sid": 817176965661738,
+							"parameters": {
+								"instance-variable": "current",
+								"value": "Function.Param(0)"
+							}
+						}
+					],
+					"sid": 210063892391063
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 388844175816063
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position",
+							"objectClass": "9P_DialogBack",
+							"sid": 368012484878181,
+							"parameters": {
+								"x": "Hero.X",
+								"y": "Hero.Y-12"
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "SF_SpeechText",
+							"sid": 714740302173655,
+							"parameters": {
+								"x": "9P_DialogBack.X",
+								"y": "9P_DialogBack.Y-2"
+							}
+						},
+						{
+							"id": "set-size",
+							"objectClass": "9P_DialogBack",
+							"sid": 571441593793377,
+							"parameters": {
+								"width": "clamp(((len(SF_SpeechText.Text))*5),0,100)",
+								"height": "ceil(((len(SF_SpeechText.Text))*6)/105)*6+4"
+							}
+						},
+						{
+							"id": "set-size",
+							"objectClass": "SF_SpeechText",
+							"sid": 355789129343458,
+							"parameters": {
+								"width": "clamp(((len(SF_SpeechText.Text))*6),0,100)",
+								"height": "ceil(((len(SF_SpeechText.Text))*6)/100)*6"
+							}
+						},
+						{
+							"id": "move-to-top",
+							"objectClass": "SF_SpeechText",
+							"sid": 278023937247450
+						},
+						{
+							"id": "scroll-to-position",
+							"objectClass": "System",
+							"sid": 928881941370705,
+							"parameters": {
+								"x": "Hero.X-75",
+								"y": "Hero.Y-8"
+							}
+						},
+						{
+							"id": "set-position-to-another-object",
+							"objectClass": "Vision",
+							"sid": 902176508550250,
+							"parameters": {
+								"object": "Hero",
+								"image-point-optional": "0"
+							}
+						},
+						{
+							"id": "set-position-to-another-object",
+							"objectClass": "Text",
+							"sid": 380904920778190,
+							"parameters": {
+								"object": "NPC",
+								"image-point-optional": "0"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "Text",
+							"sid": 886049838760459,
+							"parameters": {
+								"text": "NPC.UID&\" \"&NPC.inPuzzle"
+							}
+						},
+						{
+							"id": "set-position-to-another-object",
+							"objectClass": "Text2",
+							"sid": 357159066523387,
+							"parameters": {
+								"object": "Idea",
+								"image-point-optional": "0"
+							}
+						},
+						{
+							"id": "move-to-top",
+							"objectClass": "Text",
+							"sid": 316368139279425
+						},
+						{
+							"id": "move-to-top",
+							"objectClass": "Text2",
+							"sid": 898536135263055
+						}
+					],
+					"sid": 793917709419893
+				}
+			],
+			"sid": 788259761998176
+		}
+	],
+	"sid": 792585764596631
+}

@@ -1,0 +1,66 @@
+{
+	"name": "Main",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "Puzzle"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "HeroController"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "MapGenerator"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "Hints"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "Interaction"
+		},
+		{
+			"eventType": "variable",
+			"name": "CellSize",
+			"type": "number",
+			"initialValue": "4",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 482696417274885
+		},
+		{
+			"eventType": "variable",
+			"name": "CellOffset",
+			"type": "number",
+			"initialValue": "24",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 107657246257206
+		},
+		{
+			"eventType": "variable",
+			"name": "index",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 282621224296982
+		},
+		{
+			"eventType": "variable",
+			"name": "FlipFlop",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 956385394907155
+		}
+	],
+	"sid": 395222502873986
+}

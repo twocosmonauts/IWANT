@@ -1,0 +1,872 @@
+{
+	"name": "HeroController",
+	"events": [
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "HeroController",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-path-found",
+							"objectClass": "Hero",
+							"sid": 374327569670757,
+							"behaviorType": "Pathfinding"
+						}
+					],
+					"actions": [
+						{
+							"id": "move-along-path",
+							"objectClass": "Hero",
+							"sid": 480106212111568,
+							"behaviorType": "Pathfinding"
+						},
+						{
+							"id": "set-pixel-rounding",
+							"objectClass": "System",
+							"sid": 514905724140459,
+							"parameters": {
+								"mode": "disabled"
+							}
+						}
+					],
+					"sid": 680726966176607
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-moving-along-path",
+							"objectClass": "Hero",
+							"sid": 903247268390429,
+							"behaviorType": "Pathfinding"
+						}
+					],
+					"actions": [],
+					"sid": 192761037613865,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Hero",
+									"sid": 140099113948587,
+									"parameters": {
+										"instance-variable": "CarryOn",
+										"comparison": 1,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Hero",
+									"sid": 294484898860692,
+									"parameters": {
+										"animation": "\"CarryOn\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 598817616018965
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Hero",
+									"sid": 254499314273708,
+									"parameters": {
+										"instance-variable": "CarryOn",
+										"comparison": 0,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Hero",
+									"sid": 949903157008716,
+									"parameters": {
+										"animation": "\"run\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 734597737729112
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-between-angles",
+									"objectClass": "System",
+									"sid": 522388350868380,
+									"parameters": {
+										"angle": "Hero.Pathfinding.MovingAngle",
+										"first-angle": "270",
+										"second-angle": "90"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Hero",
+									"sid": 328211736377794,
+									"parameters": {
+										"instance-variable": "Direction",
+										"value": "0"
+									}
+								},
+								{
+									"id": "set-mirrored",
+									"objectClass": "Hero",
+									"sid": 816286342632876,
+									"parameters": {
+										"state": "not-mirrored"
+									}
+								}
+							],
+							"sid": 771515172444744
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-between-angles",
+									"objectClass": "System",
+									"sid": 486714453585876,
+									"parameters": {
+										"angle": "Hero.Pathfinding.MovingAngle",
+										"first-angle": "91",
+										"second-angle": "269"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Hero",
+									"sid": 568572430356714,
+									"parameters": {
+										"instance-variable": "Direction",
+										"value": "2"
+									}
+								},
+								{
+									"id": "set-mirrored",
+									"objectClass": "Hero",
+									"sid": 325257273272477,
+									"parameters": {
+										"state": "mirrored"
+									}
+								}
+							],
+							"sid": 299512792882694
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-moving-along-path",
+							"objectClass": "Hero",
+							"sid": 332161485793178,
+							"behaviorType": "Pathfinding",
+							"isInverted": true
+						}
+					],
+					"actions": [],
+					"sid": 164240126001979,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Hero",
+									"sid": 956973017981078,
+									"parameters": {
+										"instance-variable": "CarryOn",
+										"comparison": 1,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Hero",
+									"sid": 267024851099402,
+									"parameters": {
+										"animation": "\"CarryOnIdle\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 408069822431174
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Hero",
+									"sid": 489511815855495,
+									"parameters": {
+										"instance-variable": "CarryOn",
+										"comparison": 0,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Hero",
+									"sid": 370045012650436,
+									"parameters": {
+										"animation": "\"idle\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 977398752060890
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-function",
+							"objectClass": "Function",
+							"sid": 449769201715864,
+							"parameters": {
+								"name": "\"HeroAction\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Hero",
+							"sid": 483260479787185,
+							"parameters": {
+								"instance-variable": "CarryOn",
+								"value": "0"
+							}
+						},
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 247856989629372,
+							"parameters": {
+								"group-name": "\"CarryOn\"",
+								"state": "deactivated"
+							}
+						}
+					],
+					"sid": 865272131693371,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-at-x",
+									"objectClass": "A_QueryActions",
+									"sid": 718217977371000,
+									"parameters": {
+										"x": "3",
+										"comparison": 1,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 100923459723724,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "Item",
+											"sid": 594794506158432,
+											"parameters": {
+												"unique-id": "A_QueryActions.At(3)"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Hero",
+											"sid": 433352487068042,
+											"parameters": {
+												"instance-variable": "State",
+												"value": "\"MoveToWhat\""
+											}
+										},
+										{
+											"id": "find-path",
+											"objectClass": "Hero",
+											"sid": 277310391995488,
+											"behaviorType": "Pathfinding",
+											"parameters": {
+												"x": "Item.X",
+												"y": "Item.Y"
+											}
+										}
+									],
+									"sid": 705239714258414
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-at-x",
+									"objectClass": "A_QueryActions",
+									"sid": 875248722743653,
+									"parameters": {
+										"x": "3",
+										"comparison": 0,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 204832695283126,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "Targets",
+											"sid": 958900624189024,
+											"parameters": {
+												"unique-id": "A_QueryActions.At(2)"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Hero",
+											"sid": 710794604033335,
+											"parameters": {
+												"instance-variable": "State",
+												"value": "\"MoveToWhom\""
+											}
+										},
+										{
+											"id": "find-path",
+											"objectClass": "Hero",
+											"sid": 684879619389462,
+											"behaviorType": "Pathfinding",
+											"parameters": {
+												"x": "Targets.X",
+												"y": "Targets.Y"
+											}
+										},
+										{
+											"id": "set-at-x",
+											"objectClass": "A_QueryActions",
+											"sid": 158280108486637,
+											"parameters": {
+												"x": "3",
+												"value": "\"nothing\""
+											}
+										}
+									],
+									"sid": 809313841838300
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 625237057778232
+								}
+							],
+							"actions": [
+								{
+									"id": "set-max-speed",
+									"objectClass": "Hero",
+									"sid": 665147342939367,
+									"behaviorType": "Pathfinding",
+									"parameters": {
+										"speed": "24"
+									}
+								}
+							],
+							"sid": 456954883226141,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-at-x",
+											"objectClass": "A_QueryActions",
+											"sid": 415271234965727,
+											"parameters": {
+												"x": "4",
+												"comparison": 0,
+												"value": "\"quickly\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-max-speed",
+											"objectClass": "Hero",
+											"sid": 983573564444718,
+											"behaviorType": "Pathfinding",
+											"parameters": {
+												"speed": "64"
+											}
+										},
+										{
+											"id": "set-animation-speed",
+											"objectClass": "Hero",
+											"sid": 530827016075147,
+											"parameters": {
+												"speed": "30"
+											}
+										}
+									],
+									"sid": 622585331916402
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-at-x",
+											"objectClass": "A_QueryActions",
+											"sid": 637866336217209,
+											"parameters": {
+												"x": "4",
+												"comparison": 0,
+												"value": "\"stealthily\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-max-speed",
+											"objectClass": "Hero",
+											"sid": 546196606262756,
+											"behaviorType": "Pathfinding",
+											"parameters": {
+												"speed": "12"
+											}
+										},
+										{
+											"id": "set-animation-speed",
+											"objectClass": "Hero",
+											"sid": 660603781668040,
+											"parameters": {
+												"speed": "5"
+											}
+										}
+									],
+									"sid": 307076725744600
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-at-x",
+											"objectClass": "A_QueryActions",
+											"sid": 160004048226407,
+											"parameters": {
+												"x": "4",
+												"comparison": 0,
+												"value": "\"brutally\""
+											}
+										}
+									],
+									"actions": [],
+									"sid": 584468928264058
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-at-x",
+											"objectClass": "A_QueryActions",
+											"sid": 632181994246870,
+											"parameters": {
+												"x": "4",
+												"comparison": 0,
+												"value": "\"wisely\""
+											}
+										}
+									],
+									"actions": [],
+									"sid": 962673044203738
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-at-x",
+											"objectClass": "A_QueryActions",
+											"sid": 780055328902046,
+											"parameters": {
+												"x": "4",
+												"comparison": 0,
+												"value": "\"magically\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "create-object",
+											"objectClass": "System",
+											"sid": 387745411950844,
+											"parameters": {
+												"object-to-create": "Magic",
+												"layer": "1",
+												"x": "Item.X",
+												"y": "Item.Y",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										}
+									],
+									"sid": 224518337267684
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-at-x",
+											"objectClass": "A_QueryActions",
+											"sid": 375311005950595,
+											"parameters": {
+												"x": "4",
+												"comparison": 0,
+												"value": "\"carefully\""
+											}
+										}
+									],
+									"actions": [],
+									"sid": 531051932790690
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-at-x",
+											"objectClass": "A_QueryActions",
+											"sid": 811658483586021,
+											"parameters": {
+												"x": "4",
+												"comparison": 0,
+												"value": "\"with charm\""
+											}
+										}
+									],
+									"actions": [],
+									"sid": 481503061205111
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-at-x",
+											"objectClass": "A_QueryActions",
+											"sid": 777087272633730,
+											"parameters": {
+												"x": "4",
+												"comparison": 0,
+												"value": "\"loudly\""
+											}
+										}
+									],
+									"actions": [],
+									"sid": 269454370168663
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-arrived",
+							"objectClass": "Hero",
+							"sid": 457786514908689,
+							"behaviorType": "Pathfinding"
+						},
+						{
+							"id": "on-instance-signal",
+							"objectClass": "Hero",
+							"sid": 605882170760714,
+							"parameters": {
+								"tag": "\"MoveToMyself\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-pixel-rounding",
+							"objectClass": "System",
+							"sid": 265865621264991,
+							"parameters": {
+								"mode": "enabled"
+							}
+						}
+					],
+					"sid": 391418784426390,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Hero",
+									"sid": 841870029465657,
+									"parameters": {
+										"instance-variable": "State",
+										"comparison": 0,
+										"value": "\"MoveToWhom\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 997051054055659,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "Targets",
+											"sid": 808372852992693,
+											"parameters": {
+												"unique-id": "A_QueryActions.At(2)"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "call-function",
+											"objectClass": "Function",
+											"sid": 965713297008873,
+											"parameters": {
+												"name": "\"InteractWithSomeone\"",
+												"parameter-n": [
+													"Targets.UID"
+												]
+											}
+										}
+									],
+									"sid": 383976448898666
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Hero",
+									"sid": 287974822698763,
+									"parameters": {
+										"instance-variable": "State",
+										"comparison": 0,
+										"value": "\"MoveToWhat\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 871500467877051,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "Item",
+											"sid": 362320223172171,
+											"parameters": {
+												"unique-id": "A_QueryActions.At(3)"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "call-function",
+											"objectClass": "Function",
+											"sid": 814864276098603,
+											"parameters": {
+												"name": "\"PickUpObject\"",
+												"parameter-n": [
+													"Item.UID"
+												]
+											}
+										}
+									],
+									"sid": 577205543738025,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-at-x",
+													"objectClass": "A_QueryActions",
+													"sid": 585549750350296,
+													"parameters": {
+														"x": "4",
+														"comparison": 0,
+														"value": "\"with force\""
+													}
+												}
+											],
+											"actions": [],
+											"sid": 680578410096291,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "pick-by-unique-id",
+															"objectClass": "Targets",
+															"sid": 954275269330961,
+															"parameters": {
+																"unique-id": "A_QueryActions.At(2)"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "wait",
+															"objectClass": "System",
+															"sid": 930252132447033,
+															"parameters": {
+																"seconds": "1",
+																"use-timescale": true
+															}
+														},
+														{
+															"id": "set-instvar-value",
+															"objectClass": "Hero",
+															"sid": 181106466827855,
+															"parameters": {
+																"instance-variable": "CarryOn",
+																"value": "0"
+															}
+														},
+														{
+															"id": "set-group-active",
+															"objectClass": "System",
+															"sid": 447658593788972,
+															"parameters": {
+																"group-name": "\"CarryOn\"",
+																"state": "deactivated"
+															}
+														},
+														{
+															"id": "set-enabled",
+															"objectClass": "Item",
+															"sid": 970057925602272,
+															"behaviorType": "Bullet",
+															"parameters": {
+																"state": "enabled"
+															}
+														},
+														{
+															"id": "set-angle-of-motion",
+															"objectClass": "Item",
+															"sid": 226194083840536,
+															"behaviorType": "Bullet",
+															"parameters": {
+																"angle": "angle(Item.X,Item.Y,Targets.X,Targets.Y)"
+															}
+														}
+													],
+													"sid": 875805538706379
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 828229118073367
+												}
+											],
+											"actions": [],
+											"sid": 847360658077047,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "pick-by-unique-id",
+															"objectClass": "Targets",
+															"sid": 576937899054758,
+															"parameters": {
+																"unique-id": "A_QueryActions.At(2)"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "find-path",
+															"objectClass": "Hero",
+															"sid": 484553825555378,
+															"behaviorType": "Pathfinding",
+															"parameters": {
+																"x": "Targets.X",
+																"y": "Targets.Y"
+															}
+														},
+														{
+															"id": "set-instvar-value",
+															"objectClass": "Hero",
+															"sid": 575254864198703,
+															"parameters": {
+																"instance-variable": "State",
+																"value": "\"MoveToWhom\""
+															}
+														}
+													],
+													"sid": 964362773205885
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					],
+					"isOrBlock": true
+				}
+			],
+			"sid": 330720593836671
+		}
+	],
+	"sid": 502134088670334
+}

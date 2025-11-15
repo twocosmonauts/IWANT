@@ -1,0 +1,2994 @@
+{
+	"name": "Puzzle",
+	"events": [
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Puzzle",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 775776951095698
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "Magic",
+							"sid": 861984342915859
+						},
+						{
+							"id": "set-pixel-rounding",
+							"objectClass": "System",
+							"sid": 353566119344286,
+							"parameters": {
+								"mode": "enabled"
+							}
+						}
+					],
+					"sid": 822939544495860,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "wait-for-signal",
+									"objectClass": "System",
+									"sid": 330153527170633,
+									"parameters": {
+										"tag": "\"spawn\""
+									}
+								},
+								{
+									"id": "call-function",
+									"objectClass": "Function",
+									"sid": 153563105789270,
+									"parameters": {
+										"name": "\"CheckSpawnIdea\"",
+										"parameter-n": []
+									}
+								},
+								{
+									"id": "call-function",
+									"objectClass": "Function",
+									"sid": 740091835635457,
+									"parameters": {
+										"name": "\"CheckSpawnNewIdea\"",
+										"parameter-n": []
+									}
+								},
+								{
+									"id": "call-function",
+									"objectClass": "Function",
+									"sid": 324618182914294,
+									"disabled": true,
+									"parameters": {
+										"name": "\"CheckAdjacentIdeas\"",
+										"parameter-n": []
+									}
+								},
+								{
+									"callFunction": "UpdateText",
+									"sid": 914217896115428
+								}
+							],
+							"sid": 330215424188215
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-animation-playing",
+									"objectClass": "Idea",
+									"sid": 630614412582221,
+									"parameters": {
+										"animation": "\"want\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Idea",
+									"sid": 916587347438140,
+									"parameters": {
+										"instance-variable": "Type",
+										"value": "\"Want\""
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Idea",
+									"sid": 211370433225979,
+									"parameters": {
+										"instance-variable": "Name",
+										"value": "\"i want\""
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "Idea",
+									"sid": 196826749177481,
+									"parameters": {
+										"animation": "\"want\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "set-enabled",
+									"objectClass": "Idea",
+									"sid": 447307362971731,
+									"behaviorType": "DragDrop",
+									"parameters": {
+										"state": "disabled"
+									}
+								},
+								{
+									"id": "change-tags",
+									"objectClass": "Idea",
+									"sid": 383016049176984,
+									"parameters": {
+										"action": "add",
+										"tags": "\"want\""
+									}
+								}
+							],
+							"sid": 245656133176903
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-drop",
+							"objectClass": "Idea",
+							"sid": 348934494994161,
+							"behaviorType": "DragDrop"
+						}
+					],
+					"actions": [],
+					"sid": 412082632180563,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Idea",
+									"sid": 215733762635335,
+									"parameters": {
+										"object": "Ideas"
+									}
+								},
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Idea",
+									"sid": 606012682647366,
+									"parameters": {
+										"object": "T_Grid"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-position",
+									"objectClass": "Idea",
+									"sid": 220311813693971,
+									"parameters": {
+										"x": "Idea.PrevX",
+										"y": "Idea.PrevY"
+									}
+								}
+							],
+							"sid": 720632132074176,
+							"isOrBlock": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-x",
+									"objectClass": "Idea",
+									"sid": 647828300830003,
+									"parameters": {
+										"comparison": 0,
+										"x-co-ordinate": "Idea.PrevX"
+									}
+								},
+								{
+									"id": "compare-y",
+									"objectClass": "Idea",
+									"sid": 433841492831881,
+									"parameters": {
+										"comparison": 0,
+										"y-co-ordinate": "Idea.PrevY"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 449086296331286
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 594862930726990
+								}
+							],
+							"actions": [
+								{
+									"id": "set-position",
+									"objectClass": "Idea",
+									"sid": 206914348443491,
+									"parameters": {
+										"x": "clamp((floor(Mouse.X(\"puzzle\")/CellSize)*CellSize),T_Grid.X+Idea.X-idea.BBoxLeft,T_Grid.X+T_Grid.Width+Idea.X-idea.BBoxRight)",
+										"y": "clamp((floor(Mouse.Y(\"puzzle\")/CellSize)*CellSize),T_Grid.Y+Idea.Y-idea.BBoxTop,T_Grid.y+T_Grid.height+Idea.Y-idea.BBoxBottom)"
+									}
+								},
+								{
+									"id": "call-function",
+									"objectClass": "Function",
+									"sid": 495781553693088,
+									"parameters": {
+										"name": "\"CheckAdjacentIdeas\"",
+										"parameter-n": []
+									}
+								},
+								{
+									"callFunction": "WantAnimation",
+									"sid": 764791699704283,
+									"parameters": [
+										"Function.ReturnValue"
+									]
+								},
+								{
+									"id": "call-function",
+									"objectClass": "Function",
+									"sid": 501502491793266,
+									"parameters": {
+										"name": "\"CheckSpawnNewIdea\"",
+										"parameter-n": []
+									}
+								}
+							],
+							"sid": 639573678574052
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-drag-start",
+							"objectClass": "Idea",
+							"sid": 423052802639818,
+							"behaviorType": "DragDrop"
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Idea",
+							"sid": 358237078652376,
+							"parameters": {
+								"instance-variable": "PrevX",
+								"value": "Idea.X"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Idea",
+							"sid": 486527398370263,
+							"parameters": {
+								"instance-variable": "PrevY",
+								"value": "Idea.Y"
+							}
+						}
+					],
+					"sid": 567851295958168,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 670065399761288
+								}
+							],
+							"actions": [],
+							"sid": 526349428881979
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-dragging",
+							"objectClass": "Idea",
+							"sid": 768503764932647,
+							"behaviorType": "DragDrop"
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position",
+							"objectClass": "Idea",
+							"sid": 358785703058030,
+							"parameters": {
+								"x": "clamp((floor(Mouse.X(\"puzzle\")/CellSize)*CellSize),T_Grid.X+Idea.X-idea.BBoxLeft,T_Grid.X+T_Grid.Width+Idea.X-idea.BBoxRight)",
+								"y": "clamp((floor(Mouse.Y(\"puzzle\")/CellSize)*CellSize),T_Grid.Y+Idea.Y-idea.BBoxTop,T_Grid.y+T_Grid.height+Idea.Y-idea.BBoxBottom)"
+							}
+						},
+						{
+							"id": "move-to-top",
+							"objectClass": "Idea",
+							"sid": 288362481003266
+						}
+					],
+					"sid": 224391444318302,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 866046365653340,
+									"parameters": {
+										"key": 82
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "rotate-clockwise",
+									"objectClass": "Idea",
+									"sid": 177593262929373,
+									"parameters": {
+										"degrees": "90"
+									}
+								}
+							],
+							"sid": 298709626920129
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-function",
+							"objectClass": "Function",
+							"sid": 736953657337889,
+							"parameters": {
+								"name": "\"SpawnNewThink\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 536366026352004,
+							"parameters": {
+								"object-to-create": "Idea",
+								"layer": "3",
+								"x": "-100",
+								"y": "-100",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "Idea",
+							"sid": 961471352124039,
+							"parameters": {
+								"animation": "Function.Param(0)",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Idea",
+							"sid": 118490972155038,
+							"parameters": {
+								"instance-variable": "UIDOnMap",
+								"value": "Function.Param(2)"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "Text2",
+							"sid": 404739570247057,
+							"parameters": {
+								"text": "Idea.UIDOnMap"
+							}
+						}
+					],
+					"sid": 878827961572138,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-animation-playing",
+									"objectClass": "Idea",
+									"sid": 852176373898067,
+									"parameters": {
+										"animation": "\"how\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Idea",
+									"sid": 842566095513000,
+									"parameters": {
+										"instance-variable": "Name",
+										"value": "Function.Param(1)"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Idea",
+									"sid": 655122330997816,
+									"parameters": {
+										"instance-variable": "Type",
+										"value": "\"How\""
+									}
+								}
+							],
+							"sid": 300988658235358
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-animation-playing",
+									"objectClass": "Idea",
+									"sid": 897072171869539,
+									"parameters": {
+										"animation": "\"Do\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Idea",
+									"sid": 655535123192613,
+									"parameters": {
+										"instance-variable": "Name",
+										"value": "Function.Param(1)"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Idea",
+									"sid": 647451114593606,
+									"parameters": {
+										"instance-variable": "Type",
+										"value": "\"Do\""
+									}
+								}
+							],
+							"sid": 273489863403388
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-animation-playing",
+									"objectClass": "Idea",
+									"sid": 205364742063314,
+									"parameters": {
+										"animation": "\"what\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Idea",
+									"sid": 315615824758514,
+									"parameters": {
+										"instance-variable": "Name",
+										"value": "Function.Param(1)"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Idea",
+									"sid": 849521013720652,
+									"parameters": {
+										"instance-variable": "Type",
+										"value": "\"What\""
+									}
+								}
+							],
+							"sid": 976463584131763
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-animation-playing",
+									"objectClass": "Idea",
+									"sid": 403871275384305,
+									"parameters": {
+										"animation": "\"whom\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Idea",
+									"sid": 658963194575221,
+									"parameters": {
+										"instance-variable": "Name",
+										"value": "Function.Param(1)"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Idea",
+									"sid": 318492810967343,
+									"parameters": {
+										"instance-variable": "Type",
+										"value": "\"Whom\""
+									}
+								}
+							],
+							"sid": 860915786889092
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-animation-playing",
+									"objectClass": "Idea",
+									"sid": 568692302138844,
+									"parameters": {
+										"animation": "\"want\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Idea",
+									"sid": 674773230104841,
+									"parameters": {
+										"instance-variable": "Type",
+										"value": "\"Want\""
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Idea",
+									"sid": 847115939221424,
+									"parameters": {
+										"instance-variable": "Name",
+										"value": "\"i want\""
+									}
+								},
+								{
+									"id": "set-enabled",
+									"objectClass": "Idea",
+									"sid": 877698117725807,
+									"behaviorType": "DragDrop",
+									"parameters": {
+										"state": "disabled"
+									}
+								}
+							],
+							"sid": 769169877174616
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "while",
+									"objectClass": "System",
+									"sid": 806986177791614
+								}
+							],
+							"actions": [
+								{
+									"id": "rotate-clockwise",
+									"objectClass": "Idea",
+									"sid": 298836063905124,
+									"parameters": {
+										"degrees": "90"
+									}
+								},
+								{
+									"id": "set-position",
+									"objectClass": "Idea",
+									"sid": 447572959171261,
+									"parameters": {
+										"x": "floor(random(T_Grid.X+Idea.X-idea.BBoxLeft,T_Grid.X+T_Grid.Width+Idea.X-idea.BBoxRight+4)/CellSize)*CellSize",
+										"y": "floor(random(T_Grid.Y+Idea.Y-idea.BBoxTop,T_Grid.y+T_Grid.height+Idea.Y-idea.BBoxBottom+4)/CellSize)*CellSize"
+									}
+								}
+							],
+							"sid": 108085363890633,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Idea",
+											"sid": 825821691236648,
+											"parameters": {
+												"object": "Ideas"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "stop-loop",
+											"objectClass": "System",
+											"sid": 844764934776682
+										}
+									],
+									"sid": 649169694418732
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 597923716025172,
+											"parameters": {
+												"first-value": "loopindex",
+												"comparison": 4,
+												"second-value": "1000"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "Idea",
+											"sid": 750037652379257
+										},
+										{
+											"id": "stop-loop",
+											"objectClass": "System",
+											"sid": 650224867552370
+										}
+									],
+									"sid": 639691801594083
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-function",
+							"objectClass": "Function",
+							"sid": 478889134730994,
+							"parameters": {
+								"name": "\"GetType\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 169886346857834,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "Idea",
+									"sid": 175852838632055,
+									"parameters": {
+										"unique-id": "Function.Param(0)"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-return-value",
+									"objectClass": "Function",
+									"sid": 404117363428522,
+									"parameters": {
+										"value": "Idea.Type"
+									}
+								}
+							],
+							"sid": 655962933584189
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-function",
+							"objectClass": "Function",
+							"sid": 298349399049122,
+							"parameters": {
+								"name": "\"GetName\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 205068145237578,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "Idea",
+									"sid": 977366760278641,
+									"parameters": {
+										"unique-id": "Function.Param(0)"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-return-value",
+									"objectClass": "Function",
+									"sid": 324218435032719,
+									"parameters": {
+										"value": "Idea.Name"
+									}
+								}
+							],
+							"sid": 937474948329843
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-function",
+							"objectClass": "Function",
+							"sid": 901185009148451,
+							"parameters": {
+								"name": "\"GetUIDOnMap\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 458625137392791,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "Idea",
+									"sid": 712185923826620,
+									"parameters": {
+										"unique-id": "Function.Param(0)"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-return-value",
+									"objectClass": "Function",
+									"sid": 313964475635276,
+									"parameters": {
+										"value": "Idea.UIDOnMap"
+									}
+								}
+							],
+							"sid": 282826912087885
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-function",
+							"objectClass": "Function",
+							"sid": 634987036033358,
+							"parameters": {
+								"name": "\"DestroyIdeas\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 251193441542892,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-parameter",
+									"objectClass": "Function",
+									"sid": 669337282904337,
+									"parameters": {
+										"index": "1",
+										"comparison": 1,
+										"value": "\"clear\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 267536021620226,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "Idea",
+											"sid": 206552832732050,
+											"parameters": {
+												"unique-id": "Function.Param(0)"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-enabled",
+											"objectClass": "Idea",
+											"sid": 753810482148657,
+											"behaviorType": "MoveTo",
+											"parameters": {
+												"enabled": true
+											}
+										},
+										{
+											"id": "move-to-position",
+											"objectClass": "Idea",
+											"sid": 568017406132736,
+											"behaviorType": "MoveTo",
+											"parameters": {
+												"x": "88",
+												"y": "88",
+												"mode": "direct"
+											}
+										}
+									],
+									"sid": 624623629923399
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-parameter",
+									"objectClass": "Function",
+									"sid": 414502308662468,
+									"parameters": {
+										"index": "1",
+										"comparison": 0,
+										"value": "\"clear\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 594969428658445,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "Idea",
+											"sid": 984577048210314,
+											"parameters": {
+												"unique-id": "Function.Param(0)"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "Idea",
+											"sid": 678286674886222
+										}
+									],
+									"sid": 642978485834064
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-arrived",
+							"objectClass": "Idea",
+							"sid": 475785147816314,
+							"behaviorType": "MoveTo"
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "Idea",
+							"sid": 310851674251345
+						}
+					],
+					"sid": 559950596870216
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-function",
+							"objectClass": "Function",
+							"sid": 286190117805421,
+							"parameters": {
+								"name": "\"CheckAdjacentIdeas\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 911266136414378,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 493336225202797,
+									"disabled": true,
+									"parameters": {
+										"object": "Idea"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Idea",
+									"sid": 924344447290941,
+									"parameters": {
+										"instance-variable": "Type",
+										"comparison": 0,
+										"value": "\"Want\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "clear",
+									"objectClass": "OverlappingIdeas",
+									"sid": 753279634501090
+								}
+							],
+							"sid": 621423035556805,
+							"children": [
+								{
+									"eventType": "variable",
+									"name": "Value",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 863070392528181
+								},
+								{
+									"eventType": "variable",
+									"name": "Key",
+									"type": "string",
+									"initialValue": "",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 604185875633112
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-at-offset",
+											"objectClass": "Idea",
+											"sid": 895453043090314,
+											"parameters": {
+												"object": "Ideas",
+												"offset-x": "7",
+												"offset-y": "0"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 281622862630060,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "for-each",
+													"objectClass": "System",
+													"sid": 897719583789050,
+													"parameters": {
+														"object": "Ideas"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "call-function",
+													"objectClass": "Function",
+													"sid": 846295564626683,
+													"parameters": {
+														"name": "\"GetType\"",
+														"parameter-n": [
+															"Ideas.UID"
+														]
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 173882461059932,
+													"parameters": {
+														"variable": "Key",
+														"value": "Function.ReturnValue"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 644493696092580,
+													"parameters": {
+														"variable": "Value",
+														"value": "Ideas.UID"
+													}
+												}
+											],
+											"sid": 499977537157427,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-eventvar",
+															"objectClass": "System",
+															"sid": 386543635239514,
+															"parameters": {
+																"variable": "Key",
+																"comparison": 1,
+																"value": "Idea.Type"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "add-key",
+															"objectClass": "OverlappingIdeas",
+															"sid": 197789594809865,
+															"parameters": {
+																"key": "Key",
+																"value": "Value"
+															}
+														}
+													],
+													"sid": 846865110488006
+												}
+											]
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-at-offset",
+											"objectClass": "Idea",
+											"sid": 411854764494019,
+											"parameters": {
+												"object": "Ideas",
+												"offset-x": "0",
+												"offset-y": "7"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 238416978877937,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "for-each",
+													"objectClass": "System",
+													"sid": 702662987278181,
+													"parameters": {
+														"object": "Ideas"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "call-function",
+													"objectClass": "Function",
+													"sid": 355424202578501,
+													"parameters": {
+														"name": "\"GetType\"",
+														"parameter-n": [
+															"Ideas.UID"
+														]
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 256100549996400,
+													"parameters": {
+														"variable": "Key",
+														"value": "Function.ReturnValue"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 913123796485941,
+													"parameters": {
+														"variable": "Value",
+														"value": "Ideas.UID"
+													}
+												}
+											],
+											"sid": 936757004512395,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-eventvar",
+															"objectClass": "System",
+															"sid": 926954473919141,
+															"parameters": {
+																"variable": "Key",
+																"comparison": 1,
+																"value": "Idea.Type"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "add-key",
+															"objectClass": "OverlappingIdeas",
+															"sid": 775822148859543,
+															"parameters": {
+																"key": "Key",
+																"value": "Value"
+															}
+														}
+													],
+													"sid": 561122329980742
+												}
+											]
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-at-offset",
+											"objectClass": "Idea",
+											"sid": 775166184975472,
+											"parameters": {
+												"object": "Ideas",
+												"offset-x": "-7",
+												"offset-y": "0"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 380568665128739,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "for-each",
+													"objectClass": "System",
+													"sid": 865512808962644,
+													"parameters": {
+														"object": "Ideas"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "call-function",
+													"objectClass": "Function",
+													"sid": 347521733361958,
+													"parameters": {
+														"name": "\"GetType\"",
+														"parameter-n": [
+															"Ideas.UID"
+														]
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 973080070695430,
+													"parameters": {
+														"variable": "Key",
+														"value": "Function.ReturnValue"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 582966021580963,
+													"parameters": {
+														"variable": "Value",
+														"value": "Ideas.UID"
+													}
+												}
+											],
+											"sid": 741133864938998,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-eventvar",
+															"objectClass": "System",
+															"sid": 453461552464713,
+															"parameters": {
+																"variable": "Key",
+																"comparison": 1,
+																"value": "Idea.Type"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "add-key",
+															"objectClass": "OverlappingIdeas",
+															"sid": 991930103436066,
+															"parameters": {
+																"key": "Key",
+																"value": "Value"
+															}
+														}
+													],
+													"sid": 717858338117663
+												}
+											]
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-at-offset",
+											"objectClass": "Idea",
+											"sid": 577864942578535,
+											"parameters": {
+												"object": "Ideas",
+												"offset-x": "0",
+												"offset-y": "-7"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 949365824187051,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "for-each",
+													"objectClass": "System",
+													"sid": 101032988163222,
+													"parameters": {
+														"object": "Ideas"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "call-function",
+													"objectClass": "Function",
+													"sid": 367858410728315,
+													"parameters": {
+														"name": "\"GetType\"",
+														"parameter-n": [
+															"Ideas.UID"
+														]
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 229000986775608,
+													"parameters": {
+														"variable": "Key",
+														"value": "Function.ReturnValue"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 115642870683526,
+													"parameters": {
+														"variable": "Value",
+														"value": "Ideas.UID"
+													}
+												}
+											],
+											"sid": 172262191697590,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-eventvar",
+															"objectClass": "System",
+															"sid": 508612479472724,
+															"parameters": {
+																"variable": "Key",
+																"comparison": 1,
+																"value": "Idea.Type"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "add-key",
+															"objectClass": "OverlappingIdeas",
+															"sid": 299326238997898,
+															"parameters": {
+																"key": "Key",
+																"value": "Value"
+															}
+														}
+													],
+													"sid": 175863965974297
+												}
+											]
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 349840786681908,
+											"parameters": {
+												"first-value": "OverlappingIdeas.KeyCount",
+												"comparison": 5,
+												"second-value": "2"
+											}
+										},
+										{
+											"id": "has-key",
+											"objectClass": "OverlappingIdeas",
+											"sid": 162815741207248,
+											"parameters": {
+												"key": "\"Whom\""
+											}
+										},
+										{
+											"id": "has-key",
+											"objectClass": "OverlappingIdeas",
+											"sid": 810881518762024,
+											"parameters": {
+												"key": "\"Do\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "clear",
+											"objectClass": "A_QueryActions",
+											"sid": 333726419320237,
+											"parameters": {
+												"value": "0"
+											}
+										},
+										{
+											"id": "clear",
+											"objectClass": "A_FinalPhrase",
+											"sid": 910018750226253,
+											"parameters": {
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-at-x",
+											"objectClass": "A_FinalPhrase",
+											"sid": 726962021811441,
+											"parameters": {
+												"x": "0",
+												"value": "\"i want \""
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Hero",
+											"sid": 384645001793282,
+											"parameters": {
+												"instance-variable": "State",
+												"value": "\"\""
+											}
+										}
+									],
+									"sid": 168731877798833,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "for-each-key",
+													"objectClass": "OverlappingIdeas",
+													"sid": 601726489801773
+												}
+											],
+											"actions": [],
+											"sid": 311272325403415,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 107496092052735,
+															"parameters": {
+																"first-value": "OverlappingIdeas.CurrentKey",
+																"comparison": 0,
+																"second-value": "\"Do\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "call-function",
+															"objectClass": "Function",
+															"sid": 526287412052984,
+															"parameters": {
+																"name": "\"GetName\"",
+																"parameter-n": [
+																	"OverlappingIdeas.CurrentValue"
+																]
+															}
+														},
+														{
+															"id": "set-at-x",
+															"objectClass": "A_QueryActions",
+															"sid": 509148182441582,
+															"parameters": {
+																"x": "1",
+																"value": "Function.ReturnValue"
+															}
+														},
+														{
+															"id": "set-at-x",
+															"objectClass": "A_FinalPhrase",
+															"sid": 546508551241856,
+															"parameters": {
+																"x": "1",
+																"value": "Function.ReturnValue&\" \""
+															}
+														}
+													],
+													"sid": 211606997618808
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 960122667268201,
+															"parameters": {
+																"first-value": "OverlappingIdeas.CurrentKey",
+																"comparison": 0,
+																"second-value": "\"Whom\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "call-function",
+															"objectClass": "Function",
+															"sid": 623617096460435,
+															"parameters": {
+																"name": "\"GetUIDOnMap\"",
+																"parameter-n": [
+																	"OverlappingIdeas.CurrentValue"
+																]
+															}
+														},
+														{
+															"id": "set-at-x",
+															"objectClass": "A_QueryActions",
+															"sid": 201032492234937,
+															"parameters": {
+																"x": "2",
+																"value": "Function.ReturnValue"
+															}
+														},
+														{
+															"id": "call-function",
+															"objectClass": "Function",
+															"sid": 966635299233611,
+															"parameters": {
+																"name": "\"GetName\"",
+																"parameter-n": [
+																	"OverlappingIdeas.CurrentValue"
+																]
+															}
+														},
+														{
+															"id": "set-at-x",
+															"objectClass": "A_FinalPhrase",
+															"sid": 902120671851531,
+															"parameters": {
+																"x": "2",
+																"value": "Function.ReturnValue&\" \""
+															}
+														}
+													],
+													"sid": 814543432122192
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 270467792855343,
+															"parameters": {
+																"first-value": "OverlappingIdeas.CurrentKey",
+																"comparison": 0,
+																"second-value": "\"What\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "call-function",
+															"objectClass": "Function",
+															"sid": 970270499781395,
+															"parameters": {
+																"name": "\"GetUIDOnMap\"",
+																"parameter-n": [
+																	"OverlappingIdeas.CurrentValue"
+																]
+															}
+														},
+														{
+															"id": "set-at-x",
+															"objectClass": "A_QueryActions",
+															"sid": 307447107042312,
+															"parameters": {
+																"x": "3",
+																"value": "Function.ReturnValue"
+															}
+														},
+														{
+															"id": "call-function",
+															"objectClass": "Function",
+															"sid": 174050190008498,
+															"parameters": {
+																"name": "\"GetName\"",
+																"parameter-n": [
+																	"OverlappingIdeas.CurrentValue"
+																]
+															}
+														},
+														{
+															"id": "set-at-x",
+															"objectClass": "A_FinalPhrase",
+															"sid": 569784390559935,
+															"parameters": {
+																"x": "3",
+																"value": "\"using \"&Function.ReturnValue&\" \""
+															}
+														}
+													],
+													"sid": 843756706702351
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 794134639614988,
+															"parameters": {
+																"first-value": "OverlappingIdeas.CurrentKey",
+																"comparison": 0,
+																"second-value": "\"How\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "call-function",
+															"objectClass": "Function",
+															"sid": 609862196047014,
+															"parameters": {
+																"name": "\"GetName\"",
+																"parameter-n": [
+																	"OverlappingIdeas.CurrentValue"
+																]
+															}
+														},
+														{
+															"id": "set-at-x",
+															"objectClass": "A_QueryActions",
+															"sid": 521079099791253,
+															"parameters": {
+																"x": "4",
+																"value": "Function.ReturnValue"
+															}
+														},
+														{
+															"id": "set-at-x",
+															"objectClass": "A_FinalPhrase",
+															"sid": 957946480602947,
+															"parameters": {
+																"x": "4",
+																"value": "Function.ReturnValue&\"!\""
+															}
+														}
+													],
+													"sid": 968898701157257
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-at-x",
+															"objectClass": "A_FinalPhrase",
+															"sid": 417785227613733,
+															"parameters": {
+																"x": "1",
+																"comparison": 0,
+																"value": "0"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-at-x",
+															"objectClass": "A_FinalPhrase",
+															"sid": 544390572714306,
+															"parameters": {
+																"x": "1",
+																"value": "\"do nothing \""
+															}
+														}
+													],
+													"sid": 115466665789769
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-at-x",
+															"objectClass": "A_FinalPhrase",
+															"sid": 943585457654809,
+															"parameters": {
+																"x": "2",
+																"comparison": 0,
+																"value": "0"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-at-x",
+															"objectClass": "A_FinalPhrase",
+															"sid": 996067870400680,
+															"parameters": {
+																"x": "2",
+																"value": "\"with noone \""
+															}
+														}
+													],
+													"sid": 155080381071180
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-at-x",
+															"objectClass": "A_FinalPhrase",
+															"sid": 701558007326336,
+															"parameters": {
+																"x": "3",
+																"comparison": 0,
+																"value": "0"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-at-x",
+															"objectClass": "A_FinalPhrase",
+															"sid": 345744560805592,
+															"parameters": {
+																"x": "3",
+																"value": "\"using \"&\"nothing\"&\" \""
+															}
+														}
+													],
+													"sid": 878506279842573
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-at-x",
+															"objectClass": "A_FinalPhrase",
+															"sid": 760263942329377,
+															"parameters": {
+																"x": "4",
+																"comparison": 0,
+																"value": "0"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-at-x",
+															"objectClass": "A_FinalPhrase",
+															"sid": 947829896709506,
+															"parameters": {
+																"x": "4",
+																"value": "\"routinely\"&\"!\""
+															}
+														}
+													],
+													"sid": 807871342123535
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-parameter",
+															"objectClass": "Function",
+															"sid": 536231828174641,
+															"parameters": {
+																"index": "0",
+																"comparison": 0,
+																"value": "\"Do\""
+															}
+														}
+													],
+													"actions": [],
+													"sid": 812304671922006,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "trigger-once-while-true",
+																	"objectClass": "System",
+																	"sid": 619871199250589
+																}
+															],
+															"actions": [
+																{
+																	"id": "call-function",
+																	"objectClass": "Function",
+																	"sid": 761801820009124,
+																	"parameters": {
+																		"name": "\"DestroyIdeas\"",
+																		"parameter-n": [
+																			"OverlappingIdeas.CurrentValue"
+																		]
+																	}
+																}
+															],
+															"sid": 271167448248805
+														}
+													]
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-parameter",
+													"objectClass": "Function",
+													"sid": 109304384104286,
+													"parameters": {
+														"index": "0",
+														"comparison": 0,
+														"value": "\"Do\""
+													}
+												}
+											],
+											"actions": [],
+											"sid": 797817253317881,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "for-each-element",
+															"objectClass": "A_FinalPhrase",
+															"sid": 203891679589680,
+															"parameters": {
+																"axes": "x"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "append-text",
+															"objectClass": "SF_DEBUG",
+															"sid": 611655795864809,
+															"parameters": {
+																"text": "A_FinalPhrase.CurValue"
+															}
+														}
+													],
+													"sid": 319793852039288
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "trigger-once-while-true",
+															"objectClass": "System",
+															"sid": 362214899335959
+														}
+													],
+													"actions": [
+														{
+															"id": "call-function",
+															"objectClass": "Function",
+															"sid": 846929440815333,
+															"parameters": {
+																"name": "\"SetText\"",
+																"parameter-n": [
+																	"SF_DEBUG.Text"
+																]
+															}
+														},
+														{
+															"id": "set-text",
+															"objectClass": "SF_DEBUG",
+															"sid": 995159662184002,
+															"parameters": {
+																"text": "\"\""
+															}
+														},
+														{
+															"id": "set-return-value",
+															"objectClass": "Function",
+															"sid": 159142407405402,
+															"parameters": {
+																"value": "0"
+															}
+														}
+													],
+													"sid": 159063209485794
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-parameter",
+													"objectClass": "Function",
+													"sid": 232861869326688,
+													"parameters": {
+														"index": "0",
+														"comparison": 1,
+														"value": "\"Do\""
+													}
+												}
+											],
+											"actions": [],
+											"sid": 733865093029000,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "for-each-element",
+															"objectClass": "A_FinalPhrase",
+															"sid": 191237798405107,
+															"parameters": {
+																"axes": "x"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "append-text",
+															"objectClass": "SF_DEBUG",
+															"sid": 885534581268522,
+															"parameters": {
+																"text": "A_FinalPhrase.CurValue"
+															}
+														}
+													],
+													"sid": 764346830990852
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "trigger-once-while-true",
+															"objectClass": "System",
+															"sid": 449667707325287
+														}
+													],
+													"actions": [
+														{
+															"id": "set-text",
+															"objectClass": "SF_StaticText",
+															"sid": 291753804949145,
+															"parameters": {
+																"text": "SF_DEBUG.Text"
+															}
+														},
+														{
+															"id": "set-return-value",
+															"objectClass": "Function",
+															"sid": 475268924430732,
+															"parameters": {
+																"value": "OverlappingIdeas.KeyCount"
+															}
+														},
+														{
+															"id": "set-text",
+															"objectClass": "SF_DEBUG",
+															"sid": 772954517153613,
+															"parameters": {
+																"text": "\"\""
+															}
+														}
+													],
+													"sid": 319736369862724
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"functionName": "WantAnimation",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "Value",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 252679885416637
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 516707262366070,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 954638665223174,
+									"parameters": {
+										"first-value": "Value",
+										"comparison": 4,
+										"second-value": "0"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 917859998869969,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-comparison",
+											"objectClass": "System",
+											"sid": 791766560200800,
+											"parameters": {
+												"object": "Idea",
+												"expression": "Idea.Type",
+												"comparison": 0,
+												"value": "\"Want\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-active",
+											"objectClass": "Idea",
+											"sid": 946146566132396,
+											"behaviorType": "Sine",
+											"parameters": {
+												"state": "active"
+											}
+										},
+										{
+											"id": "set-period",
+											"objectClass": "Idea",
+											"sid": 512581546836257,
+											"behaviorType": "Sine",
+											"parameters": {
+												"period": "2/Value"
+											}
+										}
+									],
+									"sid": 714482144807296
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 880053531495421
+								}
+							],
+							"actions": [],
+							"sid": 761969755817669,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-comparison",
+											"objectClass": "System",
+											"sid": 262549082129366,
+											"parameters": {
+												"object": "Idea",
+												"expression": "Idea.Type",
+												"comparison": 0,
+												"value": "\"Want\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-active",
+											"objectClass": "Idea",
+											"sid": 628777129387106,
+											"behaviorType": "Sine",
+											"parameters": {
+												"state": "inactive"
+											}
+										},
+										{
+											"id": "set-scale",
+											"objectClass": "Idea",
+											"sid": 306589463641056,
+											"parameters": {
+												"scale": "0.25"
+											}
+										}
+									],
+									"sid": 779767286232438
+								}
+							]
+						}
+					]
+				}
+			],
+			"sid": 587627816527927
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-function",
+					"objectClass": "Function",
+					"sid": 953965674411463,
+					"parameters": {
+						"name": "\"CheckSpawnIdea\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 853061630813657,
+					"disabled": true,
+					"parameters": {
+						"variable": "FlipFlop",
+						"value": "choose(0,0,0,1,1,1,2,2,2,3,3,4,4)"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 555958468788810,
+					"parameters": {
+						"variable": "FlipFlop",
+						"value": "choose(2,3)"
+					}
+				}
+			],
+			"sid": 485021774601730,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 905807532806957,
+							"parameters": {
+								"variable": "FlipFlop",
+								"comparison": 0,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 678967945602949,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Item",
+									"sid": 437818684566929,
+									"parameters": {
+										"instance-variable": "InPuzzle"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [],
+							"sid": 277515190837209,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-nearestfurthest",
+											"objectClass": "Item",
+											"sid": 216275282488831,
+											"parameters": {
+												"which": "nearest",
+												"x": "Hero.X",
+												"y": "Hero.Y"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "call-function",
+											"objectClass": "Function",
+											"sid": 939504267395087,
+											"parameters": {
+												"name": "\"SpawnNewThink\"",
+												"parameter-n": [
+													"\"what\"",
+													"Item.Name",
+													"Item.UID"
+												]
+											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Item",
+											"sid": 591231215598987,
+											"parameters": {
+												"instance-variable": "InPuzzle",
+												"value": "true"
+											}
+										}
+									],
+									"sid": 958603578076123
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 289389798772983,
+							"parameters": {
+								"variable": "FlipFlop",
+								"comparison": 0,
+								"value": "1"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 160725405274560,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "NPC",
+									"sid": 466589586943854,
+									"parameters": {
+										"instance-variable": "inPuzzle"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [],
+							"sid": 699412349903291,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-nearestfurthest",
+											"objectClass": "NPC",
+											"sid": 374116996019570,
+											"parameters": {
+												"which": "nearest",
+												"x": "Hero.X",
+												"y": "Hero.Y"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "call-function",
+											"objectClass": "Function",
+											"sid": 575513301995510,
+											"parameters": {
+												"name": "\"SpawnNewThink\"",
+												"parameter-n": [
+													"\"whom\"",
+													"NPC.Name",
+													"NPC.UID"
+												]
+											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "NPC",
+											"sid": 903946077694414,
+											"parameters": {
+												"instance-variable": "inPuzzle",
+												"value": "true"
+											}
+										}
+									],
+									"sid": 131642814883244
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 922069320806210,
+							"parameters": {
+								"variable": "FlipFlop",
+								"comparison": 0,
+								"value": "2"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "call-function",
+							"objectClass": "Function",
+							"sid": 567120902717040,
+							"parameters": {
+								"name": "\"SpawnNewThink\"",
+								"parameter-n": [
+									"\"do\"",
+									"choose(\"fight with\", \"cast spell on\", \"to feed\", \"trade with\", \"argue with\", \"pickpocket from\", \"hug\")"
+								]
+							}
+						}
+					],
+					"sid": 466554951275494
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 730765607873180,
+							"parameters": {
+								"variable": "FlipFlop",
+								"comparison": 0,
+								"value": "3"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "call-function",
+							"objectClass": "Function",
+							"sid": 421681790041752,
+							"parameters": {
+								"name": "\"SpawnNewThink\"",
+								"parameter-n": [
+									"\"how\"",
+									"choose(\"quickly\", \"stealthily\", \"brutally\", \"wisely\", \"magically\", \"with force\", \"carefully\", \"with charm\", \"loudly\")"
+								]
+							}
+						}
+					],
+					"sid": 128848098442482
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 516957706887595,
+							"parameters": {
+								"variable": "FlipFlop",
+								"comparison": 0,
+								"value": "4"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "call-function",
+							"objectClass": "Function",
+							"sid": 918363070805094,
+							"parameters": {
+								"name": "\"SpawnNewThink\"",
+								"parameter-n": [
+									"\"want\"",
+									"\"want\""
+								]
+							}
+						}
+					],
+					"sid": 335501443384132
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-function",
+					"objectClass": "Function",
+					"sid": 184511134496344,
+					"parameters": {
+						"name": "\"CheckSpawnNewIdea\""
+					}
+				}
+			],
+			"actions": [],
+			"sid": 754068030183892,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 719773775051426,
+							"parameters": {
+								"object": "Hero"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 217277441846794,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Hero",
+									"sid": 908253239718705,
+									"parameters": {
+										"instance-variable": "InPuzzle"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "call-function",
+									"objectClass": "Function",
+									"sid": 932165219245518,
+									"parameters": {
+										"name": "\"SpawnNewThink\"",
+										"parameter-n": [
+											"\"whom\"",
+											"\"myself\"",
+											"Hero.UID"
+										]
+									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Hero",
+									"sid": 256658869915048,
+									"parameters": {
+										"instance-variable": "InPuzzle",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 869714492832122
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 576286977133773
+								}
+							],
+							"actions": [],
+							"sid": 526645150276981,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Idea",
+											"sid": 798119722427730,
+											"parameters": {
+												"instance-variable": "UIDOnMap",
+												"comparison": 0,
+												"value": "Hero.UID"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 511437527223791
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 212474732059283
+										}
+									],
+									"actions": [
+										{
+											"id": "call-function",
+											"objectClass": "Function",
+											"sid": 529464959398763,
+											"parameters": {
+												"name": "\"SpawnNewThink\"",
+												"parameter-n": [
+													"\"whom\"",
+													"\"myself\"",
+													"Hero.UID"
+												]
+											}
+										}
+									],
+									"sid": 155390120875682
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 668320783365894,
+							"parameters": {
+								"object": "Item"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 281520940219688,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-between-values",
+									"objectClass": "System",
+									"sid": 693207956996431,
+									"parameters": {
+										"value": "Item.X",
+										"lower-bound": "Hero.X-60",
+										"upper-bound": "Hero.X+60"
+									}
+								},
+								{
+									"id": "is-between-values",
+									"objectClass": "System",
+									"sid": 475849483564790,
+									"parameters": {
+										"value": "Item.Y",
+										"lower-bound": "Hero.Y-60",
+										"upper-bound": "Hero.Y+60"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 793835840341109,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Item",
+											"sid": 459132373536259,
+											"parameters": {
+												"instance-variable": "InPuzzle"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "call-function",
+											"objectClass": "Function",
+											"sid": 613255994669895,
+											"parameters": {
+												"name": "\"SpawnNewThink\"",
+												"parameter-n": [
+													"\"what\"",
+													"Item.Name",
+													"Item.UID"
+												]
+											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Item",
+											"sid": 725440379878666,
+											"parameters": {
+												"instance-variable": "InPuzzle",
+												"value": "true"
+											}
+										}
+									],
+									"sid": 658990679755653
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 212885937099071
+										}
+									],
+									"actions": [],
+									"sid": 343784269642502,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Idea",
+													"sid": 467883266893437,
+													"parameters": {
+														"instance-variable": "UIDOnMap",
+														"comparison": 0,
+														"value": "Item.UID"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 572184561956491
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 540085210478620
+												}
+											],
+											"actions": [
+												{
+													"id": "call-function",
+													"objectClass": "Function",
+													"sid": 407619486815927,
+													"parameters": {
+														"name": "\"SpawnNewThink\"",
+														"parameter-n": [
+															"\"what\"",
+															"Item.Name",
+															"Item.UID"
+														]
+													}
+												}
+											],
+											"sid": 996311270616886
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 407719241234833
+								}
+							],
+							"actions": [],
+							"sid": 303211728948526,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Item",
+											"sid": 363205087880813,
+											"parameters": {
+												"instance-variable": "InPuzzle"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 604451624017156,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Idea",
+													"sid": 269650613388576,
+													"parameters": {
+														"instance-variable": "UIDOnMap",
+														"comparison": 0,
+														"value": "Item.UID"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "call-function",
+													"objectClass": "Function",
+													"sid": 127282186195297,
+													"parameters": {
+														"name": "\"DestroyIdeas\"",
+														"parameter-n": [
+															"Idea.UID",
+															"\"clear\""
+														]
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Item",
+													"sid": 758637220726309,
+													"parameters": {
+														"instance-variable": "InPuzzle",
+														"value": "false"
+													}
+												}
+											],
+											"sid": 117402166126107
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 662780954593462,
+							"parameters": {
+								"object": "NPC"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 202470376741545,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-between-values",
+									"objectClass": "System",
+									"sid": 231882455585114,
+									"parameters": {
+										"value": "NPC.X",
+										"lower-bound": "Hero.X-60",
+										"upper-bound": "Hero.X+60"
+									}
+								},
+								{
+									"id": "is-between-values",
+									"objectClass": "System",
+									"sid": 384082769900738,
+									"parameters": {
+										"value": "NPC.Y",
+										"lower-bound": "Hero.Y-60",
+										"upper-bound": "Hero.Y+60"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 651228807089561,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "NPC",
+											"sid": 422297452124664,
+											"parameters": {
+												"instance-variable": "inPuzzle"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "NPC",
+											"sid": 887168266206168,
+											"parameters": {
+												"instance-variable": "inPuzzle",
+												"value": "true"
+											}
+										},
+										{
+											"id": "call-function",
+											"objectClass": "Function",
+											"sid": 450437011931188,
+											"parameters": {
+												"name": "\"SpawnNewThink\"",
+												"parameter-n": [
+													"\"whom\"",
+													"NPC.Name",
+													"NPC.UID"
+												]
+											}
+										},
+										{
+											"id": "append-text",
+											"objectClass": "SF_Title",
+											"sid": 815535480577373,
+											"parameters": {
+												"text": "\"+\"&NPC.UID"
+											}
+										}
+									],
+									"sid": 374451134593218
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 941344568162852
+										}
+									],
+									"actions": [],
+									"sid": 886282389105572,
+									"disabled": true,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Idea",
+													"sid": 646840488396370,
+													"parameters": {
+														"instance-variable": "UIDOnMap",
+														"comparison": 0,
+														"value": "NPC.UID"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 400900472300180,
+											"disabled": true
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 935409956367923
+												}
+											],
+											"actions": [
+												{
+													"id": "call-function",
+													"objectClass": "Function",
+													"sid": 772719159447109,
+													"parameters": {
+														"name": "\"SpawnNewThink\"",
+														"parameter-n": [
+															"\"whom\"",
+															"NPC.Name",
+															"NPC.UID"
+														]
+													}
+												}
+											],
+											"sid": 447240020314696,
+											"disabled": true
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 949445625623866
+								}
+							],
+							"actions": [],
+							"sid": 764643830840266,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "NPC",
+											"sid": 818323090703172,
+											"parameters": {
+												"instance-variable": "inPuzzle"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 942309279769099,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Idea",
+													"sid": 425249704753500,
+													"parameters": {
+														"instance-variable": "UIDOnMap",
+														"comparison": 0,
+														"value": "NPC.UID"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "NPC",
+													"sid": 873844100698319,
+													"parameters": {
+														"instance-variable": "inPuzzle",
+														"value": "false"
+													}
+												},
+												{
+													"id": "call-function",
+													"objectClass": "Function",
+													"sid": 602855098891257,
+													"parameters": {
+														"name": "\"DestroyIdeas\"",
+														"parameter-n": [
+															"Idea.UID",
+															"\"clear\""
+														]
+													}
+												}
+											],
+											"sid": 384337551464337
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 233915146493068
+						}
+					],
+					"actions": [
+						{
+							"id": "call-function",
+							"objectClass": "Function",
+							"sid": 299960116738528,
+							"parameters": {
+								"name": "\"CheckSpawnIdea\"",
+								"parameter-n": []
+							}
+						}
+					],
+					"sid": 330147159332358
+				}
+			]
+		}
+	],
+	"sid": 187070609595754
+}

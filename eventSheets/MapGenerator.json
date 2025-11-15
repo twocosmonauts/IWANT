@@ -1,0 +1,1892 @@
+{
+	"name": "MapGenerator",
+	"events": [
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "MapGenerate",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 418279682719317
+						}
+					],
+					"actions": [],
+					"sid": 298424857782133,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "repeat",
+									"objectClass": "System",
+									"sid": 880172216323481,
+									"parameters": {
+										"count": "4"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-at-x",
+									"objectClass": "A_Destroyer",
+									"sid": 309474659971299,
+									"parameters": {
+										"x": "0",
+										"value": "60"
+									}
+								},
+								{
+									"id": "set-at-x",
+									"objectClass": "A_Destroyer",
+									"sid": 471679127205215,
+									"parameters": {
+										"x": "1",
+										"value": "60"
+									}
+								}
+							],
+							"sid": 910753792590627,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "repeat",
+											"objectClass": "System",
+											"sid": 708278850497510,
+											"parameters": {
+												"count": "1000"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-at-x",
+											"objectClass": "A_Destroyer",
+											"sid": 614502983618813,
+											"parameters": {
+												"x": "2",
+												"value": "choose(0,1,2,3)"
+											}
+										},
+										{
+											"id": "set-at-xy",
+											"objectClass": "A_Level",
+											"sid": 840016973038685,
+											"parameters": {
+												"x": "A_Destroyer.At(0)",
+												"y": "A_Destroyer.At(1)",
+												"value": "1"
+											}
+										}
+									],
+									"sid": 590149137664174,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-at-x",
+													"objectClass": "A_Destroyer",
+													"sid": 590197672743862,
+													"parameters": {
+														"x": "2",
+														"comparison": 0,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-at-x",
+													"objectClass": "A_Destroyer",
+													"sid": 408739224348555,
+													"parameters": {
+														"x": "0",
+														"value": "A_Destroyer.At(0)+1"
+													}
+												}
+											],
+											"sid": 400865293046178
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-at-x",
+													"objectClass": "A_Destroyer",
+													"sid": 953088117358128,
+													"parameters": {
+														"x": "2",
+														"comparison": 0,
+														"value": "1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-at-x",
+													"objectClass": "A_Destroyer",
+													"sid": 195736900032334,
+													"parameters": {
+														"x": "1",
+														"value": "A_Destroyer.At(1)+1"
+													}
+												}
+											],
+											"sid": 886910221438922
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-at-x",
+													"objectClass": "A_Destroyer",
+													"sid": 815081931977351,
+													"parameters": {
+														"x": "2",
+														"comparison": 0,
+														"value": "2"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-at-x",
+													"objectClass": "A_Destroyer",
+													"sid": 731251530544528,
+													"parameters": {
+														"x": "0",
+														"value": "A_Destroyer.At(0)-1"
+													}
+												}
+											],
+											"sid": 970327133633991
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-at-x",
+													"objectClass": "A_Destroyer",
+													"sid": 926350433283636,
+													"parameters": {
+														"x": "2",
+														"comparison": 0,
+														"value": "3"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-at-x",
+													"objectClass": "A_Destroyer",
+													"sid": 412346482365212,
+													"parameters": {
+														"x": "1",
+														"value": "A_Destroyer.At(1)-1"
+													}
+												}
+											],
+											"sid": 138064034875530
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each-element",
+									"objectClass": "A_Level",
+									"sid": 711471732119561,
+									"parameters": {
+										"axes": "xy"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-tile",
+									"objectClass": "TM_LevelGround",
+									"sid": 714922066831341,
+									"parameters": {
+										"tile-x": "A_Level.CurX",
+										"tile-y": "A_Level.CurY",
+										"tile": "floor(random(16))",
+										"state": "rotated-90"
+									}
+								}
+							],
+							"sid": 528059662342414,
+							"children": [
+								{
+									"eventType": "variable",
+									"name": "Cleaner",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 379631292028942
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-current-value",
+											"objectClass": "A_Level",
+											"sid": 922858523228298,
+											"parameters": {
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 871137335072801,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-at-xy",
+													"objectClass": "A_Level",
+													"sid": 266194371855688,
+													"parameters": {
+														"x": "A_Level.CurX+1",
+														"y": "A_Level.CurY",
+														"comparison": 0,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "add-to-eventvar",
+													"objectClass": "System",
+													"sid": 788989360849358,
+													"parameters": {
+														"variable": "Cleaner",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 777632584275288
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-at-xy",
+													"objectClass": "A_Level",
+													"sid": 112912049584139,
+													"parameters": {
+														"x": "A_Level.CurX+1",
+														"y": "A_Level.CurY+1",
+														"comparison": 0,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "add-to-eventvar",
+													"objectClass": "System",
+													"sid": 291198794096351,
+													"parameters": {
+														"variable": "Cleaner",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 665178415684780
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-at-xy",
+													"objectClass": "A_Level",
+													"sid": 653702702314550,
+													"parameters": {
+														"x": "A_Level.CurX",
+														"y": "A_Level.CurY+1",
+														"comparison": 0,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "add-to-eventvar",
+													"objectClass": "System",
+													"sid": 830932412336054,
+													"parameters": {
+														"variable": "Cleaner",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 937103657156821
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-at-xy",
+													"objectClass": "A_Level",
+													"sid": 324809151859901,
+													"parameters": {
+														"x": "A_Level.CurX-1",
+														"y": "A_Level.CurY+1",
+														"comparison": 0,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "add-to-eventvar",
+													"objectClass": "System",
+													"sid": 251150694616056,
+													"parameters": {
+														"variable": "Cleaner",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 680024017781461
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-at-xy",
+													"objectClass": "A_Level",
+													"sid": 351915700762095,
+													"parameters": {
+														"x": "A_Level.CurX-1",
+														"y": "A_Level.CurY",
+														"comparison": 0,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "add-to-eventvar",
+													"objectClass": "System",
+													"sid": 242582216978949,
+													"parameters": {
+														"variable": "Cleaner",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 395178917772337
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-at-xy",
+													"objectClass": "A_Level",
+													"sid": 825948425121288,
+													"parameters": {
+														"x": "A_Level.CurX-1",
+														"y": "A_Level.CurY-1",
+														"comparison": 0,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "add-to-eventvar",
+													"objectClass": "System",
+													"sid": 479105047087121,
+													"parameters": {
+														"variable": "Cleaner",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 238220579785312
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-at-xy",
+													"objectClass": "A_Level",
+													"sid": 818071090525010,
+													"parameters": {
+														"x": "A_Level.CurX",
+														"y": "A_Level.CurY-1",
+														"comparison": 0,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "add-to-eventvar",
+													"objectClass": "System",
+													"sid": 295768843586039,
+													"parameters": {
+														"variable": "Cleaner",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 240962010132743
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-at-xy",
+													"objectClass": "A_Level",
+													"sid": 772704900132672,
+													"parameters": {
+														"x": "A_Level.CurX+1",
+														"y": "A_Level.CurY-1",
+														"comparison": 0,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "add-to-eventvar",
+													"objectClass": "System",
+													"sid": 349217244173609,
+													"parameters": {
+														"variable": "Cleaner",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 416627991758165
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "trigger-once-while-true",
+													"objectClass": "System",
+													"sid": 468015149519402
+												},
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 766119558244878,
+													"parameters": {
+														"variable": "Cleaner",
+														"comparison": 3,
+														"value": "2"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-at-xy",
+													"objectClass": "A_Level",
+													"sid": 458402647603571,
+													"parameters": {
+														"x": "A_Level.CurX",
+														"y": "A_Level.CurY",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 257515519000909
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each-element",
+									"objectClass": "A_Level",
+									"sid": 110418941839723,
+									"parameters": {
+										"axes": "xy"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-tile",
+									"objectClass": "TM_LevelWall",
+									"sid": 750096449143551,
+									"parameters": {
+										"tile-x": "A_Level.CurX",
+										"tile-y": "A_Level.CurY",
+										"tile": "A_Level.CurValue",
+										"state": "normal"
+									}
+								}
+							],
+							"sid": 891605841482976,
+							"children": [
+								{
+									"eventType": "variable",
+									"name": "whatwhom",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 381677083556316
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-tile-at",
+											"objectClass": "TM_LevelWall",
+											"sid": 141005274359539,
+											"parameters": {
+												"tile-x": "A_Level.CurX",
+												"tile-y": "A_Level.CurY",
+												"comparison": 0,
+												"tile": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "erase-tile",
+											"objectClass": "TM_LevelWall",
+											"sid": 636653798259397,
+											"parameters": {
+												"tile-x": "A_Level.CurX",
+												"tile-y": "A_Level.CurY"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 500885274913234,
+											"parameters": {
+												"variable": "whatwhom",
+												"value": "choose(0,1)"
+											}
+										}
+									],
+									"sid": 733634903099157,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 620965496386958,
+													"parameters": {
+														"first-value": "random(1)",
+														"comparison": 3,
+														"second-value": "0.15"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 217588927600816,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-eventvar",
+															"objectClass": "System",
+															"sid": 665168488206306,
+															"parameters": {
+																"variable": "whatwhom",
+																"comparison": 0,
+																"value": "0"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "create-object",
+															"objectClass": "System",
+															"sid": 666017813041966,
+															"parameters": {
+																"object-to-create": "Item",
+																"layer": "1",
+																"x": "A_Level.CurX*16",
+																"y": "A_Level.CurY*16",
+																"create-hierarchy": false,
+																"template-name": "\"\""
+															}
+														},
+														{
+															"id": "set-animation-frame",
+															"objectClass": "Item",
+															"sid": 157527870568330,
+															"parameters": {
+																"frame-number": "choose(0,1,1,2,2,2,2,2,3,3,4)"
+															}
+														}
+													],
+													"sid": 399123098079230,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-animation-frame",
+																	"objectClass": "Item",
+																	"sid": 447453297127413,
+																	"parameters": {
+																		"comparison": 0,
+																		"number": "0"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-instvar-value",
+																	"objectClass": "Item",
+																	"sid": 868602452891956,
+																	"parameters": {
+																		"instance-variable": "Name",
+																		"value": "\"dagger\""
+																	}
+																},
+																{
+																	"id": "set-instvar-value",
+																	"objectClass": "Item",
+																	"sid": 248656366109406,
+																	"parameters": {
+																		"instance-variable": "Damage",
+																		"value": "15"
+																	}
+																},
+																{
+																	"id": "set-instvar-value",
+																	"objectClass": "Item",
+																	"sid": 821135874200705,
+																	"parameters": {
+																		"instance-variable": "Price",
+																		"value": "30"
+																	}
+																},
+																{
+																	"id": "set-instvar-value",
+																	"objectClass": "Item",
+																	"sid": 783156399244330,
+																	"parameters": {
+																		"instance-variable": "Heal",
+																		"value": "-15"
+																	}
+																},
+																{
+																	"id": "set-boolean-instvar",
+																	"objectClass": "Item",
+																	"sid": 462986741697320,
+																	"parameters": {
+																		"instance-variable": "edible",
+																		"value": "false"
+																	}
+																}
+															],
+															"sid": 506490970870414
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-animation-frame",
+																	"objectClass": "Item",
+																	"sid": 964161530671152,
+																	"parameters": {
+																		"comparison": 0,
+																		"number": "1"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-instvar-value",
+																	"objectClass": "Item",
+																	"sid": 352859740037520,
+																	"parameters": {
+																		"instance-variable": "Name",
+																		"value": "\"boot\""
+																	}
+																},
+																{
+																	"id": "set-instvar-value",
+																	"objectClass": "Item",
+																	"sid": 658402503438594,
+																	"parameters": {
+																		"instance-variable": "Damage",
+																		"value": "5"
+																	}
+																},
+																{
+																	"id": "set-instvar-value",
+																	"objectClass": "Item",
+																	"sid": 595378771080028,
+																	"parameters": {
+																		"instance-variable": "Price",
+																		"value": "10"
+																	}
+																},
+																{
+																	"id": "set-instvar-value",
+																	"objectClass": "Item",
+																	"sid": 646655167008304,
+																	"parameters": {
+																		"instance-variable": "Heal",
+																		"value": "-5"
+																	}
+																},
+																{
+																	"id": "set-boolean-instvar",
+																	"objectClass": "Item",
+																	"sid": 515064069695797,
+																	"parameters": {
+																		"instance-variable": "edible",
+																		"value": "false"
+																	}
+																}
+															],
+															"sid": 328968619901173
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-animation-frame",
+																	"objectClass": "Item",
+																	"sid": 611342820931196,
+																	"parameters": {
+																		"comparison": 0,
+																		"number": "2"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-instvar-value",
+																	"objectClass": "Item",
+																	"sid": 800880927598096,
+																	"parameters": {
+																		"instance-variable": "Name",
+																		"value": "\"rock\""
+																	}
+																},
+																{
+																	"id": "set-instvar-value",
+																	"objectClass": "Item",
+																	"sid": 846141327540132,
+																	"parameters": {
+																		"instance-variable": "Damage",
+																		"value": "7"
+																	}
+																},
+																{
+																	"id": "set-instvar-value",
+																	"objectClass": "Item",
+																	"sid": 741996373382228,
+																	"parameters": {
+																		"instance-variable": "Price",
+																		"value": "1"
+																	}
+																},
+																{
+																	"id": "set-instvar-value",
+																	"objectClass": "Item",
+																	"sid": 864928713641344,
+																	"parameters": {
+																		"instance-variable": "Heal",
+																		"value": "-10"
+																	}
+																},
+																{
+																	"id": "set-boolean-instvar",
+																	"objectClass": "Item",
+																	"sid": 969143437663664,
+																	"parameters": {
+																		"instance-variable": "edible",
+																		"value": "false"
+																	}
+																}
+															],
+															"sid": 746434585406925
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-animation-frame",
+																	"objectClass": "Item",
+																	"sid": 874650045629555,
+																	"parameters": {
+																		"comparison": 0,
+																		"number": "3"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-instvar-value",
+																	"objectClass": "Item",
+																	"sid": 881177674781197,
+																	"parameters": {
+																		"instance-variable": "Name",
+																		"value": "\"apple\""
+																	}
+																},
+																{
+																	"id": "set-instvar-value",
+																	"objectClass": "Item",
+																	"sid": 172360813843367,
+																	"parameters": {
+																		"instance-variable": "Damage",
+																		"value": "2"
+																	}
+																},
+																{
+																	"id": "set-instvar-value",
+																	"objectClass": "Item",
+																	"sid": 435330679511716,
+																	"parameters": {
+																		"instance-variable": "Price",
+																		"value": "5"
+																	}
+																},
+																{
+																	"id": "set-instvar-value",
+																	"objectClass": "Item",
+																	"sid": 788673035859636,
+																	"parameters": {
+																		"instance-variable": "Heal",
+																		"value": "10"
+																	}
+																},
+																{
+																	"id": "set-boolean-instvar",
+																	"objectClass": "Item",
+																	"sid": 532500306482267,
+																	"parameters": {
+																		"instance-variable": "edible",
+																		"value": "true"
+																	}
+																}
+															],
+															"sid": 800733755618618
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-animation-frame",
+																	"objectClass": "Item",
+																	"sid": 857291057259060,
+																	"parameters": {
+																		"comparison": 0,
+																		"number": "4"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-instvar-value",
+																	"objectClass": "Item",
+																	"sid": 995469587433607,
+																	"parameters": {
+																		"instance-variable": "Name",
+																		"value": "\"potion\""
+																	}
+																},
+																{
+																	"id": "set-instvar-value",
+																	"objectClass": "Item",
+																	"sid": 297224532326336,
+																	"parameters": {
+																		"instance-variable": "Damage",
+																		"value": "5"
+																	}
+																},
+																{
+																	"id": "set-instvar-value",
+																	"objectClass": "Item",
+																	"sid": 888795730545175,
+																	"parameters": {
+																		"instance-variable": "Price",
+																		"value": "15"
+																	}
+																},
+																{
+																	"id": "set-instvar-value",
+																	"objectClass": "Item",
+																	"sid": 633602360228860,
+																	"parameters": {
+																		"instance-variable": "Heal",
+																		"value": "30"
+																	}
+																},
+																{
+																	"id": "set-boolean-instvar",
+																	"objectClass": "Item",
+																	"sid": 878872799654916,
+																	"parameters": {
+																		"instance-variable": "edible",
+																		"value": "true"
+																	}
+																}
+															],
+															"sid": 133601562950158
+														}
+													]
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 371222011858764
+														}
+													],
+													"actions": [
+														{
+															"id": "create-object",
+															"objectClass": "System",
+															"sid": 612363585653390,
+															"parameters": {
+																"object-to-create": "NPC",
+																"layer": "1",
+																"x": "A_Level.CurX*16",
+																"y": "A_Level.CurY*16",
+																"create-hierarchy": false,
+																"template-name": "\"\""
+															}
+														},
+														{
+															"id": "set-instvar-value",
+															"objectClass": "NPC",
+															"sid": 580839025836135,
+															"parameters": {
+																"instance-variable": "Name",
+																"value": "choose(\"skeleton\",\"skeleton\",\"skeleton\",\"skeleton\",\"skeleton\",\"skeleton\",\"skeleton\",\"skeleton\",\"skeleton\",\"knight\",\"knight\",\"merchant\")"
+															}
+														},
+														{
+															"id": "set-text",
+															"objectClass": "Text",
+															"sid": 147092923090300,
+															"parameters": {
+																"text": "NPC.UID"
+															}
+														}
+													],
+													"sid": 711646108840324,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "NPC",
+																	"sid": 145768397063467,
+																	"parameters": {
+																		"instance-variable": "Name",
+																		"comparison": 0,
+																		"value": "\"skeleton\""
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-instvar-value",
+																	"objectClass": "NPC",
+																	"sid": 297738937573311,
+																	"parameters": {
+																		"instance-variable": "MaxHP",
+																		"value": "floor(random(5,16))"
+																	}
+																},
+																{
+																	"id": "set-instvar-value",
+																	"objectClass": "NPC",
+																	"sid": 667602661167905,
+																	"parameters": {
+																		"instance-variable": "CurrentHP",
+																		"value": "NPC.MaxHP"
+																	}
+																},
+																{
+																	"id": "set-instvar-value",
+																	"objectClass": "NPC",
+																	"sid": 736472634750915,
+																	"parameters": {
+																		"instance-variable": "relation",
+																		"value": "floor(random(-5,-1))"
+																	}
+																},
+																{
+																	"id": "set-instvar-value",
+																	"objectClass": "NPC",
+																	"sid": 417345103286341,
+																	"parameters": {
+																		"instance-variable": "Damage",
+																		"value": "floor(random(6,12))"
+																	}
+																},
+																{
+																	"id": "set-instvar-value",
+																	"objectClass": "NPC",
+																	"sid": 325890497351564,
+																	"parameters": {
+																		"instance-variable": "exp",
+																		"value": "floor((NPC.MaxHP*NPC.Damage)/10)"
+																	}
+																},
+																{
+																	"id": "set-instvar-value",
+																	"objectClass": "NPC",
+																	"sid": 672507237908204,
+																	"parameters": {
+																		"instance-variable": "Money",
+																		"value": "floor(random(5,16))"
+																	}
+																},
+																{
+																	"id": "set-animation",
+																	"objectClass": "NPC",
+																	"sid": 207786697028862,
+																	"parameters": {
+																		"animation": "\"skeletonidle\"",
+																		"from": "beginning"
+																	}
+																},
+																{
+																	"id": "set-animation-frame",
+																	"objectClass": "NPC",
+																	"sid": 154019934866971,
+																	"parameters": {
+																		"frame-number": "floor(random(NPC.AnimationFrameCount))"
+																	}
+																}
+															],
+															"sid": 464395583026942
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "NPC",
+																	"sid": 171732013390753,
+																	"parameters": {
+																		"instance-variable": "Name",
+																		"comparison": 0,
+																		"value": "\"knight\""
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-instvar-value",
+																	"objectClass": "NPC",
+																	"sid": 938413691427301,
+																	"parameters": {
+																		"instance-variable": "MaxHP",
+																		"value": "floor(random(30,61))"
+																	}
+																},
+																{
+																	"id": "set-instvar-value",
+																	"objectClass": "NPC",
+																	"sid": 278426143999954,
+																	"parameters": {
+																		"instance-variable": "CurrentHP",
+																		"value": "NPC.MaxHP"
+																	}
+																},
+																{
+																	"id": "set-instvar-value",
+																	"objectClass": "NPC",
+																	"sid": 800525505267255,
+																	"parameters": {
+																		"instance-variable": "relation",
+																		"value": "floor(random(-1,2))"
+																	}
+																},
+																{
+																	"id": "set-instvar-value",
+																	"objectClass": "NPC",
+																	"sid": 944216874594422,
+																	"parameters": {
+																		"instance-variable": "Damage",
+																		"value": "floor(random(15,26))"
+																	}
+																},
+																{
+																	"id": "set-instvar-value",
+																	"objectClass": "NPC",
+																	"sid": 884753359035813,
+																	"parameters": {
+																		"instance-variable": "exp",
+																		"value": "floor((NPC.MaxHP*NPC.Damage)/10)"
+																	}
+																},
+																{
+																	"id": "set-instvar-value",
+																	"objectClass": "NPC",
+																	"sid": 772253377864181,
+																	"parameters": {
+																		"instance-variable": "Money",
+																		"value": "floor(random(15,31))"
+																	}
+																},
+																{
+																	"id": "set-animation",
+																	"objectClass": "NPC",
+																	"sid": 204516079174379,
+																	"parameters": {
+																		"animation": "\"knightidle\"",
+																		"from": "beginning"
+																	}
+																},
+																{
+																	"id": "set-animation-frame",
+																	"objectClass": "NPC",
+																	"sid": 843818737086877,
+																	"parameters": {
+																		"frame-number": "floor(random(NPC.AnimationFrameCount))"
+																	}
+																}
+															],
+															"sid": 606529179324372
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "NPC",
+																	"sid": 267830224170016,
+																	"parameters": {
+																		"instance-variable": "Name",
+																		"comparison": 0,
+																		"value": "\"merchant\""
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-instvar-value",
+																	"objectClass": "NPC",
+																	"sid": 291962735688048,
+																	"parameters": {
+																		"instance-variable": "MaxHP",
+																		"value": "floor(random(3,6))"
+																	}
+																},
+																{
+																	"id": "set-instvar-value",
+																	"objectClass": "NPC",
+																	"sid": 728919883606258,
+																	"parameters": {
+																		"instance-variable": "CurrentHP",
+																		"value": "NPC.MaxHP"
+																	}
+																},
+																{
+																	"id": "set-instvar-value",
+																	"objectClass": "NPC",
+																	"sid": 661279298447250,
+																	"parameters": {
+																		"instance-variable": "relation",
+																		"value": "floor(random(0,2))"
+																	}
+																},
+																{
+																	"id": "set-instvar-value",
+																	"objectClass": "NPC",
+																	"sid": 172507750123984,
+																	"parameters": {
+																		"instance-variable": "Damage",
+																		"value": "floor(random(3,6))"
+																	}
+																},
+																{
+																	"id": "set-instvar-value",
+																	"objectClass": "NPC",
+																	"sid": 831557784112792,
+																	"parameters": {
+																		"instance-variable": "exp",
+																		"value": "floor((NPC.MaxHP*NPC.Damage)/10)"
+																	}
+																},
+																{
+																	"id": "set-instvar-value",
+																	"objectClass": "NPC",
+																	"sid": 289267875811888,
+																	"parameters": {
+																		"instance-variable": "Money",
+																		"value": "floor(random(30,161))"
+																	}
+																},
+																{
+																	"id": "set-animation",
+																	"objectClass": "NPC",
+																	"sid": 484883795672597,
+																	"parameters": {
+																		"animation": "\"merchantidle\"",
+																		"from": "beginning"
+																	}
+																},
+																{
+																	"id": "set-animation-frame",
+																	"objectClass": "NPC",
+																	"sid": 516705388664828,
+																	"parameters": {
+																		"frame-number": "floor(random(NPC.AnimationFrameCount))"
+																	}
+																}
+															],
+															"sid": 538800459372389
+														}
+													]
+												}
+											]
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each-element",
+									"objectClass": "A_Level",
+									"sid": 894464440977946,
+									"parameters": {
+										"axes": "xy"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 636090688880949,
+							"children": [
+								{
+									"eventType": "variable",
+									"name": "tile",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 752251229866841
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-current-value",
+											"objectClass": "A_Level",
+											"sid": 614844436805597,
+											"parameters": {
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 244116166745713,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-at-xy",
+													"objectClass": "A_Level",
+													"sid": 986150653739216,
+													"parameters": {
+														"x": "A_Level.CurX+1",
+														"y": "A_Level.CurY",
+														"comparison": 0,
+														"value": "1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "add-to-eventvar",
+													"objectClass": "System",
+													"sid": 315152691680696,
+													"parameters": {
+														"variable": "tile",
+														"value": "5"
+													}
+												}
+											],
+											"sid": 571984002100210
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-at-xy",
+													"objectClass": "A_Level",
+													"sid": 132449530636944,
+													"parameters": {
+														"x": "A_Level.CurX",
+														"y": "A_Level.CurY+1",
+														"comparison": 0,
+														"value": "1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "add-to-eventvar",
+													"objectClass": "System",
+													"sid": 290328950339655,
+													"parameters": {
+														"variable": "tile",
+														"value": "7"
+													}
+												}
+											],
+											"sid": 339727793145239
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-at-xy",
+													"objectClass": "A_Level",
+													"sid": 219580837011875,
+													"parameters": {
+														"x": "A_Level.CurX-1",
+														"y": "A_Level.CurY",
+														"comparison": 0,
+														"value": "1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "add-to-eventvar",
+													"objectClass": "System",
+													"sid": 570155141685956,
+													"parameters": {
+														"variable": "tile",
+														"value": "11"
+													}
+												}
+											],
+											"sid": 722081860501470
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-at-xy",
+													"objectClass": "A_Level",
+													"sid": 937237855305453,
+													"parameters": {
+														"x": "A_Level.CurX",
+														"y": "A_Level.CurY-1",
+														"comparison": 0,
+														"value": "1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "add-to-eventvar",
+													"objectClass": "System",
+													"sid": 426287091003917,
+													"parameters": {
+														"variable": "tile",
+														"value": "3"
+													}
+												}
+											],
+											"sid": 975353589310189
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 637437451118251,
+													"parameters": {
+														"variable": "tile",
+														"comparison": 0,
+														"value": "3"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-tile",
+													"objectClass": "TM_LevelWall",
+													"sid": 251032401570553,
+													"parameters": {
+														"tile-x": "A_Level.CurX",
+														"tile-y": "A_Level.CurY",
+														"tile": "1",
+														"state": "normal"
+													}
+												}
+											],
+											"sid": 887874261526064
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 813645087883406,
+													"parameters": {
+														"variable": "tile",
+														"comparison": 0,
+														"value": "5"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-tile",
+													"objectClass": "TM_LevelWall",
+													"sid": 706091648963530,
+													"parameters": {
+														"tile-x": "A_Level.CurX",
+														"tile-y": "A_Level.CurY",
+														"tile": "2",
+														"state": "normal"
+													}
+												}
+											],
+											"sid": 830008586843745
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 786329642109636,
+													"parameters": {
+														"variable": "tile",
+														"comparison": 0,
+														"value": "7"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-tile",
+													"objectClass": "TM_LevelWall",
+													"sid": 498259586122815,
+													"parameters": {
+														"tile-x": "A_Level.CurX",
+														"tile-y": "A_Level.CurY",
+														"tile": "3",
+														"state": "normal"
+													}
+												}
+											],
+											"sid": 315279754551742
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 625694045212569,
+													"parameters": {
+														"variable": "tile",
+														"comparison": 0,
+														"value": "11"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-tile",
+													"objectClass": "TM_LevelWall",
+													"sid": 753715086716593,
+													"parameters": {
+														"tile-x": "A_Level.CurX",
+														"tile-y": "A_Level.CurY",
+														"tile": "4",
+														"state": "normal"
+													}
+												}
+											],
+											"sid": 636638586438752
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 404247455134154,
+													"parameters": {
+														"variable": "tile",
+														"comparison": 0,
+														"value": "8"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-tile",
+													"objectClass": "TM_LevelWall",
+													"sid": 700794479808892,
+													"parameters": {
+														"tile-x": "A_Level.CurX",
+														"tile-y": "A_Level.CurY",
+														"tile": "5",
+														"state": "normal"
+													}
+												}
+											],
+											"sid": 328646819452688
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 746319938419494,
+													"parameters": {
+														"variable": "tile",
+														"comparison": 0,
+														"value": "10"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-tile",
+													"objectClass": "TM_LevelWall",
+													"sid": 750457588797589,
+													"parameters": {
+														"tile-x": "A_Level.CurX",
+														"tile-y": "A_Level.CurY",
+														"tile": "6",
+														"state": "normal"
+													}
+												}
+											],
+											"sid": 585321383572549
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 853874332410664,
+													"parameters": {
+														"variable": "tile",
+														"comparison": 0,
+														"value": "14"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-tile",
+													"objectClass": "TM_LevelWall",
+													"sid": 370367444185096,
+													"parameters": {
+														"tile-x": "A_Level.CurX",
+														"tile-y": "A_Level.CurY",
+														"tile": "7",
+														"state": "normal"
+													}
+												}
+											],
+											"sid": 217244600337475
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 688586015138415,
+													"parameters": {
+														"variable": "tile",
+														"comparison": 0,
+														"value": "12"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-tile",
+													"objectClass": "TM_LevelWall",
+													"sid": 180030235022007,
+													"parameters": {
+														"tile-x": "A_Level.CurX",
+														"tile-y": "A_Level.CurY",
+														"tile": "8",
+														"state": "normal"
+													}
+												}
+											],
+											"sid": 494436744812525
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 648112026105496,
+													"parameters": {
+														"variable": "tile",
+														"comparison": 0,
+														"value": "16"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-tile",
+													"objectClass": "TM_LevelWall",
+													"sid": 541816314491202,
+													"parameters": {
+														"tile-x": "A_Level.CurX",
+														"tile-y": "A_Level.CurY",
+														"tile": "9",
+														"state": "normal"
+													}
+												}
+											],
+											"sid": 158321692002159
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 972260454674717,
+													"parameters": {
+														"variable": "tile",
+														"comparison": 0,
+														"value": "18"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-tile",
+													"objectClass": "TM_LevelWall",
+													"sid": 194357504652846,
+													"parameters": {
+														"tile-x": "A_Level.CurX",
+														"tile-y": "A_Level.CurY",
+														"tile": "10",
+														"state": "normal"
+													}
+												}
+											],
+											"sid": 762420863045512
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 706591168534245,
+													"parameters": {
+														"variable": "tile",
+														"comparison": 0,
+														"value": "23"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-tile",
+													"objectClass": "TM_LevelWall",
+													"sid": 137181068903232,
+													"parameters": {
+														"tile-x": "A_Level.CurX",
+														"tile-y": "A_Level.CurY",
+														"tile": "11",
+														"state": "normal"
+													}
+												}
+											],
+											"sid": 502054366738996
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 636849644340848,
+													"parameters": {
+														"variable": "tile",
+														"comparison": 0,
+														"value": "21"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-tile",
+													"objectClass": "TM_LevelWall",
+													"sid": 321348061549999,
+													"parameters": {
+														"tile-x": "A_Level.CurX",
+														"tile-y": "A_Level.CurY",
+														"tile": "12",
+														"state": "normal"
+													}
+												}
+											],
+											"sid": 437171056259620
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 105847427243511,
+													"parameters": {
+														"variable": "tile",
+														"comparison": 0,
+														"value": "19"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-tile",
+													"objectClass": "TM_LevelWall",
+													"sid": 347469869373996,
+													"parameters": {
+														"tile-x": "A_Level.CurX",
+														"tile-y": "A_Level.CurY",
+														"tile": "13",
+														"state": "normal"
+													}
+												}
+											],
+											"sid": 276173602229003
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 128386630544376,
+													"parameters": {
+														"variable": "tile",
+														"comparison": 0,
+														"value": "15"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-tile",
+													"objectClass": "TM_LevelWall",
+													"sid": 151433185721576,
+													"parameters": {
+														"tile-x": "A_Level.CurX",
+														"tile-y": "A_Level.CurY",
+														"tile": "14",
+														"state": "normal"
+													}
+												}
+											],
+											"sid": 519358609306428
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 651872035704148,
+													"parameters": {
+														"variable": "tile",
+														"comparison": 0,
+														"value": "26"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-tile",
+													"objectClass": "TM_LevelWall",
+													"sid": 336156369414446,
+													"parameters": {
+														"tile-x": "A_Level.CurX",
+														"tile-y": "A_Level.CurY",
+														"tile": "15",
+														"state": "normal"
+													}
+												}
+											],
+											"sid": 561845798426632
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "signal",
+									"objectClass": "System",
+									"sid": 592148684484849,
+									"parameters": {
+										"tag": "\"spawn\""
+									}
+								}
+							],
+							"sid": 885301121482811
+						}
+					]
+				}
+			],
+			"sid": 644018299409103
+		}
+	],
+	"sid": 939458695978102
+}

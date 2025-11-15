@@ -1,0 +1,4197 @@
+{
+	"name": "Interaction",
+	"events": [
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Action",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Interaction",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"functionName": "UpdateText",
+							"functionDescription": "",
+							"functionCategory": "",
+							"functionReturnType": "none",
+							"functionCopyPicked": false,
+							"functionIsAsync": false,
+							"functionParameters": [],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "SF_LVL",
+									"sid": 231148618403779,
+									"parameters": {
+										"text": "\"lvl\"&Hero.Level&\"(\"&floor(Hero.currentXP)&\"/\"&floor(Hero.NewLevelExp)&\")\""
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "SF_GOLD",
+									"sid": 501012605964953,
+									"parameters": {
+										"text": "\"gold:\"&floor(Hero.money)"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "SF_HP",
+									"sid": 282939115412177,
+									"parameters": {
+										"text": "\"health:\"&floor(Hero.currentHP)"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "SF_DAMAGE",
+									"sid": 317041125307240,
+									"parameters": {
+										"text": "\"damage:\"&floor(Hero.damage)"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Hero",
+									"sid": 203996893287027,
+									"parameters": {
+										"instance-variable": "NewLevelExp",
+										"value": "floor(Hero.level*10*0.8)"
+									}
+								}
+							],
+							"sid": 917531965166227,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Hero",
+											"sid": 904285801851475,
+											"parameters": {
+												"instance-variable": "currentXP",
+												"comparison": 5,
+												"value": "Hero.NewLevelExp"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Hero",
+											"sid": 129526254519811,
+											"parameters": {
+												"instance-variable": "currentXP",
+												"value": "Hero.currentXP-Hero.NewLevelExp"
+											}
+										},
+										{
+											"id": "add-to-instvar",
+											"objectClass": "Hero",
+											"sid": 186692543594114,
+											"parameters": {
+												"instance-variable": "Level",
+												"value": "1"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Hero",
+											"sid": 112303056954597,
+											"parameters": {
+												"instance-variable": "NewLevelExp",
+												"value": "floor(Hero.level*10*0.8)"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Hero",
+											"sid": 345521038804864,
+											"parameters": {
+												"instance-variable": "Damage",
+												"value": "floor(Hero.Level*1.2)+4"
+											}
+										}
+									],
+									"sid": 493643665253176
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-function",
+									"objectClass": "Function",
+									"sid": 998768400588182,
+									"parameters": {
+										"name": "\"PickUpObject\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Hero",
+									"sid": 137173735961034,
+									"parameters": {
+										"instance-variable": "CarryOn",
+										"value": "Function.Param(0)"
+									}
+								},
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 384021503245918,
+									"parameters": {
+										"group-name": "\"CarryOn\"",
+										"state": "activated"
+									}
+								}
+							],
+							"sid": 650768481731336
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-function",
+									"objectClass": "Function",
+									"sid": 459892239136964,
+									"parameters": {
+										"name": "\"InteractWithSomeone\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Hero",
+									"sid": 259550651829107,
+									"parameters": {
+										"instance-variable": "CarryOn",
+										"value": "0"
+									}
+								},
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 529699854372705,
+									"parameters": {
+										"group-name": "\"CarryOn\"",
+										"state": "deactivated"
+									}
+								}
+							],
+							"sid": 165790446851625,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 522235388319909
+										}
+									],
+									"actions": [],
+									"sid": 114241788573082,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-at-x",
+													"objectClass": "A_QueryActions",
+													"sid": 150935574375587,
+													"parameters": {
+														"x": "1",
+														"comparison": 0,
+														"value": "\"fight with\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "call-function",
+													"objectClass": "Function",
+													"sid": 898171739730734,
+													"parameters": {
+														"name": "\"fight with\"",
+														"parameter-n": [
+															"A_QueryActions.At(2)",
+															"A_QueryActions.At(3)"
+														]
+													}
+												}
+											],
+											"sid": 506174442252132
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-at-x",
+													"objectClass": "A_QueryActions",
+													"sid": 139788777920375,
+													"parameters": {
+														"x": "1",
+														"comparison": 0,
+														"value": "\"cast spell on\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "call-function",
+													"objectClass": "Function",
+													"sid": 698587225218789,
+													"parameters": {
+														"name": "\"cast spell on\"",
+														"parameter-n": [
+															"A_QueryActions.At(2)",
+															"A_QueryActions.At(3)"
+														]
+													}
+												}
+											],
+											"sid": 568104533186815
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-at-x",
+													"objectClass": "A_QueryActions",
+													"sid": 907376036821439,
+													"parameters": {
+														"x": "1",
+														"comparison": 0,
+														"value": "\"to feed\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "call-function",
+													"objectClass": "Function",
+													"sid": 339126989991549,
+													"parameters": {
+														"name": "\"to feed\"",
+														"parameter-n": [
+															"A_QueryActions.At(2)",
+															"A_QueryActions.At(3)"
+														]
+													}
+												}
+											],
+											"sid": 978524954783629
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-at-x",
+													"objectClass": "A_QueryActions",
+													"sid": 254808842740396,
+													"parameters": {
+														"x": "1",
+														"comparison": 0,
+														"value": "\"trade with\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "call-function",
+													"objectClass": "Function",
+													"sid": 813916619733724,
+													"parameters": {
+														"name": "\"trade with\"",
+														"parameter-n": [
+															"A_QueryActions.At(2)",
+															"A_QueryActions.At(3)"
+														]
+													}
+												}
+											],
+											"sid": 277397886724808
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-at-x",
+													"objectClass": "A_QueryActions",
+													"sid": 799896454561040,
+													"parameters": {
+														"x": "1",
+														"comparison": 0,
+														"value": "\"argue with\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "call-function",
+													"objectClass": "Function",
+													"sid": 930532197648916,
+													"parameters": {
+														"name": "\"argue with\"",
+														"parameter-n": [
+															"A_QueryActions.At(2)",
+															"A_QueryActions.At(3)"
+														]
+													}
+												}
+											],
+											"sid": 135758114176844
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-at-x",
+													"objectClass": "A_QueryActions",
+													"sid": 166339885160165,
+													"parameters": {
+														"x": "1",
+														"comparison": 0,
+														"value": "\"pickpocket from\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "call-function",
+													"objectClass": "Function",
+													"sid": 706472108261855,
+													"parameters": {
+														"name": "\"pickpocket from\"",
+														"parameter-n": [
+															"A_QueryActions.At(2)",
+															"A_QueryActions.At(3)"
+														]
+													}
+												}
+											],
+											"sid": 807970326596621
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-at-x",
+													"objectClass": "A_QueryActions",
+													"sid": 482082909077954,
+													"parameters": {
+														"x": "1",
+														"comparison": 0,
+														"value": "\"hug\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "call-function",
+													"objectClass": "Function",
+													"sid": 295859758297114,
+													"parameters": {
+														"name": "\"hug\"",
+														"parameter-n": [
+															"A_QueryActions.At(2)",
+															"A_QueryActions.At(3)"
+														]
+													}
+												}
+											],
+											"sid": 783354480887977
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-at-x",
+													"objectClass": "A_QueryActions",
+													"sid": 952054706106978,
+													"parameters": {
+														"x": "2",
+														"comparison": 0,
+														"value": "Hero.UID"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Hero",
+													"sid": 622782976404307,
+													"parameters": {
+														"instance-variable": "InPuzzle",
+														"value": "false"
+													}
+												}
+											],
+											"sid": 652015619487784
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-by-unique-id",
+													"objectClass": "Item",
+													"sid": 153268999404563,
+													"parameters": {
+														"unique-id": "A_QueryActions.At(3)"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "destroy",
+													"objectClass": "Item",
+													"sid": 966195300122152
+												}
+											],
+											"sid": 550199630521759,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "Idea",
+															"sid": 967860799968849,
+															"parameters": {
+																"instance-variable": "UIDOnMap",
+																"comparison": 0,
+																"value": "Item.UID"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "call-function",
+															"objectClass": "Function",
+															"sid": 451511638079818,
+															"parameters": {
+																"name": "\"DestroyIdeas\"",
+																"parameter-n": [
+																	"Idea.UID"
+																]
+															}
+														}
+													],
+													"sid": 310911429766510,
+													"disabled": true
+												}
+											]
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 956131239847602
+										}
+									],
+									"actions": [
+										{
+											"id": "call-function",
+											"objectClass": "Function",
+											"sid": 135963655604594,
+											"parameters": {
+												"name": "\"CheckSpawnNewIdea\"",
+												"parameter-n": []
+											}
+										}
+									],
+									"sid": 839063109186663
+								}
+							]
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "CarryOn",
+							"description": "",
+							"isActiveOnStart": false,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "every-tick",
+											"objectClass": "System",
+											"sid": 288636421543014
+										}
+									],
+									"actions": [],
+									"sid": 432450430417973,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-by-unique-id",
+													"objectClass": "Item",
+													"sid": 123613952359535,
+													"parameters": {
+														"unique-id": "Hero.CarryOn"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-position-to-another-object",
+													"objectClass": "Item",
+													"sid": 375127509606142,
+													"parameters": {
+														"object": "Hero",
+														"image-point-optional": "1"
+													}
+												}
+											],
+											"sid": 966333613759652
+										}
+									]
+								}
+							],
+							"sid": 328759761492248
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-function",
+									"objectClass": "Function",
+									"sid": 108128809626455,
+									"parameters": {
+										"name": "\"to feed\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 871434269701683,
+							"children": [
+								{
+									"eventType": "variable",
+									"name": "FinalHeal",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 299748583181804
+								},
+								{
+									"eventType": "variable",
+									"name": "FinalRelation",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 209917499345863
+								},
+								{
+									"eventType": "variable",
+									"name": "FinalDealDamage",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 720511699142519
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "Targets",
+											"sid": 142122744873497,
+											"parameters": {
+												"unique-id": "Function.Param(0)"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 841480681199550,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-by-unique-id",
+													"objectClass": "Item",
+													"sid": 553215716484939,
+													"parameters": {
+														"unique-id": "Function.Param(1)"
+													}
+												},
+												{
+													"id": "compare-at-x",
+													"objectClass": "A_QueryActions",
+													"sid": 363700501829611,
+													"parameters": {
+														"x": "3",
+														"comparison": 0,
+														"value": "\"nothing\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 748349577180238,
+													"parameters": {
+														"variable": "FinalHeal",
+														"value": "Item.Heal"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 427519117164627,
+													"parameters": {
+														"variable": "FinalDealDamage",
+														"value": "Item.Damage"
+													}
+												}
+											],
+											"sid": 855496560188828,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-boolean-instance-variable-set",
+															"objectClass": "Item",
+															"sid": 847349464301441,
+															"parameters": {
+																"instance-variable": "edible"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 465001443128924,
+															"parameters": {
+																"variable": "FinalRelation",
+																"value": "1"
+															}
+														}
+													],
+													"sid": 328152341201702
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-boolean-instance-variable-set",
+															"objectClass": "Item",
+															"sid": 543538046557116,
+															"parameters": {
+																"instance-variable": "edible"
+															},
+															"isInverted": true
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 351459429484394,
+															"parameters": {
+																"variable": "FinalRelation",
+																"value": "-2"
+															}
+														}
+													],
+													"sid": 920256930365601
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-at-x",
+															"objectClass": "A_QueryActions",
+															"sid": 734590559987911,
+															"parameters": {
+																"x": "4",
+																"comparison": 0,
+																"value": "\"brutally\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 236314707562504,
+															"parameters": {
+																"variable": "FinalHeal",
+																"value": "FinalHeal*0.5"
+															}
+														},
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 344158843470198,
+															"parameters": {
+																"variable": "FinalRelation",
+																"value": "FinalRelation*0.5"
+															}
+														},
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 723175267556566,
+															"parameters": {
+																"variable": "FinalDealDamage",
+																"value": "FinalDealDamage*2"
+															}
+														}
+													],
+													"sid": 149726759326605
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-at-x",
+															"objectClass": "A_QueryActions",
+															"sid": 365154476043468,
+															"parameters": {
+																"x": "4",
+																"comparison": 0,
+																"value": "\"wisely\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 501769767948939,
+															"parameters": {
+																"variable": "FinalHeal",
+																"value": "FinalHeal*2"
+															}
+														}
+													],
+													"sid": 439558354485197
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-at-x",
+															"objectClass": "A_QueryActions",
+															"sid": 311090621125997,
+															"parameters": {
+																"x": "4",
+																"comparison": 0,
+																"value": "\"magically\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 672472245675919,
+															"parameters": {
+																"variable": "FinalHeal",
+																"value": "FinalHeal*random(3)"
+															}
+														},
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 134116327104447,
+															"parameters": {
+																"variable": "FinalRelation",
+																"value": "FinalRelation*random(3)"
+															}
+														},
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 732085832302445,
+															"parameters": {
+																"variable": "FinalDealDamage",
+																"value": "FinalDealDamage*random(3)"
+															}
+														},
+														{
+															"id": "create-object",
+															"objectClass": "System",
+															"sid": 357725162889605,
+															"parameters": {
+																"object-to-create": "Magic",
+																"layer": "2",
+																"x": "NPC.X",
+																"y": "NPC.Y-16",
+																"create-hierarchy": false,
+																"template-name": "\"\""
+															}
+														},
+														{
+															"id": "wait",
+															"objectClass": "System",
+															"sid": 124086417885727,
+															"parameters": {
+																"seconds": "0.5",
+																"use-timescale": true
+															}
+														},
+														{
+															"id": "destroy",
+															"objectClass": "Magic",
+															"sid": 783358847865206
+														}
+													],
+													"sid": 405102965103420
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-at-x",
+															"objectClass": "A_QueryActions",
+															"sid": 957305187334282,
+															"parameters": {
+																"x": "4",
+																"comparison": 0,
+																"value": "\"carefully\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 693517235978166,
+															"parameters": {
+																"variable": "FinalDealDamage",
+																"value": "FinalDealDamage*0.5"
+															}
+														},
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 934909917001775,
+															"parameters": {
+																"variable": "FinalRelation",
+																"value": "FinalRelation*0.5"
+															}
+														},
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 853077673515716,
+															"parameters": {
+																"variable": "FinalHeal",
+																"value": "FinalHeal*0.5"
+															}
+														}
+													],
+													"sid": 585947761588992
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-at-x",
+															"objectClass": "A_QueryActions",
+															"sid": 558159959512067,
+															"parameters": {
+																"x": "4",
+																"comparison": 0,
+																"value": "\"with charm\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 903839834967263,
+															"parameters": {
+																"variable": "FinalRelation",
+																"value": "FinalRelation+2"
+															}
+														}
+													],
+													"sid": 811208258002992
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "trigger-once-while-true",
+															"objectClass": "System",
+															"sid": 867062021143565
+														}
+													],
+													"actions": [
+														{
+															"id": "create-object",
+															"objectClass": "System",
+															"sid": 465130546321956,
+															"parameters": {
+																"object-to-create": "SF_InteractSummury",
+																"layer": "2",
+																"x": "Hero.X",
+																"y": "Hero.y-8",
+																"create-hierarchy": false,
+																"template-name": "\"\""
+															}
+														},
+														{
+															"id": "set-text",
+															"objectClass": "SF_InteractSummury",
+															"sid": 490536968703708,
+															"parameters": {
+																"text": "NPC.Name&\" heal \"&floor(FinalHeal)"
+															}
+														},
+														{
+															"id": "create-object",
+															"objectClass": "System",
+															"sid": 278515493067446,
+															"parameters": {
+																"object-to-create": "SF_InteractSummury",
+																"layer": "2",
+																"x": "Hero.X",
+																"y": "Hero.y-16",
+																"create-hierarchy": false,
+																"template-name": "\"\""
+															}
+														},
+														{
+															"id": "set-text",
+															"objectClass": "SF_InteractSummury",
+															"sid": 153881708833943,
+															"parameters": {
+																"text": "NPC.Name&\" relation \"&floor(FinalRelation)"
+															}
+														},
+														{
+															"id": "create-object",
+															"objectClass": "System",
+															"sid": 796714696096712,
+															"parameters": {
+																"object-to-create": "SF_InteractSummury",
+																"layer": "2",
+																"x": "Hero.X",
+																"y": "Hero.y-24",
+																"create-hierarchy": false,
+																"template-name": "\"\""
+															}
+														},
+														{
+															"id": "set-text",
+															"objectClass": "SF_InteractSummury",
+															"sid": 521846510049140,
+															"parameters": {
+																"text": "NPC.Name&\" take \"&floor(FinalDealDamage)&\" damage \""
+															}
+														},
+														{
+															"id": "add-to-instvar",
+															"objectClass": "NPC",
+															"sid": 225316664439294,
+															"parameters": {
+																"instance-variable": "CurrentHP",
+																"value": "FinalHeal"
+															}
+														},
+														{
+															"id": "add-to-instvar",
+															"objectClass": "NPC",
+															"sid": 397295360840643,
+															"parameters": {
+																"instance-variable": "relation",
+																"value": "FinalRelation"
+															}
+														},
+														{
+															"id": "subtract-from-instvar",
+															"objectClass": "NPC",
+															"sid": 755314343199106,
+															"parameters": {
+																"instance-variable": "CurrentHP",
+																"value": "FinalDealDamage"
+															}
+														},
+														{
+															"id": "set-boolean-instvar",
+															"objectClass": "NPC",
+															"sid": 836551638885329,
+															"parameters": {
+																"instance-variable": "inPuzzle",
+																"value": "false"
+															}
+														},
+														{
+															"id": "call-function",
+															"objectClass": "Function",
+															"sid": 368820927537767,
+															"parameters": {
+																"name": "\"CheckHeroDeath\"",
+																"parameter-n": []
+															}
+														},
+														{
+															"id": "call-function",
+															"objectClass": "Function",
+															"sid": 391761156042509,
+															"parameters": {
+																"name": "\"CheckWhomDeath\"",
+																"parameter-n": [
+																	"A_QueryActions.At(2)"
+																]
+															}
+														}
+													],
+													"sid": 232273126951439
+												}
+											],
+											"isOrBlock": true
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-function",
+									"objectClass": "Function",
+									"sid": 715329743130500,
+									"parameters": {
+										"name": "\"fight with\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 167271767102251,
+							"children": [
+								{
+									"eventType": "variable",
+									"name": "FinalDealDamage",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 647418645262887
+								},
+								{
+									"eventType": "variable",
+									"name": "FinalTakeDamage",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 203834114296058
+								},
+								{
+									"eventType": "variable",
+									"name": "FinalRelation",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 107117733876334
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "Targets",
+											"sid": 752231261070747,
+											"parameters": {
+												"unique-id": "Function.Param(0)"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 620691814160158,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-by-unique-id",
+													"objectClass": "Item",
+													"sid": 536740987283839,
+													"parameters": {
+														"unique-id": "Function.Param(1)"
+													}
+												},
+												{
+													"id": "compare-at-x",
+													"objectClass": "A_QueryActions",
+													"sid": 380913125946394,
+													"parameters": {
+														"x": "3",
+														"comparison": 0,
+														"value": "\"nothing\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 672976076605407,
+													"parameters": {
+														"variable": "FinalDealDamage",
+														"value": "Item.Damage+Hero.Damage"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 840917186222603,
+													"parameters": {
+														"variable": "FinalRelation",
+														"value": "-3"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 710482705797505,
+													"parameters": {
+														"variable": "FinalTakeDamage",
+														"value": "NPC.Damage"
+													}
+												}
+											],
+											"sid": 113703394091926,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-at-x",
+															"objectClass": "A_QueryActions",
+															"sid": 550030022710994,
+															"parameters": {
+																"x": "4",
+																"comparison": 0,
+																"value": "\"brutally\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 501902402195152,
+															"parameters": {
+																"variable": "FinalDealDamage",
+																"value": "FinalDealDamage*2"
+															}
+														},
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 228652980286785,
+															"parameters": {
+																"variable": "FinalRelation",
+																"value": "FinalRelation*0.5"
+															}
+														},
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 711954182078708,
+															"parameters": {
+																"variable": "FinalTakeDamage",
+																"value": "FinalTakeDamage*2"
+															}
+														}
+													],
+													"sid": 145991258619002
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-at-x",
+															"objectClass": "A_QueryActions",
+															"sid": 873221931379564,
+															"parameters": {
+																"x": "4",
+																"comparison": 0,
+																"value": "\"wisely\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 347693915149647,
+															"parameters": {
+																"variable": "FinalDealDamage",
+																"value": "FinalDealDamage*2"
+															}
+														}
+													],
+													"sid": 983695564471243
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-at-x",
+															"objectClass": "A_QueryActions",
+															"sid": 457738056348023,
+															"parameters": {
+																"x": "4",
+																"comparison": 0,
+																"value": "\"magically\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 219158153648690,
+															"parameters": {
+																"variable": "FinalDealDamage",
+																"value": "FinalDealDamage*random(3)"
+															}
+														},
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 554512957874932,
+															"parameters": {
+																"variable": "FinalRelation",
+																"value": "FinalRelation*random(3)"
+															}
+														},
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 370693453681539,
+															"parameters": {
+																"variable": "FinalTakeDamage",
+																"value": "FinalTakeDamage*random(3)"
+															}
+														},
+														{
+															"id": "create-object",
+															"objectClass": "System",
+															"sid": 960096013962511,
+															"parameters": {
+																"object-to-create": "Magic",
+																"layer": "2",
+																"x": "NPC.X",
+																"y": "NPC.Y-16",
+																"create-hierarchy": false,
+																"template-name": "\"\""
+															}
+														},
+														{
+															"id": "wait",
+															"objectClass": "System",
+															"sid": 386867098624478,
+															"parameters": {
+																"seconds": "0.5",
+																"use-timescale": true
+															}
+														},
+														{
+															"id": "destroy",
+															"objectClass": "Magic",
+															"sid": 786098790190092
+														}
+													],
+													"sid": 577763801609014
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-at-x",
+															"objectClass": "A_QueryActions",
+															"sid": 369458540471276,
+															"parameters": {
+																"x": "4",
+																"comparison": 0,
+																"value": "\"with charm\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 682041142978186,
+															"parameters": {
+																"variable": "FinalRelation",
+																"value": "FinalRelation+2"
+															}
+														},
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 136350731586849,
+															"parameters": {
+																"variable": "FinalTakeDamage",
+																"value": "FinalTakeDamage*0.5"
+															}
+														}
+													],
+													"sid": 410350480843484
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-at-x",
+															"objectClass": "A_QueryActions",
+															"sid": 977678073269826,
+															"parameters": {
+																"x": "4",
+																"comparison": 0,
+																"value": "\"carefully\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 318640992838931,
+															"parameters": {
+																"variable": "FinalDealDamage",
+																"value": "FinalDealDamage*0.5"
+															}
+														},
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 954077488679780,
+															"parameters": {
+																"variable": "FinalRelation",
+																"value": "FinalRelation*0.5"
+															}
+														},
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 831936622587701,
+															"parameters": {
+																"variable": "FinalTakeDamage",
+																"value": "FinalTakeDamage*0.5"
+															}
+														}
+													],
+													"sid": 470074975027036
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-at-x",
+															"objectClass": "A_QueryActions",
+															"sid": 129469692290651,
+															"parameters": {
+																"x": "4",
+																"comparison": 0,
+																"value": "\"stealthily\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 489376759056860,
+															"parameters": {
+																"variable": "FinalDealDamage",
+																"value": "FinalDealDamage*random(1,3)"
+															}
+														},
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 377206728945786,
+															"parameters": {
+																"variable": "FinalTakeDamage",
+																"value": "FinalTakeDamage*0"
+															}
+														}
+													],
+													"sid": 712402291065545
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "trigger-once-while-true",
+															"objectClass": "System",
+															"sid": 919218245524730
+														}
+													],
+													"actions": [
+														{
+															"id": "create-object",
+															"objectClass": "System",
+															"sid": 262937516085270,
+															"parameters": {
+																"object-to-create": "SF_InteractSummury",
+																"layer": "2",
+																"x": "Hero.X",
+																"y": "Hero.y-8",
+																"create-hierarchy": false,
+																"template-name": "\"\""
+															}
+														},
+														{
+															"id": "set-text",
+															"objectClass": "SF_InteractSummury",
+															"sid": 201976617479591,
+															"parameters": {
+																"text": "NPC.Name&\" take \"&floor(FinalDealDamage)&\" damage \""
+															}
+														},
+														{
+															"id": "create-object",
+															"objectClass": "System",
+															"sid": 251390362517977,
+															"parameters": {
+																"object-to-create": "SF_InteractSummury",
+																"layer": "2",
+																"x": "Hero.X",
+																"y": "Hero.y-16",
+																"create-hierarchy": false,
+																"template-name": "\"\""
+															}
+														},
+														{
+															"id": "set-text",
+															"objectClass": "SF_InteractSummury",
+															"sid": 227994728795720,
+															"parameters": {
+																"text": "NPC.Name&\" relation \"&floor(FinalRelation)"
+															}
+														},
+														{
+															"id": "create-object",
+															"objectClass": "System",
+															"sid": 684947257417999,
+															"parameters": {
+																"object-to-create": "SF_InteractSummury",
+																"layer": "2",
+																"x": "Hero.X",
+																"y": "Hero.y-24",
+																"create-hierarchy": false,
+																"template-name": "\"\""
+															}
+														},
+														{
+															"id": "set-text",
+															"objectClass": "SF_InteractSummury",
+															"sid": 262656584443593,
+															"parameters": {
+																"text": "\"hero take \"&floor(Finaltakedamage)&\" damage\""
+															}
+														},
+														{
+															"id": "subtract-from-instvar",
+															"objectClass": "NPC",
+															"sid": 396287625360793,
+															"parameters": {
+																"instance-variable": "CurrentHP",
+																"value": "FinalDealDamage"
+															}
+														},
+														{
+															"id": "subtract-from-instvar",
+															"objectClass": "Hero",
+															"sid": 518793970045820,
+															"parameters": {
+																"instance-variable": "CurrentHP",
+																"value": "FinalTakeDamage"
+															}
+														},
+														{
+															"id": "add-to-instvar",
+															"objectClass": "NPC",
+															"sid": 458919860869108,
+															"parameters": {
+																"instance-variable": "relation",
+																"value": "FinalRelation"
+															}
+														},
+														{
+															"id": "set-boolean-instvar",
+															"objectClass": "NPC",
+															"sid": 761917791008188,
+															"parameters": {
+																"instance-variable": "inPuzzle",
+																"value": "false"
+															}
+														},
+														{
+															"id": "call-function",
+															"objectClass": "Function",
+															"sid": 826331874702972,
+															"parameters": {
+																"name": "\"CheckHeroDeath\"",
+																"parameter-n": []
+															}
+														},
+														{
+															"id": "call-function",
+															"objectClass": "Function",
+															"sid": 236590604790938,
+															"parameters": {
+																"name": "\"CheckWhomDeath\"",
+																"parameter-n": [
+																	"A_QueryActions.At(2)"
+																]
+															}
+														}
+													],
+													"sid": 507451961017509
+												}
+											],
+											"isOrBlock": true
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-function",
+									"objectClass": "Function",
+									"sid": 416658698683639,
+									"parameters": {
+										"name": "\"cast spell on\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 772344667398628,
+							"children": [
+								{
+									"eventType": "variable",
+									"name": "FinalHeal",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 267607935100881
+								},
+								{
+									"eventType": "variable",
+									"name": "FinalDealDamage",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 349731097678463
+								},
+								{
+									"eventType": "variable",
+									"name": "FinalTakeDamage",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 780107293218611
+								},
+								{
+									"eventType": "variable",
+									"name": "FinalRelation",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 294863626848244
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "Targets",
+											"sid": 220245628414454,
+											"parameters": {
+												"unique-id": "Function.Param(0)"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 241497668208331,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-by-unique-id",
+													"objectClass": "Item",
+													"sid": 210406065313440,
+													"parameters": {
+														"unique-id": "Function.Param(1)"
+													}
+												},
+												{
+													"id": "compare-at-x",
+													"objectClass": "A_QueryActions",
+													"sid": 112800330800074,
+													"parameters": {
+														"x": "3",
+														"comparison": 0,
+														"value": "\"nothing\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 337492303882258,
+													"parameters": {
+														"variable": "FinalHeal",
+														"value": "Item.Heal*random(3)"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 621973092870214,
+													"parameters": {
+														"variable": "FinalRelation",
+														"value": "random(3)"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 645076034829625,
+													"parameters": {
+														"variable": "FinalDealDamage",
+														"value": "Item.Damage*random(3)"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 636714447466599,
+													"parameters": {
+														"variable": "FinalTakeDamage",
+														"value": "NPC.Damage*random(3)"
+													}
+												}
+											],
+											"sid": 888127312983463,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-at-x",
+															"objectClass": "A_QueryActions",
+															"sid": 759379557576273,
+															"parameters": {
+																"x": "4",
+																"comparison": 0,
+																"value": "\"brutally\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 211176173713569,
+															"parameters": {
+																"variable": "FinalHeal",
+																"value": "FinalHeal*2"
+															}
+														},
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 614300931931612,
+															"parameters": {
+																"variable": "FinalRelation",
+																"value": "FinalRelation*2"
+															}
+														},
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 813327822341595,
+															"parameters": {
+																"variable": "FinalDealDamage",
+																"value": "FinalDealDamage*2"
+															}
+														},
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 400906817087358,
+															"parameters": {
+																"variable": "FinalTakeDamage",
+																"value": "FinalTakeDamage*2"
+															}
+														}
+													],
+													"sid": 912986316944773
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-at-x",
+															"objectClass": "A_QueryActions",
+															"sid": 127327892396904,
+															"parameters": {
+																"x": "4",
+																"comparison": 0,
+																"value": "\"wisely\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 526024047308532,
+															"parameters": {
+																"variable": "FinalHeal",
+																"value": "FinalHeal*2"
+															}
+														},
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 363163406389517,
+															"parameters": {
+																"variable": "FinalRelation",
+																"value": "FinalRelation+1"
+															}
+														}
+													],
+													"sid": 652546845596970
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-at-x",
+															"objectClass": "A_QueryActions",
+															"sid": 467467926696679,
+															"parameters": {
+																"x": "4",
+																"comparison": 0,
+																"value": "\"magically\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 155014134504331,
+															"parameters": {
+																"variable": "FinalHeal",
+																"value": "FinalHeal*random(3)"
+															}
+														},
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 674869449313424,
+															"parameters": {
+																"variable": "FinalRelation",
+																"value": "FinalRelation*random(3)"
+															}
+														},
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 253495090446484,
+															"parameters": {
+																"variable": "FinalDealDamage",
+																"value": "FinalDealDamage*random(3)"
+															}
+														},
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 214263689567167,
+															"parameters": {
+																"variable": "FinalTakeDamage",
+																"value": "FinalTakeDamage*random(3)"
+															}
+														}
+													],
+													"sid": 619399172088456
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-at-x",
+															"objectClass": "A_QueryActions",
+															"sid": 777380418021854,
+															"parameters": {
+																"x": "4",
+																"comparison": 0,
+																"value": "\"with charm\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 343853901216296,
+															"parameters": {
+																"variable": "FinalRelation",
+																"value": "FinalRelation*2"
+															}
+														}
+													],
+													"sid": 860015481384781
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-at-x",
+															"objectClass": "A_QueryActions",
+															"sid": 276762159114714,
+															"parameters": {
+																"x": "4",
+																"comparison": 0,
+																"value": "\"stealthily\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 508922853592978,
+															"parameters": {
+																"variable": "FinalDealDamage",
+																"value": "FinalDealDamage*random(1,3)"
+															}
+														},
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 561327297678383,
+															"parameters": {
+																"variable": "FinalTakeDamage",
+																"value": "FinalTakeDamage*0"
+															}
+														}
+													],
+													"sid": 341182362085487
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-at-x",
+															"objectClass": "A_QueryActions",
+															"sid": 885819503139455,
+															"parameters": {
+																"x": "4",
+																"comparison": 0,
+																"value": "\"carefully\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 443035037214857,
+															"parameters": {
+																"variable": "FinalHeal",
+																"value": "FinalHeal*0.5"
+															}
+														},
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 248646411265559,
+															"parameters": {
+																"variable": "FinalRelation",
+																"value": "FinalRelation*0.5"
+															}
+														},
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 437677588302956,
+															"parameters": {
+																"variable": "FinalDealDamage",
+																"value": "FinalDealDamage*0.5"
+															}
+														},
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 474418898108801,
+															"parameters": {
+																"variable": "FinalTakeDamage",
+																"value": "FinalTakeDamage*0.5"
+															}
+														}
+													],
+													"sid": 235547565379294
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "trigger-once-while-true",
+															"objectClass": "System",
+															"sid": 272823239866874
+														}
+													],
+													"actions": [
+														{
+															"id": "create-object",
+															"objectClass": "System",
+															"sid": 358800294368020,
+															"parameters": {
+																"object-to-create": "Magic",
+																"layer": "2",
+																"x": "NPC.X",
+																"y": "NPC.Y-16",
+																"create-hierarchy": false,
+																"template-name": "\"\""
+															}
+														},
+														{
+															"id": "create-object",
+															"objectClass": "System",
+															"sid": 468415579943154,
+															"parameters": {
+																"object-to-create": "SF_InteractSummury",
+																"layer": "2",
+																"x": "Hero.X",
+																"y": "Hero.y-8",
+																"create-hierarchy": false,
+																"template-name": "\"\""
+															}
+														},
+														{
+															"id": "set-text",
+															"objectClass": "SF_InteractSummury",
+															"sid": 340036711611855,
+															"parameters": {
+																"text": "NPC.Name&\" heal \"&floor(FinalHeal)"
+															}
+														},
+														{
+															"id": "destroy",
+															"objectClass": "Magic",
+															"sid": 713145621166962
+														},
+														{
+															"id": "create-object",
+															"objectClass": "System",
+															"sid": 627800590055121,
+															"parameters": {
+																"object-to-create": "SF_InteractSummury",
+																"layer": "2",
+																"x": "Hero.X",
+																"y": "Hero.y-16",
+																"create-hierarchy": false,
+																"template-name": "\"\""
+															}
+														},
+														{
+															"id": "set-text",
+															"objectClass": "SF_InteractSummury",
+															"sid": 345235711151401,
+															"parameters": {
+																"text": "NPC.Name&\" take \"&floor(FinalDealDamage)&\" damage \""
+															}
+														},
+														{
+															"id": "create-object",
+															"objectClass": "System",
+															"sid": 958290357790196,
+															"parameters": {
+																"object-to-create": "SF_InteractSummury",
+																"layer": "2",
+																"x": "Hero.X",
+																"y": "Hero.y-24",
+																"create-hierarchy": false,
+																"template-name": "\"\""
+															}
+														},
+														{
+															"id": "set-text",
+															"objectClass": "SF_InteractSummury",
+															"sid": 772666231519874,
+															"parameters": {
+																"text": "NPC.Name&\" relation \"&floor(FinalRelation)"
+															}
+														},
+														{
+															"id": "create-object",
+															"objectClass": "System",
+															"sid": 189287962569898,
+															"parameters": {
+																"object-to-create": "SF_InteractSummury",
+																"layer": "2",
+																"x": "Hero.X",
+																"y": "Hero.y-32",
+																"create-hierarchy": false,
+																"template-name": "\"\""
+															}
+														},
+														{
+															"id": "set-text",
+															"objectClass": "SF_InteractSummury",
+															"sid": 891457820867150,
+															"parameters": {
+																"text": "\"hero take \"&floor(Finaltakedamage)&\" damage\""
+															}
+														},
+														{
+															"id": "add-to-instvar",
+															"objectClass": "NPC",
+															"sid": 294947407040352,
+															"parameters": {
+																"instance-variable": "CurrentHP",
+																"value": "FinalHeal"
+															}
+														},
+														{
+															"id": "subtract-from-instvar",
+															"objectClass": "NPC",
+															"sid": 491705070530079,
+															"parameters": {
+																"instance-variable": "CurrentHP",
+																"value": "FinalDealDamage"
+															}
+														},
+														{
+															"id": "add-to-instvar",
+															"objectClass": "NPC",
+															"sid": 446524226436038,
+															"parameters": {
+																"instance-variable": "relation",
+																"value": "FinalRelation"
+															}
+														},
+														{
+															"id": "subtract-from-instvar",
+															"objectClass": "Hero",
+															"sid": 661048987799095,
+															"parameters": {
+																"instance-variable": "CurrentHP",
+																"value": "FinalTakeDamage"
+															}
+														},
+														{
+															"id": "set-boolean-instvar",
+															"objectClass": "NPC",
+															"sid": 309015961213917,
+															"parameters": {
+																"instance-variable": "inPuzzle",
+																"value": "false"
+															}
+														},
+														{
+															"id": "call-function",
+															"objectClass": "Function",
+															"sid": 953250240592680,
+															"parameters": {
+																"name": "\"CheckHeroDeath\"",
+																"parameter-n": []
+															}
+														},
+														{
+															"id": "call-function",
+															"objectClass": "Function",
+															"sid": 650179920400850,
+															"parameters": {
+																"name": "\"CheckWhomDeath\"",
+																"parameter-n": [
+																	"A_QueryActions.At(2)"
+																]
+															}
+														}
+													],
+													"sid": 449166124832319
+												}
+											],
+											"isOrBlock": true
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-function",
+									"objectClass": "Function",
+									"sid": 683332008149516,
+									"parameters": {
+										"name": "\"trade with\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 839251263479423,
+							"children": [
+								{
+									"eventType": "variable",
+									"name": "FinalPrice",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 870923460908468
+								},
+								{
+									"eventType": "variable",
+									"name": "FinalRelation",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 899424274354901
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "Targets",
+											"sid": 707166951399498,
+											"parameters": {
+												"unique-id": "Function.Param(0)"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 982769951507679,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-by-unique-id",
+													"objectClass": "Item",
+													"sid": 672975496616275,
+													"parameters": {
+														"unique-id": "Function.Param(1)"
+													}
+												},
+												{
+													"id": "compare-at-x",
+													"objectClass": "A_QueryActions",
+													"sid": 623280464723514,
+													"parameters": {
+														"x": "3",
+														"comparison": 0,
+														"value": "\"nothing\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 369224532473777,
+													"parameters": {
+														"variable": "FinalPrice",
+														"value": "Item.Price"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 632041138242025,
+													"parameters": {
+														"variable": "FinalPrice",
+														"value": "clamp(FinalPrice*((NPC.relation/10)+1),1,9999)"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 604545260193032,
+													"parameters": {
+														"variable": "FinalRelation",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 314252307417581,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-at-x",
+															"objectClass": "A_QueryActions",
+															"sid": 866716916891192,
+															"parameters": {
+																"x": "4",
+																"comparison": 0,
+																"value": "\"brutally\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 355488294441371,
+															"parameters": {
+																"variable": "FinalPrice",
+																"value": "FinalPrice*2"
+															}
+														},
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 747075535469390,
+															"parameters": {
+																"variable": "FinalRelation",
+																"value": "-1"
+															}
+														}
+													],
+													"sid": 342658161869044
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-at-x",
+															"objectClass": "A_QueryActions",
+															"sid": 160558378612235,
+															"parameters": {
+																"x": "4",
+																"comparison": 0,
+																"value": "\"wisely\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 182074280396096,
+															"parameters": {
+																"variable": "FinalPrice",
+																"value": "FinalPrice*1.5"
+															}
+														},
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 658648237386468,
+															"parameters": {
+																"variable": "FinalRelation",
+																"value": "1"
+															}
+														}
+													],
+													"sid": 678794327714692
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-at-x",
+															"objectClass": "A_QueryActions",
+															"sid": 569586099478298,
+															"parameters": {
+																"x": "4",
+																"comparison": 0,
+																"value": "\"magically\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 900298423446665,
+															"parameters": {
+																"variable": "FinalPrice",
+																"value": "FinalPrice*random(3)"
+															}
+														},
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 570302949635906,
+															"parameters": {
+																"variable": "FinalRelation",
+																"value": "FinalRelation*random(3)"
+															}
+														},
+														{
+															"id": "create-object",
+															"objectClass": "System",
+															"sid": 680314015222418,
+															"parameters": {
+																"object-to-create": "Magic",
+																"layer": "2",
+																"x": "NPC.X",
+																"y": "NPC.Y-16",
+																"create-hierarchy": false,
+																"template-name": "\"\""
+															}
+														},
+														{
+															"id": "wait",
+															"objectClass": "System",
+															"sid": 678862585001217,
+															"parameters": {
+																"seconds": "0.5",
+																"use-timescale": true
+															}
+														},
+														{
+															"id": "destroy",
+															"objectClass": "Magic",
+															"sid": 614769505138048
+														}
+													],
+													"sid": 432227241450458
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-at-x",
+															"objectClass": "A_QueryActions",
+															"sid": 206381379727656,
+															"parameters": {
+																"x": "4",
+																"comparison": 0,
+																"value": "\"with charm\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 501489467104050,
+															"parameters": {
+																"variable": "FinalRelation",
+																"value": "1"
+															}
+														}
+													],
+													"sid": 703860074663057
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-at-x",
+															"objectClass": "A_QueryActions",
+															"sid": 453219756623912,
+															"parameters": {
+																"x": "4",
+																"comparison": 0,
+																"value": "\"carefully\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 215149764719757,
+															"parameters": {
+																"variable": "FinalRelation",
+																"value": "FinalRelation*0.5"
+															}
+														},
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 920848596235255,
+															"parameters": {
+																"variable": "FinalPrice",
+																"value": "FinalPrice*0.5"
+															}
+														}
+													],
+													"sid": 908566115503213
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-at-x",
+															"objectClass": "A_QueryActions",
+															"sid": 254473923309352,
+															"parameters": {
+																"x": "4",
+																"comparison": 0,
+																"value": "\"loudly\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 650247047416572,
+															"parameters": {
+																"variable": "FinalPrice",
+																"value": "FinalPrice*2"
+															}
+														}
+													],
+													"sid": 412180606220150
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "trigger-once-while-true",
+															"objectClass": "System",
+															"sid": 733549822272134
+														}
+													],
+													"actions": [
+														{
+															"id": "create-object",
+															"objectClass": "System",
+															"sid": 852686475409441,
+															"parameters": {
+																"object-to-create": "SF_InteractSummury",
+																"layer": "2",
+																"x": "Hero.X",
+																"y": "Hero.y-8",
+																"create-hierarchy": false,
+																"template-name": "\"\""
+															}
+														},
+														{
+															"id": "set-text",
+															"objectClass": "SF_InteractSummury",
+															"sid": 980537682353240,
+															"parameters": {
+																"text": "NPC.Name&\" relation \"&floor(FinalRelation)"
+															}
+														},
+														{
+															"id": "create-object",
+															"objectClass": "System",
+															"sid": 895655699092488,
+															"parameters": {
+																"object-to-create": "SF_InteractSummury",
+																"layer": "2",
+																"x": "Hero.X",
+																"y": "Hero.y-16",
+																"create-hierarchy": false,
+																"template-name": "\"\""
+															}
+														},
+														{
+															"id": "set-text",
+															"objectClass": "SF_InteractSummury",
+															"sid": 139709706051483,
+															"parameters": {
+																"text": "\"hero trade \"&floor(clamp(FinalPrice,0,NPC.Money))"
+															}
+														},
+														{
+															"id": "add-to-instvar",
+															"objectClass": "Hero",
+															"sid": 297211965811653,
+															"parameters": {
+																"instance-variable": "Money",
+																"value": "clamp(FinalPrice,0,NPC.Money)"
+															}
+														},
+														{
+															"id": "subtract-from-instvar",
+															"objectClass": "NPC",
+															"sid": 254765729217908,
+															"parameters": {
+																"instance-variable": "Money",
+																"value": "clamp(FinalPrice,0,NPC.Money)"
+															}
+														},
+														{
+															"id": "add-to-instvar",
+															"objectClass": "NPC",
+															"sid": 271466657078939,
+															"parameters": {
+																"instance-variable": "relation",
+																"value": "FinalRelation"
+															}
+														},
+														{
+															"id": "set-boolean-instvar",
+															"objectClass": "NPC",
+															"sid": 835043056771600,
+															"parameters": {
+																"instance-variable": "inPuzzle",
+																"value": "false"
+															}
+														},
+														{
+															"id": "call-function",
+															"objectClass": "Function",
+															"sid": 580491488782120,
+															"parameters": {
+																"name": "\"CheckHeroDeath\"",
+																"parameter-n": []
+															}
+														},
+														{
+															"id": "call-function",
+															"objectClass": "Function",
+															"sid": 252950324681543,
+															"parameters": {
+																"name": "\"CheckWhomDeath\"",
+																"parameter-n": [
+																	"A_QueryActions.At(2)"
+																]
+															}
+														}
+													],
+													"sid": 409406090256981
+												}
+											],
+											"isOrBlock": true
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-function",
+									"objectClass": "Function",
+									"sid": 835036198780711,
+									"parameters": {
+										"name": "\"argue with\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 766161364514154,
+							"children": [
+								{
+									"eventType": "variable",
+									"name": "FinalRelation",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 313981315287427
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "Targets",
+											"sid": 621349655917177,
+											"parameters": {
+												"unique-id": "Function.Param(0)"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 861857779469061,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-by-unique-id",
+													"objectClass": "Item",
+													"sid": 220508441291734,
+													"parameters": {
+														"unique-id": "Function.Param(1)"
+													}
+												},
+												{
+													"id": "compare-at-x",
+													"objectClass": "A_QueryActions",
+													"sid": 272071619215641,
+													"parameters": {
+														"x": "3",
+														"comparison": 0,
+														"value": "\"nothing\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 132442825128874,
+													"parameters": {
+														"variable": "FinalRelation",
+														"value": "-1"
+													}
+												}
+											],
+											"sid": 622681876522470,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-at-x",
+															"objectClass": "A_QueryActions",
+															"sid": 195905607499015,
+															"parameters": {
+																"x": "4",
+																"comparison": 0,
+																"value": "\"brutally\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 778279958682376,
+															"parameters": {
+																"variable": "FinalRelation",
+																"value": "FinalRelation*2"
+															}
+														}
+													],
+													"sid": 474175513655420
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-at-x",
+															"objectClass": "A_QueryActions",
+															"sid": 625231288888155,
+															"parameters": {
+																"x": "4",
+																"comparison": 0,
+																"value": "\"wisely\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 943518862654517,
+															"parameters": {
+																"variable": "FinalRelation",
+																"value": "FinalRelation+1"
+															}
+														}
+													],
+													"sid": 785066640103882
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-at-x",
+															"objectClass": "A_QueryActions",
+															"sid": 915695323658493,
+															"parameters": {
+																"x": "4",
+																"comparison": 0,
+																"value": "\"magically\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 646970359910145,
+															"parameters": {
+																"variable": "FinalRelation",
+																"value": "FinalRelation*random(3)"
+															}
+														},
+														{
+															"id": "create-object",
+															"objectClass": "System",
+															"sid": 853455149714372,
+															"parameters": {
+																"object-to-create": "Magic",
+																"layer": "2",
+																"x": "NPC.X",
+																"y": "NPC.Y-16",
+																"create-hierarchy": false,
+																"template-name": "\"\""
+															}
+														},
+														{
+															"id": "wait",
+															"objectClass": "System",
+															"sid": 727965166149712,
+															"parameters": {
+																"seconds": "0.5",
+																"use-timescale": true
+															}
+														},
+														{
+															"id": "destroy",
+															"objectClass": "Magic",
+															"sid": 703943798057947
+														}
+													],
+													"sid": 604562320892663
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-at-x",
+															"objectClass": "A_QueryActions",
+															"sid": 191375287483736,
+															"parameters": {
+																"x": "4",
+																"comparison": 0,
+																"value": "\"with charm\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 157433456443714,
+															"parameters": {
+																"variable": "FinalRelation",
+																"value": "FinalRelation+2"
+															}
+														}
+													],
+													"sid": 483715420485147
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-at-x",
+															"objectClass": "A_QueryActions",
+															"sid": 495123258344848,
+															"parameters": {
+																"x": "4",
+																"comparison": 0,
+																"value": "\"carefully\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 112110654938382,
+															"parameters": {
+																"variable": "FinalRelation",
+																"value": "FinalRelation*0.5"
+															}
+														}
+													],
+													"sid": 923964437454019
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-at-x",
+															"objectClass": "A_QueryActions",
+															"sid": 679936839762820,
+															"parameters": {
+																"x": "4",
+																"comparison": 0,
+																"value": "\"loudly\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 563492580312870,
+															"parameters": {
+																"variable": "FinalRelation",
+																"value": "FinalRelation-2"
+															}
+														}
+													],
+													"sid": 815675842337032
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "trigger-once-while-true",
+															"objectClass": "System",
+															"sid": 321345179115620
+														}
+													],
+													"actions": [
+														{
+															"id": "create-object",
+															"objectClass": "System",
+															"sid": 196926720362272,
+															"parameters": {
+																"object-to-create": "SF_InteractSummury",
+																"layer": "2",
+																"x": "Hero.X",
+																"y": "Hero.y-8",
+																"create-hierarchy": false,
+																"template-name": "\"\""
+															}
+														},
+														{
+															"id": "set-text",
+															"objectClass": "SF_InteractSummury",
+															"sid": 210535845268166,
+															"parameters": {
+																"text": "NPC.Name&\" relation \"&floor(FinalRelation)"
+															}
+														},
+														{
+															"id": "add-to-instvar",
+															"objectClass": "NPC",
+															"sid": 814174169958785,
+															"parameters": {
+																"instance-variable": "relation",
+																"value": "FinalRelation"
+															}
+														},
+														{
+															"id": "set-boolean-instvar",
+															"objectClass": "NPC",
+															"sid": 987653673144522,
+															"parameters": {
+																"instance-variable": "inPuzzle",
+																"value": "false"
+															}
+														},
+														{
+															"id": "call-function",
+															"objectClass": "Function",
+															"sid": 129889283708266,
+															"parameters": {
+																"name": "\"CheckHeroDeath\"",
+																"parameter-n": []
+															}
+														},
+														{
+															"id": "call-function",
+															"objectClass": "Function",
+															"sid": 949052805363572,
+															"parameters": {
+																"name": "\"CheckWhomDeath\"",
+																"parameter-n": [
+																	"A_QueryActions.At(2)"
+																]
+															}
+														}
+													],
+													"sid": 802697683411240
+												}
+											],
+											"isOrBlock": true
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-function",
+									"objectClass": "Function",
+									"sid": 414367403599920,
+									"parameters": {
+										"name": "\"pickpocket from\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 191860197991660,
+							"children": [
+								{
+									"eventType": "variable",
+									"name": "FinalSteal",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 394356846456798
+								},
+								{
+									"eventType": "variable",
+									"name": "FinalRelation",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 246694208340425
+								},
+								{
+									"eventType": "variable",
+									"name": "FinalChance",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 633630316317311
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "Targets",
+											"sid": 624923514653999,
+											"parameters": {
+												"unique-id": "Function.Param(0)"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 723513200587543,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-by-unique-id",
+													"objectClass": "Item",
+													"sid": 843929274534136,
+													"parameters": {
+														"unique-id": "Function.Param(1)"
+													}
+												},
+												{
+													"id": "compare-at-x",
+													"objectClass": "A_QueryActions",
+													"sid": 303745798437759,
+													"parameters": {
+														"x": "3",
+														"comparison": 0,
+														"value": "\"nothing\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 900119025208943,
+													"parameters": {
+														"variable": "FinalSteal",
+														"value": "random(NPC.Money)"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 862797114093702,
+													"parameters": {
+														"variable": "FinalRelation",
+														"value": "-2"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 161803890880831,
+													"parameters": {
+														"variable": "FinalChance",
+														"value": "0.25"
+													}
+												}
+											],
+											"sid": 294018947312918,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-at-x",
+															"objectClass": "A_QueryActions",
+															"sid": 327590469424093,
+															"parameters": {
+																"x": "4",
+																"comparison": 0,
+																"value": "\"brutally\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 118424639974105,
+															"parameters": {
+																"variable": "FinalSteal",
+																"value": "FinalSteal*2"
+															}
+														},
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 992252171236830,
+															"parameters": {
+																"variable": "FinalRelation",
+																"value": "FinalRelation*2"
+															}
+														},
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 948961800469690,
+															"parameters": {
+																"variable": "FinalChance",
+																"value": "FinalChance*0.5"
+															}
+														}
+													],
+													"sid": 931652662713517
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-at-x",
+															"objectClass": "A_QueryActions",
+															"sid": 893128807710625,
+															"parameters": {
+																"x": "4",
+																"comparison": 0,
+																"value": "\"wisely\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 482604547357526,
+															"parameters": {
+																"variable": "FinalSteal",
+																"value": "FinalSteal*2"
+															}
+														},
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 249044393583975,
+															"parameters": {
+																"variable": "FinalChance",
+																"value": "FinalChance+0.25"
+															}
+														}
+													],
+													"sid": 586616287864305
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-at-x",
+															"objectClass": "A_QueryActions",
+															"sid": 612123576284241,
+															"parameters": {
+																"x": "4",
+																"comparison": 0,
+																"value": "\"magically\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 518669445417344,
+															"parameters": {
+																"variable": "FinalSteal",
+																"value": "FinalSteal*random(3)"
+															}
+														},
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 534594043451148,
+															"parameters": {
+																"variable": "FinalRelation",
+																"value": "FinalRelation*random(3)"
+															}
+														},
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 869179189863292,
+															"parameters": {
+																"variable": "FinalChance",
+																"value": "FinalChance*random(3)"
+															}
+														},
+														{
+															"id": "create-object",
+															"objectClass": "System",
+															"sid": 105357435638804,
+															"parameters": {
+																"object-to-create": "Magic",
+																"layer": "2",
+																"x": "NPC.X",
+																"y": "NPC.Y-16",
+																"create-hierarchy": false,
+																"template-name": "\"\""
+															}
+														},
+														{
+															"id": "wait",
+															"objectClass": "System",
+															"sid": 686196463454639,
+															"parameters": {
+																"seconds": "0.5",
+																"use-timescale": true
+															}
+														},
+														{
+															"id": "destroy",
+															"objectClass": "Magic",
+															"sid": 988483539922971
+														}
+													],
+													"sid": 169203360167006
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-at-x",
+															"objectClass": "A_QueryActions",
+															"sid": 457145002821956,
+															"parameters": {
+																"x": "4",
+																"comparison": 0,
+																"value": "\"with charm\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 852994951195868,
+															"parameters": {
+																"variable": "FinalRelation",
+																"value": "FinalRelation+2"
+															}
+														}
+													],
+													"sid": 196671329108828
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-at-x",
+															"objectClass": "A_QueryActions",
+															"sid": 367526610358169,
+															"parameters": {
+																"x": "4",
+																"comparison": 0,
+																"value": "\"stealthily\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 431320160052247,
+															"parameters": {
+																"variable": "FinalSteal",
+																"value": "FinalSteal*2"
+															}
+														},
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 801231218365902,
+															"parameters": {
+																"variable": "FinalRelation",
+																"value": "FinalRelation*0"
+															}
+														},
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 144951788339673,
+															"parameters": {
+																"variable": "FinalChance",
+																"value": "FinalChance*2"
+															}
+														}
+													],
+													"sid": 957842031100035
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-at-x",
+															"objectClass": "A_QueryActions",
+															"sid": 504516151388526,
+															"parameters": {
+																"x": "4",
+																"comparison": 0,
+																"value": "\"carefully\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 916787528194206,
+															"parameters": {
+																"variable": "FinalSteal",
+																"value": "FinalSteal*0.5"
+															}
+														},
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 980346670784582,
+															"parameters": {
+																"variable": "FinalRelation",
+																"value": "FinalRelation*0.5"
+															}
+														},
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 627507246575798,
+															"parameters": {
+																"variable": "FinalChance",
+																"value": "FinalChance*2"
+															}
+														}
+													],
+													"sid": 687523005920522
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-at-x",
+															"objectClass": "A_QueryActions",
+															"sid": 704143368078041,
+															"parameters": {
+																"x": "4",
+																"comparison": 0,
+																"value": "\"loudly\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 800430273240269,
+															"parameters": {
+																"variable": "FinalChance",
+																"value": "0"
+															}
+														}
+													],
+													"sid": 353477070844884
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "trigger-once-while-true",
+															"objectClass": "System",
+															"sid": 396055161108388
+														}
+													],
+													"actions": [],
+													"sid": 104752662155174,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 535366893263980,
+																	"parameters": {
+																		"first-value": "random(1)",
+																		"comparison": 3,
+																		"second-value": "FinalChance"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "create-object",
+																	"objectClass": "System",
+																	"sid": 999000198258914,
+																	"parameters": {
+																		"object-to-create": "SF_InteractSummury",
+																		"layer": "2",
+																		"x": "Hero.X",
+																		"y": "Hero.y-8",
+																		"create-hierarchy": false,
+																		"template-name": "\"\""
+																	}
+																},
+																{
+																	"id": "set-text",
+																	"objectClass": "SF_InteractSummury",
+																	"sid": 622136679208297,
+																	"parameters": {
+																		"text": "NPC.Name&\" relation \"&floor(FinalRelation)"
+																	}
+																},
+																{
+																	"id": "create-object",
+																	"objectClass": "System",
+																	"sid": 449940251195898,
+																	"parameters": {
+																		"object-to-create": "SF_InteractSummury",
+																		"layer": "2",
+																		"x": "Hero.X",
+																		"y": "Hero.y-16",
+																		"create-hierarchy": false,
+																		"template-name": "\"\""
+																	}
+																},
+																{
+																	"id": "set-text",
+																	"objectClass": "SF_InteractSummury",
+																	"sid": 983069052548884,
+																	"parameters": {
+																		"text": "\"hero steal \"&floor(clamp(FinalSteal,0,NPC.Money))"
+																	}
+																},
+																{
+																	"id": "add-to-instvar",
+																	"objectClass": "Hero",
+																	"sid": 474483440037847,
+																	"parameters": {
+																		"instance-variable": "Money",
+																		"value": "clamp(FinalSteal,0,NPC.Money)"
+																	}
+																},
+																{
+																	"id": "subtract-from-instvar",
+																	"objectClass": "NPC",
+																	"sid": 984498582762742,
+																	"parameters": {
+																		"instance-variable": "Money",
+																		"value": "clamp(FinalSteal,0,NPC.Money)"
+																	}
+																},
+																{
+																	"id": "add-to-instvar",
+																	"objectClass": "NPC",
+																	"sid": 877647488495795,
+																	"parameters": {
+																		"instance-variable": "relation",
+																		"value": "FinalRelation"
+																	}
+																},
+																{
+																	"id": "set-boolean-instvar",
+																	"objectClass": "NPC",
+																	"sid": 475711928497006,
+																	"parameters": {
+																		"instance-variable": "inPuzzle",
+																		"value": "false"
+																	}
+																},
+																{
+																	"id": "call-function",
+																	"objectClass": "Function",
+																	"sid": 103376867993584,
+																	"parameters": {
+																		"name": "\"CheckHeroDeath\"",
+																		"parameter-n": []
+																	}
+																},
+																{
+																	"id": "call-function",
+																	"objectClass": "Function",
+																	"sid": 522280543969126,
+																	"parameters": {
+																		"name": "\"CheckWhomDeath\"",
+																		"parameter-n": [
+																			"A_QueryActions.At(2)"
+																		]
+																	}
+																}
+															],
+															"sid": 921139391680517
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "else",
+																	"objectClass": "System",
+																	"sid": 622192516242178
+																}
+															],
+															"actions": [
+																{
+																	"id": "create-object",
+																	"objectClass": "System",
+																	"sid": 571788860598327,
+																	"parameters": {
+																		"object-to-create": "SF_InteractSummury",
+																		"layer": "2",
+																		"x": "Hero.X",
+																		"y": "Hero.y-8",
+																		"create-hierarchy": false,
+																		"template-name": "\"\""
+																	}
+																},
+																{
+																	"id": "set-text",
+																	"objectClass": "SF_InteractSummury",
+																	"sid": 693887762500639,
+																	"parameters": {
+																		"text": "NPC.Name&\" relation \"&floor(FinalRelation)"
+																	}
+																},
+																{
+																	"id": "add-to-instvar",
+																	"objectClass": "NPC",
+																	"sid": 364124408816436,
+																	"parameters": {
+																		"instance-variable": "relation",
+																		"value": "FinalRelation"
+																	}
+																},
+																{
+																	"id": "set-boolean-instvar",
+																	"objectClass": "NPC",
+																	"sid": 884226781089505,
+																	"parameters": {
+																		"instance-variable": "inPuzzle",
+																		"value": "false"
+																	}
+																},
+																{
+																	"id": "call-function",
+																	"objectClass": "Function",
+																	"sid": 594367312371055,
+																	"parameters": {
+																		"name": "\"CheckHeroDeath\"",
+																		"parameter-n": []
+																	}
+																},
+																{
+																	"id": "call-function",
+																	"objectClass": "Function",
+																	"sid": 758282096654219,
+																	"parameters": {
+																		"name": "\"CheckWhomDeath\"",
+																		"parameter-n": [
+																			"A_QueryActions.At(2)"
+																		]
+																	}
+																}
+															],
+															"sid": 288801967437291
+														}
+													]
+												}
+											],
+											"isOrBlock": true
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-function",
+									"objectClass": "Function",
+									"sid": 517051771363544,
+									"parameters": {
+										"name": "\"hug\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 415155565391971,
+							"children": [
+								{
+									"eventType": "variable",
+									"name": "FinalRelation",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 172201570493347
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "Targets",
+											"sid": 244101686732546,
+											"parameters": {
+												"unique-id": "Function.Param(0)"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 801827340577687,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-by-unique-id",
+													"objectClass": "Item",
+													"sid": 609972159620626,
+													"parameters": {
+														"unique-id": "Function.Param(1)"
+													}
+												},
+												{
+													"id": "compare-at-x",
+													"objectClass": "A_QueryActions",
+													"sid": 757381609260870,
+													"parameters": {
+														"x": "3",
+														"comparison": 0,
+														"value": "\"nothing\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 846742115106459,
+													"parameters": {
+														"variable": "FinalRelation",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 168251031716021,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-at-x",
+															"objectClass": "A_QueryActions",
+															"sid": 924054932103654,
+															"parameters": {
+																"x": "4",
+																"comparison": 0,
+																"value": "\"brutally\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 338146673183347,
+															"parameters": {
+																"variable": "FinalRelation",
+																"value": "FinalRelation*2"
+															}
+														}
+													],
+													"sid": 450123022152571
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-at-x",
+															"objectClass": "A_QueryActions",
+															"sid": 663604780491283,
+															"parameters": {
+																"x": "4",
+																"comparison": 0,
+																"value": "\"magically\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 194729677716867,
+															"parameters": {
+																"variable": "FinalRelation",
+																"value": "FinalRelation*random(3)"
+															}
+														},
+														{
+															"id": "create-object",
+															"objectClass": "System",
+															"sid": 166427590656464,
+															"parameters": {
+																"object-to-create": "Magic",
+																"layer": "2",
+																"x": "NPC.X",
+																"y": "NPC.Y-16",
+																"create-hierarchy": false,
+																"template-name": "\"\""
+															}
+														},
+														{
+															"id": "wait",
+															"objectClass": "System",
+															"sid": 637204822946575,
+															"parameters": {
+																"seconds": "0.5",
+																"use-timescale": true
+															}
+														},
+														{
+															"id": "destroy",
+															"objectClass": "Magic",
+															"sid": 710176662940633
+														}
+													],
+													"sid": 127401221859476
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-at-x",
+															"objectClass": "A_QueryActions",
+															"sid": 300528685250634,
+															"parameters": {
+																"x": "4",
+																"comparison": 0,
+																"value": "\"with charm\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 205714837220098,
+															"parameters": {
+																"variable": "FinalRelation",
+																"value": "FinalRelation+2"
+															}
+														}
+													],
+													"sid": 484076579471491
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-at-x",
+															"objectClass": "A_QueryActions",
+															"sid": 284709206222661,
+															"parameters": {
+																"x": "4",
+																"comparison": 0,
+																"value": "\"carefully\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 127714401367103,
+															"parameters": {
+																"variable": "FinalRelation",
+																"value": "FinalRelation*0.5"
+															}
+														}
+													],
+													"sid": 860838138316552
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "trigger-once-while-true",
+															"objectClass": "System",
+															"sid": 387191887302390
+														}
+													],
+													"actions": [
+														{
+															"id": "create-object",
+															"objectClass": "System",
+															"sid": 429811752536684,
+															"parameters": {
+																"object-to-create": "SF_InteractSummury",
+																"layer": "2",
+																"x": "Hero.X",
+																"y": "Hero.y-8",
+																"create-hierarchy": false,
+																"template-name": "\"\""
+															}
+														},
+														{
+															"id": "set-text",
+															"objectClass": "SF_InteractSummury",
+															"sid": 492539142024606,
+															"parameters": {
+																"text": "NPC.Name&\" relation \"&floor(FinalRelation)"
+															}
+														},
+														{
+															"id": "add-to-instvar",
+															"objectClass": "NPC",
+															"sid": 311583013950611,
+															"parameters": {
+																"instance-variable": "relation",
+																"value": "FinalRelation"
+															}
+														},
+														{
+															"id": "set-boolean-instvar",
+															"objectClass": "NPC",
+															"sid": 631523604373268,
+															"parameters": {
+																"instance-variable": "inPuzzle",
+																"value": "false"
+															}
+														},
+														{
+															"id": "call-function",
+															"objectClass": "Function",
+															"sid": 536376446096378,
+															"parameters": {
+																"name": "\"CheckHeroDeath\"",
+																"parameter-n": []
+															}
+														},
+														{
+															"id": "call-function",
+															"objectClass": "Function",
+															"sid": 113207259310199,
+															"parameters": {
+																"name": "\"CheckWhomDeath\"",
+																"parameter-n": [
+																	"A_QueryActions.At(2)"
+																]
+															}
+														}
+													],
+													"sid": 812197970985659
+												}
+											],
+											"isOrBlock": true
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-function",
+									"objectClass": "Function",
+									"sid": 298384701372262,
+									"parameters": {
+										"name": "\"CheckHeroDeath\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 759268048733962,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Hero",
+											"sid": 867154013950327,
+											"parameters": {
+												"instance-variable": "CurrentHP",
+												"comparison": 3,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "Hero",
+											"sid": 773513294415979
+										},
+										{
+											"id": "set-text",
+											"objectClass": "SF_StaticText",
+											"sid": 284772938975396,
+											"parameters": {
+												"text": "\"hero\""
+											}
+										},
+										{
+											"id": "set-position",
+											"objectClass": "T_DEAD",
+											"sid": 921022812490336,
+											"parameters": {
+												"x": "0",
+												"y": "0"
+											}
+										},
+										{
+											"id": "move-to-top",
+											"objectClass": "T_DEAD",
+											"sid": 272593973957310
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 751151598125116,
+											"parameters": {
+												"seconds": "5",
+												"use-timescale": true
+											}
+										},
+										{
+											"id": "go-to-layout",
+											"objectClass": "System",
+											"sid": 225752741549108,
+											"parameters": {
+												"layout": "Layout 1"
+											}
+										}
+									],
+									"sid": 169067517292666
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "NPC",
+									"sid": 137722799059649,
+									"parameters": {
+										"instance-variable": "CurrentHP",
+										"comparison": 3,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-instvar",
+									"objectClass": "Hero",
+									"sid": 521441260186763,
+									"parameters": {
+										"instance-variable": "Money",
+										"value": "NPC.Money"
+									}
+								},
+								{
+									"id": "add-to-instvar",
+									"objectClass": "Hero",
+									"sid": 363485899363657,
+									"parameters": {
+										"instance-variable": "currentXP",
+										"value": "NPC.exp"
+									}
+								},
+								{
+									"id": "destroy",
+									"objectClass": "NPC",
+									"sid": 571134192811231
+								}
+							],
+							"sid": 729933095531052,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Idea",
+											"sid": 155289229814018,
+											"parameters": {
+												"instance-variable": "UIDOnMap",
+												"comparison": 0,
+												"value": "NPC.UID"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "call-function",
+											"objectClass": "Function",
+											"sid": 214703155608309,
+											"parameters": {
+												"name": "\"DestroyIdeas\"",
+												"parameter-n": [
+													"Idea.UID"
+												]
+											}
+										}
+									],
+									"sid": 666860765918718
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Item",
+									"sid": 932089852462018,
+									"parameters": {
+										"object": "NPC"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 723815977735589,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-speed",
+											"objectClass": "Item",
+											"sid": 923214914791649,
+											"behaviorType": "Bullet",
+											"parameters": {
+												"comparison": 4,
+												"speed": "0"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Hero",
+											"sid": 823381543869908,
+											"parameters": {
+												"instance-variable": "CarryOn",
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "call-function",
+											"objectClass": "Function",
+											"sid": 691794140520009,
+											"parameters": {
+												"name": "\"InteractWithSomeone\"",
+												"parameter-n": [
+													"NPC.UID"
+												]
+											}
+										}
+									],
+									"sid": 310853087956649
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-on-screen",
+									"objectClass": "SF_InteractSummury",
+									"sid": 355571059107399,
+									"isInverted": true
+								}
+							],
+							"actions": [],
+							"sid": 101390201988301,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 195520420718608
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "UpdateText",
+											"sid": 442452680851291
+										},
+										{
+											"id": "destroy",
+											"objectClass": "SF_InteractSummury",
+											"sid": 668929972149570
+										}
+									],
+									"sid": 982915753478363
+								}
+							]
+						}
+					],
+					"sid": 893166498708004
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 231088901382778,
+							"parameters": {
+								"key": 32
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "call-function",
+							"objectClass": "Function",
+							"sid": 332646690754466,
+							"parameters": {
+								"name": "\"CheckSpawnNewIdea\"",
+								"parameter-n": []
+							}
+						}
+					],
+					"sid": 821568328625457
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-object-clicked",
+							"objectClass": "Mouse",
+							"sid": 254606191812467,
+							"parameters": {
+								"mouse-button": "left",
+								"click-type": "clicked",
+								"object-clicked": "Idea"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Idea",
+							"sid": 829467560174170,
+							"parameters": {
+								"instance-variable": "Type",
+								"comparison": 0,
+								"value": "\"Want\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "call-function",
+							"objectClass": "Function",
+							"sid": 681812835237109,
+							"parameters": {
+								"name": "\"CheckAdjacentIdeas\"",
+								"parameter-n": [
+									"\"Do\""
+								]
+							}
+						},
+						{
+							"callFunction": "WantAnimation",
+							"sid": 316059069161695,
+							"parameters": [
+								"Function.ReturnValue"
+							]
+						}
+					],
+					"sid": 842111020854426
+				}
+			],
+			"sid": 504850293771682
+		}
+	],
+	"sid": 516457609839047
+}

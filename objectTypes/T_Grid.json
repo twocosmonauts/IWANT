@@ -8,15 +8,15 @@
 	"behaviorTypes": [],
 	"effectTypes": [],
 	"image": {
-		"width": 8,
-		"height": 8,
+		"width": 4,
+		"height": 4,
 		"originX": 0.5,
 		"originY": 0.5,
 		"originalSource": "D:\\N\\Users\\two\\drive\\bit detective\\Detective Tycoon prototype\\Textures\\grid.png",
 		"exportFormat": "lossless",
 		"exportQuality": 0.8,
 		"fileType": "image/png",
-		"imageSpriteId": 2022354,
+		"imageSpriteId": 4936358,
 		"useCollisionPoly": true,
 		"tag": ""
 	}
